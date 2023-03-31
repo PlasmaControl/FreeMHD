@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+//boundary condition to enforce continuity of the magnetic vector potential (A) between neigboring regions
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      codeDict;
+}
+
+continuousA
+{
+    codeInclude
+    #{
+        #include "scalar.H"
+        #include "fvCFD.H"
+        #include "mappedPatchBase.H"
+        #include "fvPatchFieldMapper.H"
+        #include "volFields.H"
+    #};
+
+    codeOptions
+    #{
+        -I$(LIB_SRC)/meshTools/lnInclude
+    #};
+
+    code
+    #{
+    
+    //get this patch's mesh
+    const fvMesh& mesh = patch().boundaryMesh().mesh();
+    const label id = patch().index();
+   
+   //get mesh variable
+    const volVectorField& Amesh = mesh.lookupObject<volVectorField>("A");
+    
+    //get patch internal varialbe and delta
+    const vectorField A         = Amesh.boundaryField().boundaryInternalField()[id];
+    const scalarField delta      = patch().deltaCoeffs();
+    
+    // Get the coupling information from the mappedPatchBase
+    const mappedPatchBase& mpp = refCast<const mappedPatchBase>(patch().patch());
+    const polyMesh& nbrMesh = mpp.sampleMesh();
+    const label nbrid = mpp.samplePolyPatch().index();
+    const fvPatch& nbrPatch = refCast<const fvMesh>(nbrMesh).boundary()[nbrid];
+    
+    //get neighbor mesh variable
+    const volVectorField& Anbrmesh = nbrMesh.lookupObject<volVectorField>("A");
+         
+  vectorField Anbr(Anbrmesh.boundaryField().boundaryInternalField()[nbrid]);
+  scalarField deltanbr(nbrPatch.deltaCoeffs());
+ 
+    mpp.distribute(Anbr);
+    mpp.distribute(deltanbr);
+    
+    scalar coeff = 0.0;
+    vectorField result(patch().size(), Zero);
+    
+    forAll(result, i)
+    {
+		coeff = delta[i]/(delta[i]+deltanbr[i]);
+		result[i] = coeff*Anbr[i] + (1.0-coeff)*A[i];
+	}
+	
+    operator==(result);
+    
+    
+    #};
+}

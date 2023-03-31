@@ -1,0 +1,1 @@
+volScalarField& potE = solidPotE[i];

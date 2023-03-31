@@ -1,0 +1,5 @@
+fluid/compressibleCourantNo.C
+solid/solidRegionDiffNo.C
+bScalarPotChtMultiRegionFoam.C
+
+EXE = $(FOAM_APPBIN)/bScalarPotChtMultiRegionFoam
