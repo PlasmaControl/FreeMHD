@@ -1,0 +1,1 @@
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -fPIC -std=c++11 -m64 -pthread -fPIC -O3 -DNDEBUG -m64 -shared -Wl,-soname,libadios2_taustubs.so -o ../../lib64/libadios2_taustubs.so CMakeFiles/taustubs.dir/toolkit/profiling/taustubs/tautimer.cpp.o  -Wl,-rpath,:::::::::::::::: -ldl 

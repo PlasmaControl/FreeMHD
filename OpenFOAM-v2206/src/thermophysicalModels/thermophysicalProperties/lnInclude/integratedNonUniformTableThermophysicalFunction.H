@@ -1,0 +1,1 @@
+../thermophysicalFunctions/integratedNonUniformTable/integratedNonUniformTableThermophysicalFunction.H

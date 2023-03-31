@@ -1,0 +1,15 @@
+NAME
+  ParaView::AdaptorsPhasta
+LIBRARY_NAME
+  vtkPVAdaptorsPhasta
+GROUPS
+  PARAVIEW_CANONICAL
+CONDITION
+  PARAVIEW_USE_FORTRAN
+DEPENDS
+  ParaView::Catalyst
+  VTK::CommonCore
+  VTK::CommonDataModel
+OPTIONAL_DEPENDS
+  VTK::ParallelMPI
+EXCLUDE_WRAP

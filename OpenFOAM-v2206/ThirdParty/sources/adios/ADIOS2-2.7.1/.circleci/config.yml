@@ -1,0 +1,48 @@
+defaults: &defaults
+  steps:
+    - checkout:
+        path: source
+    - run:
+        name: CDash
+        command: bash source/scripts/ci/circle/postCDashStatus.sh
+    - run:
+        name: Update
+        command: bash source/scripts/ci/circle/run.sh update
+    - run:
+        name: Configure
+        command: bash source/scripts/ci/circle/run.sh configure
+    - run:
+        name: Build
+        command: bash source/scripts/ci/circle/run.sh build
+    - run:
+        name: Sanitize
+        command: bash source/scripts/ci/circle/run.sh memcheck
+
+version: 2
+
+jobs:
+  "fedora-ubsan":
+    <<: *defaults
+    docker:
+      - image: ornladios/adios2:ci-fedora-ubsan
+  "fedora-asan":
+    <<: *defaults
+    docker:
+      - image: ornladios/adios2:ci-fedora-asan
+  "fedora-msan":
+    <<: *defaults
+    docker:
+      - image: ornladios/adios2:ci-fedora-msan
+  "fedora-tsan":
+    <<: *defaults
+    docker:
+      - image: ornladios/adios2:ci-fedora-tsan
+
+workflows:
+  version: 2
+  sanitizers:
+    jobs:
+      - "fedora-ubsan"
+      - "fedora-asan"
+      - "fedora-msan"
+      - "fedora-tsan"

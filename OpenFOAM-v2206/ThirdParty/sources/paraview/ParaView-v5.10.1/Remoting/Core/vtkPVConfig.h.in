@@ -1,0 +1,28 @@
+/*=========================================================================
+
+  Program:   ParaView
+  Module:    vtkPVConfig.h.in
+
+  Copyright (c) Kitware, Inc.
+  All rights reserved.
+  See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
+
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+     PURPOSE.  See the above copyright notice for more information.
+
+=========================================================================*/
+
+#ifndef vtkPVConfig_h
+#define vtkPVConfig_h
+
+#cmakedefine PARAVIEW_USE_QTHELP
+#cmakedefine01 PARAVIEW_USE_QTWEBENGINE
+
+#define PARAVIEW_VERSION_MAJOR @PARAVIEW_VERSION_MAJOR@
+#define PARAVIEW_VERSION_MINOR @PARAVIEW_VERSION_MINOR@
+#define PARAVIEW_VERSION_PATCH @PARAVIEW_VERSION_PATCH@
+#define PARAVIEW_VERSION "@PARAVIEW_VERSION@"
+#define PARAVIEW_VERSION_FULL "@PARAVIEW_VERSION_FULL@"
+
+#endif

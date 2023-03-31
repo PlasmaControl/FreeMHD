@@ -1,0 +1,12 @@
+# Information from OpenFOAM build on 'Fri Feb 17 16:20:30 EST 2023'
+#
+CGAL=CGAL-4.14.3
+BOOST=boost_1_74_0
+GMP=system
+MPFR=system
+CGAL_VERSION=1041431000
+BOOST_VERSION=107400
+
+CGAL_lib=lib64
+BOOST_lib=lib64
+CGAL_HEADER_ONLY=true

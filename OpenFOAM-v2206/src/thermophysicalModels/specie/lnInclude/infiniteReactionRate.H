@@ -1,0 +1,1 @@
+../reaction/reactionRate/infiniteReactionRate/infiniteReactionRate.H

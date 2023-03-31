@@ -1,0 +1,15 @@
+NAME
+  ExplicitStructuredGrid::vtkExplicitStructuredGrid
+LIBRARY_NAME
+  vtkExplicitStructuredGrid
+DEPENDS
+  VTK::CommonExecutionModel
+  VTK::FiltersCore
+PRIVATE_DEPENDS
+  VTK::CommonDataModel
+  VTK::CommonCore
+  VTK::ParallelCore
+OPTIONAL_DEPENDS
+  VTK::Python
+  VTK::WrappingPythonCore
+  VTK::PythonInterpreter

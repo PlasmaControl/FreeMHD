@@ -1,0 +1,34 @@
+# Catalyst Package config file.
+
+if (CMAKE_VERSION VERSION_LESS "3.12")
+  set("${CMAKE_FIND_PACKAGE_NAME}_FOUND" 0)
+  set("${CMAKE_FIND_PACKAGE_NAME}_NOT_FOUND_MESSAGE"
+    "Catalyst requires CMake 3.12 in order to reliably be used.")
+  return ()
+endif ()
+
+cmake_policy(PUSH)
+cmake_policy(VERSION 3.12)
+
+set(CATALYST_VERSION "@CATALYST_VERSION@")
+set(CATALYST_ABI_VERSION "@CATALYST_ABI_VERSION@")
+set(CATALYST_BUILD_SHARED_LIBS "@CATALYST_BUILD_SHARED_LIBS@")
+set(CATALYST_USE_MPI "@CATALYST_USE_MPI@")
+
+if (CATALYST_USE_MPI)
+  include(CMakeFindDependencyMacro)
+  find_dependency(MPI COMPONENTS C)
+endif ()
+
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/catalyst-targets.cmake")
+
+if ("SDK" IN_LIST "${CMAKE_FIND_PACKAGE_NAME}_FIND_COMPONENTS")
+  # if SDK was explicitly requested, include the macros.
+  include("${CMAKE_CURRENT_LIST_DIR}/catalyst-macros.cmake" OPTIONAL
+    RESULT_VARIABLE ${CMAKE_FIND_PACKAGE_NAME}_SDK_FOUND)
+endif()
+
+check_required_components(catalyst)
+cmake_policy(POP)

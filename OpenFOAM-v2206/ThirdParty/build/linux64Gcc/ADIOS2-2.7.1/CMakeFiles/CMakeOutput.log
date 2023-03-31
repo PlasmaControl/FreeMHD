@@ -1,0 +1,1445 @@
+The system is: Linux - 4.18.0-425.10.1.el8_7.x86_64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/local/openmpi/4.1.0/gcc/bin/mpicc 
+Build flags: -m64;-fPIC
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/3.20.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/local/openmpi/4.1.0/gcc/bin/mpicxx 
+Build flags: -std=c++11;-m64;-pthread;-fPIC
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/3.20.2/CompilerIdCXX/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_01d76/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_01d76.dir/build.make CMakeFiles/cmTC_01d76.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC    -v -o CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/usr/bin/gcc
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-redhat-linux
+Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 8.5.0 20210514 (Red Hat 8.5.0-16) (GCC) 
+COLLECT_GCC_OPTIONS='-m64' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/8/cc1 -quiet -v -I /usr/local/openmpi/4.1.0/gcc/include -D_REENTRANT /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -m64 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o -version -fPIC -o /tmp/cc28w7MZ.s
+GNU C17 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-16) (x86_64-redhat-linux)
+	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-16), GMP version 6.1.2, MPFR version 3.1.6-p2, MPC version 1.1.0, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/../../../../x86_64-redhat-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/openmpi/4.1.0/gcc/include
+ /usr/lib/gcc/x86_64-redhat-linux/8/include
+ /usr/local/include
+ /usr/include
+End of search list.
+GNU C17 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-16) (x86_64-redhat-linux)
+	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-16), GMP version 6.1.2, MPFR version 3.1.6-p2, MPC version 1.1.0, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 23564d814560cf1053a5c348339ec22e
+COLLECT_GCC_OPTIONS='-m64' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-mtune=generic' '-march=x86-64'
+ as -v -I /usr/local/openmpi/4.1.0/gcc/include --64 -o CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o /tmp/cc28w7MZ.s
+GNU assembler version 2.30 (x86_64-redhat-linux) using BFD version version 2.30-117.el8
+COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-m64' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_01d76
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01d76.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC  -m64 -v CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o -o cmTC_01d76 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-redhat-linux
+Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 8.5.0 20210514 (Red Hat 8.5.0-16) (GCC) 
+COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-fPIC' '-m64' '-v' '-o' 'cmTC_01d76' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-L/usr/lib64' '-L/usr/local/openmpi/4.1.0/gcc/lib64' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/ccNDJ3W4.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_01d76 /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib64 -L/usr/local/openmpi/4.1.0/gcc/lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o -rpath /usr/lib64 -rpath /usr/local/openmpi/4.1.0/gcc/lib64 --enable-new-dtags -lmpi -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-fPIC' '-m64' '-v' '-o' 'cmTC_01d76' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-L/usr/lib64' '-L/usr/local/openmpi/4.1.0/gcc/lib64' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/local/openmpi/4.1.0/gcc/include]
+    add: [/usr/lib/gcc/x86_64-redhat-linux/8/include]
+    add: [/usr/local/include]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/local/openmpi/4.1.0/gcc/include] ==> [/usr/local/openmpi/4.1.0/gcc/include]
+  collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/8/include] ==> [/usr/lib/gcc/x86_64-redhat-linux/8/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/local/openmpi/4.1.0/gcc/include;/usr/lib/gcc/x86_64-redhat-linux/8/include;/usr/local/include;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_01d76/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_01d76.dir/build.make CMakeFiles/cmTC_01d76.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC    -v -o CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/gcc]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 20210514 (Red Hat 8.5.0-16) (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-m64' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/8/cc1 -quiet -v -I /usr/local/openmpi/4.1.0/gcc/include -D_REENTRANT /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -m64 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o -version -fPIC -o /tmp/cc28w7MZ.s]
+  ignore line: [GNU C17 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-16) (x86_64-redhat-linux)]
+  ignore line: [	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-16)  GMP version 6.1.2  MPFR version 3.1.6-p2  MPC version 1.1.0  isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/../../../../x86_64-redhat-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/local/openmpi/4.1.0/gcc/include]
+  ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/8/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-16) (x86_64-redhat-linux)]
+  ignore line: [	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-16)  GMP version 6.1.2  MPFR version 3.1.6-p2  MPC version 1.1.0  isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 23564d814560cf1053a5c348339ec22e]
+  ignore line: [COLLECT_GCC_OPTIONS='-m64' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v -I /usr/local/openmpi/4.1.0/gcc/include --64 -o CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o /tmp/cc28w7MZ.s]
+  ignore line: [GNU assembler version 2.30 (x86_64-redhat-linux) using BFD version version 2.30-117.el8]
+  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-m64' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking C executable cmTC_01d76]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01d76.dir/link.txt --verbose=1]
+  ignore line: [/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC  -m64 -v CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o -o cmTC_01d76 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 20210514 (Red Hat 8.5.0-16) (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-fPIC' '-m64' '-v' '-o' 'cmTC_01d76' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-L/usr/lib64' '-L/usr/local/openmpi/4.1.0/gcc/lib64' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/ccNDJ3W4.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_01d76 /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib64 -L/usr/local/openmpi/4.1.0/gcc/lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o -rpath /usr/lib64 -rpath /usr/local/openmpi/4.1.0/gcc/lib64 --enable-new-dtags -lmpi -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o]
+    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccNDJ3W4.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--no-add-needed] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_01d76] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o]
+    arg [-L/usr/lib64] ==> dir [/usr/lib64]
+    arg [-L/usr/local/openmpi/4.1.0/gcc/lib64] ==> dir [/usr/local/openmpi/4.1.0/gcc/lib64]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..]
+    arg [CMakeFiles/cmTC_01d76.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/usr/lib64] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/usr/local/openmpi/4.1.0/gcc/lib64] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [-lmpi] ==> lib [mpi]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lpthread] ==> lib [pthread]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o]
+  collapse obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o] ==> [/usr/lib64/crt1.o]
+  collapse obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o] ==> [/usr/lib64/crti.o]
+  collapse obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o] ==> [/usr/lib64/crtn.o]
+  collapse library dir [/usr/lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/local/openmpi/4.1.0/gcc/lib64] ==> [/usr/local/openmpi/4.1.0/gcc/lib64]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8] ==> [/usr/lib/gcc/x86_64-redhat-linux/8]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> [/usr/lib]
+  implicit libs: [mpi;gcc;gcc_s;pthread;c;gcc;gcc_s]
+  implicit objs: [/usr/lib64/crt1.o;/usr/lib64/crti.o;/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o;/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o;/usr/lib64/crtn.o]
+  implicit dirs: [/usr/lib64;/usr/local/openmpi/4.1.0/gcc/lib64;/usr/lib/gcc/x86_64-redhat-linux/8;/lib64;/usr/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_78e98/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_78e98.dir/build.make CMakeFiles/cmTC_78e98.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx   -std=c++11 -m64 -pthread -fPIC    -v -o CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/usr/bin/g++
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-redhat-linux
+Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 8.5.0 20210514 (Red Hat 8.5.0-16) (GCC) 
+COLLECT_GCC_OPTIONS='-std=c++11' '-m64' '-pthread' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/8/cc1plus -quiet -v -I /usr/local/openmpi/4.1.0/gcc/include -D_GNU_SOURCE -D_REENTRANT /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -m64 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o -std=c++11 -version -fPIC -o /tmp/ccV4mHeW.s
+GNU C++11 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-16) (x86_64-redhat-linux)
+	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-16), GMP version 6.1.2, MPFR version 3.1.6-p2, MPC version 1.1.0, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/../../../../x86_64-redhat-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/openmpi/4.1.0/gcc/include
+ /usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8
+ /usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/x86_64-redhat-linux
+ /usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/backward
+ /usr/lib/gcc/x86_64-redhat-linux/8/include
+ /usr/local/include
+ /usr/include
+End of search list.
+GNU C++11 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-16) (x86_64-redhat-linux)
+	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-16), GMP version 6.1.2, MPFR version 3.1.6-p2, MPC version 1.1.0, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 2cc63cb60c8d4f393e23527edd929860
+COLLECT_GCC_OPTIONS='-std=c++11' '-m64' '-pthread' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ as -v -I /usr/local/openmpi/4.1.0/gcc/include --64 -o CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccV4mHeW.s
+GNU assembler version 2.30 (x86_64-redhat-linux) using BFD version version 2.30-117.el8
+COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-std=c++11' '-m64' '-pthread' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+Linking CXX executable cmTC_78e98
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78e98.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -std=c++11 -m64 -pthread -fPIC  -m64 -v CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_78e98 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/g++
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-redhat-linux
+Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 8.5.0 20210514 (Red Hat 8.5.0-16) (GCC) 
+COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-std=c++11' '-pthread' '-fPIC' '-m64' '-v' '-o' 'cmTC_78e98' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-L/usr/lib64' '-L/usr/local/openmpi/4.1.0/gcc/lib64' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cc8ZTleK.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_78e98 /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib64 -L/usr/local/openmpi/4.1.0/gcc/lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o -rpath /usr/lib64 -rpath /usr/local/openmpi/4.1.0/gcc/lib64 --enable-new-dtags -lmpi_cxx -lmpi -lstdc++ -lm -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-std=c++11' '-pthread' '-fPIC' '-m64' '-v' '-o' 'cmTC_78e98' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-L/usr/lib64' '-L/usr/local/openmpi/4.1.0/gcc/lib64' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/local/openmpi/4.1.0/gcc/include]
+    add: [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8]
+    add: [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/x86_64-redhat-linux]
+    add: [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/backward]
+    add: [/usr/lib/gcc/x86_64-redhat-linux/8/include]
+    add: [/usr/local/include]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/local/openmpi/4.1.0/gcc/include] ==> [/usr/local/openmpi/4.1.0/gcc/include]
+  collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8] ==> [/usr/include/c++/8]
+  collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/x86_64-redhat-linux] ==> [/usr/include/c++/8/x86_64-redhat-linux]
+  collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/backward] ==> [/usr/include/c++/8/backward]
+  collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/8/include] ==> [/usr/lib/gcc/x86_64-redhat-linux/8/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/local/openmpi/4.1.0/gcc/include;/usr/include/c++/8;/usr/include/c++/8/x86_64-redhat-linux;/usr/include/c++/8/backward;/usr/lib/gcc/x86_64-redhat-linux/8/include;/usr/local/include;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_78e98/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_78e98.dir/build.make CMakeFiles/cmTC_78e98.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/local/openmpi/4.1.0/gcc/bin/mpicxx   -std=c++11 -m64 -pthread -fPIC    -v -o CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/g++]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 20210514 (Red Hat 8.5.0-16) (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-std=c++11' '-m64' '-pthread' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/8/cc1plus -quiet -v -I /usr/local/openmpi/4.1.0/gcc/include -D_GNU_SOURCE -D_REENTRANT /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -m64 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o -std=c++11 -version -fPIC -o /tmp/ccV4mHeW.s]
+  ignore line: [GNU C++11 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-16) (x86_64-redhat-linux)]
+  ignore line: [	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-16)  GMP version 6.1.2  MPFR version 3.1.6-p2  MPC version 1.1.0  isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/../../../../x86_64-redhat-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/local/openmpi/4.1.0/gcc/include]
+  ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8]
+  ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/x86_64-redhat-linux]
+  ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/backward]
+  ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/8/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++11 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-16) (x86_64-redhat-linux)]
+  ignore line: [	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-16)  GMP version 6.1.2  MPFR version 3.1.6-p2  MPC version 1.1.0  isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 2cc63cb60c8d4f393e23527edd929860]
+  ignore line: [COLLECT_GCC_OPTIONS='-std=c++11' '-m64' '-pthread' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v -I /usr/local/openmpi/4.1.0/gcc/include --64 -o CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccV4mHeW.s]
+  ignore line: [GNU assembler version 2.30 (x86_64-redhat-linux) using BFD version version 2.30-117.el8]
+  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-std=c++11' '-m64' '-pthread' '-fPIC' '-v' '-o' 'CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking CXX executable cmTC_78e98]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78e98.dir/link.txt --verbose=1]
+  ignore line: [/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -std=c++11 -m64 -pthread -fPIC  -m64 -v CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_78e98 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 20210514 (Red Hat 8.5.0-16) (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-std=c++11' '-pthread' '-fPIC' '-m64' '-v' '-o' 'cmTC_78e98' '-I' '/usr/local/openmpi/4.1.0/gcc/include' '-pthread' '-L/usr/lib64' '-L/usr/local/openmpi/4.1.0/gcc/lib64' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cc8ZTleK.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_78e98 /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib64 -L/usr/local/openmpi/4.1.0/gcc/lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o -rpath /usr/lib64 -rpath /usr/local/openmpi/4.1.0/gcc/lib64 --enable-new-dtags -lmpi_cxx -lmpi -lstdc++ -lm -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o]
+    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc8ZTleK.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--no-add-needed] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_78e98] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o]
+    arg [-L/usr/lib64] ==> dir [/usr/lib64]
+    arg [-L/usr/local/openmpi/4.1.0/gcc/lib64] ==> dir [/usr/local/openmpi/4.1.0/gcc/lib64]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..]
+    arg [CMakeFiles/cmTC_78e98.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/usr/lib64] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/usr/local/openmpi/4.1.0/gcc/lib64] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [-lmpi_cxx] ==> lib [mpi_cxx]
+    arg [-lmpi] ==> lib [mpi]
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o]
+  collapse obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o] ==> [/usr/lib64/crt1.o]
+  collapse obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o] ==> [/usr/lib64/crti.o]
+  collapse obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o] ==> [/usr/lib64/crtn.o]
+  collapse library dir [/usr/lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/local/openmpi/4.1.0/gcc/lib64] ==> [/usr/local/openmpi/4.1.0/gcc/lib64]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8] ==> [/usr/lib/gcc/x86_64-redhat-linux/8]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> [/usr/lib]
+  implicit libs: [mpi_cxx;mpi;stdc++;m;gcc_s;gcc;pthread;c;gcc_s;gcc]
+  implicit objs: [/usr/lib64/crt1.o;/usr/lib64/crti.o;/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o;/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o;/usr/lib64/crtn.o]
+  implicit dirs: [/usr/lib64;/usr/local/openmpi/4.1.0/gcc/lib64;/usr/lib/gcc/x86_64-redhat-linux/8;/lib64;/usr/lib]
+  implicit fwks: []
+
+
+Determining if the BZ2_bzCompressInit exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_811a7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_811a7.dir/build.make CMakeFiles/cmTC_811a7.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_811a7.dir/CheckSymbolExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC  -std=gnu99 -o CMakeFiles/cmTC_811a7.dir/CheckSymbolExists.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_811a7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_811a7.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC  -m64  CMakeFiles/cmTC_811a7.dir/CheckSymbolExists.c.o -o cmTC_811a7  /usr/lib64/libbz2.so 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+File /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <bzlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef BZ2_bzCompressInit
+  return ((int*)(&BZ2_bzCompressInit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the shmget exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_95bcb/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_95bcb.dir/build.make CMakeFiles/cmTC_95bcb.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_95bcb.dir/CheckSymbolExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC  -std=gnu99 -o CMakeFiles/cmTC_95bcb.dir/CheckSymbolExists.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_95bcb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_95bcb.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC  -m64  CMakeFiles/cmTC_95bcb.dir/CheckSymbolExists.c.o -o cmTC_95bcb 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+File /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/ipc.h>
+#include <sys/shm.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef shmget
+  return ((int*)(&shmget))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_50330/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_50330.dir/build.make CMakeFiles/cmTC_50330.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_50330.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC  -std=gnu99 -o CMakeFiles/cmTC_50330.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_50330
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50330.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC  -m64  CMakeFiles/cmTC_50330.dir/CheckIncludeFile.c.o -o cmTC_50330 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ebea8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ebea8.dir/build.make CMakeFiles/cmTC_ebea8.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ebea8.dir/src.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -DCMAKE_HAVE_LIBC_PTHREAD  -m64 -fPIC  -std=gnu99 -o CMakeFiles/cmTC_ebea8.dir/src.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ebea8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ebea8.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC  -m64  CMakeFiles/cmTC_ebea8.dir/src.c.o -o cmTC_ebea8 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Checking whether wstring is available compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_92154/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_92154.dir/build.make CMakeFiles/cmTC_92154.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_92154.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -DTEST_KWSYS_STL_HAS_WSTRING  -std=c++11 -m64 -pthread -fPIC -w  -std=gnu++11 -o CMakeFiles/cmTC_92154.dir/kwsysPlatformTestsCXX.cxx.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/kwsysPlatformTestsCXX.cxx
+Linking CXX executable cmTC_92154
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92154.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -std=c++11 -m64 -pthread -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_92154.dir/kwsysPlatformTestsCXX.cxx.o -o cmTC_92154 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+
+
+
+Checking whether C compiler has ptrdiff_t in stddef.h compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_41e68/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_41e68.dir/build.make CMakeFiles/cmTC_41e68.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_41e68.dir/kwsysPlatformTestsC.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -DTEST_KWSYS_C_HAS_PTRDIFF_T  -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_41e68.dir/kwsysPlatformTestsC.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/kwsysPlatformTestsC.c
+Linking C executable cmTC_41e68
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41e68.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_41e68.dir/kwsysPlatformTestsC.c.o -o cmTC_41e68 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+
+
+
+Checking whether C compiler has ssize_t in unistd.h compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_28e3d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_28e3d.dir/build.make CMakeFiles/cmTC_28e3d.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_28e3d.dir/kwsysPlatformTestsC.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -DTEST_KWSYS_C_HAS_SSIZE_T  -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_28e3d.dir/kwsysPlatformTestsC.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/kwsysPlatformTestsC.c
+Linking C executable cmTC_28e3d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28e3d.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_28e3d.dir/kwsysPlatformTestsC.c.o -o cmTC_28e3d 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+
+
+
+Checking whether CXX compiler has setenv compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9602c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9602c.dir/build.make CMakeFiles/cmTC_9602c.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9602c.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -DTEST_KWSYS_CXX_HAS_SETENV  -std=c++11 -m64 -pthread -fPIC -w  -std=gnu++11 -o CMakeFiles/cmTC_9602c.dir/kwsysPlatformTestsCXX.cxx.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/kwsysPlatformTestsCXX.cxx
+Linking CXX executable cmTC_9602c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9602c.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -std=c++11 -m64 -pthread -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_9602c.dir/kwsysPlatformTestsCXX.cxx.o -o cmTC_9602c 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+
+
+
+Checking whether CXX compiler has unsetenv compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cc840/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cc840.dir/build.make CMakeFiles/cmTC_cc840.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_cc840.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -DTEST_KWSYS_CXX_HAS_UNSETENV  -std=c++11 -m64 -pthread -fPIC -w  -std=gnu++11 -o CMakeFiles/cmTC_cc840.dir/kwsysPlatformTestsCXX.cxx.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/kwsysPlatformTestsCXX.cxx
+Linking CXX executable cmTC_cc840
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc840.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -std=c++11 -m64 -pthread -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_cc840.dir/kwsysPlatformTestsCXX.cxx.o -o cmTC_cc840 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+
+
+
+Checking whether CXX compiler has utimes compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_07ea7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_07ea7.dir/build.make CMakeFiles/cmTC_07ea7.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_07ea7.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -DTEST_KWSYS_CXX_HAS_UTIMES  -std=c++11 -m64 -pthread -fPIC -w  -std=gnu++11 -o CMakeFiles/cmTC_07ea7.dir/kwsysPlatformTestsCXX.cxx.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/kwsysPlatformTestsCXX.cxx
+Linking CXX executable cmTC_07ea7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_07ea7.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -std=c++11 -m64 -pthread -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_07ea7.dir/kwsysPlatformTestsCXX.cxx.o -o cmTC_07ea7 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+
+
+
+Checking whether CXX compiler has utimensat compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_240a7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_240a7.dir/build.make CMakeFiles/cmTC_240a7.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_240a7.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -DTEST_KWSYS_CXX_HAS_UTIMENSAT  -std=c++11 -m64 -pthread -fPIC -w  -std=gnu++11 -o CMakeFiles/cmTC_240a7.dir/kwsysPlatformTestsCXX.cxx.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/kwsysPlatformTestsCXX.cxx
+Linking CXX executable cmTC_240a7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_240a7.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -std=c++11 -m64 -pthread -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_240a7.dir/kwsysPlatformTestsCXX.cxx.o -o cmTC_240a7 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+
+
+
+Checking whether CXX compiler struct stat has st_mtim member compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fb0b2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fb0b2.dir/build.make CMakeFiles/cmTC_fb0b2.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fb0b2.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -DTEST_KWSYS_CXX_STAT_HAS_ST_MTIM  -std=c++11 -m64 -pthread -fPIC -w  -std=gnu++11 -o CMakeFiles/cmTC_fb0b2.dir/kwsysPlatformTestsCXX.cxx.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/kwsysPlatformTestsCXX.cxx
+Linking CXX executable cmTC_fb0b2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb0b2.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -std=c++11 -m64 -pthread -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_fb0b2.dir/kwsysPlatformTestsCXX.cxx.o -o cmTC_fb0b2 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+
+
+
+Checking whether <ext/stdio_filebuf.h> is available compiled with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2a37a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2a37a.dir/build.make CMakeFiles/cmTC_2a37a.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2a37a.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -DTEST_KWSYS_CXX_HAS_EXT_STDIO_FILEBUF_H  -std=c++11 -m64 -pthread -fPIC -w  -std=gnu++11 -o CMakeFiles/cmTC_2a37a.dir/kwsysPlatformTestsCXX.cxx.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/kwsysPlatformTestsCXX.cxx
+Linking CXX executable cmTC_2a37a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2a37a.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicxx -std=c++11 -m64 -pthread -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_2a37a.dir/kwsysPlatformTestsCXX.cxx.o -o cmTC_2a37a 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f93ac/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f93ac.dir/build.make CMakeFiles/cmTC_f93ac.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f93ac.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_f93ac.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_f93ac
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f93ac.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_f93ac.dir/CheckIncludeFile.c.o -o cmTC_f93ac 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1c440/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1c440.dir/build.make CMakeFiles/cmTC_1c440.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c440.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_1c440.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_1c440
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1c440.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_1c440.dir/CheckIncludeFile.c.o -o cmTC_1c440 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_16eaf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_16eaf.dir/build.make CMakeFiles/cmTC_16eaf.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_16eaf.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_16eaf.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_16eaf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_16eaf.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_16eaf.dir/CheckIncludeFile.c.o -o cmTC_16eaf 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of double passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7dfc9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7dfc9.dir/build.make CMakeFiles/cmTC_7dfc9.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7dfc9.dir/SIZEOF_DOUBLE.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_7dfc9.dir/SIZEOF_DOUBLE.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/SIZEOF_DOUBLE.c
+Linking C executable cmTC_7dfc9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7dfc9.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_7dfc9.dir/SIZEOF_DOUBLE.c.o -o cmTC_7dfc9 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of float passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b6b62/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b6b62.dir/build.make CMakeFiles/cmTC_b6b62.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b6b62.dir/SIZEOF_FLOAT.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_b6b62.dir/SIZEOF_FLOAT.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/SIZEOF_FLOAT.c
+Linking C executable cmTC_b6b62
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b6b62.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_b6b62.dir/SIZEOF_FLOAT.c.o -o cmTC_b6b62 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of int passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3c83d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3c83d.dir/build.make CMakeFiles/cmTC_3c83d.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3c83d.dir/SIZEOF_INT.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_3c83d.dir/SIZEOF_INT.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/SIZEOF_INT.c
+Linking C executable cmTC_3c83d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c83d.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_3c83d.dir/SIZEOF_INT.c.o -o cmTC_3c83d 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of short passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9384d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9384d.dir/build.make CMakeFiles/cmTC_9384d.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9384d.dir/SIZEOF_SHORT.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_9384d.dir/SIZEOF_SHORT.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/SIZEOF_SHORT.c
+Linking C executable cmTC_9384d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9384d.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_9384d.dir/SIZEOF_SHORT.c.o -o cmTC_9384d 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files malloc.h exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9ff9b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9ff9b.dir/build.make CMakeFiles/cmTC_9ff9b.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9ff9b.dir/HAVE_MALLOC_H.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -o CMakeFiles/cmTC_9ff9b.dir/HAVE_MALLOC_H.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckIncludeFiles/HAVE_MALLOC_H.c
+Linking C executable cmTC_9ff9b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ff9b.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_9ff9b.dir/HAVE_MALLOC_H.c.o -o cmTC_9ff9b 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files unistd.h exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7bc0b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7bc0b.dir/build.make CMakeFiles/cmTC_7bc0b.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7bc0b.dir/HAVE_UNISTD_H.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -o CMakeFiles/cmTC_7bc0b.dir/HAVE_UNISTD_H.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckIncludeFiles/HAVE_UNISTD_H.c
+Linking C executable cmTC_7bc0b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7bc0b.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_7bc0b.dir/HAVE_UNISTD_H.c.o -o cmTC_7bc0b 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files stdlib.h exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f5d89/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f5d89.dir/build.make CMakeFiles/cmTC_f5d89.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f5d89.dir/HAVE_STDLIB_H.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -o CMakeFiles/cmTC_f5d89.dir/HAVE_STDLIB_H.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckIncludeFiles/HAVE_STDLIB_H.c
+Linking C executable cmTC_f5d89
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5d89.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_f5d89.dir/HAVE_STDLIB_H.c.o -o cmTC_f5d89 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files string.h exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1df0b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1df0b.dir/build.make CMakeFiles/cmTC_1df0b.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1df0b.dir/HAVE_STRING_H.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -o CMakeFiles/cmTC_1df0b.dir/HAVE_STRING_H.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckIncludeFiles/HAVE_STRING_H.c
+Linking C executable cmTC_1df0b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1df0b.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_1df0b.dir/HAVE_STRING_H.c.o -o cmTC_1df0b 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files sys/time.h exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4b202/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4b202.dir/build.make CMakeFiles/cmTC_4b202.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b202.dir/HAVE_SYS_TIME_H.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -o CMakeFiles/cmTC_4b202.dir/HAVE_SYS_TIME_H.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckIncludeFiles/HAVE_SYS_TIME_H.c
+Linking C executable cmTC_4b202
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b202.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_4b202.dir/HAVE_SYS_TIME_H.c.o -o cmTC_4b202 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the fork exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1315d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1315d.dir/build.make CMakeFiles/cmTC_1315d.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1315d.dir/CheckSymbolExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_1315d.dir/CheckSymbolExists.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_1315d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1315d.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_1315d.dir/CheckSymbolExists.c.o -o cmTC_1315d 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+File /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fork
+  return ((int*)(&fork))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining size of void* passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a100d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a100d.dir/build.make CMakeFiles/cmTC_a100d.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a100d.dir/CMAKE_SIZEOF_VOID_P.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_a100d.dir/CMAKE_SIZEOF_VOID_P.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/CMAKE_SIZEOF_VOID_P.c
+Linking C executable cmTC_a100d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a100d.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_a100d.dir/CMAKE_SIZEOF_VOID_P.c.o -o cmTC_a100d 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of long passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d44ad/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d44ad.dir/build.make CMakeFiles/cmTC_d44ad.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d44ad.dir/SIZEOF_LONG.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_d44ad.dir/SIZEOF_LONG.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/SIZEOF_LONG.c
+Linking C executable cmTC_d44ad
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d44ad.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_d44ad.dir/SIZEOF_LONG.c.o -o cmTC_d44ad 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files stdarg.h exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d90c8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d90c8.dir/build.make CMakeFiles/cmTC_d90c8.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d90c8.dir/STDC_HEADERS.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -o CMakeFiles/cmTC_d90c8.dir/STDC_HEADERS.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckIncludeFiles/STDC_HEADERS.c
+Linking C executable cmTC_d90c8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d90c8.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_d90c8.dir/STDC_HEADERS.c.o -o cmTC_d90c8 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files memory.h exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_665c7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_665c7.dir/build.make CMakeFiles/cmTC_665c7.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_665c7.dir/HAVE_MEMORY_H.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -o CMakeFiles/cmTC_665c7.dir/HAVE_MEMORY_H.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckIncludeFiles/HAVE_MEMORY_H.c
+Linking C executable cmTC_665c7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_665c7.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_665c7.dir/HAVE_MEMORY_H.c.o -o cmTC_665c7 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of off_t passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fb219/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fb219.dir/build.make CMakeFiles/cmTC_fb219.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fb219.dir/SIZEOF_OFF_T.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_fb219.dir/SIZEOF_OFF_T.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/SIZEOF_OFF_T.c
+Linking C executable cmTC_fb219
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb219.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_fb219.dir/SIZEOF_OFF_T.c.o -o cmTC_fb219 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of long double passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_11471/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_11471.dir/build.make CMakeFiles/cmTC_11471.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_11471.dir/SIZEOF_LONG_DOUBLE.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_11471.dir/SIZEOF_LONG_DOUBLE.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/SIZEOF_LONG_DOUBLE.c
+Linking C executable cmTC_11471
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_11471.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_11471.dir/SIZEOF_LONG_DOUBLE.c.o -o cmTC_11471 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of long long passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3c74c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3c74c.dir/build.make CMakeFiles/cmTC_3c74c.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3c74c.dir/SIZEOF_LONG_LONG.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_3c74c.dir/SIZEOF_LONG_LONG.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/SIZEOF_LONG_LONG.c
+Linking C executable cmTC_3c74c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c74c.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_3c74c.dir/SIZEOF_LONG_LONG.c.o -o cmTC_3c74c 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of size_t passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_24ff3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_24ff3.dir/build.make CMakeFiles/cmTC_24ff3.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_24ff3.dir/SIZEOF_SIZE_T.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_24ff3.dir/SIZEOF_SIZE_T.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/SIZEOF_SIZE_T.c
+Linking C executable cmTC_24ff3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24ff3.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_24ff3.dir/SIZEOF_SIZE_T.c.o -o cmTC_24ff3 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function socket exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_36e6b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_36e6b.dir/build.make CMakeFiles/cmTC_36e6b.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_36e6b.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=socket -o CMakeFiles/cmTC_36e6b.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_36e6b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36e6b.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=socket -m64  -rdynamic CMakeFiles/cmTC_36e6b.dir/CheckFunctionExists.c.o -o cmTC_36e6b 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file netdb.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_be983/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_be983.dir/build.make CMakeFiles/cmTC_be983.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_be983.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_be983.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_be983
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be983.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_be983.dir/CheckIncludeFile.c.o -o cmTC_be983 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/select.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2fb3e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2fb3e.dir/build.make CMakeFiles/cmTC_2fb3e.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2fb3e.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_2fb3e.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_2fb3e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2fb3e.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_2fb3e.dir/CheckIncludeFile.c.o -o cmTC_2fb3e 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/socket.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cfe5d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cfe5d.dir/build.make CMakeFiles/cmTC_cfe5d.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cfe5d.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_cfe5d.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_cfe5d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cfe5d.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_cfe5d.dir/CheckIncludeFile.c.o -o cmTC_cfe5d 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/times.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_609c4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_609c4.dir/build.make CMakeFiles/cmTC_609c4.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_609c4.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_609c4.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_609c4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_609c4.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_609c4.dir/CheckIncludeFile.c.o -o cmTC_609c4 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/uio.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d72af/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d72af.dir/build.make CMakeFiles/cmTC_d72af.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d72af.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_d72af.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d72af
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d72af.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_d72af.dir/CheckIncludeFile.c.o -o cmTC_d72af 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/un.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3aa21/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3aa21.dir/build.make CMakeFiles/cmTC_3aa21.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3aa21.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_3aa21.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_3aa21
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3aa21.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_3aa21.dir/CheckIncludeFile.c.o -o cmTC_3aa21 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function strtof exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b38c5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b38c5.dir/build.make CMakeFiles/cmTC_b38c5.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b38c5.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=strtof -o CMakeFiles/cmTC_b38c5.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b38c5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b38c5.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=strtof -m64  -rdynamic CMakeFiles/cmTC_b38c5.dir/CheckFunctionExists.c.o -o cmTC_b38c5 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function strtod exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4fbe3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4fbe3.dir/build.make CMakeFiles/cmTC_4fbe3.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4fbe3.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=strtod -o CMakeFiles/cmTC_4fbe3.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4fbe3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4fbe3.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=strtod -m64  -rdynamic CMakeFiles/cmTC_4fbe3.dir/CheckFunctionExists.c.o -o cmTC_4fbe3 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function strtold exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0fb2c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0fb2c.dir/build.make CMakeFiles/cmTC_0fb2c.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0fb2c.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=strtold -o CMakeFiles/cmTC_0fb2c.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0fb2c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0fb2c.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=strtold -m64  -rdynamic CMakeFiles/cmTC_0fb2c.dir/CheckFunctionExists.c.o -o cmTC_0fb2c 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function getdomainname exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f070c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f070c.dir/build.make CMakeFiles/cmTC_f070c.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f070c.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=getdomainname -o CMakeFiles/cmTC_f070c.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f070c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f070c.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=getdomainname -m64  -rdynamic CMakeFiles/cmTC_f070c.dir/CheckFunctionExists.c.o -o cmTC_f070c 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of struct iovec passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b35c5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b35c5.dir/build.make CMakeFiles/cmTC_b35c5.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b35c5.dir/IOVEC_DEFINE.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_b35c5.dir/IOVEC_DEFINE.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CheckTypeSize/IOVEC_DEFINE.c
+Linking C executable cmTC_b35c5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b35c5.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  -rdynamic CMakeFiles/cmTC_b35c5.dir/IOVEC_DEFINE.c.o -o cmTC_b35c5 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test HAS_IOV_BASE_IOVEC succeeded with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5f54c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5f54c.dir/build.make CMakeFiles/cmTC_5f54c.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5f54c.dir/src.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -DHAS_IOV_BASE_IOVEC  -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_5f54c.dir/src.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5f54c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5f54c.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_5f54c.dir/src.c.o -o cmTC_5f54c 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <sys/uio.h>
+
+int main()
+{
+  (void)sizeof(((struct iovec *)0)->iov_base);
+  return 0;
+}
+
+Determining if the function getaddrinfo exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fd933/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fd933.dir/build.make CMakeFiles/cmTC_fd933.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fd933.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=getaddrinfo -o CMakeFiles/cmTC_fd933.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fd933
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd933.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=getaddrinfo -m64  -rdynamic CMakeFiles/cmTC_fd933.dir/CheckFunctionExists.c.o -o cmTC_fd933 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function getnameinfo exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ade86/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ade86.dir/build.make CMakeFiles/cmTC_ade86.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ade86.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=getnameinfo -o CMakeFiles/cmTC_ade86.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ade86
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ade86.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=getnameinfo -m64  -rdynamic CMakeFiles/cmTC_ade86.dir/CheckFunctionExists.c.o -o cmTC_ade86 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gethostbyaddr_r exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_768a9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_768a9.dir/build.make CMakeFiles/cmTC_768a9.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_768a9.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=gethostbyaddr_r -o CMakeFiles/cmTC_768a9.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_768a9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_768a9.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=gethostbyaddr_r -m64  -rdynamic CMakeFiles/cmTC_768a9.dir/CheckFunctionExists.c.o -o cmTC_768a9 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gethostbyname_r exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_dab53/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_dab53.dir/build.make CMakeFiles/cmTC_dab53.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dab53.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=gethostbyname_r -o CMakeFiles/cmTC_dab53.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dab53
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dab53.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=gethostbyname_r -m64  -rdynamic CMakeFiles/cmTC_dab53.dir/CheckFunctionExists.c.o -o cmTC_dab53 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function poll exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1bbf9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1bbf9.dir/build.make CMakeFiles/cmTC_1bbf9.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1bbf9.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=poll -o CMakeFiles/cmTC_1bbf9.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1bbf9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1bbf9.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=poll -m64  -rdynamic CMakeFiles/cmTC_1bbf9.dir/CheckFunctionExists.c.o -o cmTC_1bbf9 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function fcntl exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f1a67/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f1a67.dir/build.make CMakeFiles/cmTC_f1a67.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f1a67.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=fcntl -o CMakeFiles/cmTC_f1a67.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f1a67
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f1a67.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=fcntl -m64  -rdynamic CMakeFiles/cmTC_f1a67.dir/CheckFunctionExists.c.o -o cmTC_f1a67 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function inet_pton exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_44baf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_44baf.dir/build.make CMakeFiles/cmTC_44baf.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_44baf.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=inet_pton -o CMakeFiles/cmTC_44baf.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_44baf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_44baf.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=inet_pton -m64  -rdynamic CMakeFiles/cmTC_44baf.dir/CheckFunctionExists.c.o -o cmTC_44baf 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function inet_ntop exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_447b8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_447b8.dir/build.make CMakeFiles/cmTC_447b8.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_447b8.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=inet_ntop -o CMakeFiles/cmTC_447b8.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_447b8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_447b8.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -DCHECK_FUNCTION_EXISTS=inet_ntop -m64  -rdynamic CMakeFiles/cmTC_447b8.dir/CheckFunctionExists.c.o -o cmTC_447b8 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test HAS_MSGHDR_FLAGS succeeded with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1e7d6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1e7d6.dir/build.make CMakeFiles/cmTC_1e7d6.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1e7d6.dir/src.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -DHAS_MSGHDR_FLAGS  -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_1e7d6.dir/src.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_1e7d6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1e7d6.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_1e7d6.dir/src.c.o -o cmTC_1e7d6 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <sys/socket.h>
+
+int main()
+{
+  (void)sizeof(((struct msghdr *)0)->msg_flags);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAS_SOCKLEN_T succeeded with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f6af0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f6af0.dir/build.make CMakeFiles/cmTC_f6af0.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f6af0.dir/src.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -DHAS_SOCKLEN_T  -m64 -fPIC -w  -std=gnu99 -o CMakeFiles/cmTC_f6af0.dir/src.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_f6af0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f6af0.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w  -m64  CMakeFiles/cmTC_f6af0.dir/src.c.o -o cmTC_f6af0 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <sys/socket.h>
+int main() { return sizeof(socklen_t); } 
+Performing C SOURCE FILE Test HAVE_LIBM_MATH succeeded with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9c6a1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9c6a1.dir/build.make CMakeFiles/cmTC_9c6a1.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9c6a1.dir/src.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -DHAVE_LIBM_MATH  -m64 -fPIC -w -Wall   -std=gnu99 -o CMakeFiles/cmTC_9c6a1.dir/src.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9c6a1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9c6a1.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -Wall   -m64  CMakeFiles/cmTC_9c6a1.dir/src.c.o -o cmTC_9c6a1  -lm 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include<math.h>
+float f; int main(){sqrt(f);return 0;}
+Determining if the clock_gettime exist passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_218ad/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_218ad.dir/build.make CMakeFiles/cmTC_218ad.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_218ad.dir/CheckSymbolExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -Wall   -std=gnu99 -o CMakeFiles/cmTC_218ad.dir/CheckSymbolExists.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_218ad
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_218ad.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -Wall   -m64  CMakeFiles/cmTC_218ad.dir/CheckSymbolExists.c.o -o cmTC_218ad 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+File /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef clock_gettime
+  return ((int*)(&clock_gettime))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file sys/epoll.h exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_41caf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_41caf.dir/build.make CMakeFiles/cmTC_41caf.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_41caf.dir/CheckIncludeFile.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -Wall   -std=gnu99 -o CMakeFiles/cmTC_41caf.dir/CheckIncludeFile.c.o -c /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_41caf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41caf.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -Wall   -m64  CMakeFiles/cmTC_41caf.dir/CheckIncludeFile.c.o -o cmTC_41caf 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function writev exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8e764/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8e764.dir/build.make CMakeFiles/cmTC_8e764.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8e764.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=writev -o CMakeFiles/cmTC_8e764.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8e764
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8e764.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=writev -m64  -rdynamic CMakeFiles/cmTC_8e764.dir/CheckFunctionExists.c.o -o cmTC_8e764 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function uname exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fb710/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fb710.dir/build.make CMakeFiles/cmTC_fb710.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fb710.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=uname -o CMakeFiles/cmTC_fb710.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fb710
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb710.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=uname -m64  -rdynamic CMakeFiles/cmTC_fb710.dir/CheckFunctionExists.c.o -o cmTC_fb710 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function getloadavg exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0d5c1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0d5c1.dir/build.make CMakeFiles/cmTC_0d5c1.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0d5c1.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=getloadavg -o CMakeFiles/cmTC_0d5c1.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0d5c1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d5c1.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=getloadavg -m64  -rdynamic CMakeFiles/cmTC_0d5c1.dir/CheckFunctionExists.c.o -o cmTC_0d5c1 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gettimeofday exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2fc7b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2fc7b.dir/build.make CMakeFiles/cmTC_2fc7b.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2fc7b.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=gettimeofday -o CMakeFiles/cmTC_2fc7b.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2fc7b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2fc7b.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=gettimeofday -m64  -rdynamic CMakeFiles/cmTC_2fc7b.dir/CheckFunctionExists.c.o -o cmTC_2fc7b 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function getifaddrs exists passed with the following output:
+Change Dir: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c9411/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c9411.dir/build.make CMakeFiles/cmTC_c9411.dir/build
+gmake[1]: Entering directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c9411.dir/CheckFunctionExists.c.o
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc   -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=getifaddrs -o CMakeFiles/cmTC_c9411.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c9411
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9411.dir/link.txt --verbose=1
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -m64 -fPIC -w -Wall  -DCHECK_FUNCTION_EXISTS=getifaddrs -m64  -rdynamic CMakeFiles/cmTC_c9411.dir/CheckFunctionExists.c.o -o cmTC_c9411 
+gmake[1]: Leaving directory '/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles/CMakeTmp'
+
+
+

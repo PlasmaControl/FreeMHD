@@ -1,0 +1,1 @@
+../externalCoupled/externalCoupledTemperatureMixed/externalCoupledTemperatureMixedFvPatchScalarField.C

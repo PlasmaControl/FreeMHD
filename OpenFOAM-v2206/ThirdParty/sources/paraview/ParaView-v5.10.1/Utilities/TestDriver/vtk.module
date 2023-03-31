@@ -1,0 +1,12 @@
+NAME
+  ParaView::smTestDriver
+LIBRARY_NAME
+  smTestDriver
+GROUPS
+  PARAVIEW_CORE
+PRIVATE_DEPENDS
+  VTK::CommonCore
+  VTK::vtksys
+TEST_LABELS
+  ParaView
+EXCLUDE_WRAP

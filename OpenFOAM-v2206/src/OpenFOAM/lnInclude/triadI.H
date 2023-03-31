@@ -1,0 +1,1 @@
+../primitives/triad/triadI.H

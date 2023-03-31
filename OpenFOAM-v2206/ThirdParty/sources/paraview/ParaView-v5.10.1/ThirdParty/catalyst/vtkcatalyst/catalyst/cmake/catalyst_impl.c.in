@@ -1,0 +1,23 @@
+/*
+ * Distributed under OSI-approved BSD 3-Clause License. See
+ * accompanying License.txt
+ */
+
+#include "catalyst_impl.h"
+#include "catalyst_impl_@catalyst_impl_NAME@.h"
+
+#ifdef _WIN32
+#define EXPORT_SYMBOL __declspec(dllexport)
+#else
+#define EXPORT_SYMBOL __attribute__((visibility("default")))
+#endif
+
+EXPORT_SYMBOL
+struct catalyst_impl catalyst_api_impl = {
+    1, // Structure version.
+    catalyst_initialize_@catalyst_impl_NAME@,
+    catalyst_execute_@catalyst_impl_NAME@,
+    catalyst_finalize_@catalyst_impl_NAME@,
+    catalyst_about_@catalyst_impl_NAME@,
+    catalyst_results_@catalyst_impl_NAME@
+};

@@ -1,0 +1,3 @@
+${CGAL_PREFIX}/share/src/assertions.cpp
+${CGAL_PREFIX}/share/src/io.cpp
+${CGAL_PREFIX}/share/src/Random.cpp

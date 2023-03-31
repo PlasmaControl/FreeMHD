@@ -1,0 +1,1 @@
+../solidReactionThermo/makeReactingSolidThermo.H

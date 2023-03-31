@@ -1,0 +1,1 @@
+../AMIInterpolation/patches/cyclicACMI/cyclicACMIPointPatch/cyclicACMIPointPatch.C

@@ -1,0 +1,14 @@
+NAME
+  BagPlotViewsAndFilters::BagPlotViewsAndFiltersBagPlot
+LIBRARY_NAME
+  vtkBagPlotViewsAndFiltersBagPlot
+DEPENDS
+  ParaView::RemotingViews
+  VTK::CommonExecutionModel
+PRIVATE_DEPENDS
+  ParaView::VTKExtensionsFiltersRendering
+  ParaView::VTKExtensionsFiltersStatistics
+  ParaView::VTKExtensionsMisc
+  VTK::FiltersExtraction
+  VTK::FiltersStatistics
+  VTK::InfovisCore

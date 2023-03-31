@@ -1,0 +1,1 @@
+../solidChemistryModel/solidChemistryModelI.H

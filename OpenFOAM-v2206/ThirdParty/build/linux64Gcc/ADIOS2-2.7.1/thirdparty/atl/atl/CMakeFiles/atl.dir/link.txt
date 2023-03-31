@@ -1,0 +1,1 @@
+/usr/local/openmpi/4.1.0/gcc/bin/mpicc -fPIC -m64 -fPIC -w -O3 -DNDEBUG -m64 -shared -Wl,-soname,libadios2_atl.so.2 -o ../../../lib64/libadios2_atl.so.2.2.1 CMakeFiles/atl.dir/atom.c.o CMakeFiles/atl.dir/attr.c.o CMakeFiles/atl.dir/lookup3.c.o CMakeFiles/atl.dir/tclHash.c.o  -Wl,-rpath,:::::::::::::::: 

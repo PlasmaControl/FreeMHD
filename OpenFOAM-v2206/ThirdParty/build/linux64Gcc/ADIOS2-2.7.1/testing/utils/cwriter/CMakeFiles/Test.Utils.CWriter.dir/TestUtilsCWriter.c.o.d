@@ -1,0 +1,37 @@
+testing/utils/cwriter/CMakeFiles/Test.Utils.CWriter.dir/TestUtilsCWriter.c.o: \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/testing/utils/cwriter/TestUtilsCWriter.c \
+ /usr/include/stdc-predef.h /usr/include/stdio.h \
+ /usr/include/bits/libc-header-start.h /usr/include/features.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h \
+ /usr/lib/gcc/x86_64-redhat-linux/8/include/stdarg.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__mbstate_t.h \
+ /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
+ /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/string.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/strings.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C/adios2_c.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/source/adios2/common/ADIOSConfig.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C/adios2/c/adios2_c_adios.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C/adios2/c/adios2_c_types.h \
+ /usr/lib/gcc/x86_64-redhat-linux/8/include/limits.h \
+ /usr/lib/gcc/x86_64-redhat-linux/8/include/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h \
+ /usr/lib/gcc/x86_64-redhat-linux/8/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h \
+ /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
+ /usr/local/openmpi/4.1.0/gcc/include/mpi.h \
+ /usr/local/openmpi/4.1.0/gcc/include/mpi_portable_platform.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C/adios2/c/adios2_c_attribute.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C/adios2/c/adios2_c_engine.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C/adios2/c/adios2_c_io.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C/adios2/c/adios2_c_operator.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C/adios2/c/adios2_c_variable.h \
+ /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/testing/utils/cwriter/../SmallTestData_c.h

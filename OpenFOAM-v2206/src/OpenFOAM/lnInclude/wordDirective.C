@@ -1,0 +1,1 @@
+../db/dictionary/functionEntries/word/wordDirective.C

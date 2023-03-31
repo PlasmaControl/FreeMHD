@@ -1,0 +1,34 @@
+NAME
+  ParaView::pqComponents
+LIBRARY_NAME
+  pqComponents
+CONDITION
+  PARAVIEW_USE_QT
+GROUPS
+  PARAVIEW_CANONICAL
+DEPENDS
+  ParaView::pqCore
+  ParaView::qttesting
+  VTK::jsoncpp
+PRIVATE_DEPENDS
+  ParaView::RemotingAnimation
+  ParaView::RemotingApplication
+  ParaView::RemotingLive
+  ParaView::RemotingMisc
+  ParaView::RemotingSettings
+  ParaView::RemotingViews
+  VTK::ChartsCore
+  VTK::CommonSystem
+  VTK::IOImage
+  VTK::pugixml
+  VTK::vtksys
+OPTIONAL_DEPENDS
+  VTK::ParallelMPI
+
+  # These affect the public API.
+  ParaView::pqPython
+TEST_DEPENDS
+  ParaView::RemotingViews
+TEST_LABELS
+  ParaView
+EXCLUDE_WRAP

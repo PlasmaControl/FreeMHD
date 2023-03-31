@@ -1,0 +1,16 @@
+name: adios2-python-docs
+
+channels:
+  - conda-forge
+  - williamfgc
+
+dependencies:
+  - python
+  - adios2-openmpi
+  - sphinx
+  - breathe=4.18.1
+  - pip
+  - pip:
+    - blockdiag>=1.5.4
+    - sphinxcontrib-blockdiag>=1.5.5
+    - sphinx_rtd_theme>=0.4.1

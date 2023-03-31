@@ -1,0 +1,49 @@
+# Inherit VTK's exclusions. We don't have to redefine them in this file anymore.
+set(paraview_use_external_vtk "@PARAVIEW_USE_EXTERNAL_VTK@")
+if (NOT paraview_use_external_vtk)
+  include("${CMAKE_CURRENT_LIST_DIR}/VTK/CTestCustom.cmake")
+endif ()
+
+# Regular expression for warning exception during build process
+list(APPEND CTEST_CUSTOM_WARNING_EXCEPTION
+  # Ignore `getenv` "deprecation" with MSVC.
+  "vtknvindex_utilities.h.*: warning C4996: 'getenv'"
+
+  # Ignore protobuf-generated source file warnings.
+  "vtkPVMessage.pb.cc"
+
+  # ignore warning from string_fortified.h inclusion
+  "string_fortified.h"
+
+  # Unreachable code in xutility causes C4702 warnings in MSVC.
+  "xutility.*unreachable code"
+
+  # exclude warnings from dmfile.cxx
+  "dmfile.*"
+
+  # exclude warnings from unreference NewInstance function
+  ".*NewInstance.*was declared but never referenced"
+
+  # Intel compiler warning about routines being both inline and noinline
+  "warning #2196.* routine is both"
+
+  # compiler optimizations may sometimes lead to this warning
+  "assuming signed overflow does not occur when assuming that"
+
+  # Visual Studio STL warnings.
+  "VC.Tools.*include.*: warning"
+)
+
+list(APPEND CTEST_CUSTOM_ERROR_EXCEPTION
+  # Xcb error does not seem to cause errors in generated test images
+  "qt.qpa.xcb: internal error"
+)
+
+# Regular expression for excluding files from coverage testing
+list(APPEND CTEST_CUSTOM_COVERAGE_EXCLUDE
+  ".*/VTK/.*"
+  "vtk[^\\.]+ClientServer.cxx"
+  "vtk[^\\.]+Python.cxx"
+  "ui_[^\\.]+.h"
+  "moc_[^\\.]+.h"
+  "vtkprotobuf")

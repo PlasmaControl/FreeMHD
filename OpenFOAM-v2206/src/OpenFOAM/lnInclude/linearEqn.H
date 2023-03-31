@@ -1,0 +1,1 @@
+../primitives/polynomialEqns/linearEqn/linearEqn.H

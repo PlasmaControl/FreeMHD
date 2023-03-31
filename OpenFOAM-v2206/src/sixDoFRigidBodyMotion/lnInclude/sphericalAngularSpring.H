@@ -1,0 +1,1 @@
+../sixDoFRigidBodyMotion/restraints/sphericalAngularSpring/sphericalAngularSpring.H

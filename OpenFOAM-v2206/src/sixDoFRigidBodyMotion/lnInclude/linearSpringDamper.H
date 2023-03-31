@@ -1,0 +1,1 @@
+../sixDoFRigidBodyMotion/restraints/linearSpringDamper/linearSpringDamper.H

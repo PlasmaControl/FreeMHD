@@ -1,0 +1,1 @@
+../primitives/functions/Function1/quadraticRamp/quadraticRamp.H

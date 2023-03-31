@@ -1,0 +1,1 @@
+../primitives/strings/wordRes/wordRes.H

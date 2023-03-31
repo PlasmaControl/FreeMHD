@@ -1,0 +1,18 @@
+NAME
+  ParaView::RemotingViewsPython
+LIBRARY_NAME
+  vtkRemotingViewsPython
+CONDITION
+  PARAVIEW_USE_PYTHON AND PARAVIEW_ENABLE_RENDERING
+GROUPS
+  PARAVIEW_CORE
+KIT
+  ParaView::ServerManagerKit
+DEPENDS
+  ParaView::RemotingViews
+PRIVATE_DEPENDS
+  ParaView::VTKExtensionsMisc
+  ParaView::VTKExtensionsFiltersRendering
+  VTK::CommonSystem
+  VTK::PythonInterpreter
+  VTK::WrappingPythonCore

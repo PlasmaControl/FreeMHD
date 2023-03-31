@@ -1,0 +1,13 @@
+NAME
+  VTK::ioss
+LIBRARY_NAME
+  vtkioss
+DEPENDS
+  VTK::cgns
+PRIVATE_DEPENDS
+  VTK::exodusII
+  VTK::fmt
+  VTK::zlib
+OPTIONAL_DEPENDS
+  VTK::mpi
+THIRD_PARTY

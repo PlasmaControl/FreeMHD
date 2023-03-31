@@ -1,0 +1,1 @@
+../fieldAverage/fieldAverageTemplates.C

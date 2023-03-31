@@ -1,0 +1,1 @@
+../sixDoFRigidBodyMotion/sixDoFRigidBodyMotionI.H

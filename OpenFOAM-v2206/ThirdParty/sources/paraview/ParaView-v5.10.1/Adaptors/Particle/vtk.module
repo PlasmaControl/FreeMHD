@@ -1,0 +1,21 @@
+NAME
+  ParaView::AdaptorsParticle
+LIBRARY_NAME
+  vtkPVAdaptorsParticle
+GROUPS
+  PARAVIEW_CANONICAL
+CONDITION
+  PARAVIEW_USE_MPI AND PARAVIEW_ENABLE_RENDERING
+DEPENDS
+  ParaView::Catalyst
+  ParaView::RemotingViews
+  VTK::CommonCore
+  VTK::CommonDataModel
+  VTK::IOImage
+  VTK::IOParallelXML
+  VTK::ParallelMPI
+  VTK::RenderingCore
+  VTK::RenderingOpenGL2
+OPTIONAL_DEPENDS
+  VTK::ParallelMPI
+EXCLUDE_WRAP

@@ -1,0 +1,1 @@
+../tetherPotential/derived/restrainedHarmonicSpring/restrainedHarmonicSpring.C

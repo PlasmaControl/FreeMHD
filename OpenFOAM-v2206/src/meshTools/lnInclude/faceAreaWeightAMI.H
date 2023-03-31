@@ -1,0 +1,1 @@
+../AMIInterpolation/AMIInterpolation/faceAreaWeightAMI/faceAreaWeightAMI.H

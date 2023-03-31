@@ -1,0 +1,13 @@
+NAME
+  ParaView::VTKExtensionsInteractionStyle
+LIBRARY_NAME
+  vtkPVVTKExtensionsInteractionStyle
+KIT
+  ParaView::CoreKit
+DEPENDS
+  VTK::InteractionStyle
+PRIVATE_DEPENDS
+  VTK::CommonColor
+  VTK::CommonSystem
+TEST_LABELS
+  ParaView

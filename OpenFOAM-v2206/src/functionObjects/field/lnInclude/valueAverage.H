@@ -1,0 +1,1 @@
+../valueAverage/valueAverage.H

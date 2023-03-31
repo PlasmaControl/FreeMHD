@@ -1,0 +1,1 @@
+../thermo/hPower/hPowerThermo.H

@@ -1,0 +1,1 @@
+../fields/fvPatchFields/derived/fixedMean/fixedMeanFvPatchField.H

@@ -1,0 +1,28 @@
+#------------------------------------------------------------------------------#
+# Distributed under the OSI-approved Apache License, Version 2.0.  See
+# accompanying file Copyright.txt for details.
+#------------------------------------------------------------------------------#
+
+set(CTEST_CUSTOM_MAXIMUM_NUMBER_OF_ERRORS 1000)
+set(CTEST_CUSTOM_MAXIMUM_NUMBER_OF_WARNINGS 1000)
+
+list(APPEND CTEST_CUSTOM_WARNING_EXCEPTION
+  "H5PL\\.c.*dlopen.*glibc"
+  "gtest\\.cc.*getaddrinfo.*glibc"
+  ".*/thirdparty/.*"
+  "warning: Using '.*' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking"
+  "PGC.*compilation completed with warnings"
+  "Warning: stand-alone `data16' prefix"
+  "Warning: Type mismatch between actual argument.*"
+  "Warning: Rank mismatch between actual argument.*"
+  "zfp/types.h.*typedef"
+)
+list(APPEND CTEST_CUSTOM_COVERAGE_EXCLUDE
+  ".*/thirdparty/.*"
+  ".*/testing/.*"
+  ".*/examples/.*"
+)
+
+# Exclude flaky tests for now
+list(APPEND CTEST_CUSTOM_TESTS_IGNORE
+)

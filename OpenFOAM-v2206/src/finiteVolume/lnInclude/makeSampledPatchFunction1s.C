@@ -1,0 +1,1 @@
+../fields/fvPatchFields/derived/mappedField/Sampled/makeSampledPatchFunction1s.C

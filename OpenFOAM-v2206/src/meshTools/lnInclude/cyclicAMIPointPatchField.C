@@ -1,0 +1,1 @@
+../AMIInterpolation/patches/cyclicAMI/cyclicAMIPointPatchField/cyclicAMIPointPatchField.C

@@ -1,0 +1,1 @@
+../energyScalingFunction/derived/doubleSigmoid/doubleSigmoid.C

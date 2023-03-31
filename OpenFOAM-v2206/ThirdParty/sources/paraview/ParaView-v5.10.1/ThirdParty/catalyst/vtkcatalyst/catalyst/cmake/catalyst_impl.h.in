@@ -1,0 +1,20 @@
+/*
+ * Distributed under OSI-approved BSD 3-Clause License. See
+ * accompanying License.txt
+ */
+
+#include <catalyst.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+enum catalyst_status catalyst_initialize_@catalyst_impl_NAME@(const conduit_node* params);
+enum catalyst_status catalyst_execute_@catalyst_impl_NAME@(const conduit_node* params);
+enum catalyst_status catalyst_finalize_@catalyst_impl_NAME@(const conduit_node* params);
+enum catalyst_status catalyst_about_@catalyst_impl_NAME@(conduit_node* params);
+enum catalyst_status catalyst_results_@catalyst_impl_NAME@(conduit_node* params);
+
+#ifdef __cplusplus
+}
+#endif

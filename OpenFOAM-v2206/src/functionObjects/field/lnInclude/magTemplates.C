@@ -1,0 +1,1 @@
+../mag/magTemplates.C

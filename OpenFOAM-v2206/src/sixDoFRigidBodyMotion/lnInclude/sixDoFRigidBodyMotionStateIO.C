@@ -1,0 +1,1 @@
+../sixDoFRigidBodyMotion/sixDoFRigidBodyMotionStateIO.C

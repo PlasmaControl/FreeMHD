@@ -1,0 +1,15 @@
+NAME
+  StreamingParticles::vtkStreamingParticles
+LIBRARY_NAME
+  vtkStreamingParticles
+DEPENDS
+  ParaView::VTKExtensionsFiltersRendering
+  ParaView::RemotingViews
+  VTK::CommonCore
+  VTK::CommonDataModel
+  VTK::CommonExecutionModel
+PRIVATE_DEPENDS
+  VTK::FiltersCore
+  VTK::ParallelCore
+  VTK::RenderingCore
+  VTK::RenderingOpenGL2
