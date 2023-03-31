@@ -1,0 +1,6 @@
+slopeMesh.C
+elevationModels/elevationModel/elevationModel.C
+elevationModels/elevationModel/elevationModelNew.C
+elevationModels/simpleSlope/SimpleSlope.C
+
+EXE = $(FOAM_MODULE_APPBIN)/slopeMesh

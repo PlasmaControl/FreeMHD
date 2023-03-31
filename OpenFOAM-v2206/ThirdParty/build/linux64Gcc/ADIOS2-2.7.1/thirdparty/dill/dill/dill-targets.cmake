@@ -45,13 +45,13 @@ unset(_expectedTargets)
 add_library(dill::dill SHARED IMPORTED)
 
 set_target_properties(dill::dill PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/dill/dill;/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/dill/dill"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/dill/dill;/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/dill/dill"
 )
 
 # Import target "dill::dill" for configuration "Release"
 set_property(TARGET dill::dill APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(dill::dill PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_dill.so.2.4.1"
+  IMPORTED_LOCATION_RELEASE "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_dill.so.2.4.1"
   IMPORTED_SONAME_RELEASE "libadios2_dill.so.2"
   )
 

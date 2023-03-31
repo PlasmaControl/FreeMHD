@@ -4,7 +4,7 @@
 # compile C with /usr/local/openmpi/4.1.0/gcc/bin/mpicc
 C_DEFINES = -DADIOS2_USE_MPI -DMPICH_SKIP_MPICXX -DOMPI_SKIP_MPICXX
 
-C_INCLUDES = -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/source -I/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/source
+C_INCLUDES = -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/source -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/source
 
 C_FLAGS = -m64 -fPIC -O3 -DNDEBUG -std=gnu99
 

@@ -1,0 +1,19 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+decompDict="-decomposeParDict system/decomposeParDict.6"
+runApplication $decompDict preparePar
+
+# An ugly way to make things available
+for dir in processor*
+do
+    (cd $dir 2> /dev/null && ln -sf ../bunnyWrapped.stl .)
+done
+
+echo "WARNING WARNING: this seems to have problems in parallel"
+
+runParallel $decompDict pMesh
+runParallel $decompDict checkMesh
+
+#------------------------------------------------------------------------------

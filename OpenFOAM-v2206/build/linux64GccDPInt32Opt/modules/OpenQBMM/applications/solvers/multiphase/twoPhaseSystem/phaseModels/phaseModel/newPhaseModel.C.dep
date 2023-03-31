@@ -604,6 +604,7 @@ lnInclude/phasePair.H \
 lnInclude/phasePairKey.H \
 lnInclude/phasePairI.H \
 lnInclude/orderedPhasePair.H \
+../interfacialModels/lnInclude/dragModel.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvMatrix.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduMatrix.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/profilingTrigger.H \
@@ -766,5 +767,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/oneField.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/oneFieldI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/geometricOneFieldI.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceInterpolate.C \
+../interfacialModels/lnInclude/virtualMassModel.H \
 
 #END

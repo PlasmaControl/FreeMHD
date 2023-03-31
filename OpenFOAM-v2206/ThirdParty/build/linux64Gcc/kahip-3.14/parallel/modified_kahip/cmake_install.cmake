@@ -1,8 +1,8 @@
-# Install script for directory: /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip
+# Install script for directory: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/bw0594/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/kahip-3.14")
+  set(CMAKE_INSTALL_PREFIX "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/kahip-3.14")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

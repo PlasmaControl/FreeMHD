@@ -1,0 +1,131 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | avalanche module
+    \\  /    A nd           | www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+    Copyright (C) 2017 Matthias Rauter
+-------------------------------------------------------------------------------
+License
+    This file is part of OpenFOAM.
+
+    OpenFOAM is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+    for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+
+Class
+    Foam::elevationModels::SimpleSlope
+
+Description
+    This Model describes slopes as used in Wang et al. (2004)
+
+SourceFiles
+    SimpleSlope.C
+
+Author
+    Matthias Rauter matthias@rauter.it
+
+\*---------------------------------------------------------------------------*/
+
+#ifndef SimpleSlope_H
+#define SimpleSlope_H
+
+#include "elevationModel.H"
+#include "dimensionedScalar.H"
+#include "volFields.H"
+#include "IOdictionary.H"
+#include "typeInfo.H"
+#include "runTimeSelectionTables.H"
+#include "dimensionedScalar.H"
+#include "tmp.H"
+#include "autoPtr.H"
+#include "faMatrices.H"
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace Foam
+{
+namespace elevationModels
+{
+
+/*---------------------------------------------------------------------------*\
+                           Class SimpleSlope Declaration
+\*---------------------------------------------------------------------------*/
+
+class SimpleSlope
+:
+    public elevationModel
+{
+    // Private data
+
+    //inclination angle
+    scalar alpha_;
+
+    //inclination angle 2
+    scalar beta_;
+
+    //length of steep slope
+    scalar a_;
+
+    //length of until end of transition zone
+    scalar b_;
+
+    //length of transition zone
+    scalar ab_;
+
+    scalar globalX(scalar x) const;
+    scalar globalZ(scalar x) const;
+
+
+public:
+
+    //- Runtime type information
+    TypeName("SimpleSlope");
+
+
+    // Constructors
+
+        //- construct from components
+        SimpleSlope
+        (
+            const word& name,
+            const dictionary& elevationProperties
+        );
+
+
+    //- Destructor
+    virtual ~SimpleSlope() = default;
+
+
+    // Member Functions
+
+        //return the global point X for the local point x
+        virtual vector X(const vector &x) const;
+
+
+        //- Return the elevation properties dictionary
+        virtual bool read(const dictionary& elevationProperties);
+};
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+} // End namespace elevationModels
+} // End namespace Foam
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif
+
+// ************************************************************************* //

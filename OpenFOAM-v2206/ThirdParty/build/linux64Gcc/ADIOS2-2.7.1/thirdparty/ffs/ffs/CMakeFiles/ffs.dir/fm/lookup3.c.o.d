@@ -1,5 +1,5 @@
 thirdparty/ffs/ffs/CMakeFiles/ffs.dir/fm/lookup3.c.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/lookup3.c \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/lookup3.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/bits/libc-header-start.h /usr/include/features.h \
  /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \

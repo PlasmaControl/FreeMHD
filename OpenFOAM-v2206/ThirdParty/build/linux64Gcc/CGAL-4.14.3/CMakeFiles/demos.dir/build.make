@@ -53,15 +53,18 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/cgal/CGAL-4.14.3
+CMAKE_SOURCE_DIR = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/cgal/CGAL-4.14.3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3
+CMAKE_BINARY_DIR = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3
 
 # Utility rule file for demos.
 
 # Include any custom commands dependencies for this target.
 include CMakeFiles/demos.dir/compiler_depend.make
+
+# Include the progress variables for this target.
+include CMakeFiles/demos.dir/progress.make
 
 demos: CMakeFiles/demos.dir/build.make
 .PHONY : demos
@@ -75,6 +78,6 @@ CMakeFiles/demos.dir/clean:
 .PHONY : CMakeFiles/demos.dir/clean
 
 CMakeFiles/demos.dir/depend:
-	cd /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/cgal/CGAL-4.14.3 /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/cgal/CGAL-4.14.3 /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3 /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3 /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3/CMakeFiles/demos.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/cgal/CGAL-4.14.3 /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/cgal/CGAL-4.14.3 /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3 /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3 /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3/CMakeFiles/demos.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/demos.dir/depend
 

@@ -1,0 +1,44 @@
+deposition = deposition
+$(deposition)/depositionModel/depositionModel.C
+$(deposition)/depositionModel/depositionModelNew.C
+$(deposition)/depositionOff/depositionOff.C
+$(deposition)/Stoppingprofile/Stoppingprofile.C
+
+entrainment = entrainment
+$(entrainment)/entrainmentModel/entrainmentModel.C
+$(entrainment)/entrainmentModel/entrainmentModelNew.C
+$(entrainment)/suspensionEntrainmentModel/suspensionEntrainmentModel.C
+$(entrainment)/suspensionEntrainmentModel/suspensionEntrainmentModelNew.C
+$(entrainment)/entrainmentOff/entrainmentOff.C
+$(entrainment)/Erosionenergy/Erosionenergy.C
+$(entrainment)/Front/Front.C
+$(entrainment)/Medina/Medina.C
+$(entrainment)/Ramms/Ramms.C
+$(entrainment)/suspensionParkerFukushimaEntrainment/suspensionParkerFukushimaEntrainment.C \
+
+
+friction = friction
+$(friction)/frictionModel/frictionModel.C
+$(friction)/frictionModel/frictionModelNew.C
+$(friction)/suspensionFrictionModel/suspensionFrictionModel.C
+$(friction)/suspensionFrictionModel/suspensionFrictionModelNew.C
+$(friction)/PoliquenForterre/PoliquenForterre.C
+$(friction)/muI/muI.C
+$(friction)/Voellmy/Voellmy.C
+$(friction)/kt/kt.C
+$(friction)/laminarSuspension/laminarSuspension.C
+$(friction)/turbulentSuspension/turbulentSuspension.C
+$(friction)/DarcyWeisbach/DarcyWeisbach.C
+$(friction)/ManningStrickler/ManningStrickler.C
+
+gistools = gistools
+$(gistools)/gridfile.C
+$(gistools)/shapefile.C
+$(gistools)/HormannAgathos.C
+
+functionObjects = functionObjects
+$(functionObjects)/shapefileWrite.C
+$(functionObjects)/gridfileWrite.C
+$(functionObjects)/autoAreaToVolumeMapping.C
+
+LIB = $(FOAM_MODULE_LIBBIN)/libfaAvalanche

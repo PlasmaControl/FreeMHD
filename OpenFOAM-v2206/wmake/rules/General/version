@@ -1,0 +1,10 @@
+#----------------------------*- makefile-gmake -*------------------------------
+
+SUFFIXES += .Cver
+
+# Update strings in C++ file and in META-INFO files
+Cvertoo = \
+    $(WM_SCRIPTS)/wmake-build-info -update -filter $< > $(@D)/$(<F).C; \
+    $(CC) $(c++FLAGS) -c $(@D)/$(<F).C -o $@
+
+#------------------------------------------------------------------------------

@@ -1,0 +1,9 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions  # Tutorial clean functions
+
+cleanCase
+rmdir constant 2>/dev/null
+rm -f ship5415-hull-and-box.ftr 2>/dev/null
+
+#------------------------------------------------------------------------------

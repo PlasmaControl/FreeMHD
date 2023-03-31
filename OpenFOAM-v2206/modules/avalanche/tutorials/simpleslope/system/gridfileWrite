@@ -1,0 +1,23 @@
+// -*- C++ -*-
+// Use gridfileWrite function object
+
+gridfileWrite
+{
+    type    gridfileWrite;
+    libs    (faAvalanche);
+
+    fields  (".*");
+
+    secondOrder on;
+
+    writeOption autoWrite;
+    //writeOption noWrite;
+    //writeOption anyWrite;
+
+    postfix  ".asc";
+
+    dx 0.01;
+    dy 0.01;
+}
+
+// ************************************************************************* //

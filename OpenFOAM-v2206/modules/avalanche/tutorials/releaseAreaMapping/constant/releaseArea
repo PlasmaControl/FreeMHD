@@ -1,0 +1,138 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      releaseArea;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fields
+{
+    h
+    {
+        default default [0 1 0 0 0 0 0] 0;
+        regions
+        (
+            ShapefileWithEmbeddedValues
+            {
+                type shapefile;
+                filltype shapefile;
+                filename "constant/gisdata/h0";
+                fieldname "h0";
+                offset (0 5 0);
+            }
+
+            ShapefileWithConstantValue
+            {
+                type shapefile;
+                filltype constant;
+                filename "constant/gisdata/h0";
+                value 0.4;
+                offset (0 10 0);
+            }
+
+            ShapefileWithLinearValue
+            {
+                type shapefile;
+                filltype linear;
+                filename "constant/gisdata/h0";
+                valueAtZero 0.1;
+                x0 7;
+                dfdx 0.05;
+                offset (10 5 0);
+            }
+
+            Sphere
+            {
+                type sphere;
+                r 2;
+                scale 0.3;
+                center (15 10 2.5);
+            }
+
+            PolygonWithConstantValue
+            {
+                type polygon;
+                filltype constant;
+                vertices 
+                (
+                    (0 0 0)
+                    (2 0 0)
+                    (2 2 0)
+                    (0 2 0)
+                );
+                value 0.5;
+                offset (5 13 0);
+            }
+
+            PolygonWithLinearValue
+            {
+                type polygon;
+                filltype linear;
+                vertices 
+                (
+                    (0 0 0)
+                    (2 0 0)
+                    (2 2 0)
+                    (0 2 0)
+                );
+                valueAtZero 0.2;
+                x0 15.;
+                y0 13.;
+                z0 0.;
+                dfdx 0.1;
+                dfdy 0.1;
+                dfdz 0.;
+                offset (15 13 0);
+            }
+
+            PolygonWithConstantValueProjected
+            {
+                projectToNormal on;
+                type polygon;
+                filltype constant;
+                vertices 
+                (
+                    (0 0 0)
+                    (2 0 0)
+                    (2 2 0)
+                    (0 2 0)
+                );
+                value 0.5;
+                offset (5 16 0);
+            }
+            
+            PolygonWithLinearValueProjected
+            {
+                projectToNormal on;
+                type polygon;
+                filltype linear;
+                vertices 
+                (
+                    (0 0 0)
+                    (2 0 0)
+                    (2 2 0)
+                    (0 2 0)
+                );
+                valueAtZero 0.2;
+                x0 15.;
+                y0 16.;
+                z0 0.;
+                dfdx 0.1;
+                dfdy 0.1;
+                dfdz 0.;
+                offset (15 16 0);
+            }
+        );
+    }
+}
+
+// ************************************************************************* //

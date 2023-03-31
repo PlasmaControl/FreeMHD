@@ -1,0 +1,3 @@
+faSavageHutterFoam.C
+
+EXE = $(FOAM_MODULE_APPBIN)/faSavageHutterFoam

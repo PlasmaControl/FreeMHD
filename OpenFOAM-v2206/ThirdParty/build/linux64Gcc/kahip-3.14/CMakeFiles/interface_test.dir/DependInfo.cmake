@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/interface/kaHIP_interface.cpp" "CMakeFiles/interface_test.dir/interface/kaHIP_interface.cpp.o" "gcc" "CMakeFiles/interface_test.dir/interface/kaHIP_interface.cpp.o.d"
-  "/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/misc/example_library_call/interface_test.cpp" "CMakeFiles/interface_test.dir/misc/example_library_call/interface_test.cpp.o" "gcc" "CMakeFiles/interface_test.dir/misc/example_library_call/interface_test.cpp.o.d"
+  "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/interface/kaHIP_interface.cpp" "CMakeFiles/interface_test.dir/interface/kaHIP_interface.cpp.o" "gcc" "CMakeFiles/interface_test.dir/interface/kaHIP_interface.cpp.o.d"
+  "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/misc/example_library_call/interface_test.cpp" "CMakeFiles/interface_test.dir/misc/example_library_call/interface_test.cpp.o" "gcc" "CMakeFiles/interface_test.dir/misc/example_library_call/interface_test.cpp.o.d"
   )
 
 # Targets to which this target links.

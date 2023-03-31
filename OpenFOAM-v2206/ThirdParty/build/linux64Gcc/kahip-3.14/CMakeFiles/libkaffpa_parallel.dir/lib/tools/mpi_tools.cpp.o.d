@@ -1,5 +1,5 @@
 CMakeFiles/libkaffpa_parallel.dir/lib/tools/mpi_tools.cpp.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/tools/mpi_tools.cpp \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/tools/mpi_tools.cpp \
  /usr/include/stdc-predef.h /usr/local/openmpi/4.1.0/gcc/include/mpi.h \
  /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h \
  /usr/local/openmpi/4.1.0/gcc/include/mpi_portable_platform.h \
@@ -155,4 +155,4 @@ CMakeFiles/libkaffpa_parallel.dir/lib/tools/mpi_tools.cpp.o: \
  /usr/include/unistd.h /usr/include/bits/posix_opt.h \
  /usr/include/bits/environments.h /usr/include/bits/confname.h \
  /usr/include/bits/getopt_posix.h /usr/include/bits/getopt_core.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/tools/mpi_tools.h
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/tools/mpi_tools.h

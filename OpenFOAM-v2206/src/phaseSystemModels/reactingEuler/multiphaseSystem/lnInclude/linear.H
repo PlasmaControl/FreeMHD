@@ -1,1 +1,1 @@
-../BlendedInterfacialModel/blendingMethods/linear/linear.H
+../derivedFvPatchFields/wallBoilingSubModels/partitioningModels/linear/linear.H

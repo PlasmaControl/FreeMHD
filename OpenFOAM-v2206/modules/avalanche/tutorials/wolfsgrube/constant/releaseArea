@@ -1,0 +1,67 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      releaseArea;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fields
+{
+    hentrain
+    {
+        regions
+        (
+            base
+            {
+                type shapefile;
+                filename "constant/gisdata/aoi";
+                offset (5000 -220000 0);
+
+                filltype linear;
+                valueAtZero 1.6;
+                z0 1289;
+                dfdz 0.0008;
+                projectToNormal yes;
+            }
+
+            releaseArea1
+            {
+                type shapefile;
+                filename "constant/gisdata/release";
+                offset (5000 -220000 0);
+
+                filltype linear;
+                valueAtZero 0;
+                projectToNormal yes;
+            }
+        );
+    }
+    h
+    {
+        default h0 [0 1 0 0 0 0 0] 1e-5;
+        regions
+        (
+            releaseArea1
+            {
+                type shapefile;
+                filename "constant/gisdata/release";
+                offset (5000 -220000 0);
+
+                filltype linear;
+                valueAtZero 1.6;
+                z0 1289;
+                dfdz 0.0008;
+                projectToNormal yes;
+            }
+        );
+    }
+}

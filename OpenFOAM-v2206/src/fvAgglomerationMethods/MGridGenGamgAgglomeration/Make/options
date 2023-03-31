@@ -1,0 +1,6 @@
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(MGRIDGEN_INC_DIR)
+
+LIB_LIBS = \
+    -L$(MGRIDGEN_LIB_DIR) -lmgrid

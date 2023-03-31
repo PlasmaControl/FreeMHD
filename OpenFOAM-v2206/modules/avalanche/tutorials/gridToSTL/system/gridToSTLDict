@@ -1,0 +1,46 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      meshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//Output file
+stlname "constant/surface.stl";
+
+//Topography file
+gridname "constant/gisdata/dem.asc";
+
+//Choose between boundary: fromShape or fromPoints:
+
+//Read Boundary form this dictionary
+
+boundary fromPoints;
+boundaryPoints
+(
+    (0 0 0)
+    (500 0 0)
+    (500 500 0)
+    (0 500 0)
+);
+
+//Division of an edge of the boundary polygon
+divisions 100;
+
+//Height of the Domain
+domainHeight 500.0;
+
+//Offset to reduce coordinate size
+offset (0 0 0);
+
+
+// ************************************************************************* //

@@ -1,0 +1,62 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application         faSavageHutterFoam;
+
+startFrom           firstTime;
+
+startTime           0;
+
+stopAt              endTime;
+
+endTime             90;
+
+deltaT              0.2;
+
+writeControl        adjustableRunTime;
+
+writeInterval       2;
+
+purgeWrite          0;
+
+writeFormat         ascii;
+
+writePrecision      6;
+
+writeCompression    off;
+
+timeFormat          general;
+
+timePrecision       6;
+
+runTimeModifiable   yes;
+
+adjustTimeStep      yes;
+
+initDeltaT          no;
+
+maxCo               1.0;
+
+functions
+{
+    #include "areaWrite"
+    #include "shapefileWrite"
+    #include "gridfileWrite"
+    #include "autoAreaToVolumeMapping"
+    #include "catalyst"
+}
+
+// ************************************************************************* //

@@ -828,6 +828,7 @@ $(WM_PROJECT_DIR)/src/TurbulenceModels/phaseCompressible/lnInclude/PhaseCompress
 ../twoPhaseSystem/lnInclude/phasePairKey.H \
 ../twoPhaseSystem/lnInclude/phasePairI.H \
 ../twoPhaseSystem/lnInclude/orderedPhasePair.H \
+../interfacialModels/lnInclude/dragModel.H \
 ../twoPhaseSystem/lnInclude/twoPhaseSystemI.H \
 ../twoPhaseSystem/lnInclude/twoPhaseSystemTemplates.C \
 ../twoPhaseSystem/lnInclude/BlendedInterfacialModel.H \
@@ -835,6 +836,7 @@ $(WM_PROJECT_DIR)/src/TurbulenceModels/phaseCompressible/lnInclude/PhaseCompress
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchField.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchField.C \
+../interfacialModels/lnInclude/virtualMassModel.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvm.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvmDdt.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvmDdt.C \

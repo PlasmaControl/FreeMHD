@@ -4,7 +4,7 @@
 # compile CXX with /usr/local/openmpi/4.1.0/gcc/bin/mpicxx
 CXX_DEFINES = -DADIOS2_USE_MPI -DMPICH_SKIP_MPICXX -DOMPI_SKIP_MPICXX
 
-CXX_INCLUDES = -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/CXX11 -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/source -I/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/source -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C -isystem /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/GTest/googletest/googletest/include -isystem /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/GTest/googletest/googletest
+CXX_INCLUDES = -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/CXX11 -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/source -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/source -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C -isystem /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/GTest/googletest/googletest/include -isystem /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/GTest/googletest/googletest
 
 CXX_FLAGS = -std=c++11 -m64 -pthread -fPIC -O3 -DNDEBUG -std=gnu++11
 

@@ -45,7 +45,7 @@ unset(_expectedTargets)
 add_library(adios2::c SHARED IMPORTED)
 
 set_target_properties(adios2::c PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C;\$<TARGET_PROPERTY:adios2::core,INTERFACE_INCLUDE_DIRECTORIES>"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/C;\$<TARGET_PROPERTY:adios2::core,INTERFACE_INCLUDE_DIRECTORIES>"
 )
 
 # Create imported target adios2::c_mpi
@@ -60,7 +60,7 @@ set_target_properties(adios2::c_mpi PROPERTIES
 set_property(TARGET adios2::c APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(adios2::c PROPERTIES
   IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "adios2::core"
-  IMPORTED_LOCATION_RELEASE "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_c.so.2.7.1"
+  IMPORTED_LOCATION_RELEASE "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_c.so.2.7.1"
   IMPORTED_SONAME_RELEASE "libadios2_c.so.2"
   )
 
@@ -68,7 +68,7 @@ set_target_properties(adios2::c PROPERTIES
 set_property(TARGET adios2::c_mpi APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(adios2::c_mpi PROPERTIES
   IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "adios2::core_mpi"
-  IMPORTED_LOCATION_RELEASE "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_c_mpi.so.2.7.1"
+  IMPORTED_LOCATION_RELEASE "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_c_mpi.so.2.7.1"
   IMPORTED_SONAME_RELEASE "libadios2_c_mpi.so.2"
   )
 

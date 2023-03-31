@@ -1,6 +1,6 @@
-#line 2 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
+#line 2 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
 
-#line 4 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
+#line 4 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
 
 #define  YY_INT_ALIGNED short int
 
@@ -35640,7 +35640,7 @@ int yyFlexLexer::yywrap()
 
 
 
-#line 35644 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
+#line 35644 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
 
 #define INITIAL 0
 #define readElements 1
@@ -35930,7 +35930,7 @@ bool finishReaction = false;
     ------ Discard comments being careful to count comments
  \* ------------------------------------------------------------------------- */
 
-#line 35934 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
+#line 35934 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -37346,7 +37346,7 @@ YY_RULE_SETUP
 #line 1477 "chemistryReaders/chemkinReader/chemkinLexer.L"
 ECHO;
 	YY_BREAK
-#line 37350 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
+#line 37350 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/src/thermophysicalModels/reactionThermo/chemistryReaders/chemkinReader/chemkinLexer.L.C"
 
 	case YY_END_OF_BUFFER:
 		{

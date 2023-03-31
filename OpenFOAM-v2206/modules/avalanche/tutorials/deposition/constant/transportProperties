@@ -1,0 +1,62 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+pressureFeedback    off;
+
+explicitDryAreas    on;
+
+xi                  xi     [ 0 0 0 0 0 0 0]     1;
+
+hmin                hmin   [ 0 1 0 0 0 0 0]     0; 
+
+rho                 rho    [ 1 -3  0 0 0 0 0 ]  1500.;
+
+u0                  u0     [ 0 1 -1 0 0 0 0]    1e-4;
+
+h0                  h0     [ 0 1 0 0 0 0 0]     1e-6;
+
+frictionModel       MuI;
+
+entrainmentModel    Erosionenergy;
+
+depositionModel     Stoppingprofile;
+
+MuICoeffs
+{
+    d               d     [ 0 1 0 0 0 0 0]      0.005;
+
+    rho_p           rho_p [ 1 -3  0 0 0 0 0 ]   2500.;
+
+    mu_s            mu_s  [0 0 0 0 0 0 0 ]      0.38;
+
+    mu_2            mu_2  [0 0 0 0 0 0 0 ]      0.65;
+
+    I_0             I_0   [0 0 0 0 0 0 0 ]      0.30;
+}
+
+ErosionenergyCoeffs
+{
+    eb              eb [0 2 -2 0 0 0 0]         50;
+}
+
+StoppingprofileCoeffs
+{
+    ud              ud [0 1 -1 0 0 0 0]         1.5;
+
+    ad              ad [0 0  0 0 0 0 0]         1.0;
+}
+
+// ************************************************************************* //

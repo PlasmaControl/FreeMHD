@@ -45,13 +45,13 @@ unset(_expectedTargets)
 add_library(enet::enet SHARED IMPORTED)
 
 set_target_properties(enet::enet PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/enet/enet/include;/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/enet/enet"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/enet/enet/include;/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/enet/enet"
 )
 
 # Import target "enet::enet" for configuration "Release"
 set_property(TARGET enet::enet APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(enet::enet PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_enet.so.1.3.14"
+  IMPORTED_LOCATION_RELEASE "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_enet.so.1.3.14"
   IMPORTED_SONAME_RELEASE "libadios2_enet.so.1"
   )
 

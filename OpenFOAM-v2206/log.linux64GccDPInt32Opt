@@ -1,0 +1,1727 @@
+gcc=/usr/bin/gcc
+clang=
+mpirun=/usr/local/openmpi/4.1.0/gcc/bin/mpirun
+make=/usr/bin/make
+cmake=/usr/bin/cmake
+wmake=/home/bw0594/3DLMM/OpenFOAM-v2206/wmake/wmake
+m4=/usr/bin/m4
+flex=/usr/bin/flex
+
+compiler=/usr/bin/g++
+g++ (GCC) 8.5.0 20210514 (Red Hat 8.5.0-16)
+
+========================================
+2023-03-31 04:05:23 -0400
+Starting compile OpenFOAM-v2206 Allwmake
+  Gcc system compiler []
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+========================================
+
+built wmake-bin (linux64Gcc)
+
+========================================
+Start ThirdParty Allwmake
+========================================
+using:  gcc -m64 -DOPENFOAM=2206 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -O3 -fPIC
+using:  g++ -std=c++11 -m64 -pthread -DOPENFOAM=2206 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O3 -DNoRepository -ftemplate-depth-100 -fPIC
+
+========================================
+Build MPI libraries if required
+    
+Found sources: sources/scotch/scotch_6.1.0
+
+========================================
+scotch decomposition (scotch_6.1.0)
+    Makefile.inc  : 
+    scotch include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0/include
+    scotch library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/lib
+
+========================================
+pt-scotch decomposition (scotch_6.1.0 with sys-openmpi)
+    ptscotch include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0/include/sys-openmpi
+    ptscotch library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/lib/sys-openmpi
+
+========================================
+KAHIP decomposition
+    kahip include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/kahip-3.14/include
+    kahip library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/lib
+
+========================================
+METIS decomposition
+Did not find ... metis-5.1.0
+Missing sources: 'metis-5.1.0'
+Possible download locations for metis :
+    http://glaros.dtc.umn.edu/gkhome/metis/metis/overview
+    http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz
+
+    ---------------------------------------------------
+    Optional component (METIS) had build issues
+    OpenFOAM will nonetheless remain largely functional
+    ---------------------------------------------------
+
+
+========================================
+cgal/boost
+    CGAL  include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/CGAL-4.14.3/include
+    CGAL  library: header
+    boost include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/include
+    boost library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/lib64
+
+========================================
+FFTW
+    fftw include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/include
+    fftw library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/lib
+
+========================================
+ADIOS2
+    adios2 include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/ADIOS2-2.7.1/include
+    adios2 library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/ADIOS2-2.7.1/lib64
+
+========================================
+Done ThirdParty Allwmake
+========================================
+
+========================================
+Compile OpenFOAM libraries
+========================================
+    ln: OpenFOAM/lnInclude
+    ln: OSspecific/POSIX/lnInclude
+    found <sys/inotify.h>  --  enabling inotify for file monitoring.
+wmake libo (POSIX)
+wmake  dummy (mpi=SYSTEMOPENMPI)
+wmake dummy
+wmake  mpi (mpi=SYSTEMOPENMPI:sys-openmpi)
+wmake mpi
+wmake OpenFOAM
+wmake fileFormats
+wmake surfMesh
+wmake meshTools
+wmake finiteArea
+wmake finiteVolume
+wmake mesh/blockMesh
+wmake mesh/extrudeModel
+wmake dynamicMesh
+wmake genericPatchFields
+wmake parallel/decompose/decompositionMethods
+    ln: decompositionMethods/lnInclude
+    ln: kahipDecomp/lnInclude
+    ln: metisDecomp/lnInclude
+    ln: scotchDecomp/lnInclude
+    ln: ptscotchDecomp/lnInclude
+wmake scotchDecomp
+wmake ptscotchDecomp
+wmake metisDecomp
+wmake kahipDecomp
+wmake MGridGen
+    ln: fvOptions/lnInclude
+wmake lagrangian/basic
+wmake lagrangian/distributionModels
+wmake decompositionMethods
+wmake decompose
+wmake faDecompose
+kahip (int32) - /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/kahip-3.14
+wmake kahipDecomp
+==> skip metis (no header)
+scotch (int) - /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0
+wmake scotchDecomp
+scotch (int) - /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0
+ptscotch - /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0
+wmake  ptscotchDecomp (mpi=SYSTEMOPENMPI:sys-openmpi)
+wmake ptscotchDecomp
+wmake reconstruct
+wmake faReconstruct
+wmake distributed
+wmake dynamicFvMesh
+wmake topoChangerFvMesh
+wmake sampling
+wmake twoPhaseMixture
+wmake interfaceProperties
+wmake twoPhaseProperties
+wmake incompressible
+wmake compressible
+wmake immiscibleIncompressibleTwoPhaseMixture
+wmake geometricVoF
+wmake libso (randomProcesses)
+wmake ODE
+    ln: thermophysicalProperties/lnInclude
+wmake specie
+wmake solidSpecie
+wmake thermophysicalProperties
+wmake basic
+wmake reactionThermo
+wmake laminarFlameSpeed
+wmake chemistryModel
+wmake barotropicCompressibilityModel
+wmake SLGThermo
+wmake solidThermo
+wmake solidChemistryModel
+wmake radiation
+wmake turbulenceModels
+wmake incompressible
+wmake compressible
+wmake schemes
+    ln: phaseIncompressible/lnInclude
+    ln: phaseCompressible/lnInclude
+wmake combustionModels
+    ln: regionFaModels/lnInclude
+    ln: faOptions/lnInclude
+    ln: overset/lnInclude
+wmake overset
+wmake fvOptions
+wmake fvMotionSolver
+    ln: blockMesh/lnInclude
+wmake snappyHexMesh
+wmake blockMesh
+wmake extrudeModel
+wmake libso renumberMethods
+wmake libso SloanRenumber
+==> skip zoltanRenumber (no library)
+wmake pairPatchAgglomeration
+wmake waveModels
+wmake engine
+wmake libso (conversion)
+==> skip ccmio (no header)
+==> skip optional libccm adapter
+wmake saturationModels
+wmake multiphaseSystem
+wmake twoPhaseSystem
+wmake twoPhaseCompressibleTurbulenceModels
+wmake phasesSystem
+wmake compressibleMultiPhaseTurbulenceModels
+wmake multiphaseSystem
+wmake twoPhaseSystem
+wmake phaseCompressibleTurbulenceModels
+wmake VoFphaseIncompressibleTurbulenceModels
+wmake incompressibleInterPhaseTransportModel
+wmake field
+wmake forces
+wmake initialisation
+wmake utilities
+wmake solvers
+wmake phaseSystems
+wmake libso (randomProcesses)
+wmake thermoTools
+wmake regionModel
+wmake pyrolysisModels
+wmake surfaceFilmModels
+wmake surfaceFilmModels/derivedFvPatchFields/wallFunctions
+wmake thermalBaffleModels
+wmake regionCoupling
+wmake faOptions
+wmake regionFaModels
+wmake distributionModels
+wmake basic
+wmake solidParticle
+wmake intermediate
+wmake turbulence
+wmake spray
+wmake DSMC
+wmake coalCombustion
+wmake potential
+wmake molecularMeasurements
+wmake molecule
+wmake functionObjects/lagrangian
+wmake lumpedPointMotion
+wmake sixDoFRigidBodyMotion
+wmake sixDoFRigidBodyState
+wmake rigidBodyDynamics
+wmake rigidBodyMeshMotion
+wmake atmosphericModels
+wmake optimisation/adjointOptimisation/adjoint
+wmake interfaceTrackingFvMesh
+========================================
+Done OpenFOAM libraries
+========================================
+========================================
+Compile OpenFOAM applications
+========================================
+wmake utilities
+wmake doc
+wmake finiteArea
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea'
+wmake checkFaMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea/checkFaMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea/checkFaMesh'
+wmake makeFaMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea/makeFaMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea/makeFaMesh'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea'
+wmake mesh
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh'
+wmake advanced
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced'
+wmake collapseEdges
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/collapseEdges'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/collapseEdges'
+wmake combinePatchFaces
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/combinePatchFaces'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/combinePatchFaces'
+wmake modifyMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/modifyMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/modifyMesh'
+wmake PDRMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/PDRMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/PDRMesh'
+wmake refineHexMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineHexMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineHexMesh'
+wmake refinementLevel
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refinementLevel'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refinementLevel'
+wmake refineWallLayer
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineWallLayer'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineWallLayer'
+wmake removeFaces
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/removeFaces'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/removeFaces'
+wmake selectCells
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/selectCells'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/selectCells'
+wmake snappyRefineMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/snappyRefineMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/snappyRefineMesh'
+wmake splitCells
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/splitCells'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/splitCells'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced'
+wmake conversion
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion'
+wmake ansysToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ansysToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ansysToFoam'
+wmake ccm
+==> skip optional ccm conversion components (no libccm)
+wmake cfx4ToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/cfx4ToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/cfx4ToFoam'
+wmake datToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/datToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/datToFoam'
+wmake fireToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fireToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fireToFoam'
+wmake fluent3DMeshToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fluent3DMeshToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fluent3DMeshToFoam'
+wmake fluentMeshToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fluentMeshToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fluentMeshToFoam'
+wmake foamMeshToFluent
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamMeshToFluent'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamMeshToFluent'
+wmake foamToFireMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToFireMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToFireMesh'
+wmake foamToStarMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToStarMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToStarMesh'
+wmake foamToSurface
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToSurface'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToSurface'
+wmake gambitToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gambitToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gambitToFoam'
+wmake gmshToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gmshToFoam'
+wmake gmsh
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gmshToFoam'
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gmshToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gmshToFoam'
+wmake ideasUnvToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ideasUnvToFoam'
+wmake unv
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ideasUnvToFoam'
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ideasUnvToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ideasUnvToFoam'
+wmake kivaToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/kivaToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/kivaToFoam'
+wmake mshToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/mshToFoam'
+wmake testFiles
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/mshToFoam'
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/mshToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/mshToFoam'
+wmake netgenNeutralToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/netgenNeutralToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/netgenNeutralToFoam'
+wmake plot3dToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/plot3dToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/plot3dToFoam'
+wmake star4ToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/star4ToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/star4ToFoam'
+wmake tetgenToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/tetgenToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/tetgenToFoam'
+wmake vtkUnstructuredToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/vtkUnstructuredToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/vtkUnstructuredToFoam'
+wmake writeMeshObj
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/writeMeshObj'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/writeMeshObj'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion'
+wmake doc
+wmake generation
+wmake PDRblockMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/PDRblockMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/PDRblockMesh'
+wmake blockMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/blockMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/blockMesh'
+wmake extrude
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude'
+wmake extrudeMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeMesh'
+wmake extrudedMesh
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeMesh'
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeMesh'
+wmake extrudeToRegionMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeToRegionMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeToRegionMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude'
+wmake extrude2DMesh
+wmake extrude2DMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh/extrude2DMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh/extrude2DMesh'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh/extrude2DMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh/extrude2DMesh'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh'
+wmake snappyHexMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/snappyHexMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/snappyHexMesh'
+wmake conformalVoronoiMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoiMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoiMesh'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoiMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoiMesh'
+wmake conformalVoronoi2DMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoi2DMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoi2DMesh'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoi2DMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoi2DMesh'
+wmake foamyQuadMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/foamyQuadMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/foamyQuadMesh'
+wmake foamyHexMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/foamyHexMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/foamyHexMesh'
+Finish foamyMesh
+wmake manipulation
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation'
+wmake attachMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/attachMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/attachMesh'
+wmake autoPatch
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/autoPatch'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/autoPatch'
+wmake checkMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/checkMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/checkMesh'
+wmake createBaffles
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createBaffles'
+wmake faceSelection
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createBaffles'
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createBaffles'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createBaffles'
+wmake createPatch
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createPatch'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createPatch'
+wmake deformedGeom
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/deformedGeom'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/deformedGeom'
+wmake flattenMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/flattenMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/flattenMesh'
+wmake insideCells
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/insideCells'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/insideCells'
+wmake mergeMeshes
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mergeMeshes'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mergeMeshes'
+wmake mergeOrSplitBaffles
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mergeOrSplitBaffles'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mergeOrSplitBaffles'
+wmake mirrorMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mirrorMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mirrorMesh'
+wmake moveDynamicMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveDynamicMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveDynamicMesh'
+wmake moveEngineMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveEngineMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveEngineMesh'
+wmake moveMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveMesh'
+wmake objToVTK
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/objToVTK'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/objToVTK'
+wmake orientFaceZone
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/orientFaceZone'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/orientFaceZone'
+wmake polyDualMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/polyDualMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/polyDualMesh'
+wmake refineMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/refineMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/refineMesh'
+wmake renumberMesh
+    found libSloanRenumber -- enabling sloan renumbering support.
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/renumberMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/renumberMesh'
+wmake rotateMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/rotateMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/rotateMesh'
+wmake setSet
+    readline detected - enabling readline support.
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/setSet'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/setSet'
+wmake setsToZones
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/setsToZones'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/setsToZones'
+wmake singleCellMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/singleCellMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/singleCellMesh'
+wmake splitMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/splitMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/splitMesh'
+wmake splitMeshRegions
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/splitMeshRegions'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/splitMeshRegions'
+wmake stitchMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/stitchMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/stitchMesh'
+wmake subsetMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/subsetMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/subsetMesh'
+wmake topoSet
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/topoSet'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/topoSet'
+wmake transformPoints
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/transformPoints'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/transformPoints'
+wmake zipUpMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/zipUpMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/zipUpMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh'
+wmake miscellaneous
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous'
+wmake foamDictionary
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamDictionary'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamDictionary'
+wmake foamFormatConvert
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamFormatConvert'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamFormatConvert'
+wmake foamHasLibrary
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHasLibrary'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHasLibrary'
+wmake foamHelp
+wmake helpTypes
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp/helpTypes'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp/helpTypes'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp/helpTypes'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp/helpTypes'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp'
+wmake foamListRegions
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamListRegions'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamListRegions'
+wmake foamListTimes
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamListTimes'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamListTimes'
+wmake foamRestoreFields
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamRestoreFields'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamRestoreFields'
+wmake OSspecific
+wmake patchSummary
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/patchSummary'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/patchSummary'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous'
+wmake parallelProcessing
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing'
+wmake decomposePar
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/decomposePar'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/decomposePar'
+wmake reconstructPar
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/reconstructPar'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/reconstructPar'
+wmake reconstructParMesh
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/reconstructParMesh'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/reconstructParMesh'
+wmake redistributePar
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/redistributePar'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/redistributePar'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing'
+wmake postProcessing
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing'
+wmake dataConversion
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion'
+wmake foamDataToFluent
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamDataToFluent'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamDataToFluent'
+wmake foamToEnsight
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToEnsight'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToEnsight'
+wmake foamToGMV
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToGMV'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToGMV'
+wmake foamToTetDualMesh
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToTetDualMesh'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToTetDualMesh'
+wmake foamToVTK
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToVTK'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToVTK'
+wmake smapToFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/smapToFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/smapToFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion'
+wmake lagrangian
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian'
+wmake particleTracks
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian/particleTracks'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian/particleTracks'
+wmake steadyParticleTracks
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian/steadyParticleTracks'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian/steadyParticleTracks'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian'
+wmake lumped
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped'
+wmake lumpedPointForces
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointForces'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointForces'
+wmake lumpedPointMovement
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointMovement'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointMovement'
+wmake lumpedPointZones
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointZones'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointZones'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped'
+wmake miscellaneous
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous'
+wmake engineCompRatio
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/engineCompRatio'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/engineCompRatio'
+wmake pdfPlot
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/pdfPlot'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/pdfPlot'
+wmake postChannel
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/postChannel'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/postChannel'
+wmake profilingSummary
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/profilingSummary'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/profilingSummary'
+wmake temporalInterpolate
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/temporalInterpolate'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/temporalInterpolate'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous'
+wmake noise
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/noise'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/noise'
+wmake optimisation
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation'
+wmake computeSensitivities
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation/computeSensitivities'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation/computeSensitivities'
+wmake cumulativeDisplacement
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation/cumulativeDisplacement'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation/cumulativeDisplacement'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation'
+wmake postProcess
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/postProcess'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/postProcess'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing'
+wmake preProcessing
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing'
+wmake applyBoundaryLayer
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/applyBoundaryLayer'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/applyBoundaryLayer'
+wmake boxTurb
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/boxTurb'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/boxTurb'
+wmake changeDictionary
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/changeDictionary'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/changeDictionary'
+wmake createBoxTurb
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createBoxTurb'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createBoxTurb'
+wmake createExternalCoupledPatchGeometry
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createExternalCoupledPatchGeometry'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createExternalCoupledPatchGeometry'
+wmake createZeroDirectory
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createZeroDirectory'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createZeroDirectory'
+wmake dsmcInitialise
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/dsmcInitialise'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/dsmcInitialise'
+wmake engineSwirl
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/engineSwirl'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/engineSwirl'
+wmake faceAgglomerate
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/faceAgglomerate'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/faceAgglomerate'
+wmake foamUpgradeCyclics
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/foamUpgradeCyclics'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/foamUpgradeCyclics'
+wmake mapFields
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mapFields'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mapFields'
+wmake mapFieldsPar
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mapFieldsPar'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mapFieldsPar'
+wmake mdInitialise
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mdInitialise'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mdInitialise'
+wmake optimisation
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation'
+wmake writeActiveDesignVariables
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation/writeActiveDesignVariables'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation/writeActiveDesignVariables'
+wmake writeMorpherCPs
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation/writeMorpherCPs'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation/writeMorpherCPs'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation'
+wmake PDR
+wmake pdrFields
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/pdrFields'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/pdrFields'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/pdrFields'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/pdrFields'
+wmake PDRsetFields
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/PDRsetFields'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/PDRsetFields'
+wmake setAlphaField
+wmake alphaFieldFunctions
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField/alphaFieldFunctions'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField/alphaFieldFunctions'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField/alphaFieldFunctions'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField/alphaFieldFunctions'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField'
+wmake setExprBoundaryFields
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setExprBoundaryFields'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setExprBoundaryFields'
+wmake setExprFields
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setExprFields'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setExprFields'
+wmake setFields
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setFields'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setFields'
+wmake setTurbulenceFields
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setTurbulenceFields'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setTurbulenceFields'
+wmake viewFactorsGen
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/viewFactorsGen'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/viewFactorsGen'
+wmake wallFunctionTable
+wmake tabulatedWallFunction
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable/tabulatedWallFunction'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable/tabulatedWallFunction'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable/tabulatedWallFunction'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable/tabulatedWallFunction'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing'
+wmake surface
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface'
+wmake surfaceAdd
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceAdd'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceAdd'
+wmake surfaceBooleanFeatures
+wmake PolyhedronReader
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures/PolyhedronReader'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures/PolyhedronReader'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures/PolyhedronReader'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures/PolyhedronReader'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures'
+wmake surfaceCheck
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCheck'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCheck'
+wmake surfaceClean
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceClean'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceClean'
+wmake surfaceCoarsen
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCoarsen'
+wmake bunnylod
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCoarsen'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCoarsen'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCoarsen'
+wmake surfaceConvert
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceConvert'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceConvert'
+wmake surfaceFeatureConvert
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureConvert'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureConvert'
+wmake surfaceFeatureExtract
+wmake extractionMethod
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract/extractionMethod'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract/extractionMethod'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract/extractionMethod'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract/extractionMethod'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract'
+wmake surfaceFind
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFind'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFind'
+wmake surfaceHookUp
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceHookUp'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceHookUp'
+wmake surfaceInertia
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceInertia'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceInertia'
+wmake surfaceInflate
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceInflate'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceInflate'
+wmake surfaceLambdaMuSmooth
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceLambdaMuSmooth'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceLambdaMuSmooth'
+wmake surfaceMeshConvert
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshConvert'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshConvert'
+wmake surfaceMeshExport
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshExport'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshExport'
+wmake surfaceMeshExtract
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshExtract'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshExtract'
+wmake surfaceMeshImport
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshImport'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshImport'
+wmake surfaceMeshInfo
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshInfo'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshInfo'
+wmake surfaceOrient
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceOrient'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceOrient'
+wmake surfacePatch
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePatch'
+wmake searchableSurfaceModifier
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePatch'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePatch'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePatch'
+wmake surfacePointMerge
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePointMerge'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePointMerge'
+wmake surfaceRedistributePar
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceRedistributePar'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceRedistributePar'
+wmake surfaceRefineRedGreen
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceRefineRedGreen'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceRefineRedGreen'
+wmake surfaceSplitByPatch
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitByPatch'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitByPatch'
+wmake surfaceSplitByTopology
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitByTopology'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitByTopology'
+wmake surfaceSplitNonManifolds
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitNonManifolds'
+wmake test
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitNonManifolds'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitNonManifolds'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitNonManifolds'
+wmake surfaceSubset
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSubset'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSubset'
+wmake surfaceToPatch
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceToPatch'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceToPatch'
+wmake surfaceTransformPoints
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceTransformPoints'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceTransformPoints'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface'
+wmake thermophysical
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical'
+wmake adiabaticFlameT
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/adiabaticFlameT'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/adiabaticFlameT'
+wmake chemkinToFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/chemkinToFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/chemkinToFoam'
+wmake equilibriumCO
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/equilibriumCO'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/equilibriumCO'
+wmake equilibriumFlameT
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/equilibriumFlameT'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/equilibriumFlameT'
+wmake mixtureAdiabaticFlameT
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/mixtureAdiabaticFlameT'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/mixtureAdiabaticFlameT'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical'
+wmake solvers
+wmake acoustic
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/acoustic'
+wmake acousticFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/acoustic/acousticFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/acoustic/acousticFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/acoustic'
+wmake basic
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic'
+wmake laplacianFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam'
+wmake overLaplacianDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam/overLaplacianDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam/overLaplacianDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam'
+wmake potentialFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam'
+wmake overPotentialFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam/overPotentialFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam/overPotentialFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam'
+wmake scalarTransportFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/scalarTransportFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/scalarTransportFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic'
+wmake combustion
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion'
+wmake chemFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/chemFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/chemFoam'
+wmake coldEngineFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/coldEngineFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/coldEngineFoam'
+wmake fireFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/fireFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/fireFoam'
+wmake PDRFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam'
+wmake laminarFlameSpeed
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/laminarFlameSpeed'
+wmake SCOPE
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/laminarFlameSpeed'
+wmake PDRModels
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels'
+wmake dragModels
+make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/dragModels'
+wmake basic
+wmake PDRDragModel
+make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/dragModels'
+wmake turbulence
+make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/turbulence'
+wmake PDRkEpsilon
+make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/turbulence'
+wmake XiEqModels
+make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/XiEqModels'
+wmake basicXiSubXiEq
+make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/XiEqModels'
+wmake XiGModels
+make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/XiGModels'
+wmake basicXiSubG
+make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/XiGModels'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels'
+wmake XiModels
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels'
+wmake algebraic
+wmake fixed
+wmake transport
+wmake XiEqModels
+make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels/XiEqModels'
+wmake Gulder
+wmake instabilityXiEq
+wmake SCOPEBlendXiEq
+wmake SCOPEXiEq
+wmake XiEqModel
+make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels/XiEqModels'
+wmake XiGModels
+make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels/XiGModels'
+wmake instabilityG
+wmake KTS
+wmake XiGModel
+make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels/XiGModels'
+wmake XiModel
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam'
+wmake reactingFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam'
+wmake rhoReactingBuoyantFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam/rhoReactingBuoyantFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam/rhoReactingBuoyantFoam'
+wmake rhoReactingFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam/rhoReactingFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam/rhoReactingFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam'
+wmake XiFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam'
+wmake XiDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam/XiDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam/XiDyMFoam'
+wmake XiEngineFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam/XiEngineFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam/XiEngineFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion'
+wmake compressible
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible'
+wmake rhoCentralFoam
+wmake BCs
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam/BCs'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam/BCs'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam/BCs'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam/BCs'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam'
+wmake rhoPimpleAdiabaticFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleAdiabaticFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleAdiabaticFoam'
+wmake rhoPimpleFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam'
+wmake overRhoPimpleDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam/overRhoPimpleDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam/overRhoPimpleDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam'
+wmake rhoSimpleFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam'
+wmake overRhoSimpleFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam/overRhoSimpleFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam/overRhoSimpleFoam'
+wmake rhoPorousSimpleFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam/rhoPorousSimpleFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam/rhoPorousSimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam'
+wmake sonicFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam'
+wmake sonicDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam/sonicDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam/sonicDyMFoam'
+wmake sonicLiquidFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam/sonicLiquidFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam/sonicLiquidFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible'
+wmake discreteMethods
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods'
+wmake dsmc
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/dsmc'
+wmake dsmcFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/dsmc/dsmcFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/dsmc/dsmcFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/dsmc'
+wmake molecularDynamics
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics'
+wmake mdEquilibrationFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics/mdEquilibrationFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics/mdEquilibrationFoam'
+wmake mdFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics/mdFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics/mdFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods'
+wmake DNS
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/DNS'
+wmake dnsFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/DNS/dnsFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/DNS/dnsFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/DNS'
+wmake doc
+wmake electromagnetics
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics'
+wmake electrostaticFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/electrostaticFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/electrostaticFoam'
+wmake magneticFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/magneticFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/magneticFoam'
+wmake mhdFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/mhdFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/mhdFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics'
+wmake financial
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/financial'
+wmake financialFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/financial/financialFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/financial/financialFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/financial'
+wmake finiteArea
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea'
+wmake liquidFilmFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/liquidFilmFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/liquidFilmFoam'
+wmake sphereSurfactantFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/sphereSurfactantFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/sphereSurfactantFoam'
+wmake surfactantFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/surfactantFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/surfactantFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea'
+wmake heatTransfer
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer'
+wmake buoyantBoussinesqPimpleFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantBoussinesqPimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantBoussinesqPimpleFoam'
+wmake buoyantBoussinesqSimpleFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantBoussinesqSimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantBoussinesqSimpleFoam'
+wmake buoyantPimpleFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam'
+wmake overBuoyantPimpleDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam/overBuoyantPimpleDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam/overBuoyantPimpleDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam'
+wmake buoyantSimpleFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantSimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantSimpleFoam'
+wmake chtMultiRegionFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam'
+wmake chtMultiRegionSimpleFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionSimpleFoam'
+wmake fluid
+wmake solid
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionSimpleFoam'
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionSimpleFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionSimpleFoam'
+wmake chtMultiRegionTwoPhaseEulerFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam'
+wmake derivedFvPatchFields
+make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam/derivedFvPatchFields'
+wmake turbulentTemperatureTwoPhaseRadCoupledMixed
+make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam/derivedFvPatchFields'
+wmake fluid
+wmake solid
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam'
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam'
+    link: /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/chtMultiRegionTwoPhaseEulerFoam
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam'
+wmake fluid
+wmake include
+wmake solid
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam'
+wmake solidFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/solidFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/solidFoam'
+wmake thermoFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/thermoFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/thermoFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer'
+wmake incompressible
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible'
+wmake adjointOptimisationFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointOptimisationFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointOptimisationFoam'
+wmake adjointShapeOptimizationFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointShapeOptimizationFoam'
+wmake adjointOutletPressure
+wmake adjointOutletVelocity
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointShapeOptimizationFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointShapeOptimizationFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointShapeOptimizationFoam'
+wmake boundaryFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/boundaryFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/boundaryFoam'
+wmake icoFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/icoFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/icoFoam'
+wmake nonNewtonianIcoFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/nonNewtonianIcoFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/nonNewtonianIcoFoam'
+wmake pimpleFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam'
+wmake overPimpleDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam/overPimpleDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam/overPimpleDyMFoam'
+wmake SRFPimpleFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam/SRFPimpleFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam/SRFPimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam'
+wmake pisoFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pisoFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pisoFoam'
+wmake shallowWaterFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/shallowWaterFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/shallowWaterFoam'
+wmake simpleFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam'
+wmake overSimpleFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/overSimpleFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/overSimpleFoam'
+wmake porousSimpleFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/porousSimpleFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/porousSimpleFoam'
+wmake SRFSimpleFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/SRFSimpleFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/SRFSimpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible'
+wmake lagrangian
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian'
+wmake coalChemistryFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/coalChemistryFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/coalChemistryFoam'
+wmake DPMFoam
+wmake DPMTurbulenceModels
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMTurbulenceModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMTurbulenceModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMTurbulenceModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMTurbulenceModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam'
+wmake MPPICFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/MPPICFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/MPPICFoam'
+wmake DPMDyMFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMDyMFoam'
+wmake DPMDyMFoam/MPPICDyMFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMDyMFoam/MPPICDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMDyMFoam/MPPICDyMFoam'
+wmake icoUncoupledKinematicParcelFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam'
+wmake icoUncoupledKinematicParcelDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam/icoUncoupledKinematicParcelDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam/icoUncoupledKinematicParcelDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam'
+wmake kinematicParcelFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/kinematicParcelFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/kinematicParcelFoam'
+wmake reactingParcelFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam'
+wmake reactingHeterogenousParcelFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam/reactingHeterogenousParcelFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam/reactingHeterogenousParcelFoam'
+wmake simpleReactingParcelFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam/simpleReactingParcelFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam/simpleReactingParcelFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam'
+wmake simpleCoalParcelFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/simpleCoalParcelFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/simpleCoalParcelFoam'
+wmake sprayFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam'
+wmake engineFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/engineFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/engineFoam'
+wmake simpleSprayFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/simpleSprayFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/simpleSprayFoam'
+wmake sprayDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/sprayDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/sprayDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam'
+wmake uncoupledKinematicParcelFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam'
+wmake uncoupledKinematicParcelDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam/uncoupledKinematicParcelDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam/uncoupledKinematicParcelDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian'
+wmake multiphase
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase'
+wmake cavitatingFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam'
+wmake cavitatingDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam/cavitatingDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam/cavitatingDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam'
+wmake compressibleInterFoam
+wmake twoPhaseMixtureThermo
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/twoPhaseMixtureThermo'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/twoPhaseMixtureThermo'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/twoPhaseMixtureThermo'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/twoPhaseMixtureThermo'
+wmake surfaceTensionModels
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/surfaceTensionModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/surfaceTensionModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/surfaceTensionModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/surfaceTensionModels'
+wmake VoFphaseCompressibleTurbulenceModels
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/VoFphaseCompressibleTurbulenceModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/VoFphaseCompressibleTurbulenceModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/VoFphaseCompressibleTurbulenceModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/VoFphaseCompressibleTurbulenceModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam'
+wmake compressibleInterDyMFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterDyMFoam'
+wmake compressibleInterFilmFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterFilmFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterFilmFoam'
+wmake compressibleInterIsoFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterIsoFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterIsoFoam'
+wmake overCompressibleInterDyMFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/overCompressibleInterDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/overCompressibleInterDyMFoam'
+wmake compressibleMultiphaseInterFoam
+wmake multiphaseMixtureThermo
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam/multiphaseMixtureThermo'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam/multiphaseMixtureThermo'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam/multiphaseMixtureThermo'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam/multiphaseMixtureThermo'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam'
+wmake driftFluxFoam
+wmake mixtureViscosityModels
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/mixtureViscosityModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/mixtureViscosityModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/mixtureViscosityModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/mixtureViscosityModels'
+wmake relativeVelocityModels
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/relativeVelocityModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/relativeVelocityModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/relativeVelocityModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/relativeVelocityModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam'
+wmake icoReactingMultiphaseInterFoam
+wmake laserDTRM
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam/laserDTRM'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam/laserDTRM'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam/laserDTRM'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam/laserDTRM'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam'
+wmake interCondensatingEvaporatingFoam
+wmake temperaturePhaseChangeTwoPhaseMixtures
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam/temperaturePhaseChangeTwoPhaseMixtures'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam/temperaturePhaseChangeTwoPhaseMixtures'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam/temperaturePhaseChangeTwoPhaseMixtures'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam/temperaturePhaseChangeTwoPhaseMixtures'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam'
+wmake interFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam'
+wmake interMixingFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/interMixingFoam'
+wmake immiscibleIncompressibleThreePhaseMixture
+wmake incompressibleThreePhaseMixture
+wmake threePhaseInterfaceProperties
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/interMixingFoam'
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/interMixingFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/interMixingFoam'
+wmake overInterDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/overInterDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/overInterDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam'
+wmake interIsoFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interIsoFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interIsoFoam'
+wmake interPhaseChangeFoam
+wmake phaseChangeTwoPhaseMixtures
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/phaseChangeTwoPhaseMixtures'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/phaseChangeTwoPhaseMixtures'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/phaseChangeTwoPhaseMixtures'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/phaseChangeTwoPhaseMixtures'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam'
+wmake interPhaseChangeDyMFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/interPhaseChangeDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/interPhaseChangeDyMFoam'
+wmake overInterPhaseChangeDyMFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/overInterPhaseChangeDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/overInterPhaseChangeDyMFoam'
+wmake MPPICInterFoam
+wmake compressibleTwoPhaseMixtureTurbulenceModels
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam/compressibleTwoPhaseMixtureTurbulenceModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam/compressibleTwoPhaseMixtureTurbulenceModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam/compressibleTwoPhaseMixtureTurbulenceModels'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam/compressibleTwoPhaseMixtureTurbulenceModels'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam'
+wmake multiphaseEulerFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseEulerFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseEulerFoam'
+wmake multiphaseInterFoam
+wmake multiphaseMixture
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam/multiphaseMixture'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam/multiphaseMixture'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam/multiphaseMixture'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam/multiphaseMixture'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam'
+wmake potentialFreeSurfaceFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam'
+wmake potentialFreeSurfaceDyMFoam
+make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam/potentialFreeSurfaceDyMFoam'
+make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam/potentialFreeSurfaceDyMFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam'
+wmake reactingMultiphaseEulerFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingMultiphaseEulerFoam'
+wmake pU
+wmake pUf
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingMultiphaseEulerFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingMultiphaseEulerFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingMultiphaseEulerFoam'
+wmake reactingTwoPhaseEulerFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingTwoPhaseEulerFoam'
+wmake pU
+wmake pUf
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingTwoPhaseEulerFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingTwoPhaseEulerFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingTwoPhaseEulerFoam'
+wmake twoLiquidMixingFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoLiquidMixingFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoLiquidMixingFoam'
+wmake twoPhaseEulerFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoPhaseEulerFoam'
+wmake pU
+wmake pUf
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoPhaseEulerFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoPhaseEulerFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoPhaseEulerFoam'
+wmake VoF
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase'
+wmake stressAnalysis
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis'
+wmake solidDisplacementFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidDisplacementFoam'
+wmake tractionDisplacement
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidDisplacementFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidDisplacementFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidDisplacementFoam'
+wmake solidEquilibriumDisplacementFoam
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidEquilibriumDisplacementFoam'
+wmake tractionDisplacementCorrection
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidEquilibriumDisplacementFoam'
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidEquilibriumDisplacementFoam'
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidEquilibriumDisplacementFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis'
+========================================
+Done OpenFOAM applications
+========================================
+========================================
+prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
+
+    ignoring possible compilation errors
+    make certain to check the output file
+
+wmake libso 
+========================================
+2023-03-31 04:06:12 -0400
+Starting compile of adiosFoam with OpenFOAM-v2206 
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
+
+wmake libso (adiosFoam)
+wmake libso (adiosWrite)
+
+2023-03-31 04:06:13 -0400
+========================================
+  Finished compile of adiosFoam with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+
+wmake libso 
+========================================
+2023-03-31 04:06:13 -0400
+Starting compile of avalanche with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
+
+wmake libso avalanche
+wmake libso solvers
+wmake libso faParkerFukushimaFoam
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/solvers/faParkerFukushimaFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/solvers/faParkerFukushimaFoam'
+wmake libso faSavageHutterFoam
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/solvers/faSavageHutterFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/solvers/faSavageHutterFoam'
+wmake libso utilities
+wmake libso gridToSTL
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/gridToSTL'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/gridToSTL'
+wmake libso releaseAreaMapping
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/releaseAreaMapping'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/releaseAreaMapping'
+wmake libso slopeMesh
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh'
+wmake libso elevationModels
+make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh/elevationModels'
+wmake libso elevationModel
+wmake libso simpleSlope
+make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh/elevationModels'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh'
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh'
+
+2023-03-31 04:06:13 -0400
+========================================
+  Finished compile of avalanche with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+
+wmake libso 
+========================================
+2023-03-31 04:06:13 -0400
+Starting compile of cfmesh with OpenFOAM-v2206 
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
+
+wmake libso meshLibrary
+wmake executables
+wmake cartesian2DMesh
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/cartesian2DMesh'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/cartesian2DMesh'
+wmake cartesianMesh
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/cartesianMesh'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/cartesianMesh'
+wmake pMesh
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/pMesh'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/pMesh'
+wmake tetMesh
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/tetMesh'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/tetMesh'
+wmake utilities
+wmake checkSurfaceMesh
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/checkSurfaceMesh'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/checkSurfaceMesh'
+wmake copySurfaceParts
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/copySurfaceParts'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/copySurfaceParts'
+wmake extrudeEdgesInto2DSurface
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/extrudeEdgesInto2DSurface'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/extrudeEdgesInto2DSurface'
+wmake FLMAToSurface
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FLMAToSurface'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FLMAToSurface'
+wmake FMSToSurface
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FMSToSurface'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FMSToSurface'
+wmake FMSToVTK
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FMSToVTK'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FMSToVTK'
+wmake generateBoundaryLayers
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/generateBoundaryLayers'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/generateBoundaryLayers'
+wmake importSurfaceAsSubset
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/importSurfaceAsSubset'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/importSurfaceAsSubset'
+wmake improveMeshQuality
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/improveMeshQuality'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/improveMeshQuality'
+wmake improveSymmetryPlanes
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/improveSymmetryPlanes'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/improveSymmetryPlanes'
+wmake mergeSurfacePatches
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/mergeSurfacePatches'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/mergeSurfacePatches'
+wmake meshToFPMA
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/meshToFPMA'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/meshToFPMA'
+wmake patchesToSubsets
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/patchesToSubsets'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/patchesToSubsets'
+wmake preparePar
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/preparePar'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/preparePar'
+wmake removeSurfaceFacets
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/removeSurfaceFacets'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/removeSurfaceFacets'
+wmake scaleMesh
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/scaleMesh'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/scaleMesh'
+wmake scaleSurfaceMesh
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/scaleSurfaceMesh'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/scaleSurfaceMesh'
+wmake subsetToPatch
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/subsetToPatch'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/subsetToPatch'
+wmake surfaceFeatureEdges
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceFeatureEdges'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceFeatureEdges'
+wmake surfaceGenerateBoundingBox
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceGenerateBoundingBox'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceGenerateBoundingBox'
+wmake surfaceToFMS
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceToFMS'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceToFMS'
+
+2023-03-31 04:06:16 -0400
+========================================
+  Finished compile of cfmesh with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+
+wmake libso 
+========================================
+2023-03-31 04:06:16 -0400
+Starting compile of external-solver (petsc) with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
+
+==> skip petsc (no header)
+
+2023-03-31 04:06:16 -0400
+========================================
+  Finished compile of external-solver (petsc) with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+
+wmake libso 
+========================================
+2023-03-31 04:06:16 -0400
+Starting compile of OpenQBMM with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
+
+========================================
+Compile OpenQBMM libraries
+
+wmake libso Vandermonde
+wmake libso quadratureMethods/momentSets
+wmake libso quadratureMethods/momentInversion
+wmake libso quadratureMethods/hermiteQuadrature
+wmake libso quadratureMethods/quadratureNode
+wmake libso quadratureMethods/fieldMomentInversion
+wmake libso quadratureMethods/quadratureApproximations
+wmake libso quadratureMethods/momentAdvection
+wmake libso quadratureMethods/PDFTransportModels
+wmake libso quadratureMethods/mixingModels
+wmake libso quadratureMethods/populationBalanceModels
+========================================
+Compile OpenQBMM applications
+
+wmake libso utilities
+wmake libso computeMoments
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/computeMoments'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/computeMoments'
+wmake libso errorEstimator
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/errorEstimator'
+wmake libso lnInclude
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/errorEstimator'
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/errorEstimator'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/errorEstimator'
+wmake libso generateMoments
+wmake libso momentGenerationModels
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/generateMoments/momentGenerationModels'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/generateMoments/momentGenerationModels'
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/generateMoments'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/generateMoments'
+wmake libso phaseMeanVelocityForce
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/phaseMeanVelocityForce'
+wmake libso lnInclude
+wmake libso phaseCompressibleMeanVelocityForce
+wmake libso phaseIncompressibleMeanVelocityForce
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/phaseMeanVelocityForce'
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/phaseMeanVelocityForce'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/phaseMeanVelocityForce'
+wmake libso reconstructPointDistribution
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/reconstructPointDistribution'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/reconstructPointDistribution'
+wmake populationBalance
+wmake buoyantPbePimpleFoam
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/buoyantPbePimpleFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/buoyantPbePimpleFoam'
+wmake pbeFoam
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/pbeFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/pbeFoam'
+wmake pbeTransportFoam
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/pbeTransportFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/pbeTransportFoam'
+wmake mixing
+wmake mixingTransportFoam
+make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/mixing/mixingTransportFoam'
+make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/mixing/mixingTransportFoam'
+wmake libso ButcherTable
+wmake explicitRhoFoam
+wmake compressibleSystem
+wmake compressiblePbeTransportFoam
+wmake velocityDistributionTransport
+wmake phaseModel
+wmake interfacialModels
+wmake phaseCompressibleTurbulenceModels
+wmake vdfTransportFoam
+wmake oneWayCoupledVdfTransportFoam
+wmake diluteVdfTransportFoam
+wmake multiphase
+wmake twoPhaseSystem
+wmake interfacialModels
+wmake phaseCompressibleTurbulenceModels
+wmake polydisperseBubbleFoam
+wmake denseAGFoam
+
+2023-03-31 04:06:20 -0400
+========================================
+  Finished compile of OpenQBMM with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+
+wmake libso 
+========================================
+2023-03-31 04:06:20 -0400
+Starting compile of visualization with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
+
+======================================================================
+catalyst : /home/bw0594/3DLMM/OpenFOAM-v2206/modules/visualization/src/catalyst
+
+WARNING: skip ParaView Catalyst (missing or incorrrect ParaView)
+======================================================================
+==> skip paraview-plugin (no paraview found?)
+======================================================================
+runTimePostProcessing : /home/bw0594/3DLMM/OpenFOAM-v2206/modules/visualization/src/runTimePostProcessing
+WARNING: skip runTimePostProcessing (no VTK or ParaView)
+    - ParaView  : export the 'ParaView_DIR' variable
+    - VTK       : export the 'VTK_DIR'      variable
+==> dummy runTimePostProcessing
+wmake dummy
+======================================================================
+
+2023-03-31 04:06:21 -0400
+========================================
+Finished compile of visualization with OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+
+
+2023-03-31 04:06:21 -0400
+========================================
+  OpenFOAM-v2206
+  Gcc system compiler
+  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
+
+  api   = 2206
+  patch = 0
+  bin   = 313 entries
+  lib   = 154 entries
+
+========================================

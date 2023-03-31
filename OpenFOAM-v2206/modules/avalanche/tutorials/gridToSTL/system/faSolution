@@ -1,0 +1,56 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      faSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    hentrain
+    {
+        solver           PBiCGStab;
+        preconditioner   DILU;
+        tolerance        1e-10;
+        relTol           0.01;
+    }
+
+    Us
+    {
+        solver           PBiCGStab;
+        preconditioner   DILU;
+        tolerance        1e-10;
+        relTol           0.01;
+    }
+
+    h
+    {
+        solver           PBiCGStab;
+        preconditioner   DILU;
+        tolerance        1e-10;
+        relTol           0.01;
+    }
+ 
+}
+
+nOuterCorrectors 15;
+minCorrectors 2;
+hResidualMax 1e-4;
+UsResidualMax 1e-4;
+
+relaxationFactors
+{
+    h 0.9;
+    Us 0.6;
+}
+
+// ************************************************************************* //

@@ -655,7 +655,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/UniformDimensionedField.C \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/regionProperties.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/polyMeshTools.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/primitiveMeshTools.H \
-$(WM_PROJECT_DIR)/src/renumber/zoltanRenumber/lnInclude/zoltanRenumber.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addAllRegionOptions.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addOverwriteOption.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addTimeOptions.H \

@@ -1,0 +1,99 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+pressureFeedback    off;
+
+explicitDryAreas    on;
+
+xi                  xi     [ 0 0 0 0 0 0 0]     1;
+
+hmin                hmin   [ 0 1 0 0 0 0 0]     0; 
+
+rho                 rho    [ 1 -3  0 0 0 0 0 ]  1500.;
+
+u0                  u0     [ 0 1 -1 0 0 0 0]    1e-4;
+
+h0                  h0     [ 0 1 0 0 0 0 0]     1e-6;
+
+frictionModel       MuI;
+// frictionModel       DarcyWeisbach;
+// frictionModel       ManningStrickler;
+// frictionModel       PoliquenForterre;
+// frictionModel       Voellmy;
+// frictionModel       kt;
+
+entrainmentModel    entrainmentOff;
+
+depositionModel     depositionOff;
+
+MuICoeffs
+{
+    d               d     [ 0 1 0 0 0 0 0]      0.005;
+
+    rho_p           rho_p [ 1 -3  0 0 0 0 0 ]   2500.;
+
+    mu_s            mu_s  [0 0 0 0 0 0 0 ]      0.38;
+
+    mu_2            mu_2  [0 0 0 0 0 0 0 ]      0.65;
+
+    I_0             I_0   [0 0 0 0 0 0 0 ]      0.30;
+}
+
+// DarcyWeisbachCoeffs
+// {
+//     Cf              Cf    [ 0 -1 2 0 0 0 0]     0.1;
+
+//     g               g     [ 0 1 -2 0 0 0 0]     9.81;
+// }
+
+// ManningStricklerCoeffs
+// {
+//     n               n     [ 0 -.333333333333333 1 0 0 0 0]      0.05;
+
+//     g               g     [ 0 1 -2 0 0 0 0]     9.81;
+// }
+
+
+// PoliquenForterreCoeffs
+// {
+//     L               L     [ 0 1 0 0 0 0 0]      0.010;
+
+//     beta            beta  [ 0 0 0 0 0 0 0]      0.136;
+
+//     zeta1           zeta1 [ 0 0 0 0 0 0 0]      21;
+
+//     zeta2           zeta2 [ 0 0 0 0 0 0 0]      30.7;
+
+//     zeta3           zeta3 [ 0 0 0 0 0 0 0]      22.2;
+
+//     gamma           gamma [ 0 0 0 0 0 0 0]      0.001;
+// }
+
+// VoellmyCoeffs
+// {
+//     mu              mu    [0 0 0 0 0 0 0 ]      0.38;
+
+//     xi              xi    [0 1 -2 0 0 0 0 ]     5000;
+// }
+
+// ktCoeffs
+// {
+//     mu              mu    [0 0 0 0 0 0 0 ]      0.38;
+
+//     chi             chi   [0 -1 -2 0 0 0 0 ]    100000;
+// }
+
+// ************************************************************************* //

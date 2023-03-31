@@ -1,5 +1,5 @@
 CMakeFiles/interface_test.dir/misc/example_library_call/interface_test.cpp.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/misc/example_library_call/interface_test.cpp \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/misc/example_library_call/interface_test.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/8/iostream \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
@@ -112,4 +112,4 @@ CMakeFiles/interface_test.dir/misc/example_library_call/interface_test.cpp.o: \
  /usr/include/c++/8/bits/ostream.tcc /usr/include/c++/8/istream \
  /usr/include/c++/8/bits/istream.tcc /usr/include/c++/8/sstream \
  /usr/include/c++/8/bits/sstream.tcc \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/interface/kaHIP_interface.h
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/interface/kaHIP_interface.h

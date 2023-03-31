@@ -28,7 +28,7 @@
 /* #undef DF_SHM_FOUND */
 
 /* Place where evpath transport modules are installed */
-#define EVPATH_MODULE_INSTALL_DIR "/home/bw0594/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/ADIOS2-2.7.1/lib64"
+#define EVPATH_MODULE_INSTALL_DIR "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/ADIOS2-2.7.1/lib64"
 
 /* Place where evpath tests are to be installed */
 /* #undef EVPATH_TEST_INSTALL_DIR */

@@ -847,6 +847,6 @@ $(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/LESModel.C \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/compressible/lnInclude/turbulentFluidThermoModel.C \
 lnInclude/phasePairKey.H \
 lnInclude/phasePairI.H \
-../interfacialModels/lnInclude/aspectRatioModel.H \
+../interfacialModels/aspectRatioModels/aspectRatioModel/aspectRatioModel.H \
 
 #END

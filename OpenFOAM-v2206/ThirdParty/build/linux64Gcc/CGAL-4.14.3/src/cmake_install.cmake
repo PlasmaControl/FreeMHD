@@ -1,8 +1,8 @@
-# Install script for directory: /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/cgal/CGAL-4.14.3/src
+# Install script for directory: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/cgal/CGAL-4.14.3/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/bw0594/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/CGAL-4.14.3")
+  set(CMAKE_INSTALL_PREFIX "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/CGAL-4.14.3")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3/src/CGAL/cmake_install.cmake")
+  include("/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/CGAL-4.14.3/src/CGAL/cmake_install.cmake")
 
 endif()
 

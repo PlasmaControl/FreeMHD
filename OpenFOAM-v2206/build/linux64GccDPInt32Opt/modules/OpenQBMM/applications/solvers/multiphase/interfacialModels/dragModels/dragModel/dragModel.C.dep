@@ -603,6 +603,7 @@ $(WM_PROJECT_DIR)/src/thermophysicalModels/basic/lnInclude/basicThermoTemplates.
 $(WM_PROJECT_DIR)/src/transportModels/compressible/lnInclude/compressibleTransportModel.H \
 ../twoPhaseSystem/lnInclude/phasePairKey.H \
 ../twoPhaseSystem/lnInclude/phasePairI.H \
+lnInclude/swarmCorrection.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcFlux.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcFluxTemplates.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/convectionScheme.H \

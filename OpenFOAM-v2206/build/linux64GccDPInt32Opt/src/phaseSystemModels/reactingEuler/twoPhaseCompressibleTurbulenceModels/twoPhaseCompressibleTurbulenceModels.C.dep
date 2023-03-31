@@ -642,7 +642,7 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/extrapolatedCalculatedFvPatchField.
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcAverage.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcAverage.C \
 ../multiphaseSystem/lnInclude/linear.H \
-../multiphaseSystem/lnInclude/blendingMethod.H \
+../multiphaseSystem/lnInclude/partitioningModel.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcReconstruct.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcReconstruct.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcDdt.H \
@@ -892,6 +892,7 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/MRFZoneListTemplates.C \
 ../multiphaseSystem/lnInclude/phaseSystemI.H \
 ../multiphaseSystem/lnInclude/phaseSystemTemplates.C \
 ../multiphaseSystem/lnInclude/BlendedInterfacialModel.H \
+../multiphaseSystem/lnInclude/blendingMethod.H \
 ../multiphaseSystem/lnInclude/BlendedInterfacialModel.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchField.H \

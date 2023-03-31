@@ -1,0 +1,18 @@
+// -*- C++ -*-
+// Use autoAreaToVolumeMapping function object
+
+autoAreaToVolumeMapping
+{
+    type    autoAreaToVolumeMapping;
+    libs    (faAvalanche);
+
+    fields  (".*");
+
+    writeOption autoWrite;
+    //writeOption noWrite;
+    //writeOption anyWrite;
+
+    prefix  "fa_";
+}
+
+// ************************************************************************* //

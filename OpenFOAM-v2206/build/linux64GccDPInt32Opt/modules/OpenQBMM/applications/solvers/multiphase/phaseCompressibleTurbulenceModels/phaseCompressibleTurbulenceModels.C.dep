@@ -616,6 +616,7 @@ $(WM_PROJECT_DIR)/src/transportModels/compressible/lnInclude/compressibleTranspo
 ../twoPhaseSystem/lnInclude/phasePairKey.H \
 ../twoPhaseSystem/lnInclude/phasePairI.H \
 ../twoPhaseSystem/lnInclude/orderedPhasePair.H \
+../interfacialModels/lnInclude/dragModel.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvMatrix.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduMatrix.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/profilingTrigger.H \
@@ -773,6 +774,7 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceInterpolate.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceInterpolationScheme.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceInterpolationScheme.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceInterpolate.C \
+../interfacialModels/lnInclude/virtualMassModel.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addToRunTimeSelectionTable.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/compressible/lnInclude/makeTurbulenceModel.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/compressible/lnInclude/EddyDiffusivity.H \

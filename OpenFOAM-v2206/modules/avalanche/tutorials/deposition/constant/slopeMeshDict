@@ -1,0 +1,38 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      demMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+minX 0.;
+maxX 30.;
+
+minY -5.;
+maxY  5.;
+
+h 1.;
+
+cellCountX 300;
+cellCountY 100;
+
+elevationModel   SimpleSlope;
+
+SimpleSlopeCoeffs
+{
+    alpha 35.;
+    alpha2 10.;
+    a 17.5;
+    b 21.5;
+}
+
+// ************************************************************************* //

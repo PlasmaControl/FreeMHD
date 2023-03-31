@@ -740,6 +740,7 @@ $(WM_PROJECT_DIR)/src/thermophysicalModels/basic/lnInclude/basicThermo.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/wordIOList.H \
 $(WM_PROJECT_DIR)/src/thermophysicalModels/basic/lnInclude/basicThermoTemplates.C \
 $(WM_PROJECT_DIR)/src/transportModels/compressible/lnInclude/compressibleTransportModel.H \
+../interfacialModels/lnInclude/dragModel.H \
 lnInclude/frictionalStressModel.H \
 lnInclude/radialModel.H \
 lnInclude/AGmomentTransportModel.H \
@@ -838,6 +839,7 @@ $(WM_PROJECT_DIR)/src/TurbulenceModels/phaseCompressible/lnInclude/PhaseCompress
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchField.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchField.C \
+../interfacialModels/lnInclude/virtualMassModel.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvm.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvmDdt.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvmDdt.C \

@@ -1,7 +1,7 @@
 CMakeFiles/libspac.dir/lib/spac/spac.cpp.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/spac/spac.cpp \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/spac/spac.cpp \
  /usr/include/stdc-predef.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/spac/spac.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/spac/spac.h \
  /usr/include/c++/8/vector /usr/include/c++/8/bits/stl_algobase.h \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
@@ -42,7 +42,7 @@ CMakeFiles/libspac.dir/lib/spac/spac.cpp.o: \
  /usr/include/c++/8/bits/functional_hash.h \
  /usr/include/c++/8/bits/range_access.h \
  /usr/include/c++/8/bits/vector.tcc \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/data_structure/graph_access.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/data_structure/graph_access.h \
  /usr/include/c++/8/bitset /usr/include/c++/8/string \
  /usr/include/c++/8/bits/stringfwd.h \
  /usr/include/c++/8/bits/char_traits.h /usr/include/c++/8/bits/postypes.h \
@@ -121,7 +121,7 @@ CMakeFiles/libspac.dir/lib/spac/spac.cpp.o: \
  /usr/include/c++/8/bits/basic_ios.tcc \
  /usr/include/c++/8/bits/ostream.tcc /usr/include/c++/8/istream \
  /usr/include/c++/8/bits/istream.tcc \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/definitions.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/definitions.h \
  /usr/include/c++/8/limits /usr/include/c++/8/queue \
  /usr/include/c++/8/deque /usr/include/c++/8/bits/stl_deque.h \
  /usr/include/c++/8/bits/deque.tcc /usr/include/c++/8/bits/stl_heap.h \
@@ -133,7 +133,7 @@ CMakeFiles/libspac.dir/lib/spac/spac.cpp.o: \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
  /usr/include/bits/uio_lim.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/tools/macros_assertions.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/tools/macros_assertions.h \
  /usr/include/c++/8/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -141,4 +141,4 @@ CMakeFiles/libspac.dir/lib/spac/spac.cpp.o: \
  /usr/include/bits/mathcalls-helper-functions.h \
  /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
  /usr/include/bits/iscanonical.h /usr/include/bits/mathinline.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/tools/macros_common.h
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/lib/tools/macros_common.h

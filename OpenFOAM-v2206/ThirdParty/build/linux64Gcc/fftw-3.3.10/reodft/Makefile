@@ -14,7 +14,7 @@
 
 
 
-VPATH = /home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/reodft
+VPATH = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/reodft
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
     false; \
@@ -229,26 +229,26 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} '/home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' aclocal-1.16
+ACLOCAL = ${SHELL} '/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' aclocal-1.16
 ALLOCA = 
 ALTIVEC_CFLAGS = 
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
 AS = as
-AUTOCONF = ${SHELL} '/home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' autoconf
-AUTOHEADER = ${SHELL} '/home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' autoheader
-AUTOMAKE = ${SHELL} '/home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' automake-1.16
+AUTOCONF = ${SHELL} '/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' autoconf
+AUTOHEADER = ${SHELL} '/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' autoheader
+AUTOMAKE = ${SHELL} '/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' automake-1.16
 AVX2_CFLAGS = 
 AVX512_CFLAGS = 
 AVX_128_FMA_CFLAGS = 
 AVX_CFLAGS = 
 AWK = gawk
-CC = gcc -std=gnu99
+CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -m64 -DOPENFOAM=2206 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -O3 -fPIC
 CHECK_PL_OPTS = 
-CPP = gcc -std=gnu99 -E
+CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
 C_FFTW_R2R_KIND = C_INT32_T
@@ -264,7 +264,7 @@ ECHO_T =
 EGREP = /usr/bin/grep -E
 EXEEXT = 
 F77 = 
-FFLAGS = -I/usr/local/scotch/openmpi-4.1.0/6.0.9/include
+FFLAGS = 
 FGREP = /usr/bin/grep -F
 FLIBS = 
 GREP = /usr/bin/grep
@@ -286,7 +286,7 @@ LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
 MAINT = #
-MAKEINFO = ${SHELL} '/home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' makeinfo
+MAKEINFO = ${SHELL} '/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/missing' makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 MPICC = 
@@ -326,10 +326,10 @@ STRIP = strip
 THREADLIBS = 
 VERSION = 3.3.10
 VSX_CFLAGS = 
-abs_builddir = /home/fcastro/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/fftw-3.3.10/reodft
-abs_srcdir = /home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/reodft
-abs_top_builddir = /home/fcastro/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/fftw-3.3.10
-abs_top_srcdir = /home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10
+abs_builddir = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/fftw-3.3.10/reodft
+abs_srcdir = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/reodft
+abs_top_builddir = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/fftw-3.3.10
+abs_top_srcdir = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -360,7 +360,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/install-sh
+install_sh = ${SHELL} /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -369,18 +369,18 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /home/fcastro/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10
+prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = /home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/reodft
+srcdir = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10/reodft
 sysconfdir = ${prefix}/etc
 target_alias = 
 top_build_prefix = ../
 top_builddir = ..
-top_srcdir = /home/fcastro/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10
+top_srcdir = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/fftw/fftw-3.3.10
 AM_CPPFLAGS = -I $(top_srcdir)
 SUBDIRS = 
 noinst_LTLIBRARIES = libreodft.la

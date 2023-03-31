@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/fcastro/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/lib'
+libdir='/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/lib'

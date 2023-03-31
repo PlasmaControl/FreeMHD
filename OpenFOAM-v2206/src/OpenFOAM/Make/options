@@ -1,0 +1,20 @@
+EXE_INC = \
+    -I$(OBJECTS_DIR)
+
+LIB_LIBS = \
+    $(FOAM_LIBBIN)/libOSspecific.o
+
+ifeq (libo,$(FOAM_LINK_DUMMY_PSTREAM))
+    LIB_LIBS += $(FOAM_LIBBIN)/dummy/libPstream.o
+else
+    LIB_LIBS += -L$(FOAM_LIBBIN)/dummy -lPstream
+endif
+
+/* libz */
+EXE_INC += -DHAVE_LIBZ
+
+LIB_LIBS += -lz
+
+
+/* Project lib dependencies. Never self-link (WM_PROJECT == OpenFOAM) */
+PROJECT_LIBS =

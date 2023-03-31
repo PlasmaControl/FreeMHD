@@ -61,7 +61,7 @@ function prefixify() {
 PREFIX="${DESTDIR}$1"
 shift
 CMAKE="/usr/bin/cmake"
-SOURCE_DIR="/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/cmake/install/post/adios2-config-dummy"
+SOURCE_DIR="/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/cmake/install/post/adios2-config-dummy"
 BUILD_DIR=$(mktemp -d)
 pushd ${BUILD_DIR}
 
@@ -172,9 +172,9 @@ fi
 
 echo "Writing ${BINDIR}/adios2-config"
 cat \
-  "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/cmake/install/post/adios2-config.pre.sh" \
+  "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/cmake/install/post/adios2-config.pre.sh" \
   adios2.flags \
-  "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/cmake/install/post/adios2-config.post.sh" > "${BINDIR}/adios2-config"
+  "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/cmake/install/post/adios2-config.post.sh" > "${BINDIR}/adios2-config"
 chmod +x "${BINDIR}/adios2-config"
 popd 
 rm -rf ${BUILD_DIR}

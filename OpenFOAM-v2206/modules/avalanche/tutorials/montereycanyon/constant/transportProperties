@@ -1,0 +1,81 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+explicitDryAreas off;
+
+hmin    hmin    [ 0 1 0 0 0 0 0] 1e-5;  //binding the hight
+
+cmin    cmin    [ 0 0 0 0 0 0 0] 1e-10;  //binding the concentration
+
+h0      h0      [ 0 1 0 0 0 0 0] 1e-6;  //hight threshold for artificial viscosity 1e-4 to 1e-9
+
+u0      u0      [0 1 -1 0 0 0 0] 1e-6;  //tolerance for velocity (e.g. smoothing jumps)
+
+nu      nu      [0 2 -1 0 0 0 0] 1e-6;
+
+hwem    hwem    [ 0 1 0 0 0 0 0] 1000;
+
+hentmin hentmin [ 0 1 0 0 0 0 0] 0.1;
+
+R       R       [ 0 0 0 0 0 0 0] 1.65;
+
+Ds      Ds      [ 0 1 0 0 0 0 0] 0.00005;
+
+suspensionFrictionModel turbulentSuspension;
+
+suspensionFrictionModel laminarSuspension;
+
+laminarSuspensionCoeffs
+{
+    cd      cd      [0 0 0 0 0 0 0] 0.0006;
+}
+
+turbulentSuspensionCoeffs
+{
+    cd      cd      [0 0 0 0 0 0 0] 0.01;
+
+    alpha   alpha   [0 0 0 0 0 0 0] 0.1;
+
+    //beta    beta    [0 0 0 0 0 0 0] 0.7;
+
+    R       R       [ 0 0 0 0 0 0 0] 1.65;
+
+    Ds      Ds      [ 0 1 0 0 0 0 0] 0.00005;
+
+
+    kmin    kmin    [0 2 -2 0 0 0 0] 1e-7;
+
+    nu      nu      [0 2 -1 0 0 0 0] 1e-6;
+}
+
+suspensionEntrainmentModel ParkerFukushimaEntrainment;
+
+ParkerFukushimaEntrainmentCoeffs
+{
+    R       R       [ 0 0 0 0 0 0 0] 1.65;
+
+    Ds      Ds      [ 0 1 0 0 0 0 0] 0.00005;
+
+    Zc      Zc      [ 0 0 0 0 0 0 0] 0.5;
+
+    Zm      Zm      [ 0 0 0 0 0 0 0] 13.2;
+
+    nu      nu      [0 2 -1 0 0 0 0] 1e-6;
+}
+
+
+// ************************************************************************* //

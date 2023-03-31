@@ -1,7 +1,7 @@
 thirdparty/ffs/ffs/CMakeFiles/ffs.dir/fm/fm_formats.c.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/fm_formats.c \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/fm_formats.c \
  /usr/include/stdc-predef.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/config.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/config.h \
  /usr/include/unistd.h /usr/include/features.h /usr/include/sys/cdefs.h \
  /usr/include/bits/wordsize.h /usr/include/bits/long-double.h \
  /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
@@ -51,5 +51,5 @@ thirdparty/ffs/ffs/CMakeFiles/ffs.dir/fm/fm_formats.c.o: \
  /usr/include/limits.h /usr/include/bits/posix1_lim.h \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/posix2_lim.h /usr/include/assert.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/fm.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/fm_internal.h
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/fm.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/fm_internal.h

@@ -1,5 +1,5 @@
 CMakeFiles/graphchecker.dir/app/graphchecker.cpp.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/app/graphchecker.cpp \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/app/graphchecker.cpp \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/bits/libc-header-start.h /usr/include/features.h \
  /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \

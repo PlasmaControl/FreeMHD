@@ -1,0 +1,30 @@
+#!/bin/sh
+#------------------------------------------------------------------------------
+# =========                 |
+# \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+#  \\    /   O peration     |
+#   \\  /    A nd           | www.openfoam.com
+#    \\/     M anipulation  |
+#------------------------------------------------------------------------------
+#     Copyright (C) 2011 OpenFOAM Foundation
+#------------------------------------------------------------------------------
+# License
+#     This file is part of OpenFOAM, distributed under GPL-3.0-or-later.
+#
+# Script
+#     makeTargetDir
+#
+# Description
+#     Makes a directory hierarchy for the given target file
+#
+#     Usage: makeTargetDir <file>
+#
+#------------------------------------------------------------------------------
+
+for target
+do
+    dir=${target%/*}
+    [ -d "$dir" ] || [ "$dir" = "$target" ] || mkdir -p "$dir"
+done
+
+#------------------------------------------------------------------------------

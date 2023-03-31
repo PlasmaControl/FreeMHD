@@ -1,0 +1,78 @@
+#!/bin/sh
+#------------------------------------------------------------------------------
+# =========                 |
+# \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+#  \\    /   O peration     |
+#   \\  /    A nd           | www.openfoam.com
+#    \\/     M anipulation  |
+#------------------------------------------------------------------------------
+#    Copyright (C) 2017 OpenCFD Ltd.
+#------------------------------------------------------------------------------
+# License
+#     This file is part of OpenFOAM, distributed under GPL-3.0-or-later.
+#
+# Script
+#     Allrun
+#
+# Description
+#     Run tutorial cases and summarize the outcome as 'testLoopReport'
+#
+#------------------------------------------------------------------------------
+cd ${0%/*} || exit 1    # Run from this directory
+
+usage()
+{
+    exec 1>&2
+    while [ "$#" -ge 1 ]; do echo "$1"; shift; done
+    cat<<USAGE
+
+usage: ${0##*/} [OPTION]
+
+options:
+  -collect          Collect logs only. Can be useful for aborted runs.
+  -help             print the usage
+
+Run tutorial cases and summarize the outcome as 'testLoopReport'
+
+USAGE
+    exit 1
+}
+
+#------------------------------------------------------------------------------
+unset optCollectOnly
+
+# Parse options
+while [ "$#" -gt 0 ]
+do
+    case "$1" in
+    -h | -help)
+        usage
+        ;;
+    -collect)
+        optCollectOnly=true
+        ;;
+    -test)   # Known options that should be passed through
+        break
+        ;;
+    -*)
+        usage "unknown option: $1"
+        ;;
+    *)
+        break
+        ;;
+    esac
+    shift
+done
+
+
+#------------------------------------------------------------------------------
+. $WM_PROJECT_DIR/bin/tools/LogFunctions    # Tutorial log-file functions
+
+if [ -z "$optCollectOnly" ]
+then
+    foamRunTutorials -skipFirst $*          # Run tutorials recursively
+fi
+
+collectLogs
+
+#------------------------------------------------------------------------------

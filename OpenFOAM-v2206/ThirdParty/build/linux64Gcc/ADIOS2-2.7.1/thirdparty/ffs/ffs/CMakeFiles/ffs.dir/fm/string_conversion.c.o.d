@@ -1,7 +1,7 @@
 thirdparty/ffs/ffs/CMakeFiles/ffs.dir/fm/string_conversion.c.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/string_conversion.c \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/string_conversion.c \
  /usr/include/stdc-predef.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/config.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/config.h \
  /usr/include/stdlib.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/sys/cdefs.h \
  /usr/include/bits/wordsize.h /usr/include/bits/long-double.h \
@@ -31,4 +31,4 @@ thirdparty/ffs/ffs/CMakeFiles/ffs.dir/fm/string_conversion.c.o: \
  /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
  /usr/include/bits/stdio.h /usr/include/assert.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/fm.h
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/fm/fm.h

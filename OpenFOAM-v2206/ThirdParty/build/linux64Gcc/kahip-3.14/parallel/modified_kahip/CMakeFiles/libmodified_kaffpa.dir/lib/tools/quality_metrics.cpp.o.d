@@ -1,5 +1,5 @@
 parallel/modified_kahip/CMakeFiles/libmodified_kaffpa.dir/lib/tools/quality_metrics.cpp.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/quality_metrics.cpp \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/quality_metrics.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/8/algorithm \
  /usr/include/c++/8/utility \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \
@@ -62,8 +62,8 @@ parallel/modified_kahip/CMakeFiles/libmodified_kaffpa.dir/lib/tools/quality_metr
  /usr/include/bits/mathcalls-helper-functions.h \
  /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
  /usr/include/bits/iscanonical.h /usr/include/bits/mathinline.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/quality_metrics.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/data_structure/graph_access.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/quality_metrics.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/data_structure/graph_access.h \
  /usr/include/c++/8/bitset /usr/include/c++/8/string \
  /usr/include/c++/8/bits/stringfwd.h \
  /usr/include/c++/8/bits/char_traits.h /usr/include/c++/8/bits/postypes.h \
@@ -132,7 +132,7 @@ parallel/modified_kahip/CMakeFiles/libmodified_kaffpa.dir/lib/tools/quality_metr
  /usr/include/c++/8/bits/stl_uninitialized.h \
  /usr/include/c++/8/bits/stl_vector.h \
  /usr/include/c++/8/bits/stl_bvector.h /usr/include/c++/8/bits/vector.tcc \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/definitions.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/definitions.h \
  /usr/include/c++/8/queue /usr/include/c++/8/deque \
  /usr/include/c++/8/bits/stl_deque.h /usr/include/c++/8/bits/deque.tcc \
  /usr/include/c++/8/bits/stl_queue.h \
@@ -143,11 +143,11 @@ parallel/modified_kahip/CMakeFiles/libmodified_kaffpa.dir/lib/tools/quality_metr
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
  /usr/include/bits/uio_lim.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/macros_assertions.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/macros_common.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/data_structure/matrix/matrix.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/partition/partition_config.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/data_structure/union_find.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/macros_assertions.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/macros_common.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/data_structure/matrix/matrix.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/partition/partition_config.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/data_structure/union_find.h \
  /usr/include/c++/8/unordered_map /usr/include/c++/8/ext/aligned_buffer.h \
  /usr/include/c++/8/bits/hashtable.h \
  /usr/include/c++/8/bits/hashtable_policy.h /usr/include/c++/8/tuple \

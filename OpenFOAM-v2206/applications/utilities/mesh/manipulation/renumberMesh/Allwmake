@@ -1,0 +1,26 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/wmake/scripts/AllwmakeParseArguments # (error catching)
+. ${WM_PROJECT_DIR:?}/wmake/scripts/sysFunctions    # General system functions
+. ${WM_PROJECT_DIR:?}/wmake/scripts/have_zoltan
+
+#------------------------------------------------------------------------------
+
+unset COMP_FLAGS LINK_FLAGS
+
+if findLibrary "$FOAM_LIBBIN/libSloanRenumber" > /dev/null
+then
+    echo "    found libSloanRenumber -- enabling sloan renumbering support."
+    export LINK_FLAGS="$LINK_FLAGS -lSloanRenumber"
+fi
+
+if findLibrary "$FOAM_LIBBIN/libzoltanRenumber" > /dev/null && have_zoltan
+then
+    echo "    found libzoltanRenumber -- enabling zoltan renumbering support."
+    export COMP_FLAGS="$COMP_FLAGS -DHAVE_ZOLTAN"
+    export LINK_FLAGS="$LINK_FLAGS -lzoltanRenumber -L$ZOLTAN_LIB_DIR -lzoltan"
+fi
+
+wmake $targetType
+
+#------------------------------------------------------------------------------

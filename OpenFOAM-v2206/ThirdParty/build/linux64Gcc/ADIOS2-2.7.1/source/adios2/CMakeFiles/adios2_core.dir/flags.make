@@ -5,13 +5,13 @@
 # compile CXX with /usr/local/openmpi/4.1.0/gcc/bin/mpicxx
 C_DEFINES = -DMPICH_SKIP_MPICXX -DOMPI_SKIP_MPICXX -Dadios2_core_EXPORTS
 
-C_INCLUDES = -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/source -I/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/source -I/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/pugixml/pugixml/src -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/yaml-cpp/yaml-cpp/include -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/nlohmann_json/nlohmann_json/src/single_include
+C_INCLUDES = -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/source -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/source -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/pugixml/pugixml/src -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/yaml-cpp/yaml-cpp/include -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/nlohmann_json/nlohmann_json/src/single_include
 
 C_FLAGS = -m64 -fPIC -O3 -DNDEBUG -fPIC -std=gnu99
 
 CXX_DEFINES = -DMPICH_SKIP_MPICXX -DOMPI_SKIP_MPICXX -Dadios2_core_EXPORTS
 
-CXX_INCLUDES = -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/source -I/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/source -I/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/pugixml/pugixml/src -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/yaml-cpp/yaml-cpp/include -I/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/nlohmann_json/nlohmann_json/src/single_include
+CXX_INCLUDES = -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/source -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/source -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/pugixml/pugixml/src -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/yaml-cpp/yaml-cpp/include -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/nlohmann_json/nlohmann_json/src/single_include
 
 CXX_FLAGS = -std=c++11 -m64 -pthread -fPIC -O3 -DNDEBUG -fPIC -std=gnu++11
 

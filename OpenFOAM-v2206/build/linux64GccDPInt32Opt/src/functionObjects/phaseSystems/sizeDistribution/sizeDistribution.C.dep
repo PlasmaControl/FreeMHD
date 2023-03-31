@@ -637,7 +637,7 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/limitedSurfaceInterpolationScheme.C
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/convectionScheme.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/convectionScheme.C \
 $(WM_PROJECT_DIR)/src/phaseSystemModels/reactingEuler/multiphaseSystem/lnInclude/linear.H \
-$(WM_PROJECT_DIR)/src/phaseSystemModels/reactingEuler/multiphaseSystem/lnInclude/blendingMethod.H \
+$(WM_PROJECT_DIR)/src/phaseSystemModels/reactingEuler/multiphaseSystem/lnInclude/partitioningModel.H \
 $(WM_PROJECT_DIR)/src/phaseSystemModels/reactingEuler/multiphaseSystem/lnInclude/velocityGroupI.H \
 $(WM_PROJECT_DIR)/src/phaseSystemModels/reactingEuler/multiphaseSystem/lnInclude/sizeGroupI.H \
 $(WM_PROJECT_DIR)/src/phaseSystemModels/reactingEuler/multiphaseSystem/lnInclude/phasePair.H \

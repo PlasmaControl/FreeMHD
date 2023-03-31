@@ -46,7 +46,7 @@ add_library(adios2::cxx11 SHARED IMPORTED)
 
 set_target_properties(adios2::cxx11 PROPERTIES
   INTERFACE_COMPILE_FEATURES "cxx_auto_type;cxx_nullptr"
-  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/CXX11;\$<TARGET_PROPERTY:adios2::core,INTERFACE_INCLUDE_DIRECTORIES>"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/bindings/CXX11;\$<TARGET_PROPERTY:adios2::core,INTERFACE_INCLUDE_DIRECTORIES>"
 )
 
 # Create imported target adios2::cxx11_mpi
@@ -61,7 +61,7 @@ set_target_properties(adios2::cxx11_mpi PROPERTIES
 set_property(TARGET adios2::cxx11 APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(adios2::cxx11 PROPERTIES
   IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "adios2::core"
-  IMPORTED_LOCATION_RELEASE "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_cxx11.so.2.7.1"
+  IMPORTED_LOCATION_RELEASE "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_cxx11.so.2.7.1"
   IMPORTED_SONAME_RELEASE "libadios2_cxx11.so.2"
   )
 
@@ -69,7 +69,7 @@ set_target_properties(adios2::cxx11 PROPERTIES
 set_property(TARGET adios2::cxx11_mpi APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(adios2::cxx11_mpi PROPERTIES
   IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "adios2::core_mpi"
-  IMPORTED_LOCATION_RELEASE "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_cxx11_mpi.so.2.7.1"
+  IMPORTED_LOCATION_RELEASE "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_cxx11_mpi.so.2.7.1"
   IMPORTED_SONAME_RELEASE "libadios2_cxx11_mpi.so.2"
   )
 

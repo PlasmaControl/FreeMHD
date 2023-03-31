@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1
-BuildDirectory: /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1
+SourceDirectory: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1
+BuildDirectory: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: stellar-vis1.princeton.edu
+Site: stellar-intel.princeton.edu
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-mpicxx
@@ -26,7 +26,7 @@ SubmitURL: http://open.cdash.org/submit.php?project=ADIOS
 NightlyStartTime: 01:00:00 UTC
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1"
+ConfigureCommand: "/usr/bin/cmake" "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -77,7 +77,7 @@ MemoryCheckType:
 MemoryCheckSanitizerOptions: 
 MemoryCheckCommand: /usr/bin/valgrind
 MemoryCheckCommandOptions: 
-MemoryCheckSuppressionFile: /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/scripts/dashboard/nightly/valgrind-suppressions.txt
+MemoryCheckSuppressionFile: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/scripts/dashboard/nightly/valgrind-suppressions.txt
 
 # Coverage
 CoverageCommand: /usr/bin/gcov

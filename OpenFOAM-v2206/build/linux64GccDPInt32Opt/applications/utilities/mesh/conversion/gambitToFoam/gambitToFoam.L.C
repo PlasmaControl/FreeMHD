@@ -1,6 +1,6 @@
-#line 2 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
+#line 2 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
 
-#line 4 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
+#line 4 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
 
 #define  YY_INT_ALIGNED short int
 
@@ -13854,7 +13854,7 @@ int yyFlexLexer::yywrap()
 
 
 
-#line 13858 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
+#line 13858 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
 
 #define INITIAL 0
 #define controlInfo 1
@@ -14030,7 +14030,7 @@ YY_DECL
 
  /*                      ------ Reading control header ------                 */
 
-#line 14034 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
+#line 14034 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -14616,7 +14616,7 @@ YY_RULE_SETUP
 #line 623 "gambitToFoam.L"
 ECHO;
 	YY_BREAK
-#line 14620 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
+#line 14620 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/gambitToFoam/gambitToFoam.L.C"
 
 	case YY_END_OF_BUFFER:
 		{

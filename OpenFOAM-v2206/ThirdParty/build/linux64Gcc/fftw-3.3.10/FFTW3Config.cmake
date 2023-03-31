@@ -7,8 +7,8 @@ endif ()
 set (FFTW3_CONFIG_FILE "${CMAKE_CURRENT_LIST_FILE}")
 
 set (FFTW3_LIBRARIES fftw3)
-set (FFTW3_LIBRARY_DIRS /home/fcastro/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/lib)
-set (FFTW3_INCLUDE_DIRS /home/fcastro/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/include)
+set (FFTW3_LIBRARY_DIRS /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/lib)
+set (FFTW3_INCLUDE_DIRS /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/include)
 
 include ("${CMAKE_CURRENT_LIST_DIR}/FFTW3LibraryDepends.cmake")
 

@@ -1,0 +1,19 @@
+[submodule "cfmesh"]
+	path = modules/cfmesh
+	url = https://develop.openfoam.com/Community/integration-cfmesh.git
+[submodule "avalanche"]
+	path = modules/avalanche
+	url = https://develop.openfoam.com/Community/avalanche.git
+[submodule "adios"]
+	path = modules/adios
+	url = https://develop.openfoam.com/Community/adiosfoam.git
+[submodule "OpenQBMM"]
+	path = modules/OpenQBMM
+	url = https://github.com/OpenQBMM/OpenQBMM.git
+	branch = openfoam.com
+[submodule "visualization"]
+	path = modules/visualization
+	url = https://develop.openfoam.com/modules/visualization.git
+[submodule "external-solver"]
+	path = modules/external-solver
+	url = https://develop.openfoam.com/Modules/external-solver.git

@@ -1,0 +1,12 @@
+#!/bin/sh
+cd "${0%/*}" || exit                            # Run from this directory
+## . ${WM_PROJECT_DIR:?}/bin/tools/LogFunctions    # Tutorial logfile functions
+#------------------------------------------------------------------------------
+
+# Any tests...
+
+foamRunTutorials -skipFirst $*          # Run tutorials recursively
+
+## collectLogs
+
+#------------------------------------------------------------------------------

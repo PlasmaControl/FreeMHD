@@ -45,7 +45,7 @@ unset(_expectedTargets)
 add_library(EVPath::EVPath SHARED IMPORTED)
 
 set_target_properties(EVPath::EVPath PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/EVPath/EVPath;/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/EVPath/EVPath"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/EVPath/EVPath;/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/EVPath/EVPath"
   INTERFACE_LINK_LIBRARIES "atl::atl;ffs::ffs"
 )
 
@@ -53,7 +53,7 @@ set_target_properties(EVPath::EVPath PROPERTIES
 set_property(TARGET EVPath::EVPath APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(EVPath::EVPath PROPERTIES
   IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "dill::dill"
-  IMPORTED_LOCATION_RELEASE "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_evpath.so"
+  IMPORTED_LOCATION_RELEASE "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_evpath.so"
   IMPORTED_SONAME_RELEASE "libadios2_evpath.so"
   )
 

@@ -1,0 +1,18 @@
+// -*- C++ -*-
+// Use shapefileWrite function object
+
+shapefileWrite
+{
+    type    shapefileWrite;
+    libs    (faAvalanche);
+
+    fields  (".*");
+
+    writeOption autoWrite;
+    //writeOption noWrite;
+    //writeOption anyWrite;
+
+    prefix  "polys";
+}
+
+// ************************************************************************* //

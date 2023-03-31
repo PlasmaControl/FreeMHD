@@ -45,13 +45,13 @@ unset(_expectedTargets)
 add_library(atl::atl SHARED IMPORTED)
 
 set_target_properties(atl::atl PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/atl/atl;/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/atl/atl"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/atl/atl;/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/atl/atl"
 )
 
 # Import target "atl::atl" for configuration "Release"
 set_property(TARGET atl::atl APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(atl::atl PROPERTIES
-  IMPORTED_LOCATION_RELEASE "/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_atl.so.2.2.1"
+  IMPORTED_LOCATION_RELEASE "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/lib64/libadios2_atl.so.2.2.1"
   IMPORTED_SONAME_RELEASE "libadios2_atl.so.2"
   )
 

@@ -1,5 +1,5 @@
 parallel/parallel_src/CMakeFiles/libparallel.dir/lib/communication/dummy_operations.cpp.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/parallel_src/lib/communication/dummy_operations.cpp \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/parallel_src/lib/communication/dummy_operations.cpp \
  /usr/include/stdc-predef.h /usr/local/openmpi/4.1.0/gcc/include/mpi.h \
  /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h \
  /usr/local/openmpi/4.1.0/gcc/include/mpi_portable_platform.h \
@@ -156,4 +156,4 @@ parallel/parallel_src/CMakeFiles/libparallel.dir/lib/communication/dummy_operati
  /usr/include/c++/8/bits/stl_uninitialized.h \
  /usr/include/c++/8/bits/stl_vector.h \
  /usr/include/c++/8/bits/stl_bvector.h /usr/include/c++/8/bits/vector.tcc \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/parallel_src/lib/communication/dummy_operations.h
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/parallel_src/lib/communication/dummy_operations.h

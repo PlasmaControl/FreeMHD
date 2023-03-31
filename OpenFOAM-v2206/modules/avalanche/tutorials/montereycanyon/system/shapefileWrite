@@ -1,0 +1,22 @@
+// -*- C++ -*-
+// Use the areaWrite function object
+
+shapefileWrite
+{
+    type    shapefileWrite;
+
+    libs    (faAvalanche);
+
+    fields  (".*");
+
+    writeOption autoWrite;
+    //writeOption noWrite;
+    //writeOption anyWrite;
+
+    prefix  "polys";
+
+    //offset is interpreted such that the same signs than in gridToSTLDict can be used
+    offset (-574000.0 -4057000 0);
+}
+
+// ************************************************************************* //

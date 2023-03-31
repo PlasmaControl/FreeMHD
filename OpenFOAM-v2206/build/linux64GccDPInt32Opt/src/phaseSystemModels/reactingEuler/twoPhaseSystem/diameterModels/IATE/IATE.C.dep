@@ -804,6 +804,7 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/multivariateSurfaceInterpolationSch
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/multivariateSurfaceInterpolationScheme.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/convectionScheme.C \
 ../multiphaseSystem/lnInclude/linear.H \
+../multiphaseSystem/lnInclude/partitioningModel.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvmSup.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvmSup.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcDdt.H \

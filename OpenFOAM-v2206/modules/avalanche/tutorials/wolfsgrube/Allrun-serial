@@ -1,0 +1,31 @@
+#!/bin/sh
+cd "${0%/*}" || exit                            # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions    # Tutorial run functions
+#------------------------------------------------------------------------------
+
+runApplication gridToSTL
+
+if [ "$WM_LABEL_SIZE" = 64 ]
+then
+    echo "Skip tutorial - known issues with pMesh and 64-bit labels"
+    echo End
+    exit 0
+elif command -v pMesh > /dev/null
+then
+    runApplication pMesh
+else
+    echo "Skip tutorial - no pMesh found"
+    echo End
+    exit 0
+fi
+
+runApplication makeFaMesh
+
+# Restore initial fields
+restore0Dir
+
+runApplication releaseAreaMapping
+
+runApplication $(getApplication)
+
+#------------------------------------------------------------------------------

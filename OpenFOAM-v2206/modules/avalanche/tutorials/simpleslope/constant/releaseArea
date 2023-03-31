@@ -1,0 +1,35 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      releaseArea;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fields
+{
+    h
+    {
+        default default [0 1 0 0 0 0 0] 0;
+        regions
+        (
+            releaseArea2
+            {
+                type sphere;
+                center (2.41624352263 0.0 -3.52303381184);
+                r 2.0;
+                scale 1;
+            }
+        );
+    }
+}
+
+// ************************************************************************* //

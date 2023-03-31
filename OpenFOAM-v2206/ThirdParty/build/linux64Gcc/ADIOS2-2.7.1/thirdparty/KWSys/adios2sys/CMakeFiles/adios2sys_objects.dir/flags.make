@@ -5,13 +5,13 @@
 # compile CXX with /usr/local/openmpi/4.1.0/gcc/bin/mpicxx
 C_DEFINES = -DKWSYS_NAMESPACE=adios2sys -DMPICH_SKIP_MPICXX -DOMPI_SKIP_MPICXX
 
-C_INCLUDES = -I/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys
+C_INCLUDES = -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys
 
 C_FLAGS = -m64 -fPIC -w -O3 -DNDEBUG -fPIC -std=gnu99
 
 CXX_DEFINES = -DKWSYS_NAMESPACE=adios2sys -DMPICH_SKIP_MPICXX -DOMPI_SKIP_MPICXX
 
-CXX_INCLUDES = -I/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys
+CXX_INCLUDES = -I/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/KWSys/adios2sys
 
 CXX_FLAGS = -std=c++11 -m64 -pthread -fPIC -w -O3 -DNDEBUG -fPIC -std=gnu++11
 

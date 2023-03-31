@@ -13,10 +13,10 @@ endif()
 get_filename_component(_BOOST_CMAKEDIR "${CMAKE_CURRENT_LIST_DIR}/../" REALPATH)
 
 # If the computed and the original directories are symlink-equivalent, use original
-if(EXISTS "/home/fcastro/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/lib64/cmake")
-  get_filename_component(_BOOST_CMAKEDIR_ORIGINAL "/home/fcastro/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/lib64/cmake" REALPATH)
+if(EXISTS "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/lib64/cmake")
+  get_filename_component(_BOOST_CMAKEDIR_ORIGINAL "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/lib64/cmake" REALPATH)
   if(_BOOST_CMAKEDIR STREQUAL _BOOST_CMAKEDIR_ORIGINAL)
-    set(_BOOST_CMAKEDIR "/home/fcastro/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/lib64/cmake")
+    set(_BOOST_CMAKEDIR "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/lib64/cmake")
   endif()
   unset(_BOOST_CMAKEDIR_ORIGINAL)
 endif()

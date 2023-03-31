@@ -941,6 +941,7 @@ lnInclude/phasePair.H \
 lnInclude/phasePairKey.H \
 lnInclude/phasePairI.H \
 lnInclude/orderedPhasePair.H \
+../interfacialModels/lnInclude/dragModel.H \
 twoPhaseSystemI.H \
 twoPhaseSystemTemplates.C \
 lnInclude/BlendedInterfacialModel.H \
@@ -949,6 +950,7 @@ lnInclude/BlendedInterfacialModel.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchField.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fixedValueFvsPatchField.C \
+../interfacialModels/lnInclude/virtualMassModel.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/cyclicFvPatchFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/emptyFvPatchFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/emptyFvPatchField.H \

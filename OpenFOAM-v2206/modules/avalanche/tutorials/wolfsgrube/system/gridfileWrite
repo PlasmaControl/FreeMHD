@@ -1,0 +1,32 @@
+// -*- C++ -*-
+// Use gridfileWrite function object
+
+gridfileWrite
+{
+    type    gridfileWrite;
+    libs    (faAvalanche);
+
+    fields  (".*");
+
+    secondOrder on;
+
+    writeOption autoWrite;
+    //writeOption noWrite;
+    //writeOption anyWrite;
+
+    ncols        426;
+    nrows        258;
+    //xllcorner    -5803;  //-5000
+    //yllcorner    219917; //-220000
+    xllcorner    -803;
+    yllcorner    -83;
+    dx           10;
+    dy           10;
+
+    postfix  ".asc";
+
+    //offset is interpreted such that the same signs than in gridToSTLDict can be used
+    offset (5000.0 -220000.0 0);
+}
+
+// ************************************************************************* //

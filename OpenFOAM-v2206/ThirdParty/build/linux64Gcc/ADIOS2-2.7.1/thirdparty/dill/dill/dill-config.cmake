@@ -1,7 +1,7 @@
 set(_CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH})
 set(_CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH})
 
-list(INSERT CMAKE_MODULE_PATH 0 "/home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/dill/dill/cmake")
+list(INSERT CMAKE_MODULE_PATH 0 "/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/dill/dill/cmake")
 if(NOT ON AND OFF)
   list(INSERT CMAKE_PREFIX_PATH 0 "")
 endif()

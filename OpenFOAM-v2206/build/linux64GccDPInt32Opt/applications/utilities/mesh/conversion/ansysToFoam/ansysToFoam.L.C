@@ -1,6 +1,6 @@
-#line 2 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
+#line 2 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
 
-#line 4 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
+#line 4 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
 
 #define  YY_INT_ALIGNED short int
 
@@ -3157,7 +3157,7 @@ int yyFlexLexer::yywrap()
     return 1;
 }
 
-#line 3161 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
+#line 3161 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
 
 #define INITIAL 0
 
@@ -3304,7 +3304,7 @@ YY_DECL
                             ------ Start Lexing ------
  \* ------------------------------------------------------------------------- */
 
-#line 3308 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
+#line 3308 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -3508,7 +3508,7 @@ YY_RULE_SETUP
 #line 273 "ansysToFoam.L"
 ECHO;
 	YY_BREAK
-#line 3512 "/home/bw0594/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
+#line 3512 "/home/bw0594/3DLMM/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.L.C"
 
 	case YY_END_OF_BUFFER:
 		{

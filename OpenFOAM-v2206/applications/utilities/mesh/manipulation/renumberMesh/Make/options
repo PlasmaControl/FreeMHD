@@ -1,0 +1,25 @@
+/* Add to EXE_INC as required:
+   -DFULLDEBUG -g -O0
+ */
+
+EXE_INC = \
+    ${COMP_FLAGS} \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/dynamicMesh/lnInclude \
+    -I$(LIB_SRC)/renumber/renumberMethods/lnInclude \
+    -I$(LIB_SRC)/renumber/zoltanRenumber/lnInclude \
+    -I$(LIB_SRC)/parallel/decompose/decompositionMethods/lnInclude \
+    -I$(LIB_SRC)/parallel/reconstruct/reconstruct/lnInclude
+
+EXE_LIBS = \
+    -lfiniteVolume \
+    -lmeshTools \
+    -ldynamicMesh \
+    -lgenericPatchFields \
+    -lrenumberMethods \
+    -lreconstruct \
+    $(LINK_FLAGS) \
+    -ldecompositionMethods \
+    -L$(FOAM_LIBBIN)/dummy \
+    -lkahipDecomp -lmetisDecomp -lscotchDecomp

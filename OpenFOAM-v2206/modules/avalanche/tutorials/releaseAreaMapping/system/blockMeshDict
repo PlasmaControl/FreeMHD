@@ -1,0 +1,75 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale  1;
+
+vertices
+(
+    (0 0 10)
+    (20 0 0)
+    (20 20 0)
+    (0 20 10)
+    (0 0 11)
+    (20 0 11)
+    (20 20 11)
+    (0 20 11)
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (400 400 1) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    slope
+    {
+        type patch;
+        faces
+        (
+            (3 2 1 0)
+        );
+    }
+    top
+    {
+        type patch;
+        faces
+        (
+            (4 5 6 7)
+        );
+    }
+    wall
+    {
+        type patch;
+        faces
+        (
+            (0 4 7 3)
+            (0 1 5 4)
+            (1 2 6 5)
+            (2 3 7 6)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //

@@ -1,9 +1,9 @@
 parallel/modified_kahip/CMakeFiles/libmodified_kaffpa.dir/lib/partition/initial_partitioning/initial_partitioner.cpp.o: \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/partition/initial_partitioning/initial_partitioner.cpp \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/partition/initial_partitioning/initial_partitioner.cpp \
  /usr/include/stdc-predef.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/partition/initial_partitioning/initial_partitioner.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/partition/partition_config.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/definitions.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/partition/initial_partitioning/initial_partitioner.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/partition/partition_config.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/definitions.h \
  /usr/include/c++/8/limits \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
@@ -57,7 +57,7 @@ parallel/modified_kahip/CMakeFiles/libmodified_kaffpa.dir/lib/partition/initial_
  /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h \
  /usr/include/linux/limits.h /usr/include/bits/posix2_lim.h \
  /usr/include/bits/xopen_lim.h /usr/include/bits/uio_lim.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/macros_assertions.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/macros_assertions.h \
  /usr/include/c++/8/cassert /usr/include/assert.h \
  /usr/include/c++/8/cmath /usr/include/math.h /usr/include/bits/types.h \
  /usr/include/bits/typesizes.h /usr/include/bits/math-vector.h \
@@ -137,6 +137,6 @@ parallel/modified_kahip/CMakeFiles/libmodified_kaffpa.dir/lib/partition/initial_
  /usr/include/c++/8/bits/basic_ios.tcc \
  /usr/include/c++/8/bits/ostream.tcc /usr/include/c++/8/istream \
  /usr/include/c++/8/bits/istream.tcc \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/macros_common.h \
- /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/data_structure/graph_access.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/tools/macros_common.h \
+ /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/kahip/kahip-3.14/parallel/modified_kahip/lib/data_structure/graph_access.h \
  /usr/include/c++/8/bitset

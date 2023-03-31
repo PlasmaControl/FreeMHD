@@ -1,0 +1,8 @@
+genericPatchFieldBase/genericPatchFieldBase.C
+
+genericFaPatchField/genericFaPatchFields.C
+genericFvPatchField/genericFvPatchFields.C
+genericFvsPatchField/genericFvsPatchFields.C
+genericPointPatchField/genericPointPatchFields.C
+
+LIB = $(FOAM_LIBBIN)/libgenericPatchFields

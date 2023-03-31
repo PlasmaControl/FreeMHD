@@ -53,35 +53,41 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1
+CMAKE_SOURCE_DIR = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1
+CMAKE_BINARY_DIR = /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1
 
 # Utility rule file for generated.
 
 # Include any custom commands dependencies for this target.
 include thirdparty/ffs/ffs/CMakeFiles/generated.dir/compiler_depend.make
 
+# Include the progress variables for this target.
+include thirdparty/ffs/ffs/CMakeFiles/generated.dir/progress.make
+
 thirdparty/ffs/ffs/CMakeFiles/generated: thirdparty/ffs/ffs/cod_node.c
 thirdparty/ffs/ffs/CMakeFiles/generated: thirdparty/ffs/ffs/cod.tab.c
 
-thirdparty/ffs/ffs/cod.tab.c: /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/cod.y
-	cd /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs && /usr/bin/bison -d -d -o /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod.tab.c cod/cod.y
+thirdparty/ffs/ffs/cod.tab.c: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/cod.y
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "[BISON][CODParser] Building parser with bison 3.0.4"
+	cd /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs && /usr/bin/bison -d -d -o /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod.tab.c cod/cod.y
 
 thirdparty/ffs/ffs/cod.tab.h: thirdparty/ffs/ffs/cod.tab.c
 	@$(CMAKE_COMMAND) -E touch_nocreate thirdparty/ffs/ffs/cod.tab.h
 
 thirdparty/ffs/ffs/cod_node.c: thirdparty/ffs/ffs/lex.yy.c
-thirdparty/ffs/ffs/cod_node.c: /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/cod.structs
-thirdparty/ffs/ffs/cod_node.c: /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/struct.pl
-	cd /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs && perl /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/struct.pl /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/cod.structs
+thirdparty/ffs/ffs/cod_node.c: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/cod.structs
+thirdparty/ffs/ffs/cod_node.c: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/struct.pl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating cod_node.c, structs.h"
+	cd /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs && perl /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/struct.pl /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/cod.structs
 
 thirdparty/ffs/ffs/structs.h: thirdparty/ffs/ffs/cod_node.c
 	@$(CMAKE_COMMAND) -E touch_nocreate thirdparty/ffs/ffs/structs.h
 
-thirdparty/ffs/ffs/lex.yy.c: /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/cod.l
-	cd /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs && /usr/bin/flex -o/home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/lex.yy.c cod/cod.l
+thirdparty/ffs/ffs/lex.yy.c: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs/cod/cod.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "[FLEX][CODScanner] Building scanner with flex 2.6.1"
+	cd /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs && /usr/bin/flex -o/home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/lex.yy.c cod/cod.l
 
 generated: thirdparty/ffs/ffs/CMakeFiles/generated
 generated: thirdparty/ffs/ffs/cod.tab.c
@@ -97,10 +103,10 @@ thirdparty/ffs/ffs/CMakeFiles/generated.dir/build: generated
 .PHONY : thirdparty/ffs/ffs/CMakeFiles/generated.dir/build
 
 thirdparty/ffs/ffs/CMakeFiles/generated.dir/clean:
-	cd /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs && $(CMAKE_COMMAND) -P CMakeFiles/generated.dir/cmake_clean.cmake
+	cd /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs && $(CMAKE_COMMAND) -P CMakeFiles/generated.dir/cmake_clean.cmake
 .PHONY : thirdparty/ffs/ffs/CMakeFiles/generated.dir/clean
 
 thirdparty/ffs/ffs/CMakeFiles/generated.dir/depend:
-	cd /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1 /home/bw0594/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1 /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs /home/bw0594/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/CMakeFiles/generated.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1 /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/sources/adios/ADIOS2-2.7.1/thirdparty/ffs/ffs /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1 /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/build/linux64Gcc/ADIOS2-2.7.1/thirdparty/ffs/ffs/CMakeFiles/generated.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : thirdparty/ffs/ffs/CMakeFiles/generated.dir/depend
 
