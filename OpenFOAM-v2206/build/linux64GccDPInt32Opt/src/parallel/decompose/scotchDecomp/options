@@ -1,0 +1,75 @@
+# 1 "Make/options"
+# 1 "<built-in>"
+# 1 "<command-line>"
+
+
+
+
+
+
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+
+# 17 "/usr/include/stdc-predef.h" 3 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 6 "<command-line>" 2
+# 1 "Make/options"
+EXE_INC = -I$(SCOTCH_INC_DIR) -I$(LIB_SRC)/parallel/decompose/decompositionMethods/lnInclude
+
+
+
+LIB_LIBS = -L$(FOAM_LIBBIN) -ldecompositionMethods -L$(SCOTCH_LIB_DIR) -lscotch$(SCOTCH_LIBNAME_SUFFIX)
+
+
+
+
+
+ifeq (,$(findstring windows,$(WM_OSTYPE)))
+ LIB_LIBS += -lscotcherrexit
+endif
+
+
+ifeq (.so,$(EXT_SO))
+ LIB_LIBS += -lrt
+endif

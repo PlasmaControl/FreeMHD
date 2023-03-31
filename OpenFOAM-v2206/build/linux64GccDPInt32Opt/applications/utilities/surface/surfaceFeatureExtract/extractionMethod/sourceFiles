@@ -1,0 +1,7 @@
+SOURCE = \
+$(method)/surfaceFeaturesExtraction.C \
+$(method)/extractFromFile.C \
+$(method)/extractFromNone.C \
+$(method)/extractFromSurface.C \
+
+# sources

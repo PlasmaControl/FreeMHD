@@ -1,0 +1,5 @@
+SOURCE = \
+distributedTriSurfaceMesh/distributedTriSurfaceMesh.C \
+patchDistMethods/exact/exactPatchDistMethod.C \
+
+# sources

@@ -1,0 +1,2 @@
+IATEsources = diameterModels/IATE/IATEsources
+LIB = $(FOAM_LIBBIN)/libreactingTwoPhaseSystem

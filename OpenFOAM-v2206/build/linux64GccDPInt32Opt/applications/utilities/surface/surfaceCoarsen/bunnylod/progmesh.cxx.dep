@@ -1,0 +1,7 @@
+$(OBJECTS_DIR)/bunnylod/progmesh.cxx.dep: \
+bunnylod/progmesh.cxx \
+bunnylod/vector.hxx \
+bunnylod/list.hxx \
+bunnylod/progmesh.hxx \
+
+#END

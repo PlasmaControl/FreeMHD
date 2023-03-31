@@ -1,0 +1,4 @@
+SOURCE = \
+chemkinToFoam.C \
+
+# sources

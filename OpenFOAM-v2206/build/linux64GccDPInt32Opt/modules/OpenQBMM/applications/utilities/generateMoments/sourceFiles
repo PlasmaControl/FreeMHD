@@ -1,0 +1,4 @@
+SOURCE = \
+generateMoments.C \
+
+# sources

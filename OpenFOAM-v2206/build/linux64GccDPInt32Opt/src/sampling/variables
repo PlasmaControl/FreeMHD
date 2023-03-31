@@ -1,0 +1,3 @@
+readers = sampledSurface/readers
+meshToMeshMethods = meshToMesh/calcMethod
+LIB = $(FOAM_LIBBIN)/libsampling

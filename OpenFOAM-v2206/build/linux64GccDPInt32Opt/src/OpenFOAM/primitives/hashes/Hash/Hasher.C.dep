@@ -1,0 +1,8 @@
+$(OBJECTS_DIR)/primitives/hashes/Hash/Hasher.C.dep: \
+primitives/hashes/Hash/Hasher.C \
+primitives/hashes/Hash/Hasher.H \
+primitives/hashes/Hash/HasherInt.H \
+lnInclude/endian.H \
+lnInclude/endianI.H \
+
+#END

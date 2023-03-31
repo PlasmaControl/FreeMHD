@@ -1,0 +1,12 @@
+diameter = diameterModels
+IATEsources = diameterModels/IATE/IATEsources
+blending = BlendedInterfacialModel/blendingMethods
+aspectRatio = interfacialModels/aspectRatioModels
+drag = interfacialModels/dragModels
+lift = interfacialModels/liftModels
+heatTransfer = interfacialModels/heatTransferModels
+swarm = interfacialModels/swarmCorrections
+dispersion = interfacialModels/turbulentDispersionModels
+virtualMass = interfacialModels/virtualMassModels
+lubrication = interfacialModels/wallLubricationModels
+LIB = $(FOAM_LIBBIN)/libcompressibleTwoPhaseSystem

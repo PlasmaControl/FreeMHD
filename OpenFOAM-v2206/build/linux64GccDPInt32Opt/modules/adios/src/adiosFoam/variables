@@ -1,0 +1,1 @@
+LIB = $(FOAM_MODULE_LIBBIN)/libadiosFoam

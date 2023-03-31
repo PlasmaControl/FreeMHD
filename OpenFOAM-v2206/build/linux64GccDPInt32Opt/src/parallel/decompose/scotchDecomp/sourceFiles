@@ -1,0 +1,4 @@
+SOURCE = \
+scotchDecomp.C \
+
+# sources

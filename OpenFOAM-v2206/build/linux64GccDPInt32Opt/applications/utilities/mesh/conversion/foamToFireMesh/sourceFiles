@@ -1,0 +1,4 @@
+SOURCE = \
+foamToFireMesh.C \
+
+# sources

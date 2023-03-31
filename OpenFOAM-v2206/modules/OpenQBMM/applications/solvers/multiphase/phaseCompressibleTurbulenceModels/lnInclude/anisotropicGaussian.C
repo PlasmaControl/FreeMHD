@@ -1,0 +1,1 @@
+../kineticTheory/kineticTheoryModels/anisotropicGaussian/anisotropicGaussian.C

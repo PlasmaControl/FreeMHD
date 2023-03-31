@@ -1,0 +1,5 @@
+SOURCE = \
+hexBlock.C \
+plot3dToFoam.C \
+
+# sources

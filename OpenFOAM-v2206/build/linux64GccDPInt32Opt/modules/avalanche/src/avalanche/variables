@@ -1,0 +1,6 @@
+deposition = deposition
+entrainment = entrainment
+friction = friction
+gistools = gistools
+functionObjects = functionObjects
+LIB = $(FOAM_MODULE_LIBBIN)/libfaAvalanche

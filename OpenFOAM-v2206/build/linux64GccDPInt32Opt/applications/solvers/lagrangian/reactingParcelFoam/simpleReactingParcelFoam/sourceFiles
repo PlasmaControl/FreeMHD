@@ -1,0 +1,4 @@
+SOURCE = \
+simpleReactingParcelFoam.C \
+
+# sources

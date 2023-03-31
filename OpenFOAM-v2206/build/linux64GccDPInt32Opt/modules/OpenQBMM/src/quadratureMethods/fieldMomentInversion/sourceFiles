@@ -1,0 +1,8 @@
+SOURCE = \
+fieldMomentInversion/fieldMomentInversion.C \
+fieldMomentInversion/newFieldMomentInversion.C \
+basicFieldMomentInversion/basicFieldMomentInversion.C \
+extendedFieldMomentInversion/extendedFieldMomentInversion.C \
+basicVelocityFieldMomentInversion/basicVelocityFieldMomentInversion.C \
+
+# sources

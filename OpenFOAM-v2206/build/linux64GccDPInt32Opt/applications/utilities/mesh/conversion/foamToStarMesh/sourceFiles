@@ -1,0 +1,4 @@
+SOURCE = \
+foamToStarMesh.C \
+
+# sources

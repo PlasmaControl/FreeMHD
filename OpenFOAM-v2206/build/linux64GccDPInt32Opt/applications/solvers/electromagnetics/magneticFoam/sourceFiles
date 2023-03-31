@@ -1,0 +1,4 @@
+SOURCE = \
+magneticFoam.C \
+
+# sources

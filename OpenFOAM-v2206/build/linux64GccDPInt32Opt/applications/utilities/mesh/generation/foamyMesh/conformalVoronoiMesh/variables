@@ -1,0 +1,5 @@
+cellSizeAndAlignmentControl = cellShapeControl/cellSizeAndAlignmentControl
+cellSizeFunctions = cellSizeControlSurfaces/cellSizeFunction
+surfaceCellSizeFunctions = cellSizeControlSurfaces/surfaceCellSizeFunction
+cellSizeCalculationType = $(surfaceCellSizeFunctions)/cellSizeCalculationType
+LIB = $(FOAM_LIBBIN)/libconformalVoronoiMesh

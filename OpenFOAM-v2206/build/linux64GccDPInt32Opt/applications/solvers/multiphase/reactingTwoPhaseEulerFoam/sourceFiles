@@ -1,0 +1,4 @@
+SOURCE = \
+reactingTwoPhaseEulerFoam.C \
+
+# sources

@@ -1,0 +1,7 @@
+viscosity = kineticTheoryModels/viscosityModel
+conductivity = kineticTheoryModels/conductivityModel
+radial = kineticTheoryModels/radialModel
+granular = kineticTheoryModels/granularPressureModel
+frictional = kineticTheoryModels/frictionalStressModel
+derived = kineticTheoryModels/derivedFvPatchFields
+LIB = $(FOAM_LIBBIN)/libtwoPhaseReactingTurbulenceModels

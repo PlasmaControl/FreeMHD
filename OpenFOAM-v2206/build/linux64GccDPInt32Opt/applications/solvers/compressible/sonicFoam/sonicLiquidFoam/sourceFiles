@@ -1,0 +1,4 @@
+SOURCE = \
+sonicLiquidFoam.C \
+
+# sources

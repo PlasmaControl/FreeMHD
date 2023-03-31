@@ -1,0 +1,1 @@
+../univariate/extended/beta/betaEQMOM.C

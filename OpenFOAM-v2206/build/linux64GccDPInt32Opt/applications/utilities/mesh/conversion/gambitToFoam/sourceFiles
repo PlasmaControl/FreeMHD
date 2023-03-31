@@ -1,0 +1,4 @@
+SOURCE = \
+gambitToFoam.L \
+
+# sources

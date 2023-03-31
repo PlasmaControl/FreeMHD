@@ -1,0 +1,4 @@
+SOURCE = \
+dummyPtscotchDecomp.C \
+
+# sources

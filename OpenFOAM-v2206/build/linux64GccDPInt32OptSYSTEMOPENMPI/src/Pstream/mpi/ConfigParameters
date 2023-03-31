@@ -1,0 +1,3 @@
+# Build/configure parameters
+-- MPLIB=SYSTEMOPENMPI
+-- MPI=sys-openmpi

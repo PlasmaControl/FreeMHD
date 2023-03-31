@@ -1,0 +1,4 @@
+SOURCE = \
+hermiteQuadrature.C \
+
+# sources

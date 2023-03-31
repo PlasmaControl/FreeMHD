@@ -1,0 +1,4 @@
+SOURCE = \
+pairPatchAgglomeration.C \
+
+# sources

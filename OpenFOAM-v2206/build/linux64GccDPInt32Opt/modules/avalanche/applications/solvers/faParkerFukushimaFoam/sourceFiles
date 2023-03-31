@@ -1,0 +1,4 @@
+SOURCE = \
+faParkerFukushimaFoam.C \
+
+# sources

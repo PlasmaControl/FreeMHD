@@ -1,0 +1,10 @@
+SOURCE = \
+$(KINEMATICPARCEL)/makeBasicKinematicParcelSubmodels.C \
+$(KINEMATICCOLLIDINGPARCEL)/makeBasicKinematicCollidingParcelSubmodels.C \
+$(THERMOPARCEL)/makeBasicThermoParcelSubmodels.C \
+$(REACTINGPARCEL)/makeBasicReactingParcelSubmodels.C \
+$(REACTINGMPPARCEL)/makeBasicReactingMultiphaseParcelSubmodels.C \
+$(KINEMATICMPPICPARCEL)/makeBasicKinematicMPPICParcelSubmodels.C \
+$(HETEROGENEOUSREACTINGPARCEL)/makeBasicHeterogeneousParcelSubmodels.C \
+
+# sources

@@ -1,0 +1,13 @@
+SOURCE = \
+twoPhaseSystem.C \
+twoPhaseSystemNew.C \
+twoPhaseSystems.C \
+diameterModels/IATE/IATE.C \
+$(IATEsources)/IATEsource/IATEsource.C \
+$(IATEsources)/wakeEntrainmentCoalescence/wakeEntrainmentCoalescence.C \
+$(IATEsources)/turbulentBreakUp/turbulentBreakUp.C \
+$(IATEsources)/randomCoalescence/randomCoalescence.C \
+$(IATEsources)/phaseChange/phaseChange.C \
+$(IATEsources)/wallBoiling/wallBoiling.C \
+
+# sources

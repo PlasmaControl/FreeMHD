@@ -1,0 +1,8 @@
+SOURCE = \
+boundaryInfo.C \
+boundaryTemplates.C \
+caseInfo.C \
+solverTemplate.C \
+createZeroDirectory.C \
+
+# sources

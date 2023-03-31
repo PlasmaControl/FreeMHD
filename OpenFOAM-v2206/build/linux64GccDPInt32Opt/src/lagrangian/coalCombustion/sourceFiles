@@ -1,0 +1,5 @@
+SOURCE = \
+coalParcel/makeCoalParcelSubmodels.C \
+coalCloudList/coalCloudList.C \
+
+# sources

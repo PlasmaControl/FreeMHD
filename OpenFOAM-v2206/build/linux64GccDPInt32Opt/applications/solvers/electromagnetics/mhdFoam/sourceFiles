@@ -1,0 +1,4 @@
+SOURCE = \
+mhdFoam.C \
+
+# sources

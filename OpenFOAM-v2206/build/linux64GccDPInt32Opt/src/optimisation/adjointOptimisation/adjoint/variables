@@ -1,0 +1,7 @@
+NURBS=parameterization/NURBS
+NURBS3D=$(NURBS)/NURBS3DVolume
+incoSens=optimisation/adjointSensitivity/incompressible
+updateMethod=optimisation/updateMethod/
+optMeshMovement=optimisation/optMeshMovement
+incoOptType=optimisation/optimisationType/incompressible
+LIB = $(FOAM_LIBBIN)/libadjointOptimisation

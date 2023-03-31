@@ -1,0 +1,5 @@
+SOURCE = \
+solidRegionDiffNo.C \
+solidFoam.C \
+
+# sources

@@ -1,0 +1,5 @@
+$(OBJECTS_DIR)/db/IOstreams/hashes/base64Layer.C.dep: \
+db/IOstreams/hashes/base64Layer.C \
+db/IOstreams/hashes/base64Layer.H \
+
+#END

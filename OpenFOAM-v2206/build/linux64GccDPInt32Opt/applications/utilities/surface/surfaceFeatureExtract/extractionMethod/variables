@@ -1,0 +1,2 @@
+method = .
+LIB = $(FOAM_LIBBIN)/libsurfaceFeatureExtract

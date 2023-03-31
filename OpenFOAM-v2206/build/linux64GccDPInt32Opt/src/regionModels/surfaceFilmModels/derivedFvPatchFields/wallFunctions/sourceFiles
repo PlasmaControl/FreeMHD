@@ -1,0 +1,5 @@
+SOURCE = \
+alphatFilmWallFunction/alphatFilmWallFunctionFvPatchScalarField.C \
+nutkFilmWallFunction/nutkFilmWallFunctionFvPatchScalarField.C \
+
+# sources

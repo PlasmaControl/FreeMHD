@@ -1,0 +1,1 @@
+../liftModels/wallDampedLift/wallDampedLift.H

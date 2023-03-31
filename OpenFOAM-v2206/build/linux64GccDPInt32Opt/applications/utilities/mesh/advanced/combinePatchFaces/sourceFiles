@@ -1,0 +1,4 @@
+SOURCE = \
+combinePatchFaces.C \
+
+# sources

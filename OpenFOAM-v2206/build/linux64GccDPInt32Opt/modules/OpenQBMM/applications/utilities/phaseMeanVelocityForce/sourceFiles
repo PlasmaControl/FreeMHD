@@ -1,0 +1,5 @@
+SOURCE = \
+phaseCompressibleMeanVelocityForce/phaseCompressibleMeanVelocityForce.C \
+phaseIncompressibleMeanVelocityForce/phaseIncompressibleMeanVelocityForce.C \
+
+# sources

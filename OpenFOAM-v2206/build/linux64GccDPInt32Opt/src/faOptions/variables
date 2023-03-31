@@ -1,0 +1,3 @@
+derivedSources=sources/derived
+corrections=corrections
+LIB = $(FOAM_LIBBIN)/libfaOptions

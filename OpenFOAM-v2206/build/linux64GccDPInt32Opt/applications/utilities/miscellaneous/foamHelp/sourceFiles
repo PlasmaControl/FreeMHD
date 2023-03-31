@@ -1,0 +1,4 @@
+SOURCE = \
+foamHelp.C \
+
+# sources

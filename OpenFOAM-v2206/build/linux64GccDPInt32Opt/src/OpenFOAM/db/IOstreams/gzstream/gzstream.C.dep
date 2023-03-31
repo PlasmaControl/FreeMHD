@@ -1,0 +1,5 @@
+$(OBJECTS_DIR)/db/IOstreams/gzstream/gzstream.C.dep: \
+db/IOstreams/gzstream/gzstream.C \
+db/IOstreams/gzstream/gzstream.h \
+
+#END

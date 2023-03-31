@@ -1,0 +1,4 @@
+SOURCE = \
+porousSimpleFoam.C \
+
+# sources

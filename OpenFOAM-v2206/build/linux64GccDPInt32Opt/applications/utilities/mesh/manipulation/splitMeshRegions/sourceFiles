@@ -1,0 +1,4 @@
+SOURCE = \
+splitMeshRegions.C \
+
+# sources

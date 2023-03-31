@@ -1,0 +1,33 @@
+$(OBJECTS_DIR)/containers/HashTables/HashTable/HashTableCore.C.dep: \
+containers/HashTables/HashTable/HashTableCore.C \
+containers/HashTables/HashTable/HashTableCore.H \
+lnInclude/label.H \
+lnInclude/int.H \
+lnInclude/int16.H \
+lnInclude/word.H \
+lnInclude/string.H \
+lnInclude/char.H \
+lnInclude/pTraits.H \
+lnInclude/Hasher.H \
+lnInclude/stringI.H \
+lnInclude/stringTemplates.C \
+lnInclude/wordI.H \
+lnInclude/int32.H \
+lnInclude/direction.H \
+lnInclude/int64.H \
+lnInclude/labelFwd.H \
+lnInclude/labelSpecific.H \
+lnInclude/uLabel.H \
+lnInclude/uint.H \
+lnInclude/uint8.H \
+lnInclude/uint16.H \
+lnInclude/uint32.H \
+lnInclude/uint64.H \
+lnInclude/className.H \
+lnInclude/defineDebugSwitch.H \
+lnInclude/simpleRegIOobject.H \
+lnInclude/debug.H \
+lnInclude/nullObject.H \
+containers/HashTables/HashTable/HashTableCoreI.H \
+
+#END

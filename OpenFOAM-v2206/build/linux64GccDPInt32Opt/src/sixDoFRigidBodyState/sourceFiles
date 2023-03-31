@@ -1,0 +1,4 @@
+SOURCE = \
+sixDoFRigidBodyState.C \
+
+# sources

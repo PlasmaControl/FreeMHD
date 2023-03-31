@@ -1,0 +1,1 @@
+EXE = $(FOAM_MODULE_APPBIN)/importSurfaceAsSubset

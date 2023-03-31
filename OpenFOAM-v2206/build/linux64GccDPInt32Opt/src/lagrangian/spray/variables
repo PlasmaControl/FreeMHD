@@ -1,0 +1,2 @@
+SPRAYPARCEL=parcels/derived/basicSprayParcel
+LIB = $(FOAM_LIBBIN)/liblagrangianSpray

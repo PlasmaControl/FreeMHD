@@ -1,0 +1,6 @@
+SOURCE = \
+scalarTransport/scalarTransport.C \
+energyTransport/energyTransport.C \
+electricPotential/electricPotential.C \
+
+# sources

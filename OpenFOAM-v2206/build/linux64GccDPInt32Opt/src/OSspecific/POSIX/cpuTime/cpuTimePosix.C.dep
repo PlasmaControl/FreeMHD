@@ -1,0 +1,5 @@
+$(OBJECTS_DIR)/cpuTime/cpuTimePosix.C.dep: \
+cpuTime/cpuTimePosix.C \
+cpuTime/cpuTimePosix.H \
+
+#END

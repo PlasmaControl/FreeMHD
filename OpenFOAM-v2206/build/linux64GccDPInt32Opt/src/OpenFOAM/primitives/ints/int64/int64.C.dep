@@ -1,0 +1,14 @@
+$(OBJECTS_DIR)/primitives/ints/int64/int64.C.dep: \
+primitives/ints/int64/int64.C \
+primitives/ints/int64/int64.H \
+lnInclude/direction.H \
+lnInclude/pTraits.H \
+lnInclude/word.H \
+lnInclude/string.H \
+lnInclude/char.H \
+lnInclude/Hasher.H \
+lnInclude/stringI.H \
+lnInclude/stringTemplates.C \
+lnInclude/wordI.H \
+
+#END

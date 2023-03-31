@@ -1,0 +1,6 @@
+$(OBJECTS_DIR)/fields/Fields/Field/FieldBase.C.dep: \
+fields/Fields/Field/FieldBase.C \
+fields/Fields/Field/FieldBase.H \
+lnInclude/refCount.H \
+
+#END

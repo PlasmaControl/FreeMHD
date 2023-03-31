@@ -1,0 +1,4 @@
+SOURCE = \
+reactingHeterogenousParcelFoam.C \
+
+# sources

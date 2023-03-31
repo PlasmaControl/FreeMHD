@@ -1,0 +1,13 @@
+SOURCE = \
+faOption/faOption.C \
+faOption/faOptionIO.C \
+faOption/faOptionList.C \
+faOption/faOptions.C \
+faceSetOption/faceSetOption.C \
+$(derivedSources)/externalHeatFluxSource/externalHeatFluxSource.C \
+$(derivedSources)/jouleHeatingSource/jouleHeatingSource.C \
+$(derivedSources)/contactHeatFluxSource/contactHeatFluxSource.C \
+$(derivedSources)/externalFileSource/externalFileSource.C \
+$(corrections)/limitVelocity/limitVelocity.C \
+
+# sources

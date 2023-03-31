@@ -1,0 +1,3 @@
+restraints = sixDoFRigidBodyMotion/restraints
+constraints = sixDoFRigidBodyMotion/constraints
+LIB = $(FOAM_LIBBIN)/libsixDoFRigidBodyMotion

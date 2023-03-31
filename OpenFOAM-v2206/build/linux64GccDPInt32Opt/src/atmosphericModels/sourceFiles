@@ -1,0 +1,27 @@
+SOURCE = \
+turbulenceModels/atmosphericTurbulentTransportModels.C \
+turbulenceModels/atmosphericTurbulentFluidThermoModels.C \
+porosityModels/powerLawLopesdaCosta/powerLawLopesdaCosta.C \
+derivedFvPatchFields/atmBoundaryLayer/atmBoundaryLayer.C \
+derivedFvPatchFields/atmBoundaryLayerInletVelocity/atmBoundaryLayerInletVelocityFvPatchVectorField.C \
+derivedFvPatchFields/atmBoundaryLayerInletK/atmBoundaryLayerInletKFvPatchScalarField.C \
+derivedFvPatchFields/atmBoundaryLayerInletEpsilon/atmBoundaryLayerInletEpsilonFvPatchScalarField.C \
+derivedFvPatchFields/atmBoundaryLayerInletOmega/atmBoundaryLayerInletOmegaFvPatchScalarField.C \
+derivedFvPatchFields/atmTurbulentHeatFluxTemperature/atmTurbulentHeatFluxTemperatureFvPatchScalarField.C \
+$(wallFunctions)/atmAlphatkWallFunction/atmAlphatkWallFunctionFvPatchScalarField.C \
+$(wallFunctions)/atmEpsilonWallFunction/atmEpsilonWallFunctionFvPatchScalarField.C \
+$(wallFunctions)/atmNutkWallFunction/atmNutkWallFunctionFvPatchScalarField.C \
+$(wallFunctions)/atmNutUWallFunction/atmNutUWallFunctionFvPatchScalarField.C \
+$(wallFunctions)/atmNutWallFunction/atmNutWallFunctionFvPatchScalarField.C \
+$(wallFunctions)/atmOmegaWallFunction/atmOmegaWallFunctionFvPatchScalarField.C \
+fvOptions/atmAmbientTurbSource/atmAmbientTurbSource.C \
+fvOptions/atmBuoyancyTurbSource/atmBuoyancyTurbSource.C \
+fvOptions/atmCoriolisUSource/atmCoriolisUSource.C \
+fvOptions/atmLengthScaleTurbSource/atmLengthScaleTurbSource.C \
+fvOptions/atmPlantCanopyTurbSource/atmPlantCanopyTurbSource.C \
+fvOptions/atmPlantCanopyUSource/atmPlantCanopyUSource.C \
+fvOptions/atmPlantCanopyTSource/atmPlantCanopyTSource.C \
+fvOptions/atmNutSource/atmNutSource.C \
+functionObjects/ObukhovLength/ObukhovLength.C \
+
+# sources

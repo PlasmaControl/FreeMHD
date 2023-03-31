@@ -1,0 +1,6 @@
+SOURCE = \
+incompressibleTwoPhaseInteractingMixture/incompressibleTwoPhaseInteractingMixture.C \
+compressibleTurbulenceModels.C \
+driftFluxFoam.C \
+
+# sources

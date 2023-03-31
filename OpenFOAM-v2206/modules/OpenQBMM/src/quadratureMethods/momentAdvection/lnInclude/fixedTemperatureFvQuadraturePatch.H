@@ -1,0 +1,1 @@
+../velocity/fvQuadraturePatch/fixedTemperature/fixedTemperatureFvQuadraturePatch.H

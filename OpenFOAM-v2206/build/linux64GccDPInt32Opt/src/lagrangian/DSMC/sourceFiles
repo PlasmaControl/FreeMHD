@@ -1,0 +1,9 @@
+SOURCE = \
+parcels/derived/dsmcParcel/dsmcParcel.C \
+clouds/baseClasses/DSMCBaseCloud/DSMCBaseCloud.C \
+parcels/derived/dsmcParcel/defineDSMCParcel.C \
+parcels/derived/dsmcParcel/makeDSMCParcelBinaryCollisionModels.C \
+parcels/derived/dsmcParcel/makeDSMCParcelWallInteractionModels.C \
+parcels/derived/dsmcParcel/makeDSMCParcelInflowBoundaryModels.C \
+
+# sources

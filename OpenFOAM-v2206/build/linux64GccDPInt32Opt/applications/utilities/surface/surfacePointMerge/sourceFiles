@@ -1,0 +1,4 @@
+SOURCE = \
+surfacePointMerge.C \
+
+# sources

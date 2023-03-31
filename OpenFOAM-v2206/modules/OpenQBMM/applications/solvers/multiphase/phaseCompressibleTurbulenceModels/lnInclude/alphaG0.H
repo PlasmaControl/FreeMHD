@@ -1,0 +1,1 @@
+../kineticTheory/kineticTheoryModels/anisotropicGaussian/fluxSplittingFunctions/alphaG0/alphaG0.H

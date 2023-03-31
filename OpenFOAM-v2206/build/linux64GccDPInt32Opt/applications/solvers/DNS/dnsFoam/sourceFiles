@@ -1,0 +1,4 @@
+SOURCE = \
+dnsFoam.C \
+
+# sources

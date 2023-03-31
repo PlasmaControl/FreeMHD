@@ -1,0 +1,6 @@
+SOURCE = \
+faFieldDecomposer.C \
+faFieldDecomposerCache.C \
+faMeshDecomposition.C \
+
+# sources

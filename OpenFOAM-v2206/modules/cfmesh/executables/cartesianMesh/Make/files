@@ -1,0 +1,3 @@
+cartesianMesh.C
+
+EXE = $(FOAM_MODULE_APPBIN)/cartesianMesh

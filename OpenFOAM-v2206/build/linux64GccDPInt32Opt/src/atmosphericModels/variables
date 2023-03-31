@@ -1,0 +1,2 @@
+wallFunctions = derivedFvPatchFields/wallFunctions
+LIB = $(FOAM_LIBBIN)/libatmosphericModels

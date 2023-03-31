@@ -1,0 +1,14 @@
+$(OBJECTS_DIR)/finiteVolume/ddtSchemes/ddtScheme/ddtSchemeBase.C.dep: \
+finiteVolume/ddtSchemes/ddtScheme/ddtSchemeBase.C \
+finiteVolume/ddtSchemes/ddtScheme/ddtSchemeBase.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Switch.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/bool.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/pTraits.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/direction.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/stdFoam.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/registerSwitch.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/simpleRegIOobject.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/macros.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/debug.H \
+
+#END

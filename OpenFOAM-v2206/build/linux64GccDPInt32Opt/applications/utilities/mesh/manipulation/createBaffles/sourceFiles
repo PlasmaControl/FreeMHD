@@ -1,0 +1,7 @@
+SOURCE = \
+faceSelection/faceSelection.C \
+faceSelection/faceZoneSelection.C \
+faceSelection/searchableSurfaceSelection.C \
+createBaffles.C \
+
+# sources

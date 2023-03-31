@@ -1,0 +1,2 @@
+part = ensight/part
+LIB = $(FOAM_LIBBIN)/libfileFormats

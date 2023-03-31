@@ -1,0 +1,28 @@
+SOURCE = \
+twoPhaseCompressibleTurbulenceModels.C \
+phasePressureModel/phasePressureModel.C \
+kineticTheoryModels/kineticTheoryModel/kineticTheoryModel.C \
+$(viscosity)/viscosityModel/viscosityModel.C \
+$(viscosity)/Gidaspow/GidaspowViscosity.C \
+$(viscosity)/Syamlal/SyamlalViscosity.C \
+$(viscosity)/HrenyaSinclair/HrenyaSinclairViscosity.C \
+$(viscosity)/none/noneViscosity.C \
+$(conductivity)/conductivityModel/conductivityModel.C \
+$(conductivity)/Gidaspow/GidaspowConductivity.C \
+$(conductivity)/Syamlal/SyamlalConductivity.C \
+$(conductivity)/HrenyaSinclair/HrenyaSinclairConductivity.C \
+$(radial)/radialModel/radialModel.C \
+$(radial)/CarnahanStarling/CarnahanStarlingRadial.C \
+$(radial)/LunSavage/LunSavageRadial.C \
+$(radial)/SinclairJackson/SinclairJacksonRadial.C \
+$(granular)/granularPressureModel/granularPressureModel.C \
+$(granular)/Lun/LunPressure.C \
+$(granular)/SyamlalRogersOBrien/SyamlalRogersOBrienPressure.C \
+$(frictional)/frictionalStressModel/frictionalStressModel.C \
+$(frictional)/JohnsonJackson/JohnsonJacksonFrictionalStress.C \
+$(frictional)/Schaeffer/SchaefferFrictionalStress.C \
+$(frictional)/JohnsonJacksonSchaeffer/JohnsonJacksonSchaefferFrictionalStress.C \
+$(derived)/JohnsonJacksonParticleTheta/JohnsonJacksonParticleThetaFvPatchScalarField.C \
+$(derived)/JohnsonJacksonParticleSlip/JohnsonJacksonParticleSlipFvPatchVectorField.C \
+
+# sources

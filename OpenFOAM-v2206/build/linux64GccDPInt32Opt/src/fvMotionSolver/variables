@@ -1,0 +1,2 @@
+derivedPoint = pointPatchFields/derived
+LIB = $(FOAM_LIBBIN)/libfvMotionSolvers

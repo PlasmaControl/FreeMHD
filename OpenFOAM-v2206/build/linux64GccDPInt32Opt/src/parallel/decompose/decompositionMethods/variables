@@ -1,0 +1,2 @@
+constraints = decompositionConstraints
+LIB = $(FOAM_LIBBIN)/libdecompositionMethods

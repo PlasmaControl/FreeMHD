@@ -1,0 +1,4 @@
+SOURCE = \
+potentialFreeSurfaceFoam.C \
+
+# sources

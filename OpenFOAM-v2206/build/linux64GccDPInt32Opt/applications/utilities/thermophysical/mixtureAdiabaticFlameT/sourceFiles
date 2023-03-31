@@ -1,0 +1,4 @@
+SOURCE = \
+mixtureAdiabaticFlameT.C \
+
+# sources

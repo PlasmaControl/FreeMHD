@@ -1,0 +1,4 @@
+SOURCE = \
+surfaceSplitByPatch.C \
+
+# sources

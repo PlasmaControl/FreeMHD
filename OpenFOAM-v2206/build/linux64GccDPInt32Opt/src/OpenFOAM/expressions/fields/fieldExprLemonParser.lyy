@@ -1,0 +1,1781 @@
+%include
+{
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+    Copyright (C) 2019-2021 OpenCFD Ltd.
+-------------------------------------------------------------------------------
+License
+    This file is part of OpenFOAM.
+
+    OpenFOAM is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+    for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+
+Description
+    Lemon grammar for field expressions.
+
+    https://www.sqlite.org/src/doc/trunk/doc/lemon.html
+
+    This code is leans heavily on the features included in the
+    swak4Foam bison code by Bernhard Gschaider <bgschaid@hfd-research.com>
+    but is a complete rewrite.
+
+    The generated parser is localized in an anonymous namespace.
+    Interface code wrapping is near the bottom of the file.
+
+    Field naming conventions:
+        'l' (Logical), 's' (Scalar), 'v' (Vector),
+        'h' (spHerical), 'y' (sYmmetrical), 't' (Tensor)
+    Prefixes
+        '' (volume), 's' (surface), 'p' (point)
+
+    Thus "tfield" is a volTensorField, "psfield" is a pointScalarField.
+
+Notes
+    The grammar productions rules are indeed long-winded. There are standard
+    field types (scalar, vector, tensor, ...), an additional logical field
+    type (stored internally as a scalar).
+    For patches there will be face/point versions of each.
+    For volume fields, there will be volume/surface/point versions of each.
+
+    The grammar is thus wrapped with m4(1) macros. Some caution may be
+    required with m4-specific words such as format etc and careful
+    attention must be paid to quoting when defining the macros.
+
+    The "declare_field" macro emits the parse token type for Lemon and
+    defines various accessor macros:
+       _new_NNfield, _get_NNfield, _value_type_NNfield
+
+    In some cases, for example where the support for point fields (eg,
+    pointScalarField) is incomplete or not yet defined, operations are
+    restricted to the internal fields. For this, two macros will be defined:
+    "field_read_access" and "field_write_access". The default versions of
+    these should be defined to pass through their arguments, with workaround
+    versions adding primitiveField(), primitiveFieldRef() methods to wrap the
+    access.
+
+    To further allow for intervention, the macros are structured to permit
+    overrides of the individual components prior to invoking. These means that
+    the most general rules appear first with the component implementation
+    delayed until later.
+
+TBD
+    Modulo:
+      - currently uses the standard definition, not the swak definition
+
+    Hodge dual:
+    Double inner-product:
+      - Ignored for the moment.
+
+    Outer-product:
+      - Common mistake to use '*' when meaning '&' for the inner-product.
+        Perhaps ignore or offer some other syntax such
+          "a [inner] b"
+          "a [outer] b"
+          "a [cross] b"
+
+\*---------------------------------------------------------------------------*/
+} // %include
+
+/*
+ * include fieldExprLemonParserMacros.m4
+ * !done in a comment since many editors have issues matching m4 quotes!
+ */
+%include
+{
+#include "exprScanToken.H"
+#include "fieldExprDriver.H"
+#include "fieldExprParser.H"
+#include "fieldExprScanner.H"
+#include "unitConversion.H"
+#include "error.H"
+#include "IOmanip.H"
+#include "exprOps.H"
+#include "exprDriverOps.H"
+
+// Enable ParseTrace
+#undef NDEBUG
+
+#pragma GCC diagnostic ignored "-Wold-style-cast"
+#pragma GCC diagnostic ignored "-Wunused-function"
+#pragma GCC diagnostic ignored "-Wunused-variable"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+
+// Local Functions
+
+//- Create a tmp from a pointer, taking ownership
+template<class T>
+Foam::tmp<T> make_tmp(T* p)
+{
+    return Foam::tmp<T>(p);
+}
+
+//- Default make_obj is pass-through
+template<class T>
+const T& make_obj(const T& o) noexcept
+{
+    return o;
+}
+
+//- Move construct an object from a pointer and destroy the pointer
+template<class T>
+T make_obj(T*& p)
+{
+    T o(std::move(*p));
+    delete p;
+    p = nullptr;  // Prevent caller from deleting too
+    return o;
+}
+
+
+} // %include
+
+// ------------------------------------------------------------------------- //
+
+// File-scope visibility for exposed Lemon parser routines
+%static
+
+// Use extra argument for the return value
+%extra_context  { Foam::expressions::fieldExpr::parseDriver* driver }
+%parse_failure  { driver->reportFatal("Parse failure, giving up..."); }
+%syntax_error   { driver->reportFatal("Syntax error"); }
+
+%token_prefix TOK_
+
+// Terminals
+%token_type         {Foam::expressions::scanToken}
+%token_destructor   { ($$).destroy(); }
+
+// Fields
+%type lfield { Foam::boolField* }
+%type sfield { Foam::scalarField* }
+%type vfield { Foam::vectorField* }
+%type hfield { Foam::sphericalTensorField* }
+%type yfield { Foam::symmTensorField* }
+%type tfield { Foam::tensorField* }
+
+
+// For each rule action with code, destruction must be done by that code block
+// Lemon does not generate a destructor for that.
+// So do not use Lemon destructors for anything.
+
+// Standard tokens for operators, constants and common types
+%token
+  LPAREN RPAREN COMMA
+  QUESTION COLON LOR LAND LNOT
+  BIT_OR BIT_XOR BIT_AND BIT_NOT
+  EQUAL NOT_EQUAL
+  LESS LESS_EQUAL GREATER GREATER_EQUAL
+  PLUS MINUS TIMES DIVIDE PERCENT
+  NEGATE DOT
+  BOOL LTRUE LFALSE
+  NUMBER ZERO IDENTIFIER
+.
+
+// https://en.cppreference.com/w/cpp/language/operator_precedence
+%right QUESTION COLON .                 // 13: right-to-left
+%left LOR  .                            // 12:
+%left LAND .                            // 11:
+%left BIT_OR  .                         // 10 (unused)
+%left BIT_XOR .                         // 9
+%left BIT_AND .                         // 8
+%left EQUAL NOT_EQUAL .                 // 7
+%left LESS LESS_EQUAL GREATER GREATER_EQUAL . // 6
+%left PLUS MINUS .                      // 4
+%left TIMES DIVIDE PERCENT .            // 3
+%right NEGATE LNOT BIT_NOT .            // 2: right-to-left
+%left DOT  .                            // 1: (method)
+
+
+%start_symbol evaluate
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+/*---------------------------------------------------------------------------*\
+ * Productions (scalar)
+\*---------------------------------------------------------------------------*/
+
+%type svalue { Foam::scalar }
+
+svalue (lhs) ::= NUMBER (tok) .     { lhs = (tok).scalarValue; } // scanToken
+
+svalue (lhs) ::= ZERO .             { lhs = Foam::Zero; }
+svalue (lhs) ::= PI LPAREN RPAREN . { lhs = Foam::constant::mathematical::pi; }
+svalue (lhs) ::= DEG_TO_RAD LPAREN RPAREN . { lhs = Foam::degToRad(); }
+svalue (lhs) ::= RAD_TO_DEG LPAREN RPAREN . { lhs = Foam::radToDeg(); }
+svalue (lhs) ::= ARG LPAREN RPAREN . { lhs = driver->argValue(); }
+svalue (lhs) ::= TIME LPAREN RPAREN . { lhs = driver->timeValue(); }
+svalue (lhs) ::= DELTA_T LPAREN RPAREN . { lhs = driver->deltaT(); }
+
+svalue (lhs) ::= SCALAR_FUNCTION_ID (name) LPAREN RPAREN .
+{
+    lhs = driver->getFunctionValue<Foam::scalar>
+    (
+        make_obj(name.name_),
+        driver->timeValue()
+    );
+}
+
+
+/*---------------------------------------------------------------------------*\
+ * Productions (vector)
+\*---------------------------------------------------------------------------*/
+
+%type vvalue { Foam::vector* }
+%destructor vvalue { delete($$); $$ = nullptr; }
+
+vvalue (lhs) ::= VECTOR_VALUE (tok) .
+{
+    // Take ownership of pointer from scan token
+    lhs = tok.vectorPtr; tok.vectorPtr = nullptr;
+}
+
+vvalue (lhs) ::= VECTOR_FUNCTION_ID (name) LPAREN RPAREN .
+{
+    auto val = driver->getFunctionValue<Foam::vector>
+    (
+        make_obj(name.name_),
+        driver->timeValue()
+    );
+    lhs = new Foam::vector(val);
+}
+
+
+/* * * * * * * * * * * * * * * * * * Fields  * * * * * * * * * * * * * * * * *\
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/*---------------------------------------------------------------------------*\
+ * Productions (scalarField)
+\*---------------------------------------------------------------------------*/
+
+evaluate ::= sfield (a) . { driver->setResult(a); }
+
+sfield (lhs) ::= svalue (a) .
+{
+    lhs = driver->newField<Foam::scalar>(make_obj(a)).ptr();
+}
+
+sfield (lhs) ::= SCALAR_ID (name) .
+{
+    lhs = driver->getField<Foam::scalar>(make_obj(name.name_)).ptr();
+}
+
+
+sfield (lhs) ::= LPAREN sfield (a) RPAREN. { lhs = a; }
+sfield (lhs) ::= MINUS sfield (a) . [NEGATE]
+{
+    lhs = a; lhs->negate();
+}
+
+sfield (lhs) ::= DEG_TO_RAD LPAREN sfield (a) RPAREN .
+{
+    lhs = ((Foam::degToRad()) * make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= RAD_TO_DEG LPAREN sfield (a) RPAREN .
+{
+    lhs = ((Foam::radToDeg()) * make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= MIN LPAREN sfield (a) COMMA sfield (b) RPAREN .
+{
+    lhs = Foam::min(make_tmp(a), make_tmp(b)).ptr();
+}
+
+sfield (lhs) ::= MAX LPAREN sfield (a) COMMA sfield (b) RPAREN .
+{
+    lhs = Foam::max(make_tmp(a), make_tmp(b)).ptr();
+}
+
+lfield (lhs) ::= sfield (a) EQUAL sfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::equalOp<Foam::scalar>());
+}
+
+lfield (lhs) ::= sfield (a) NOT_EQUAL sfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::notEqualOp<Foam::scalar>());
+}
+
+lfield (lhs) ::= sfield (a) LESS sfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessOp<Foam::scalar>());
+}
+
+lfield (lhs) ::= sfield (a) LESS_EQUAL sfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessEqualOp<Foam::scalar>());
+}
+
+lfield (lhs) ::= sfield (a) GREATER sfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterOp<Foam::scalar>());
+}
+
+lfield (lhs) ::= sfield (a) GREATER_EQUAL sfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterEqualOp<Foam::scalar>());
+}
+
+sfield (lhs) ::= lfield (cond) QUESTION sfield (a) COLON sfield (b) .
+{
+    lhs = a;
+
+    Foam::FieldOps::ternarySelect
+    <Foam::scalar>(*lhs, make_obj(cond), *a, make_obj(b));
+}
+
+
+
+
+sfield (lhs) ::= MIN LPAREN sfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMin (*lhs);
+}
+
+sfield (lhs) ::= MAX LPAREN sfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMax (*lhs);
+}
+
+sfield (lhs) ::= SUM LPAREN sfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gSum (*lhs);
+}
+
+sfield (lhs) ::= AVERAGE LPAREN sfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gAverage (*lhs);
+}
+
+
+sfield (lhs) ::= sfield (a) PLUS sfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+sfield (lhs) ::= sfield (a) MINUS sfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+sfield (lhs) ::= sfield (a) TIMES sfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+sfield (lhs) ::= sfield (a) DIVIDE sfield (b) .
+{
+    lhs = driver->newField<Foam::scalar>().ptr();
+    Foam::FieldOps::assign
+    (
+        *lhs,
+        make_obj(a),
+        make_obj(b),
+        Foam::scalarDivideOp<Foam::scalar>()
+    );
+}
+
+sfield (lhs) ::= sfield (a) PERCENT sfield (b) .
+{
+    lhs = driver->newField<Foam::scalar>().ptr();
+    Foam::FieldOps::assign
+    (
+        *lhs,
+        make_obj(a),
+        make_obj(b),
+        Foam::scalarModuloOp<Foam::scalar>()
+    );
+}
+
+sfield (lhs) ::= vfield (a) BIT_AND vfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+sfield (lhs) ::= EXP LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::exp (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= LOG LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::log (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= LOG10 LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::log10 (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= SQR LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::sqr (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= SQRT LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::sqrt (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= CBRT LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::cbrt (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= SIN LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::sin (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= COS LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::cos (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= TAN LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::tan (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= ASIN LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::asin (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= ACOS LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::acos (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= ATAN LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::atan (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= SINH LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::sinh (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= COSH LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::cosh (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= TANH LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::tanh (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= POW LPAREN sfield (a) COMMA sfield (b) RPAREN .
+{
+    lhs = Foam::pow(make_tmp(a), make_tmp(b)).ptr();
+}
+
+sfield (lhs) ::= ATAN2 LPAREN sfield (a) COMMA sfield (b) RPAREN .
+{
+    lhs = Foam::atan2(make_tmp(a), make_tmp(b)).ptr();
+}
+
+sfield (lhs) ::= POS LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::pos (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= NEG LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::neg (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= POS0 LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::pos0 (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= NEG0 LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::neg0 (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= SIGN LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::sign (make_tmp(a)).ptr();
+}
+
+
+
+// Non-standard but manage via FieldOps::assign
+sfield (lhs) ::= FLOOR LPAREN sfield (a) RPAREN .
+{
+    lhs = driver->newField<Foam::scalar>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), Foam::floorOp<Foam::scalar>());
+}
+
+sfield (lhs) ::= CEIL LPAREN sfield (a) RPAREN .
+{
+    lhs = driver->newField<Foam::scalar>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), Foam::ceilOp<Foam::scalar>());
+}
+
+sfield (lhs) ::= ROUND LPAREN sfield (a) RPAREN .
+{
+    lhs = driver->newField<Foam::scalar>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), Foam::roundOp<Foam::scalar>());
+}
+
+
+// Non-standard but works directly for scalarField
+sfield (lhs) ::= HYPOT LPAREN sfield (a) COMMA sfield (b) RPAREN .
+{
+    lhs = Foam::hypot(make_tmp(a), make_tmp(b)).ptr();
+}
+
+
+
+// Other functions
+
+sfield (lhs) ::= RAND LPAREN RPAREN.
+{
+    lhs = driver->field_rand().ptr();
+}
+
+sfield (lhs) ::= RAND LPAREN NUMBER (seed) RPAREN.
+{
+    lhs = driver->field_rand(std::round((seed).scalarValue)).ptr();
+}
+
+sfield (lhs) ::= SCALAR_FUNCTION_ID (name) LPAREN sfield (values) RPAREN.
+{
+    lhs = driver->newField<Foam::scalar>().ptr();
+    driver->fillFunctionValues<Foam::scalar>
+    (
+        *lhs,
+        make_obj(name.name_),
+        make_obj(values)
+    );
+}
+
+
+/*---------------------------------------------------------------------------*\
+ * Productions (vectorField)
+\*---------------------------------------------------------------------------*/
+
+evaluate ::= vfield (a) . { driver->setResult(a); }
+
+vfield (lhs) ::= vvalue (a) .
+{
+    lhs = driver->newField<Foam::vector>(make_obj(a)).ptr();
+}
+
+vfield (lhs) ::= VECTOR_ID (name) .
+{
+    lhs = driver->getField<Foam::vector>(make_obj(name.name_)).ptr();
+}
+
+
+vfield (lhs) ::= LPAREN vfield (a) RPAREN. { lhs = a; }
+vfield (lhs) ::= MINUS vfield (a) . [NEGATE]
+{
+    lhs = a; lhs->negate();
+}
+
+vfield (lhs) ::= DEG_TO_RAD LPAREN vfield (a) RPAREN .
+{
+    lhs = ((Foam::degToRad()) * make_tmp(a)).ptr();
+}
+
+vfield (lhs) ::= RAD_TO_DEG LPAREN vfield (a) RPAREN .
+{
+    lhs = ((Foam::radToDeg()) * make_tmp(a)).ptr();
+}
+
+vfield (lhs) ::= MIN LPAREN vfield (a) COMMA vfield (b) RPAREN .
+{
+    lhs = Foam::min(make_tmp(a), make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= MAX LPAREN vfield (a) COMMA vfield (b) RPAREN .
+{
+    lhs = Foam::max(make_tmp(a), make_tmp(b)).ptr();
+}
+
+lfield (lhs) ::= vfield (a) EQUAL vfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::equalOp<Foam::vector>());
+}
+
+lfield (lhs) ::= vfield (a) NOT_EQUAL vfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::notEqualOp<Foam::vector>());
+}
+
+lfield (lhs) ::= vfield (a) LESS vfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessOp<Foam::vector>());
+}
+
+lfield (lhs) ::= vfield (a) LESS_EQUAL vfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessEqualOp<Foam::vector>());
+}
+
+lfield (lhs) ::= vfield (a) GREATER vfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterOp<Foam::vector>());
+}
+
+lfield (lhs) ::= vfield (a) GREATER_EQUAL vfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterEqualOp<Foam::vector>());
+}
+
+vfield (lhs) ::= lfield (cond) QUESTION vfield (a) COLON vfield (b) .
+{
+    lhs = a;
+
+    Foam::FieldOps::ternarySelect
+    <Foam::vector>(*lhs, make_obj(cond), *a, make_obj(b));
+}
+
+
+
+
+vfield (lhs) ::= MIN LPAREN vfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMin (*lhs);
+}
+
+vfield (lhs) ::= MAX LPAREN vfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMax (*lhs);
+}
+
+vfield (lhs) ::= SUM LPAREN vfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gSum (*lhs);
+}
+
+vfield (lhs) ::= AVERAGE LPAREN vfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gAverage (*lhs);
+}
+
+
+vfield (lhs) ::= vfield (a) PLUS vfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= vfield (a) MINUS vfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= vfield (a) TIMES sfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= sfield (a) TIMES vfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= vfield (a) DIVIDE sfield (b) .
+{
+    lhs = driver->newField<Foam::vector>().ptr();
+    Foam::FieldOps::assign
+    (
+        *lhs,
+        make_obj(a),
+        make_obj(b),
+        Foam::scalarDivideOp<Foam::vector>()
+    );
+}
+
+vfield (lhs) ::= vfield (a) BIT_XOR vfield (b) .
+{
+    lhs = (make_tmp(a) ^ make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= vfield (a) BIT_AND tfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= vfield (a) BIT_AND yfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= vfield (a) BIT_AND hfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= tfield (a) BIT_AND vfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= yfield (a) BIT_AND vfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+vfield (lhs) ::= hfield (a) BIT_AND vfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+
+
+
+// Other functions
+
+vfield (lhs) ::= VECTOR_FUNCTION_ID (name) LPAREN sfield (values) RPAREN.
+{
+    lhs = driver->newField<Foam::vector>().ptr();
+    driver->fillFunctionValues<Foam::vector>
+    (
+        *lhs,
+        make_obj(name.name_),
+        make_obj(values)
+    );
+}
+
+
+/*---------------------------------------------------------------------------*\
+ * Productions (sphericalTensorField)
+\*---------------------------------------------------------------------------*/
+
+evaluate ::= hfield (a) . { driver->setResult(a); }
+
+hfield (lhs) ::= SPH_TENSOR_ID (name) .
+{
+    lhs = driver->getField<Foam::sphericalTensor>(make_obj(name.name_)).ptr();
+}
+
+
+hfield (lhs) ::= LPAREN hfield (a) RPAREN. { lhs = a; }
+hfield (lhs) ::= MINUS hfield (a) . [NEGATE]
+{
+    lhs = a; lhs->negate();
+}
+
+hfield (lhs) ::= DEG_TO_RAD LPAREN hfield (a) RPAREN .
+{
+    lhs = ((Foam::degToRad()) * make_tmp(a)).ptr();
+}
+
+hfield (lhs) ::= RAD_TO_DEG LPAREN hfield (a) RPAREN .
+{
+    lhs = ((Foam::radToDeg()) * make_tmp(a)).ptr();
+}
+
+hfield (lhs) ::= MIN LPAREN hfield (a) COMMA hfield (b) RPAREN .
+{
+    lhs = Foam::min(make_tmp(a), make_tmp(b)).ptr();
+}
+
+hfield (lhs) ::= MAX LPAREN hfield (a) COMMA hfield (b) RPAREN .
+{
+    lhs = Foam::max(make_tmp(a), make_tmp(b)).ptr();
+}
+
+lfield (lhs) ::= hfield (a) EQUAL hfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::equalOp<Foam::sphericalTensor>());
+}
+
+lfield (lhs) ::= hfield (a) NOT_EQUAL hfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::notEqualOp<Foam::sphericalTensor>());
+}
+
+lfield (lhs) ::= hfield (a) LESS hfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessOp<Foam::sphericalTensor>());
+}
+
+lfield (lhs) ::= hfield (a) LESS_EQUAL hfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessEqualOp<Foam::sphericalTensor>());
+}
+
+lfield (lhs) ::= hfield (a) GREATER hfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterOp<Foam::sphericalTensor>());
+}
+
+lfield (lhs) ::= hfield (a) GREATER_EQUAL hfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterEqualOp<Foam::sphericalTensor>());
+}
+
+hfield (lhs) ::= lfield (cond) QUESTION hfield (a) COLON hfield (b) .
+{
+    lhs = a;
+
+    Foam::FieldOps::ternarySelect
+    <Foam::sphericalTensor>(*lhs, make_obj(cond), *a, make_obj(b));
+}
+
+
+
+
+hfield (lhs) ::= MIN LPAREN hfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMin (*lhs);
+}
+
+hfield (lhs) ::= MAX LPAREN hfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMax (*lhs);
+}
+
+hfield (lhs) ::= SUM LPAREN hfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gSum (*lhs);
+}
+
+hfield (lhs) ::= AVERAGE LPAREN hfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gAverage (*lhs);
+}
+
+
+hfield (lhs) ::= hfield (a) PLUS hfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+hfield (lhs) ::= hfield (a) MINUS hfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+hfield (lhs) ::= hfield (a) TIMES sfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+hfield (lhs) ::= sfield (a) TIMES hfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+hfield (lhs) ::= hfield (a) DIVIDE sfield (b) .
+{
+    lhs = driver->newField<Foam::sphericalTensor>().ptr();
+    Foam::FieldOps::assign
+    (
+        *lhs,
+        make_obj(a),
+        make_obj(b),
+        Foam::scalarDivideOp<Foam::sphericalTensor>()
+    );
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------*\
+ * Productions (symmTensorField)
+\*---------------------------------------------------------------------------*/
+
+evaluate ::= yfield (a) . { driver->setResult(a); }
+
+yfield (lhs) ::= SYM_TENSOR_ID (name) .
+{
+    lhs = driver->getField<Foam::symmTensor>(make_obj(name.name_)).ptr();
+}
+
+
+yfield (lhs) ::= LPAREN yfield (a) RPAREN. { lhs = a; }
+yfield (lhs) ::= MINUS yfield (a) . [NEGATE]
+{
+    lhs = a; lhs->negate();
+}
+
+yfield (lhs) ::= DEG_TO_RAD LPAREN yfield (a) RPAREN .
+{
+    lhs = ((Foam::degToRad()) * make_tmp(a)).ptr();
+}
+
+yfield (lhs) ::= RAD_TO_DEG LPAREN yfield (a) RPAREN .
+{
+    lhs = ((Foam::radToDeg()) * make_tmp(a)).ptr();
+}
+
+yfield (lhs) ::= MIN LPAREN yfield (a) COMMA yfield (b) RPAREN .
+{
+    lhs = Foam::min(make_tmp(a), make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= MAX LPAREN yfield (a) COMMA yfield (b) RPAREN .
+{
+    lhs = Foam::max(make_tmp(a), make_tmp(b)).ptr();
+}
+
+lfield (lhs) ::= yfield (a) EQUAL yfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::equalOp<Foam::symmTensor>());
+}
+
+lfield (lhs) ::= yfield (a) NOT_EQUAL yfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::notEqualOp<Foam::symmTensor>());
+}
+
+lfield (lhs) ::= yfield (a) LESS yfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessOp<Foam::symmTensor>());
+}
+
+lfield (lhs) ::= yfield (a) LESS_EQUAL yfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessEqualOp<Foam::symmTensor>());
+}
+
+lfield (lhs) ::= yfield (a) GREATER yfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterOp<Foam::symmTensor>());
+}
+
+lfield (lhs) ::= yfield (a) GREATER_EQUAL yfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterEqualOp<Foam::symmTensor>());
+}
+
+yfield (lhs) ::= lfield (cond) QUESTION yfield (a) COLON yfield (b) .
+{
+    lhs = a;
+
+    Foam::FieldOps::ternarySelect
+    <Foam::symmTensor>(*lhs, make_obj(cond), *a, make_obj(b));
+}
+
+
+
+
+yfield (lhs) ::= MIN LPAREN yfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMin (*lhs);
+}
+
+yfield (lhs) ::= MAX LPAREN yfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMax (*lhs);
+}
+
+yfield (lhs) ::= SUM LPAREN yfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gSum (*lhs);
+}
+
+yfield (lhs) ::= AVERAGE LPAREN yfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gAverage (*lhs);
+}
+
+
+yfield (lhs) ::= yfield (a) PLUS yfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= yfield (a) PLUS hfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= hfield (a) PLUS yfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= yfield (a) MINUS yfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= yfield (a) MINUS hfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= hfield (a) MINUS yfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= yfield (a) TIMES sfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= sfield (a) TIMES yfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= yfield (a) DIVIDE sfield (b) .
+{
+    lhs = driver->newField<Foam::symmTensor>().ptr();
+    Foam::FieldOps::assign
+    (
+        *lhs,
+        make_obj(a),
+        make_obj(b),
+        Foam::scalarDivideOp<Foam::symmTensor>()
+    );
+}
+
+yfield (lhs) ::= yfield (a) BIT_AND hfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+yfield (lhs) ::= hfield (a) BIT_AND yfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------*\
+ * Productions (tensorField)
+\*---------------------------------------------------------------------------*/
+
+evaluate ::= tfield (a) . { driver->setResult(a); }
+tfield (lhs) ::= IDENTITY_TENSOR . { lhs = driver->newField<Foam::tensor>(Foam::tensor::I).ptr(); }
+
+tfield (lhs) ::= TENSOR_ID (name) .
+{
+    lhs = driver->getField<Foam::tensor>(make_obj(name.name_)).ptr();
+}
+
+
+tfield (lhs) ::= LPAREN tfield (a) RPAREN. { lhs = a; }
+tfield (lhs) ::= MINUS tfield (a) . [NEGATE]
+{
+    lhs = a; lhs->negate();
+}
+
+tfield (lhs) ::= DEG_TO_RAD LPAREN tfield (a) RPAREN .
+{
+    lhs = ((Foam::degToRad()) * make_tmp(a)).ptr();
+}
+
+tfield (lhs) ::= RAD_TO_DEG LPAREN tfield (a) RPAREN .
+{
+    lhs = ((Foam::radToDeg()) * make_tmp(a)).ptr();
+}
+
+tfield (lhs) ::= MIN LPAREN tfield (a) COMMA tfield (b) RPAREN .
+{
+    lhs = Foam::min(make_tmp(a), make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= MAX LPAREN tfield (a) COMMA tfield (b) RPAREN .
+{
+    lhs = Foam::max(make_tmp(a), make_tmp(b)).ptr();
+}
+
+lfield (lhs) ::= tfield (a) EQUAL tfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::equalOp<Foam::tensor>());
+}
+
+lfield (lhs) ::= tfield (a) NOT_EQUAL tfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::notEqualOp<Foam::tensor>());
+}
+
+lfield (lhs) ::= tfield (a) LESS tfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessOp<Foam::tensor>());
+}
+
+lfield (lhs) ::= tfield (a) LESS_EQUAL tfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::lessEqualOp<Foam::tensor>());
+}
+
+lfield (lhs) ::= tfield (a) GREATER tfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterOp<Foam::tensor>());
+}
+
+lfield (lhs) ::= tfield (a) GREATER_EQUAL tfield (b) .
+{
+    lhs = driver->newField<bool>().ptr();
+    Foam::FieldOps::assign(*lhs, make_obj(a), make_obj(b), Foam::greaterEqualOp<Foam::tensor>());
+}
+
+tfield (lhs) ::= lfield (cond) QUESTION tfield (a) COLON tfield (b) .
+{
+    lhs = a;
+
+    Foam::FieldOps::ternarySelect
+    <Foam::tensor>(*lhs, make_obj(cond), *a, make_obj(b));
+}
+
+
+
+
+tfield (lhs) ::= MIN LPAREN tfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMin (*lhs);
+}
+
+tfield (lhs) ::= MAX LPAREN tfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gMax (*lhs);
+}
+
+tfield (lhs) ::= SUM LPAREN tfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gSum (*lhs);
+}
+
+tfield (lhs) ::= AVERAGE LPAREN tfield (a) RPAREN .
+{
+    lhs = a; *lhs = Foam::gAverage (*lhs);
+}
+
+
+tfield (lhs) ::= tfield (a) PLUS tfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) PLUS yfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= yfield (a) PLUS tfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) PLUS hfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= hfield (a) PLUS tfield (b) .
+{
+    lhs = (make_tmp(a) + make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) MINUS tfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) MINUS yfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= yfield (a) MINUS tfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) MINUS hfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= hfield (a) MINUS tfield (b) .
+{
+    lhs = (make_tmp(a) - make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) TIMES sfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= sfield (a) TIMES tfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) DIVIDE sfield (b) .
+{
+    lhs = driver->newField<Foam::tensor>().ptr();
+    Foam::FieldOps::assign
+    (
+        *lhs,
+        make_obj(a),
+        make_obj(b),
+        Foam::scalarDivideOp<Foam::tensor>()
+    );
+}
+
+tfield (lhs) ::= vfield (a) TIMES vfield (b) .
+{
+    lhs = (make_tmp(a) * make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) BIT_AND tfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) BIT_AND hfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= tfield (a) BIT_AND yfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= hfield (a) BIT_AND tfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= yfield (a) BIT_AND tfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+tfield (lhs) ::= yfield (a) BIT_AND yfield (b) .
+{
+    lhs = (make_tmp(a) & make_tmp(b)).ptr();
+}
+
+
+
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+/*---------------------------------------------------------------------------*\
+ * Logic field productions (boolField)
+\*---------------------------------------------------------------------------*/
+
+evaluate ::= lfield (a) . { driver->setResult(a); }
+lfield (lhs) ::= LTRUE .   { lhs = driver->newField<bool>(true).ptr(); }
+lfield (lhs) ::= LFALSE .  { lhs = driver->newField<bool>(false).ptr(); }
+
+lfield (lhs) ::= BOOL LPAREN lfield (a) RPAREN .
+{
+    lhs = a;
+}
+
+lfield (lhs) ::= BOOL LPAREN sfield (a) RPAREN .
+{
+    lhs = driver->newField<bool>().ptr();
+
+    Foam::FieldOps::assign
+    (
+        *lhs, make_obj(a),
+        Foam::expressions::boolOp<Foam::scalar>()
+    );
+}
+
+
+lfield (lhs) ::= BOOL_ID (name) .
+{
+    lhs = driver->getField<bool>(make_obj(name.name_)).ptr();
+}
+
+lfield (lhs) ::= LPAREN lfield (a) RPAREN. { lhs = a; }
+lfield (lhs) ::= LNOT lfield (a). [NEGATE]
+{
+    lhs = a;
+    Foam::FieldOps::assign
+    (
+        *lhs, *a,
+        Foam::expressions::boolNotOp<bool>()
+    );
+}
+
+lfield (lhs) ::= lfield (a) LAND lfield (b) .
+{
+    lhs = a;
+    Foam::FieldOps::assign
+    (
+        *lhs, *a, make_obj(b),
+        Foam::expressions::boolAndOp<bool>()
+    );
+}
+
+lfield (lhs) ::= lfield (a) LOR lfield (b) .
+{
+    lhs = a;
+    Foam::FieldOps::assign
+    (
+        *lhs, *a, make_obj(b),
+        Foam::expressions::boolOrOp<bool>()
+    );
+}
+
+
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+/*---------------------------------------------------------------------------*\
+ * Field composition
+\*---------------------------------------------------------------------------*/
+
+sfield (lhs) ::= MAG LPAREN lfield (a) RPAREN .
+{
+    lhs = driver->newField<Foam::scalar>().ptr();
+    Foam::FieldOps::assign
+    (
+        *lhs,
+        make_obj(a),
+        Foam::expressions::boolOp<bool>()
+    );
+}
+
+sfield (lhs) ::= MAG LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::mag (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= MAGSQR LPAREN sfield (a) RPAREN .
+{
+    lhs = Foam::magSqr (make_tmp(a)).ptr();
+}
+
+
+sfield (lhs) ::= MAG LPAREN vfield (a) RPAREN .
+{
+    lhs = Foam::mag (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= MAGSQR LPAREN vfield (a) RPAREN .
+{
+    lhs = Foam::magSqr (make_tmp(a)).ptr();
+}
+
+
+sfield (lhs) ::= MAG LPAREN tfield (a) RPAREN .
+{
+    lhs = Foam::mag (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= MAGSQR LPAREN tfield (a) RPAREN .
+{
+    lhs = Foam::magSqr (make_tmp(a)).ptr();
+}
+
+
+sfield (lhs) ::= MAG LPAREN yfield (a) RPAREN .
+{
+    lhs = Foam::mag (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= MAGSQR LPAREN yfield (a) RPAREN .
+{
+    lhs = Foam::magSqr (make_tmp(a)).ptr();
+}
+
+
+sfield (lhs) ::= MAG LPAREN hfield (a) RPAREN .
+{
+    lhs = Foam::mag (make_tmp(a)).ptr();
+}
+
+sfield (lhs) ::= MAGSQR LPAREN hfield (a) RPAREN .
+{
+    lhs = Foam::magSqr (make_tmp(a)).ptr();
+}
+
+
+
+vfield (lhs) ::= VECTOR LPAREN sfield (x) COMMA sfield (y) COMMA sfield (z) RPAREN.
+{
+    lhs = driver->newField<Foam::vector>().ptr();
+
+    Foam::zip
+    (
+        (*lhs),
+        (make_obj(x)),
+        (make_obj(y)),
+        (make_obj(z))
+    );
+}
+
+tfield (lhs) ::= TENSOR LPAREN
+    sfield (xx) COMMA sfield (xy) COMMA sfield (xz) COMMA
+    sfield (yx) COMMA sfield (yy) COMMA sfield (yz) COMMA
+    sfield (zx) COMMA sfield (zy) COMMA sfield (zz)
+RPAREN.
+{
+    lhs = driver->newField<Foam::tensor>().ptr();
+
+    Foam::zip
+    (
+        (*lhs),
+        (make_obj(xx)),
+        (make_obj(xy)),
+        (make_obj(xz)),
+        (make_obj(yx)),
+        (make_obj(yy)),
+        (make_obj(yz)),
+        (make_obj(zx)),
+        (make_obj(zy)),
+        (make_obj(zz))
+    );
+}
+
+yfield (lhs) ::= SYM_TENSOR LPAREN
+    sfield (xx) COMMA sfield (xy) COMMA sfield (xz) COMMA
+    sfield (yy) COMMA sfield (yz) COMMA
+    sfield (zz)
+RPAREN.
+{
+    lhs = driver->newField<Foam::symmTensor>().ptr();
+
+    Foam::zip
+    (
+        (*lhs),
+        (make_obj(xx)),
+        (make_obj(xy)),
+        (make_obj(xz)),
+        (make_obj(yy)),
+        (make_obj(yz)),
+        (make_obj(zz))
+    );
+}
+
+hfield (lhs) ::= SPH_TENSOR LPAREN sfield (ii) RPAREN.
+{
+    lhs = driver->newField<Foam::sphericalTensor>().ptr();
+
+    Foam::zip
+    (
+        (*lhs),
+        (make_obj(ii))
+    );
+}
+
+
+sfield (lhs) ::= vfield (a) DOT CMPT_X LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::vector::X).ptr();
+}
+
+sfield (lhs) ::= vfield (a) DOT CMPT_Y LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::vector::Y).ptr();
+}
+
+sfield (lhs) ::= vfield (a) DOT CMPT_Z LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::vector::Z).ptr();
+}
+
+
+sfield (lhs) ::= tfield (a) DOT CMPT_XX LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::tensor::XX).ptr();
+}
+
+sfield (lhs) ::= tfield (a) DOT CMPT_XY LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::tensor::XY).ptr();
+}
+
+sfield (lhs) ::= tfield (a) DOT CMPT_XZ LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::tensor::XZ).ptr();
+}
+
+sfield (lhs) ::= tfield (a) DOT CMPT_YX LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::tensor::YX).ptr();
+}
+
+sfield (lhs) ::= tfield (a) DOT CMPT_YY LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::tensor::YY).ptr();
+}
+
+sfield (lhs) ::= tfield (a) DOT CMPT_YZ LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::tensor::YZ).ptr();
+}
+
+sfield (lhs) ::= tfield (a) DOT CMPT_ZX LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::tensor::ZX).ptr();
+}
+
+sfield (lhs) ::= tfield (a) DOT CMPT_ZY LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::tensor::ZY).ptr();
+}
+
+sfield (lhs) ::= tfield (a) DOT CMPT_ZZ LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::tensor::ZZ).ptr();
+}
+
+
+sfield (lhs) ::= yfield (a) DOT CMPT_XX LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::symmTensor::XX).ptr();
+}
+
+sfield (lhs) ::= yfield (a) DOT CMPT_XY LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::symmTensor::XY).ptr();
+}
+
+sfield (lhs) ::= yfield (a) DOT CMPT_XZ LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::symmTensor::XZ).ptr();
+}
+
+sfield (lhs) ::= yfield (a) DOT CMPT_YY LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::symmTensor::YY).ptr();
+}
+
+sfield (lhs) ::= yfield (a) DOT CMPT_YZ LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::symmTensor::YZ).ptr();
+}
+
+sfield (lhs) ::= yfield (a) DOT CMPT_ZZ LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::symmTensor::ZZ).ptr();
+}
+
+
+sfield (lhs) ::= hfield (a) DOT CMPT_II LPAREN RPAREN. [DOT]
+{
+    lhs = make_tmp(a)->component(Foam::sphericalTensor::II).ptr();
+}
+
+
+
+tfield (lhs) ::= tfield (a) DOT TRANSPOSE LPAREN RPAREN. [DOT]
+{
+    lhs = a;
+    Foam::T(*lhs, *a);
+}
+
+yfield (lhs) ::= yfield (a) DOT TRANSPOSE LPAREN RPAREN. [DOT]
+{
+    lhs = a; // no-op
+}
+
+hfield (lhs) ::= hfield (a) DOT TRANSPOSE LPAREN RPAREN. [DOT]
+{
+    lhs = a; // no-op
+}
+
+
+vfield (lhs) ::= yfield (a) DOT DIAG LPAREN RPAREN. [DOT]
+{
+    lhs = driver->newField<Foam::vector>().ptr();
+
+    Foam::unzipDiag((make_obj(a)), (*lhs));
+}
+
+vfield (lhs) ::= tfield (a) DOT DIAG LPAREN RPAREN. [DOT]
+{
+    lhs = driver->newField<Foam::vector>().ptr();
+
+    Foam::unzipDiag((make_obj(a)), (*lhs));
+}
+
+vfield (lhs) ::= tfield (a) DOT CMPT_X LPAREN RPAREN. [DOT]
+{
+    lhs = driver->newField<Foam::vector>().ptr();
+
+    Foam::unzipRow
+    (
+        (make_obj(a)),
+        Foam::vector::X,
+        (*lhs)
+    );
+}
+
+vfield (lhs) ::= tfield (a) DOT CMPT_Y LPAREN RPAREN. [DOT]
+{
+    lhs = driver->newField<Foam::vector>().ptr();
+
+    Foam::unzipRow
+    (
+        (make_obj(a)),
+        Foam::vector::Y,
+        (*lhs)
+    );
+}
+
+vfield (lhs) ::= tfield (a) DOT CMPT_Z LPAREN RPAREN. [DOT]
+{
+    lhs = driver->newField<Foam::vector>().ptr();
+
+    Foam::unzipRow
+    (
+        (make_obj(a)),
+        Foam::vector::Z,
+        (*lhs)
+    );
+}
+
+
+
+
+// ************************************************************************* //
+
+/*
+ * include m4/lemon/parser-methods.m4
+ */
+
+%code
+{
+
+// * * * * * * * * * * * * * Static Member Functions * * * * * * * * * * * * //
+
+Foam::word Foam::expressions::fieldExpr::parser::tokenName(int i)
+{
+    #ifndef NDEBUG
+    if (i > 0 && unsigned(i) < (sizeof(yyTokenName) / sizeof(char*)))
+    {
+        return *(yyTokenName + i);
+    }
+    return "<invalid>";
+    #else
+    return "";
+    #endif
+}
+
+void Foam::expressions::fieldExpr::parser::printTokenNames(Ostream& os)
+{
+    #ifndef NDEBUG
+    const unsigned nElem(sizeof(yyTokenName) / sizeof(char*));
+    for (unsigned i = 1; i < nElem; ++i) // start = 1 (skip termination token)
+    {
+        os << *(yyTokenName + i) << nl;
+    }
+    #endif
+}
+
+void Foam::expressions::fieldExpr::parser::printRules(Ostream& os)
+{
+    #ifndef NDEBUG
+    const unsigned nElem(sizeof(yyRuleName) / sizeof(char*));
+
+    // Easy way to count number of digits
+    const unsigned width(std::to_string(nElem).length());
+
+    for (unsigned i = 0; i < nElem; ++i)
+    {
+        os << setw(width) << i << ": " << *(yyRuleName + i) << nl;
+    }
+    #endif
+}
+
+
+
+// * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
+
+void Foam::expressions::fieldExpr::parser::stop()
+{
+    if (lemon_)
+    {
+        ParseFree(lemon_, ::operator delete);
+        #ifndef NDEBUG
+        ParseTrace(nullptr, nullptr);
+        #endif
+        lemon_ = nullptr;
+    }
+}
+
+
+void Foam::expressions::fieldExpr::parser::start(parseDriver& driver_)
+{
+    this->stop();
+    lemon_ = ParseAlloc(::operator new, &driver_);
+
+    if ((debug & 0x4) || driver_.debugParser())
+    {
+        #ifndef NDEBUG
+        ParseTrace(stderr, const_cast<char*>(prompt_));
+        #endif
+    }
+}
+
+
+void Foam::expressions::fieldExpr::parser::parse(int tokenId)
+{
+    Parse(lemon_, tokenId, scanToken::null());
+}
+
+
+void Foam::expressions::fieldExpr::parser::parse(int tokenId, scanToken tok)
+{
+    Parse(lemon_, tokenId, tok);
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+}  // End of %code
+
+// ************************************************************************* //

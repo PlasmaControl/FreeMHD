@@ -1,0 +1,69 @@
+# 1 "Make/options"
+# 1 "<built-in>"
+# 1 "<command-line>"
+
+
+
+
+
+
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+
+# 17 "/usr/include/stdc-predef.h" 3 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 6 "<command-line>" 2
+# 1 "Make/options"
+EXE_DEBUG = -DFULLDEBUG -g -O0
+EXE_NDEBUG = -DNDEBUG
+
+CGAL_EXACT = 
+CGAL_INEXACT = -DCGAL_INEXACT
+
+include $(GENERAL_RULES)/cgal
+
+EXE_INC = ${ROUNDING_MATH} ${EXE_NDEBUG} ${CGAL_EXACT} ${CGAL_INEXACT} ${CGAL_INC} ${c++LESSWARN} -I../conformalVoronoiMesh/lnInclude -I$(LIB_SRC)/finiteVolume/lnInclude -I$(LIB_SRC)/fileFormats/lnInclude -I$(LIB_SRC)/surfMesh/lnInclude -I$(LIB_SRC)/meshTools/lnInclude -I$(LIB_SRC)/dynamicMesh/lnInclude -I$(LIB_SRC)/parallel/decompose/decompositionMethods/lnInclude -I$(LIB_SRC)/mesh/snappyHexMesh/lnInclude -IvectorTools
+# 25 "Make/options"
+
+EXE_LIBS = ${CGAL_LIBS} -lconformalVoronoiMesh -lfileFormats -lsurfMesh -lmeshTools -ldecompositionMethods -ldecompose -L$(FOAM_LIBBIN)/dummy -lkahipDecomp -lmetisDecomp -lptscotchDecomp -lscotchDecomp -ldynamicMesh

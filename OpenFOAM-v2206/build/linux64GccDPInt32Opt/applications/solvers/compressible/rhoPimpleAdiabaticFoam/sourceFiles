@@ -1,0 +1,4 @@
+SOURCE = \
+rhoPimpleAdiabaticFoam.C \
+
+# sources

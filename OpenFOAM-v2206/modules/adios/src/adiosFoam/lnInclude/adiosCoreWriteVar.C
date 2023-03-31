@@ -1,0 +1,1 @@
+../write/adiosCoreWriteVar.C

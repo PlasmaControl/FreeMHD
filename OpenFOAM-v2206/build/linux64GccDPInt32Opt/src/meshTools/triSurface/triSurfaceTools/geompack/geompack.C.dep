@@ -1,0 +1,5 @@
+$(OBJECTS_DIR)/triSurface/triSurfaceTools/geompack/geompack.C.dep: \
+triSurface/triSurfaceTools/geompack/geompack.C \
+triSurface/triSurfaceTools/geompack/geompack.H \
+
+#END

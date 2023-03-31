@@ -1,0 +1,24 @@
+$(OBJECTS_DIR)/expressions/volume/volumeExpr.C.dep: \
+expressions/volume/volumeExpr.C \
+expressions/volume/volumeExprFwd.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/defineDebugSwitch.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/simpleRegIOobject.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/debug.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/label.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/int.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/int16.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/word.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/string.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/char.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/pTraits.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Hasher.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/stringI.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/stringTemplates.C \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/wordI.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/int32.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/direction.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/int64.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/labelFwd.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/labelSpecific.H \
+
+#END

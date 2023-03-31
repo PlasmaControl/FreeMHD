@@ -1,0 +1,5 @@
+# Build/configure parameters
+-- vtk=dummy
+-- MPLIB=SYSTEMOPENMPI
+-- MPI=sys-openmpi
+-- dummy

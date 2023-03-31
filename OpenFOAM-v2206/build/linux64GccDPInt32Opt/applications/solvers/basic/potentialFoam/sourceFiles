@@ -1,0 +1,4 @@
+SOURCE = \
+potentialFoam.C \
+
+# sources

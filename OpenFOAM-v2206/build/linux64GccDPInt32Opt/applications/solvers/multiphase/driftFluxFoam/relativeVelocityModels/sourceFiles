@@ -1,0 +1,6 @@
+SOURCE = \
+relativeVelocityModel/relativeVelocityModel.C \
+simple/simple.C \
+general/general.C \
+
+# sources
