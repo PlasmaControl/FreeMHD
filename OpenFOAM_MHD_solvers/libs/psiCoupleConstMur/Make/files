@@ -1,7 +1,0 @@
-
-psiCoupleConstMur.C
-
-
-LIB = $(FOAM_LIBBIN)/libpsiCoupleConstMur
-
-

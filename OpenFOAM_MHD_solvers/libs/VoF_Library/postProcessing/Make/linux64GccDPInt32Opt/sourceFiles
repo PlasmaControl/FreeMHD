@@ -1,8 +1,0 @@
-SOURCE = \
-interface/interface.C \
-interface/sampledInterface.C \
-interfaceRegion/interfaceRegion.C \
-volumeFractionError/volumeFractionError.C \
-reconstructionError/reconstructionError.C \
-
-# sources

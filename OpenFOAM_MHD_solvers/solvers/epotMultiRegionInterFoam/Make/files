@@ -1,5 +1,0 @@
-../common/interFoam/fluid/compressibleCourantNo.C
-../common/solid/solidRegionDiffNo.C
-epotMultiRegionInterFoam.C
-
-EXE = $(FOAM_APPBIN)/epotMultiRegionInterFoam
