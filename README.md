@@ -18,8 +18,10 @@ foam
 ```
 foamSystemCheck
 ```
-→ should say System check: PASS
-4. Can continue to OpenFOAM installation
+→ should say "System check: PASS"
+
+4. Can continue to OpenFOAM installation. 
+
 Run this under OpenFoam-v2206 directory (where the foam function takes you)
 ```
 Run ./Allwmake -s -l 
@@ -27,6 +29,7 @@ Run ./Allwmake -s -l
 5. Make electric potential solver
 
 Go to `MHD_Solvers/solvers/epotMultiRegionInterFoam/`
+
 run `wmake`
 
 6. Post-compilation checks:
@@ -38,4 +41,4 @@ Validate the build (not supported for cross-compilation) by running
 ```
 foamTestTutorial -full incompressible/simpleFoam/pitzDaily 
 ```
-8. Installation is complete
+8. If post-compilation checks all pass, installation steps are complete
