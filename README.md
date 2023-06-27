@@ -1,9 +1,30 @@
 # FreeMHD
 ## Steps for openfoam compile/install (as of 04/24/23): 
 
+0. Set up github key pair on cluster. (Note: This part is always confusing for me, so just putting the steps that worked on 6/27/23)
+ following https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux
 
-1. Clone repository from https://github.com/PlasmaControl/FreeMHD
-2. Execute run functions
+        a) Generate a public/private key pair with `ssh-keygen -t ed25519 -C "bw0594@della.princeton.edu"`
+
+        b) Enter a filename and passphrase to save key file
+
+        c) Add ssh config file if it doesn't yet exist `touch ~/.ssh/config`
+
+        d) Move new private key file into `~/.ssh/key1`
+
+        e) Then add to agent ssh-add `~/.ssh/key1` and enter passphrase to add idenitity
+
+        f) Add new public SSH key to github at https://github.com/settings/keys
+   
+   
+2. Clone repository from https://github.com/PlasmaControl/FreeMHD using 
+   `git clone <repo> <directory>` for example,
+   ```
+   git clone git@github.com:PlasmaControl/FreeMHD.git
+   ```
+
+
+4. Execute run functions
 ```
 module load gcc/8
 module load openmpi/gcc/4.1.0
