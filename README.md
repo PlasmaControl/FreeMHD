@@ -45,7 +45,7 @@ foamSystemCheck
 
 Run this under OpenFoam-v2206 directory (where the foam function takes you)
 ```
-Run ./Allwmake -s -l 
+./Allwmake -s -l 
 ```
 5. Make electric potential solver
 
