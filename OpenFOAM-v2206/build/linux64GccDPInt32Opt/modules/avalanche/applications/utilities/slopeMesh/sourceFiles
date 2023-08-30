@@ -1,7 +1,0 @@
-SOURCE = \
-slopeMesh.C \
-elevationModels/elevationModel/elevationModel.C \
-elevationModels/elevationModel/elevationModelNew.C \
-elevationModels/simpleSlope/SimpleSlope.C \
-
-# sources

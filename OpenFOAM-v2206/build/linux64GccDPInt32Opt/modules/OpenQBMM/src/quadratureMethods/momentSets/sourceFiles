@@ -1,6 +1,0 @@
-SOURCE = \
-momentSet/momentSet.C \
-univariateMomentSet/univariateMomentSet.C \
-multivariateMomentSet/multivariateMomentSet.C \
-
-# sources

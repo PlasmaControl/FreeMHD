@@ -1,6 +1,0 @@
-generalSources=sources/general
-derivedSources=sources/derived
-interRegion = sources/interRegion
-generalConstraints=constraints/general
-derivedConstraints=constraints/derived
-LIB = $(FOAM_LIBBIN)/libfvOptions

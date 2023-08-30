@@ -1,6 +1,0 @@
-SOURCE = \
-forces/forces.C \
-forceCoeffs/forceCoeffs.C \
-propellerInfo/propellerInfo.C \
-
-# sources

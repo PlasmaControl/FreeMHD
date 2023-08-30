@@ -1,5 +1,0 @@
-KINEMATICMODELS=submodels/kinematic
-THERMOMODELS=submodels/thermo
-PATCHFIELDS=derivedFvPatchFields
-FUNCTIONOBJECTS=functionObjects
-LIB = $(FOAM_LIBBIN)/libsurfaceFilmModels

@@ -1,6 +1,0 @@
-SOURCE = \
-PDFTransportModel/PDFTransportModel.C \
-univariatePDFTransportModel/univariatePDFTransportModel.C \
-velocityPDFTransportModel/velocityPDFTransportModel.C \
-
-# sources

@@ -1,4 +1,0 @@
-SOURCE = \
-compressiblePbeTransportFoam.C \
-
-# sources

@@ -1,6 +1,0 @@
-SOURCE = \
-collapseBase.C \
-collapseEdge.C \
-surfaceClean.C \
-
-# sources

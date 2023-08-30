@@ -1,5 +1,0 @@
-SOURCE = \
-extrudedMesh/extrudedMesh.C \
-extrudeMesh.C \
-
-# sources

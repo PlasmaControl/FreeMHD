@@ -1,2 +1,0 @@
-BCs = derivedFvPatchFields
-LIB = $(FOAM_LIBBIN)/libthermoTools

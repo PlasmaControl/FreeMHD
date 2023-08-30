@@ -1,6 +1,0 @@
-SOURCE = \
-bunnylod/progmesh.cxx \
-bunnylod/vector.cxx \
-surfaceCoarsen.C \
-
-# sources

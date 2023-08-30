@@ -2,16 +2,16 @@ gcc=/usr/bin/gcc
 clang=
 mpirun=/usr/local/openmpi/4.1.0/gcc/bin/mpirun
 make=/usr/bin/make
-cmake=/usr/bin/cmake
-wmake=/home/bw0594/3DLMM/OpenFOAM-v2206/wmake/wmake
+cmake=
+wmake=/home/bw0594/FreeMHD/OpenFOAM-v2206/wmake/wmake
 m4=/usr/bin/m4
-flex=/usr/bin/flex
+flex=
 
 compiler=/usr/bin/g++
 g++ (GCC) 8.5.0 20210514 (Red Hat 8.5.0-16)
 
 ========================================
-2023-03-31 04:05:23 -0400
+2023-04-24 14:24:14 -0400
 Starting compile OpenFOAM-v2206 Allwmake
   Gcc system compiler []
   linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
@@ -27,24 +27,28 @@ using:  g++ -std=c++11 -m64 -pthread -DOPENFOAM=2206 -DWM_DP -DWM_LABEL_SIZE=32 
 
 ========================================
 Build MPI libraries if required
-    
-Found sources: sources/scotch/scotch_6.1.0
+    /usr/local/openmpi/4.1.0/gcc
+Did not find ... scotch_6.1.0
+Missing sources: 'scotch_6.1.0'
+Possible download locations for scotch :
+    https://www.labri.fr/perso/pelegrin/scotch/
+    https://gitlab.inria.fr/scotch/scotch
+    https://gforge.inria.fr/frs/download.php/file/38352/scotch_6.1.0.tar.gz
+    https://gforge.inria.fr/frs/download.php/file/38350/scotch_6.0.10.tar.gz
+    https://gforge.inria.fr/frs/download.php/file/38187/scotch_6.0.9.tar.gz
+    https://gforge.inria.fr/frs/download.php/file/38114/scotch_6.0.8.tar.gz
+    https://gforge.inria.fr/frs/download.php/file/37622/scotch_6.0.6.tar.gz
 
-========================================
-scotch decomposition (scotch_6.1.0)
-    Makefile.inc  : 
-    scotch include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0/include
-    scotch library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/lib
+    ---------------------------------------------------
+    Optional component (SCOTCH) had build issues
+    OpenFOAM will nonetheless remain largely functional
+    ---------------------------------------------------
 
-========================================
-pt-scotch decomposition (scotch_6.1.0 with sys-openmpi)
-    ptscotch include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0/include/sys-openmpi
-    ptscotch library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/lib/sys-openmpi
 
 ========================================
 KAHIP decomposition
-    kahip include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/kahip-3.14/include
-    kahip library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/lib
+    kahip include: /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/kahip-3.14/include
+    kahip library: /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/lib
 
 ========================================
 METIS decomposition
@@ -62,20 +66,20 @@ Possible download locations for metis :
 
 ========================================
 cgal/boost
-    CGAL  include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/CGAL-4.14.3/include
+    CGAL  include: /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/CGAL-4.14.3/include
     CGAL  library: header
-    boost include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/include
-    boost library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/lib64
+    boost include: /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/include
+    boost library: /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/boost_1_74_0/lib64
 
 ========================================
 FFTW
-    fftw include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/include
-    fftw library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/lib
+    fftw include: /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/include
+    fftw library: /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/fftw-3.3.10/lib
 
 ========================================
 ADIOS2
-    adios2 include: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/ADIOS2-2.7.1/include
-    adios2 library: /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/ADIOS2-2.7.1/lib64
+    adios2 include: /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/ADIOS2-2.7.1/include
+    adios2 library: /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/ADIOS2-2.7.1/lib64
 
 ========================================
 Done ThirdParty Allwmake
@@ -119,13 +123,13 @@ wmake lagrangian/distributionModels
 wmake decompositionMethods
 wmake decompose
 wmake faDecompose
-kahip (int32) - /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/kahip-3.14
+kahip (int32) - /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64Gcc/kahip-3.14
 wmake kahipDecomp
 ==> skip metis (no header)
-scotch (int) - /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0
+scotch (int) - /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0
 wmake scotchDecomp
-scotch (int) - /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0
-ptscotch - /home/bw0594/3DLMM/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0
+scotch (int) - /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0
+ptscotch - /home/bw0594/FreeMHD/OpenFOAM-v2206/ThirdParty/platforms/linux64GccDPInt32/scotch_6.1.0
 wmake  ptscotchDecomp (mpi=SYSTEMOPENMPI:sys-openmpi)
 wmake ptscotchDecomp
 wmake reconstruct
@@ -187,48 +191,1623 @@ wmake multiphaseSystem
 wmake twoPhaseSystem
 wmake twoPhaseCompressibleTurbulenceModels
 wmake phasesSystem
+    Ctoo: phaseModel.C
+    Ctoo: phaseModels.C
+    Ctoo: phasePair.C
+    Ctoo: phasePairKey.C
+    Ctoo: orderedPhasePair.C
+    Ctoo: multiphaseInterSystem.C
+    Ctoo: multiphaseSystem.C
+    Ctoo: multiphaseSystemNew.C
+    Ctoo: multiphaseSystems.C
+    Ctoo: interfaceCompositionModel.C
+    Ctoo: InterfaceCompositionModels.C
+    Ctoo: porousModel.C
+    Ctoo: VollerPrakash.C
+    Ctoo: surfaceTensionModel.C
+    Ctoo: constantSurfaceTensionCoefficient.C
+    Ctoo: timeVaryingMassSorptionFvPatchScalarField.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libincompressibleMultiphaseSystems.so
 wmake compressibleMultiPhaseTurbulenceModels
+    dep: compressibleMultiPhaseTurbulenceModels.C
+    Ctoo: compressibleMultiPhaseTurbulenceModels.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libcompressibleMultiPhaseTurbulenceModels.so
 wmake multiphaseSystem
+    dep: alphaContactAngleFvPatchScalarField.C
+    dep: RanzMarshall.C
+    dep: heatTransferModel.C
+    dep: interface.C
+    dep: blended.C
+    dep: SyamlalOBrien.C
+    dep: WenYu.C
+    dep: Gibilaro.C
+    dep: SchillerNaumann.C
+    dep: GidaspowSchillerNaumann.C
+    dep: GidaspowErgunWenYu.C
+    dep: Ergun.C
+    dep: dragModel.C
+    dep: isothermalDiameter.C
+    dep: constantDiameter.C
+    dep: diameterModel.C
+    dep: multiphaseSystem.C
+    dep: phaseModel.C
+    Ctoo: phaseModel.C
+    Ctoo: multiphaseSystem.C
+    Ctoo: diameterModel.C
+    Ctoo: constantDiameter.C
+    Ctoo: isothermalDiameter.C
+    Ctoo: dragModel.C
+    Ctoo: Ergun.C
+    Ctoo: GidaspowErgunWenYu.C
+    Ctoo: GidaspowSchillerNaumann.C
+    Ctoo: SchillerNaumann.C
+    Ctoo: Gibilaro.C
+    Ctoo: WenYu.C
+    Ctoo: SyamlalOBrien.C
+    Ctoo: blended.C
+    Ctoo: interface.C
+    Ctoo: heatTransferModel.C
+    Ctoo: RanzMarshall.C
+    Ctoo: alphaContactAngleFvPatchScalarField.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libmultiphaseSystem.so
 wmake twoPhaseSystem
+    dep: phaseCompressibleTurbulenceModels.C
+    dep: TomiyamaWallLubrication.C
+    dep: Frank.C
+    dep: Antal.C
+    dep: noWallLubrication.C
+    dep: wallLubricationModel.C
+    dep: Lamb.C
+    dep: constantVirtualMassCoefficient.C
+    dep: noVirtualMass.C
+    dep: virtualMassModel.C
+    dep: LopezDeBertodano.C
+    dep: Gosman.C
+    dep: Burns.C
+    dep: constantTurbulentDispersionCoefficient.C
+    dep: noTurbulentDispersion.C
+    dep: turbulentDispersionModel.C
+    dep: TomiyamaSwarm.C
+    dep: noSwarm.C
+    dep: swarmCorrection.C
+    dep: sphericalHeatTransfer.C
+    dep: RanzMarshall.C
+    dep: heatTransferModel.C
+    dep: TomiyamaLift.C
+    dep: LegendreMagnaudet.C
+    dep: Moraga.C
+    dep: constantLiftCoefficient.C
+    dep: noLift.C
+    dep: liftModel.C
+    dep: IshiiZuber.C
+    dep: WenYu.C
+    dep: TomiyamaAnalytic.C
+    dep: TomiyamaCorrelated.C
+    dep: SyamlalOBrien.C
+    dep: SchillerNaumann.C
+    dep: Lain.C
+    dep: GidaspowSchillerNaumann.C
+    dep: GidaspowErgunWenYu.C
+    dep: Gibilaro.C
+    dep: Ergun.C
+    dep: segregated.C
+    dep: dragModel.C
+    dep: Wellek.C
+    dep: VakhrushevEfremov.C
+    dep: TomiyamaAspectRatio.C
+    dep: constantAspectRatio.C
+    dep: aspectRatioModel.C
+    dep: wallDependentModel.C
+    dep: hyperbolic.C
+    dep: linear.C
+    dep: noBlending.C
+    dep: blendingMethod.C
+    dep: randomCoalescence.C
+    dep: turbulentBreakUp.C
+    dep: wakeEntrainmentCoalescence.C
+    dep: IATEsource.C
+    dep: IATE.C
+    dep: isothermalDiameter.C
+    dep: constantDiameter.C
+    dep: diameterModel.C
+    dep: twoPhaseSystem.C
+    dep: orderedPhasePair.C
+    dep: phasePair.C
+    dep: phasePairKey.C
+    dep: phaseModel.C
+    Ctoo: phaseModel.C
+    Ctoo: phasePairKey.C
+    Ctoo: phasePair.C
+    Ctoo: orderedPhasePair.C
+    Ctoo: twoPhaseSystem.C
+    Ctoo: diameterModel.C
+    Ctoo: constantDiameter.C
+    Ctoo: isothermalDiameter.C
+    Ctoo: IATE.C
+    Ctoo: IATEsource.C
+    Ctoo: wakeEntrainmentCoalescence.C
+    Ctoo: turbulentBreakUp.C
+    Ctoo: randomCoalescence.C
+    Ctoo: blendingMethod.C
+    Ctoo: noBlending.C
+    Ctoo: linear.C
+    Ctoo: hyperbolic.C
+    Ctoo: wallDependentModel.C
+    Ctoo: aspectRatioModel.C
+    Ctoo: constantAspectRatio.C
+    Ctoo: TomiyamaAspectRatio.C
+    Ctoo: VakhrushevEfremov.C
+    Ctoo: Wellek.C
+    Ctoo: dragModel.C
+    Ctoo: segregated.C
+    Ctoo: Ergun.C
+    Ctoo: Gibilaro.C
+    Ctoo: GidaspowErgunWenYu.C
+    Ctoo: GidaspowSchillerNaumann.C
+    Ctoo: Lain.C
+    Ctoo: SchillerNaumann.C
+    Ctoo: SyamlalOBrien.C
+    Ctoo: TomiyamaCorrelated.C
+    Ctoo: TomiyamaAnalytic.C
+    Ctoo: WenYu.C
+    Ctoo: IshiiZuber.C
+    Ctoo: liftModel.C
+    Ctoo: noLift.C
+    Ctoo: constantLiftCoefficient.C
+    Ctoo: Moraga.C
+    Ctoo: LegendreMagnaudet.C
+    Ctoo: TomiyamaLift.C
+    Ctoo: heatTransferModel.C
+    Ctoo: RanzMarshall.C
+    Ctoo: sphericalHeatTransfer.C
+    Ctoo: swarmCorrection.C
+    Ctoo: noSwarm.C
+    Ctoo: TomiyamaSwarm.C
+    Ctoo: turbulentDispersionModel.C
+    Ctoo: noTurbulentDispersion.C
+    Ctoo: constantTurbulentDispersionCoefficient.C
+    Ctoo: Burns.C
+    Ctoo: Gosman.C
+    Ctoo: LopezDeBertodano.C
+    Ctoo: virtualMassModel.C
+    Ctoo: noVirtualMass.C
+    Ctoo: constantVirtualMassCoefficient.C
+    Ctoo: Lamb.C
+    Ctoo: wallLubricationModel.C
+    Ctoo: noWallLubrication.C
+    Ctoo: Antal.C
+    Ctoo: Frank.C
+    Ctoo: TomiyamaWallLubrication.C
+    Ctoo: phaseCompressibleTurbulenceModels.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libcompressibleTwoPhaseSystem.so
 wmake phaseCompressibleTurbulenceModels
+    dep: JohnsonJacksonParticleSlipFvPatchVectorField.C
+    dep: JohnsonJacksonParticleThetaFvPatchScalarField.C
+    dep: JohnsonJacksonSchaefferFrictionalStress.C
+    dep: SchaefferFrictionalStress.C
+    dep: JohnsonJacksonFrictionalStress.C
+    dep: frictionalStressModel.C
+    dep: SyamlalRogersOBrienPressure.C
+    dep: LunPressure.C
+    dep: granularPressureModel.C
+    dep: SinclairJacksonRadial.C
+    dep: LunSavageRadial.C
+    dep: CarnahanStarlingRadial.C
+    dep: radialModel.C
+    dep: HrenyaSinclairConductivity.C
+    dep: SyamlalConductivity.C
+    dep: GidaspowConductivity.C
+    dep: conductivityModel.C
+    dep: noneViscosity.C
+    dep: HrenyaSinclairViscosity.C
+    dep: SyamlalViscosity.C
+    dep: GidaspowViscosity.C
+    dep: viscosityModel.C
+    dep: kineticTheoryModel.C
+    dep: phasePressureModel.C
+    dep: phaseCompressibleTurbulenceModels.C
+    Ctoo: phaseCompressibleTurbulenceModels.C
+    Ctoo: phasePressureModel.C
+    Ctoo: kineticTheoryModel.C
+    Ctoo: viscosityModel.C
+    Ctoo: GidaspowViscosity.C
+    Ctoo: SyamlalViscosity.C
+    Ctoo: HrenyaSinclairViscosity.C
+    Ctoo: noneViscosity.C
+    Ctoo: conductivityModel.C
+    Ctoo: GidaspowConductivity.C
+    Ctoo: SyamlalConductivity.C
+    Ctoo: HrenyaSinclairConductivity.C
+    Ctoo: radialModel.C
+    Ctoo: CarnahanStarlingRadial.C
+    Ctoo: LunSavageRadial.C
+    Ctoo: SinclairJacksonRadial.C
+    Ctoo: granularPressureModel.C
+    Ctoo: LunPressure.C
+    Ctoo: SyamlalRogersOBrienPressure.C
+    Ctoo: frictionalStressModel.C
+    Ctoo: JohnsonJacksonFrictionalStress.C
+    Ctoo: SchaefferFrictionalStress.C
+    Ctoo: JohnsonJacksonSchaefferFrictionalStress.C
+    Ctoo: JohnsonJacksonParticleThetaFvPatchScalarField.C
+    Ctoo: JohnsonJacksonParticleSlipFvPatchVectorField.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libphaseCompressibleTurbulenceModels.so
 wmake VoFphaseIncompressibleTurbulenceModels
+    dep: VoFphaseTurbulentTransportModels.C
+    Ctoo: VoFphaseTurbulentTransportModels.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libVoFphaseTurbulentTransportModels.so
 wmake incompressibleInterPhaseTransportModel
+    dep: incompressibleInterPhaseTransportModels.C
+    Ctoo: incompressibleInterPhaseTransportModels.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libincompressibleInterPhaseTransportModels.so
 wmake field
+    dep: comfort.C
+    dep: age.C
+    dep: STDMD.C
+    dep: DMDModelNew.C
+    dep: DMDModel.C
+    dep: DMD.C
+    dep: interfaceHeight.C
+    dep: stabilityBlendingFactor.C
+    dep: zeroGradient.C
+    dep: ddt2.C
+    dep: flux.C
+    dep: particleDistribution.C
+    dep: eulerianParticle.C
+    dep: extractEulerianParticles.C
+    dep: externalCoupledTemperatureMixedFvPatchScalarField.C
+    dep: externalCoupledMixedFvPatchFields.C
+    dep: externalCoupled.C
+    dep: DESModelRegions.C
+    dep: reactionsSensitivityAnalysisObjects.C
+    dep: mapFields.C
+    dep: fluxSummary.C
+    dep: valueAverage.C
+    dep: streamFunction.C
+    dep: XiReactionRate.C
+    dep: writeCellVolumes.C
+    dep: writeCellCentres.C
+    dep: wallHeatFlux.C
+    dep: wallShearStress.C
+    dep: yPlus.C
+    dep: turbulenceFields.C
+    dep: multiply.C
+    dep: subtract.C
+    dep: add.C
+    dep: fieldsExpression.C
+    dep: norm.C
+    dep: pow.C
+    dep: log.C
+    dep: reference.C
+    dep: Curle.C
+    dep: MachNo.C
+    dep: pressure.C
+    dep: momentumError.C
+    dep: momentum.C
+    dep: blendingFactor.C
+    dep: PecletNo.C
+    dep: CourantNo.C
+    dep: flowType.C
+    dep: Lambda2.C
+    dep: Q.C
+    dep: enstrophy.C
+    dep: LambVector.C
+    dep: vorticity.C
+    dep: magSqr.C
+    dep: mag.C
+    dep: ddt.C
+    dep: grad.C
+    dep: div.C
+    dep: randomise.C
+    dep: components.C
+    dep: fieldExpression.C
+    dep: histogram.C
+    dep: regionSizeDistribution.C
+    dep: surfaceInterpolate.C
+    dep: wallBoundedParticle.C
+    dep: wallBoundedStreamLineParticleCloud.C
+    dep: wallBoundedStreamLineParticle.C
+    dep: wallBoundedStreamLine.C
+    dep: streamLineParticleCloud.C
+    dep: streamLineParticle.C
+    dep: streamLineBase.C
+    dep: streamLine.C
+    dep: setFlow.C
+    dep: surfaceDistance.C
+    dep: readFields.C
+    dep: proudmanAcousticPower.C
+    dep: processorField.C
+    dep: findCellParticleCloud.C
+    dep: findCellParticle.C
+    dep: nearWallFields.C
+    dep: multiFieldValue.C
+    dep: limitFields.C
+    dep: multiphaseInterHtcModel.C
+    dep: reactingEulerHtcModel.C
+    dep: ReynoldsAnalogy.C
+    dep: localReferenceTemperature.C
+    dep: fixedReferenceTemperature.C
+    dep: heatTransferCoeffModelNew.C
+    dep: heatTransferCoeffModel.C
+    dep: heatTransferCoeff.C
+    dep: surfaceFieldValue.C
+    dep: volFieldValue.C
+    dep: fieldValueNew.C
+    dep: fieldValue.C
+    dep: fieldMinMax.C
+    dep: fieldExtents.C
+    dep: fieldCoordinateSystemTransform.C
+    dep: fieldAverageItemIO.C
+    dep: fieldAverageItem.C
+    dep: fieldAverage.C
+    dep: fvExpressionField.C
+    dep: derivedFields.C
+    dep: continuityError.C
+    dep: columnAverage.C
+    dep: singleDirectionUniformBin.C
+    dep: uniformBin.C
+    dep: binModelNew.C
+    dep: binModel.C
+    dep: binField.C
+    dep: AMIWeights.C
+    Ctoo: AMIWeights.C
+    Ctoo: binField.C
+    Ctoo: binModel.C
+    Ctoo: binModelNew.C
+    Ctoo: uniformBin.C
+    Ctoo: singleDirectionUniformBin.C
+    Ctoo: columnAverage.C
+    Ctoo: continuityError.C
+    Ctoo: derivedFields.C
+    Ctoo: fvExpressionField.C
+    Ctoo: fieldAverage.C
+    Ctoo: fieldAverageItem.C
+    Ctoo: fieldAverageItemIO.C
+    Ctoo: fieldCoordinateSystemTransform.C
+    Ctoo: fieldExtents.C
+    Ctoo: fieldMinMax.C
+    Ctoo: fieldValue.C
+    Ctoo: fieldValueNew.C
+    Ctoo: volFieldValue.C
+    Ctoo: surfaceFieldValue.C
+    Ctoo: heatTransferCoeff.C
+    Ctoo: heatTransferCoeffModel.C
+    Ctoo: heatTransferCoeffModelNew.C
+    Ctoo: fixedReferenceTemperature.C
+    Ctoo: localReferenceTemperature.C
+    Ctoo: ReynoldsAnalogy.C
+    Ctoo: reactingEulerHtcModel.C
+    Ctoo: multiphaseInterHtcModel.C
+    Ctoo: limitFields.C
+    Ctoo: multiFieldValue.C
+    Ctoo: nearWallFields.C
+    Ctoo: findCellParticle.C
+    Ctoo: findCellParticleCloud.C
+    Ctoo: processorField.C
+    Ctoo: proudmanAcousticPower.C
+    Ctoo: readFields.C
+    Ctoo: surfaceDistance.C
+    Ctoo: setFlow.C
+    Ctoo: streamLine.C
+    Ctoo: streamLineBase.C
+    Ctoo: streamLineParticle.C
+    Ctoo: streamLineParticleCloud.C
+    Ctoo: wallBoundedStreamLine.C
+    Ctoo: wallBoundedStreamLineParticle.C
+    Ctoo: wallBoundedStreamLineParticleCloud.C
+    Ctoo: wallBoundedParticle.C
+    Ctoo: surfaceInterpolate.C
+    Ctoo: regionSizeDistribution.C
+    Ctoo: histogram.C
+    Ctoo: fieldExpression.C
+    Ctoo: components.C
+    Ctoo: randomise.C
+    Ctoo: div.C
+    Ctoo: grad.C
+    Ctoo: ddt.C
+    Ctoo: mag.C
+    Ctoo: magSqr.C
+    Ctoo: vorticity.C
+    Ctoo: LambVector.C
+    Ctoo: enstrophy.C
+    Ctoo: Q.C
+    Ctoo: Lambda2.C
+    Ctoo: flowType.C
+    Ctoo: CourantNo.C
+    Ctoo: PecletNo.C
+    Ctoo: blendingFactor.C
+    Ctoo: momentum.C
+    Ctoo: momentumError.C
+    Ctoo: pressure.C
+    Ctoo: MachNo.C
+    Ctoo: Curle.C
+    Ctoo: reference.C
+    Ctoo: log.C
+    Ctoo: pow.C
+    Ctoo: norm.C
+    Ctoo: fieldsExpression.C
+    Ctoo: add.C
+    Ctoo: subtract.C
+    Ctoo: multiply.C
+    Ctoo: turbulenceFields.C
+    Ctoo: yPlus.C
+    Ctoo: wallShearStress.C
+    Ctoo: wallHeatFlux.C
+    Ctoo: writeCellCentres.C
+    Ctoo: writeCellVolumes.C
+    Ctoo: XiReactionRate.C
+    Ctoo: streamFunction.C
+    Ctoo: valueAverage.C
+    Ctoo: fluxSummary.C
+    Ctoo: mapFields.C
+    Ctoo: reactionsSensitivityAnalysisObjects.C
+    Ctoo: DESModelRegions.C
+    Ctoo: externalCoupled.C
+    Ctoo: externalCoupledMixedFvPatchFields.C
+    Ctoo: externalCoupledTemperatureMixedFvPatchScalarField.C
+    Ctoo: extractEulerianParticles.C
+    Ctoo: eulerianParticle.C
+    Ctoo: particleDistribution.C
+    Ctoo: flux.C
+    Ctoo: ddt2.C
+    Ctoo: zeroGradient.C
+    Ctoo: stabilityBlendingFactor.C
+    Ctoo: interfaceHeight.C
+    Ctoo: DMD.C
+    Ctoo: DMDModel.C
+    Ctoo: DMDModelNew.C
+    Ctoo: STDMD.C
+    Ctoo: age.C
+    Ctoo: comfort.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libfieldFunctionObjects.so
 wmake forces
+    dep: propellerInfo.C
+    dep: forceCoeffs.C
+    dep: forces.C
+    Ctoo: forces.C
+    Ctoo: forceCoeffs.C
+    Ctoo: propellerInfo.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libforces.so
 wmake initialisation
+    dep: hydrostaticPressure.C
+    Ctoo: hydrostaticPressure.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libinitialisationFunctionObjects.so
 wmake utilities
+    dep: syncObjects.C
+    dep: thermoCoupleProbes.C
+    dep: writeObjects.C
+    dep: writeDictionary.C
+    dep: timeActivatedFileUpdate.C
+    dep: systemCall.C
+    dep: setTimeStepFunctionObject.C
+    dep: noneCondition.C
+    dep: minTimeStepCondition.C
+    dep: minMaxCondition.C
+    dep: maxDurationCondition.C
+    dep: equationInitialResidualCondition.C
+    dep: equationMaxIterCondition.C
+    dep: averageCondition.C
+    dep: runTimeConditionNew.C
+    dep: runTimeCondition.C
+    dep: runTimeControl.C
+    dep: timeInfo.C
+    dep: solverInfo.C
+    dep: parProfiling.C
+    dep: removeRegisteredObject.C
+    dep: multiRegion.C
+    dep: vtkWriteUpdate.C
+    dep: vtkWrite.C
+    dep: ensightWriteUpdate.C
+    dep: ensightWrite.C
+    dep: areaWrite.C
+    dep: codedFunctionObject.C
+    dep: abort.C
+    Ctoo: abort.C
+    Ctoo: codedFunctionObject.C
+    Ctoo: areaWrite.C
+    Ctoo: ensightWrite.C
+    Ctoo: ensightWriteUpdate.C
+    Ctoo: vtkWrite.C
+    Ctoo: vtkWriteUpdate.C
+    Ctoo: multiRegion.C
+    Ctoo: removeRegisteredObject.C
+    Ctoo: parProfiling.C
+    Ctoo: solverInfo.C
+    Ctoo: timeInfo.C
+    Ctoo: runTimeControl.C
+    Ctoo: runTimeCondition.C
+    Ctoo: runTimeConditionNew.C
+    Ctoo: averageCondition.C
+    Ctoo: equationMaxIterCondition.C
+    Ctoo: equationInitialResidualCondition.C
+    Ctoo: maxDurationCondition.C
+    Ctoo: minMaxCondition.C
+    Ctoo: minTimeStepCondition.C
+    Ctoo: noneCondition.C
+    Ctoo: setTimeStepFunctionObject.C
+    Ctoo: systemCall.C
+    Ctoo: timeActivatedFileUpdate.C
+    Ctoo: writeDictionary.C
+    Ctoo: writeObjects.C
+    Ctoo: thermoCoupleProbes.C
+    Ctoo: syncObjects.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libutilityFunctionObjects.so
 wmake solvers
+    dep: electricPotential.C
+    dep: energyTransport.C
+    dep: scalarTransport.C
+    Ctoo: scalarTransport.C
+    Ctoo: energyTransport.C
+    Ctoo: electricPotential.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libsolverFunctionObjects.so
 wmake phaseSystems
+    dep: phaseForces.C
+    dep: sizeDistribution.C
+    Ctoo: sizeDistribution.C
+    Ctoo: phaseForces.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libphaseFunctionObjects.so
 wmake libso (randomProcesses)
+    dep: energySpectrum.C
+    Ctoo: energySpectrum.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/librandomProcessesFunctionObjects.so
 wmake thermoTools
+    dep: alphatJayatillekeWallFunctionFvPatchScalarField.C
+    dep: alphatWallFunctionFvPatchScalarField.C
+    dep: lumpedMassWallTemperatureFvPatchScalarField.C
+    dep: turbulentTemperatureRadCoupledMixedFvPatchScalarField.C
+    dep: turbulentTemperatureCoupledBaffleMixedFvPatchScalarField.C
+    dep: temperatureCoupledBase.C
+    dep: outletMachNumberPressureFvPatchScalarField.C
+    dep: outletMappedUniformInletHeatAdditionFvPatchField.C
+    dep: fixedIncidentRadiationFvPatchScalarField.C
+    dep: convectiveHeatTransferFvPatchScalarField.C
+    dep: wallHeatTransferFvPatchScalarField.C
+    dep: externalWallHeatFluxTemperatureFvPatchScalarField.C
+    dep: totalFlowRateAdvectiveDiffusiveFvPatchScalarField.C
+    dep: thermalBaffle1DFvPatchScalarFields.C
+    dep: humidityTemperatureCoupledMixedFvPatchScalarField.C
+    dep: semiPermeableBaffleVelocityFvPatchVectorField.C
+    dep: semiPermeableBaffleMassFractionFvPatchScalarField.C
+    Ctoo: semiPermeableBaffleMassFractionFvPatchScalarField.C
+    Ctoo: semiPermeableBaffleVelocityFvPatchVectorField.C
+    Ctoo: humidityTemperatureCoupledMixedFvPatchScalarField.C
+    Ctoo: thermalBaffle1DFvPatchScalarFields.C
+    Ctoo: totalFlowRateAdvectiveDiffusiveFvPatchScalarField.C
+    Ctoo: externalWallHeatFluxTemperatureFvPatchScalarField.C
+    Ctoo: wallHeatTransferFvPatchScalarField.C
+    Ctoo: convectiveHeatTransferFvPatchScalarField.C
+    Ctoo: fixedIncidentRadiationFvPatchScalarField.C
+    Ctoo: outletMappedUniformInletHeatAdditionFvPatchField.C
+    Ctoo: outletMachNumberPressureFvPatchScalarField.C
+    Ctoo: temperatureCoupledBase.C
+    Ctoo: turbulentTemperatureCoupledBaffleMixedFvPatchScalarField.C
+    Ctoo: turbulentTemperatureRadCoupledMixedFvPatchScalarField.C
+    Ctoo: lumpedMassWallTemperatureFvPatchScalarField.C
+    Ctoo: alphatWallFunctionFvPatchScalarField.C
+    Ctoo: alphatJayatillekeWallFunctionFvPatchScalarField.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libthermoTools.so
 wmake regionModel
+    dep: regionModelFunctionObjectList.C
+    dep: regionModelFunctionObjectNew.C
+    dep: regionModelFunctionObject.C
+    dep: mappedVariableThicknessWallFvPatch.C
+    dep: regionModel1D.C
+    dep: singleLayerRegion.C
+    dep: regionModel.C
+    Ctoo: regionModel.C
+    Ctoo: singleLayerRegion.C
+    Ctoo: regionModel1D.C
+    Ctoo: mappedVariableThicknessWallFvPatch.C
+    Ctoo: regionModelFunctionObject.C
+    Ctoo: regionModelFunctionObjectNew.C
+    Ctoo: regionModelFunctionObjectList.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libregionModels.so
 wmake pyrolysisModels
+    dep: pyrolysisModelCollection.C
+    dep: thermo.C
+    dep: noPyrolysis.C
+    dep: reactingOneDim.C
+    dep: pyrolysisModelNew.C
+    dep: pyrolysisModel.C
+    Ctoo: pyrolysisModel.C
+    Ctoo: pyrolysisModelNew.C
+    Ctoo: reactingOneDim.C
+    Ctoo: noPyrolysis.C
+    Ctoo: thermo.C
+    Ctoo: pyrolysisModelCollection.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libpyrolysisModels.so
 wmake surfaceFilmModels
+    dep: filmFlux.C
+    dep: inclinedFilmNusseltInletVelocityFvPatchVectorField.C
+    dep: inclinedFilmNusseltHeightFvPatchScalarField.C
+    dep: filmHeightInletVelocityFvPatchVectorField.C
+    dep: waxSolventViscosity.C
+    dep: function1Viscosity.C
+    dep: ArrheniusViscosity.C
+    dep: thixotropicViscosity.C
+    dep: liquidViscosity.C
+    dep: constantViscosity.C
+    dep: filmViscosityModelNew.C
+    dep: filmViscosityModel.C
+    dep: standardRadiation.C
+    dep: primaryRadiation.C
+    dep: constantRadiation.C
+    dep: noRadiation.C
+    dep: filmRadiationModelNew.C
+    dep: filmRadiationModel.C
+    dep: mappedConvectiveHeatTransfer.C
+    dep: constantHeatTransfer.C
+    dep: heatTransferModelNew.C
+    dep: heatTransferModel.C
+    dep: waxSolventEvaporation.C
+    dep: solidification.C
+    dep: standardPhaseChange.C
+    dep: noPhaseChange.C
+    dep: phaseChangeModelNew.C
+    dep: phaseChangeModel.C
+    dep: laminar.C
+    dep: filmTurbulenceModelNew.C
+    dep: filmTurbulenceModel.C
+    dep: liquidFilmThermo.C
+    dep: constantFilmThermo.C
+    dep: filmThermoModelNew.C
+    dep: filmThermoModel.C
+    dep: transferModelList.C
+    dep: transferModelNew.C
+    dep: transferModel.C
+    dep: curvatureSeparation.C
+    dep: patchInjection.C
+    dep: BrunDrippingInjection.C
+    dep: drippingInjection.C
+    dep: injectionModelList.C
+    dep: injectionModelNew.C
+    dep: injectionModel.C
+    dep: thermocapillaryForce.C
+    dep: perturbedTemperatureDependentContactAngleForce.C
+    dep: temperatureDependentContactAngleForce.C
+    dep: distributionContactAngleForce.C
+    dep: contactAngleForce.C
+    dep: forceList.C
+    dep: forceNew.C
+    dep: force.C
+    dep: filmSubModelBase.C
+    dep: thermoSingleLayer.C
+    dep: kinematicSingleLayer.C
+    dep: noFilm.C
+    dep: surfaceFilmRegionModel.C
+    dep: surfaceFilmModelNew.C
+    dep: surfaceFilmModel.C
+    Ctoo: surfaceFilmModel.C
+    Ctoo: surfaceFilmModelNew.C
+    Ctoo: surfaceFilmRegionModel.C
+    Ctoo: noFilm.C
+    Ctoo: kinematicSingleLayer.C
+    Ctoo: thermoSingleLayer.C
+    Ctoo: filmSubModelBase.C
+    Ctoo: force.C
+    Ctoo: forceNew.C
+    Ctoo: forceList.C
+    Ctoo: contactAngleForce.C
+    Ctoo: distributionContactAngleForce.C
+    Ctoo: temperatureDependentContactAngleForce.C
+    Ctoo: perturbedTemperatureDependentContactAngleForce.C
+    Ctoo: thermocapillaryForce.C
+    Ctoo: injectionModel.C
+    Ctoo: injectionModelNew.C
+    Ctoo: injectionModelList.C
+    Ctoo: drippingInjection.C
+    Ctoo: BrunDrippingInjection.C
+    Ctoo: patchInjection.C
+    Ctoo: curvatureSeparation.C
+    Ctoo: transferModel.C
+    Ctoo: transferModelNew.C
+    Ctoo: transferModelList.C
+    Ctoo: filmThermoModel.C
+    Ctoo: filmThermoModelNew.C
+    Ctoo: constantFilmThermo.C
+    Ctoo: liquidFilmThermo.C
+    Ctoo: filmTurbulenceModel.C
+    Ctoo: filmTurbulenceModelNew.C
+    Ctoo: laminar.C
+    Ctoo: phaseChangeModel.C
+    Ctoo: phaseChangeModelNew.C
+    Ctoo: noPhaseChange.C
+    Ctoo: standardPhaseChange.C
+    Ctoo: solidification.C
+    Ctoo: waxSolventEvaporation.C
+    Ctoo: heatTransferModel.C
+    Ctoo: heatTransferModelNew.C
+    Ctoo: constantHeatTransfer.C
+    Ctoo: mappedConvectiveHeatTransfer.C
+    Ctoo: filmRadiationModel.C
+    Ctoo: filmRadiationModelNew.C
+    Ctoo: noRadiation.C
+    Ctoo: constantRadiation.C
+    Ctoo: primaryRadiation.C
+    Ctoo: standardRadiation.C
+    Ctoo: filmViscosityModel.C
+    Ctoo: filmViscosityModelNew.C
+    Ctoo: constantViscosity.C
+    Ctoo: liquidViscosity.C
+    Ctoo: thixotropicViscosity.C
+    Ctoo: ArrheniusViscosity.C
+    Ctoo: function1Viscosity.C
+    Ctoo: waxSolventViscosity.C
+    Ctoo: filmHeightInletVelocityFvPatchVectorField.C
+    Ctoo: inclinedFilmNusseltHeightFvPatchScalarField.C
+    Ctoo: inclinedFilmNusseltInletVelocityFvPatchVectorField.C
+    Ctoo: filmFlux.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libsurfaceFilmModels.so
 wmake surfaceFilmModels/derivedFvPatchFields/wallFunctions
+    dep: nutkFilmWallFunctionFvPatchScalarField.C
+    dep: alphatFilmWallFunctionFvPatchScalarField.C
+    Ctoo: alphatFilmWallFunctionFvPatchScalarField.C
+    Ctoo: nutkFilmWallFunctionFvPatchScalarField.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libsurfaceFilmDerivedFvPatchFields.so
 wmake thermalBaffleModels
+    dep: thermalBaffleFvPatchScalarField.C
+    dep: noThermo.C
+    dep: thermalBaffle.C
+    dep: thermalBaffleModelNew.C
+    dep: thermalBaffleModel.C
+    Ctoo: thermalBaffleModel.C
+    Ctoo: thermalBaffleModelNew.C
+    Ctoo: thermalBaffle.C
+    Ctoo: noThermo.C
+    Ctoo: thermalBaffleFvPatchScalarField.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libthermalBaffleModels.so
 wmake regionCoupling
+    dep: filmPyrolysisRadiativeCoupledMixedFvPatchScalarField.C
+    dep: filmPyrolysisTemperatureCoupledFvPatchScalarField.C
+    dep: filmPyrolysisVelocityCoupledFvPatchVectorField.C
+    Ctoo: filmPyrolysisVelocityCoupledFvPatchVectorField.C
+    Ctoo: filmPyrolysisTemperatureCoupledFvPatchScalarField.C
+    Ctoo: filmPyrolysisRadiativeCoupledMixedFvPatchScalarField.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libregionCoupling.so
 wmake faOptions
+    dep: limitVelocity.C
+    dep: externalFileSource.C
+    dep: contactHeatFluxSource.C
+    dep: jouleHeatingSource.C
+    dep: externalHeatFluxSource.C
+    dep: faceSetOption.C
+    dep: faOptions.C
+    dep: faOptionList.C
+    dep: faOptionIO.C
+    dep: faOption.C
+    Ctoo: faOption.C
+    Ctoo: faOptionIO.C
+    Ctoo: faOptionList.C
+    Ctoo: faOptions.C
+    Ctoo: faceSetOption.C
+    Ctoo: externalHeatFluxSource.C
+    Ctoo: jouleHeatingSource.C
+    Ctoo: contactHeatFluxSource.C
+    Ctoo: externalFileSource.C
+    Ctoo: limitVelocity.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libfaOptions.so
 wmake regionFaModels
+    dep: setTimeStepFaRegionsFunctionObject.C
+    dep: velocityFilmShellFvPatchVectorField.C
+    dep: kinematicThinFilm.C
+    dep: liquidFilmModel.C
+    dep: liquidFilmBaseNew.C
+    dep: liquidFilmBase.C
+    dep: filmSubModelBase.C
+    dep: perturbedTemperatureDependentContactAngleForce.C
+    dep: contactAngleForce.C
+    dep: forceNew.C
+    dep: force.C
+    dep: forceList.C
+    dep: curvatureSeparation.C
+    dep: injectionModelNew.C
+    dep: injectionModel.C
+    dep: injectionModelList.C
+    dep: laminar.C
+    dep: filmTurbulenceModelNew.C
+    dep: filmTurbulenceModel.C
+    dep: vibrationShellFvPatchScalarField.C
+    dep: thermalShellFvPatchScalarField.C
+    dep: KirchhoffShell.C
+    dep: thermalShell.C
+    dep: vibrationShellModelNew.C
+    dep: vibrationShellModel.C
+    dep: thermalShellModelNew.C
+    dep: thermalShellModel.C
+    dep: regionFaModel.C
+    Ctoo: regionFaModel.C
+    Ctoo: thermalShellModel.C
+    Ctoo: thermalShellModelNew.C
+    Ctoo: vibrationShellModel.C
+    Ctoo: vibrationShellModelNew.C
+    Ctoo: thermalShell.C
+    Ctoo: KirchhoffShell.C
+    Ctoo: thermalShellFvPatchScalarField.C
+    Ctoo: vibrationShellFvPatchScalarField.C
+    Ctoo: filmTurbulenceModel.C
+    Ctoo: filmTurbulenceModelNew.C
+    Ctoo: laminar.C
+    Ctoo: injectionModelList.C
+    Ctoo: injectionModel.C
+    Ctoo: injectionModelNew.C
+    Ctoo: curvatureSeparation.C
+    Ctoo: forceList.C
+    Ctoo: force.C
+    Ctoo: forceNew.C
+    Ctoo: contactAngleForce.C
+    Ctoo: perturbedTemperatureDependentContactAngleForce.C
+    Ctoo: filmSubModelBase.C
+    Ctoo: liquidFilmBase.C
+    Ctoo: liquidFilmBaseNew.C
+    Ctoo: liquidFilmModel.C
+    Ctoo: kinematicThinFilm.C
+    Ctoo: velocityFilmShellFvPatchVectorField.C
+    Ctoo: setTimeStepFaRegionsFunctionObject.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libregionFaModels.so
 wmake distributionModels
 wmake basic
 wmake solidParticle
+    dep: solidParticleCloud.C
+    dep: solidParticleIO.C
+    dep: solidParticle.C
+    Ctoo: solidParticle.C
+    Ctoo: solidParticleIO.C
+    Ctoo: solidParticleCloud.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libsolidParticle.so
 wmake intermediate
+    dep: foamVtkLagrangianWriter.C
+    dep: ensightOutputCloud.C
+    dep: makeAveragingMethods.C
+    dep: cloudSolution.C
+    dep: phasePropertiesList.C
+    dep: phasePropertiesIO.C
+    dep: phaseProperties.C
+    dep: analytical.C
+    dep: Euler.C
+    dep: integrationSchemeNew.C
+    dep: integrationScheme.C
+    dep: isotropic.C
+    dep: nonEquilibrium.C
+    dep: equilibrium.C
+    dep: TimeScaleModel.C
+    dep: relative.C
+    dep: absolute.C
+    dep: noCorrectionLimiting.C
+    dep: CorrectionLimitingMethod.C
+    dep: exponential.C
+    dep: Lun.C
+    dep: HarrisCrighton.C
+    dep: ParticleStressModel.C
+    dep: reactingMultiphaseParcelInjectionDataIOList.C
+    dep: reactingMultiphaseParcelInjectionDataIO.C
+    dep: reactingMultiphaseParcelInjectionData.C
+    dep: reactingParcelInjectionDataIOList.C
+    dep: reactingParcelInjectionDataIO.C
+    dep: reactingParcelInjectionData.C
+    dep: thermoParcelInjectionDataIOList.C
+    dep: thermoParcelInjectionDataIO.C
+    dep: thermoParcelInjectionData.C
+    dep: patchInjectionBase.C
+    dep: kinematicParcelInjectionDataIOList.C
+    dep: kinematicParcelInjectionDataIO.C
+    dep: kinematicParcelInjectionData.C
+    dep: patchInteractionDataList.C
+    dep: patchInteractionData.C
+    dep: cloudScatter.C
+    dep: cloudAbsorptionEmission.C
+    dep: makeBasicKinematicMPPICParcelSubmodels.C
+    dep: defineBasicKinematicMPPICParcel.C
+    dep: makeBasicHeterogeneousReactingParcelSubmodels.C
+    dep: defineBasicHeterogeneousReactingParcel.C
+    dep: makeBasicReactingMultiphaseParcelSubmodels.C
+    dep: defineBasicReactingMultiphaseParcel.C
+    dep: makeBasicReactingParcelSubmodels.C
+    dep: defineBasicReactingParcel.C
+    dep: makeBasicThermoParcelSubmodels.C
+    dep: defineBasicThermoParcel.C
+    dep: makeBasicKinematicCollidingParcelSubmodels.C
+    dep: defineBasicKinematicCollidingParcel.C
+    dep: makeBasicKinematicParcelSubmodels.C
+    dep: defineBasicKinematicParcel.C
+    dep: reactingHeterogeneousCloud.C
+    dep: reactingMultiphaseCloud.C
+    dep: reactingCloud.C
+    dep: thermoCloud.C
+    dep: kinematicCloud.C
+    Ctoo: kinematicCloud.C
+    Ctoo: thermoCloud.C
+    Ctoo: reactingCloud.C
+    Ctoo: reactingMultiphaseCloud.C
+    Ctoo: reactingHeterogeneousCloud.C
+    Ctoo: defineBasicKinematicParcel.C
+    Ctoo: makeBasicKinematicParcelSubmodels.C
+    Ctoo: defineBasicKinematicCollidingParcel.C
+    Ctoo: makeBasicKinematicCollidingParcelSubmodels.C
+    Ctoo: defineBasicThermoParcel.C
+    Ctoo: makeBasicThermoParcelSubmodels.C
+    Ctoo: defineBasicReactingParcel.C
+    Ctoo: makeBasicReactingParcelSubmodels.C
+    Ctoo: defineBasicReactingMultiphaseParcel.C
+    Ctoo: makeBasicReactingMultiphaseParcelSubmodels.C
+    Ctoo: defineBasicHeterogeneousReactingParcel.C
+    Ctoo: makeBasicHeterogeneousReactingParcelSubmodels.C
+    Ctoo: defineBasicKinematicMPPICParcel.C
+    Ctoo: makeBasicKinematicMPPICParcelSubmodels.C
+    Ctoo: cloudAbsorptionEmission.C
+    Ctoo: cloudScatter.C
+    Ctoo: patchInteractionData.C
+    Ctoo: patchInteractionDataList.C
+    Ctoo: kinematicParcelInjectionData.C
+    Ctoo: kinematicParcelInjectionDataIO.C
+    Ctoo: kinematicParcelInjectionDataIOList.C
+    Ctoo: patchInjectionBase.C
+    Ctoo: thermoParcelInjectionData.C
+    Ctoo: thermoParcelInjectionDataIO.C
+    Ctoo: thermoParcelInjectionDataIOList.C
+    Ctoo: reactingParcelInjectionData.C
+    Ctoo: reactingParcelInjectionDataIO.C
+    Ctoo: reactingParcelInjectionDataIOList.C
+    Ctoo: reactingMultiphaseParcelInjectionData.C
+    Ctoo: reactingMultiphaseParcelInjectionDataIO.C
+    Ctoo: reactingMultiphaseParcelInjectionDataIOList.C
+    Ctoo: ParticleStressModel.C
+    Ctoo: HarrisCrighton.C
+    Ctoo: Lun.C
+    Ctoo: exponential.C
+    Ctoo: CorrectionLimitingMethod.C
+    Ctoo: noCorrectionLimiting.C
+    Ctoo: absolute.C
+    Ctoo: relative.C
+    Ctoo: TimeScaleModel.C
+    Ctoo: equilibrium.C
+    Ctoo: nonEquilibrium.C
+    Ctoo: isotropic.C
+    Ctoo: integrationScheme.C
+    Ctoo: integrationSchemeNew.C
+    Ctoo: Euler.C
+    Ctoo: analytical.C
+    Ctoo: phaseProperties.C
+    Ctoo: phasePropertiesIO.C
+    Ctoo: phasePropertiesList.C
+    Ctoo: cloudSolution.C
+    Ctoo: makeAveragingMethods.C
+    Ctoo: ensightOutputCloud.C
+    Ctoo: foamVtkLagrangianWriter.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/liblagrangianIntermediate.so
 wmake turbulence
+    dep: makeBasicHeterogeneousParcelSubmodels.C
+    dep: makeBasicKinematicMPPICParcelSubmodels.C
+    dep: makeBasicReactingMultiphaseParcelSubmodels.C
+    dep: makeBasicReactingParcelSubmodels.C
+    dep: makeBasicThermoParcelSubmodels.C
+    dep: makeBasicKinematicCollidingParcelSubmodels.C
+    dep: makeBasicKinematicParcelSubmodels.C
+    Ctoo: makeBasicKinematicParcelSubmodels.C
+    Ctoo: makeBasicKinematicCollidingParcelSubmodels.C
+    Ctoo: makeBasicThermoParcelSubmodels.C
+    Ctoo: makeBasicReactingParcelSubmodels.C
+    Ctoo: makeBasicReactingMultiphaseParcelSubmodels.C
+    Ctoo: makeBasicKinematicMPPICParcelSubmodels.C
+    Ctoo: makeBasicHeterogeneousParcelSubmodels.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/liblagrangianTurbulence.so
 wmake spray
+    dep: makeBasicSprayParcelSubmodels.C
+    dep: defineBasicSprayParcel.C
+    dep: sprayCloud.C
+    Ctoo: sprayCloud.C
+    Ctoo: defineBasicSprayParcel.C
+    Ctoo: makeBasicSprayParcelSubmodels.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/liblagrangianSpray.so
 wmake DSMC
+    dep: makeDSMCParcelInflowBoundaryModels.C
+    dep: makeDSMCParcelWallInteractionModels.C
+    dep: makeDSMCParcelBinaryCollisionModels.C
+    dep: defineDSMCParcel.C
+    dep: DSMCBaseCloud.C
+    dep: dsmcParcel.C
+    Ctoo: dsmcParcel.C
+    Ctoo: DSMCBaseCloud.C
+    Ctoo: defineDSMCParcel.C
+    Ctoo: makeDSMCParcelBinaryCollisionModels.C
+    Ctoo: makeDSMCParcelWallInteractionModels.C
+    Ctoo: makeDSMCParcelInflowBoundaryModels.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libDSMC.so
 wmake coalCombustion
+    dep: coalCloudList.C
+    dep: makeCoalParcelSubmodels.C
+    Ctoo: makeCoalParcelSubmodels.C
+    Ctoo: coalCloudList.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libcoalCombustion.so
 wmake potential
+    dep: electrostaticPotential.C
+    dep: pitchForkRing.C
+    dep: restrainedHarmonicSpring.C
+    dep: harmonicSpring.C
+    dep: tetherPotentialNew.C
+    dep: tetherPotential.C
+    dep: tetherPotentialList.C
+    dep: doubleSigmoid.C
+    dep: sigmoid.C
+    dep: noScaling.C
+    dep: shiftedForce.C
+    dep: shifted.C
+    dep: energyScalingFunctionNew.C
+    dep: energyScalingFunction.C
+    dep: noInteraction.C
+    dep: dampedCoulomb.C
+    dep: coulomb.C
+    dep: exponentialRepulsion.C
+    dep: azizChen.C
+    dep: maitlandSmith.C
+    dep: lennardJones.C
+    dep: pairPotentialNew.C
+    dep: pairPotentialIO.C
+    dep: pairPotential.C
+    dep: pairPotentialList.C
+    dep: potential.C
+    Ctoo: potential.C
+    Ctoo: pairPotentialList.C
+    Ctoo: pairPotential.C
+    Ctoo: pairPotentialIO.C
+    Ctoo: pairPotentialNew.C
+    Ctoo: lennardJones.C
+    Ctoo: maitlandSmith.C
+    Ctoo: azizChen.C
+    Ctoo: exponentialRepulsion.C
+    Ctoo: coulomb.C
+    Ctoo: dampedCoulomb.C
+    Ctoo: noInteraction.C
+    Ctoo: energyScalingFunction.C
+    Ctoo: energyScalingFunctionNew.C
+    Ctoo: shifted.C
+    Ctoo: shiftedForce.C
+    Ctoo: noScaling.C
+    Ctoo: sigmoid.C
+    Ctoo: doubleSigmoid.C
+    Ctoo: tetherPotentialList.C
+    Ctoo: tetherPotential.C
+    Ctoo: tetherPotentialNew.C
+    Ctoo: harmonicSpring.C
+    Ctoo: restrainedHarmonicSpring.C
+    Ctoo: pitchForkRing.C
+    Ctoo: electrostaticPotential.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libpotential.so
 wmake molecularMeasurements
+    dep: distribution.C
+    Ctoo: distribution.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libmolecularMeasurements.so
 wmake molecule
+    dep: moleculeCloud.C
+    dep: moleculeIO.C
+    dep: molecule.C
+    dep: reducedUnitsIO.C
+    dep: reducedUnits.C
+    Ctoo: reducedUnits.C
+    Ctoo: reducedUnitsIO.C
+    Ctoo: molecule.C
+    Ctoo: moleculeIO.C
+    Ctoo: moleculeCloud.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libmolecule.so
 wmake functionObjects/lagrangian
+    dep: vtkCloud.C
+    dep: dsmcFields.C
+    dep: icoUncoupledKinematicCloud.C
+    dep: cloudInfo.C
+    dep: dataCloud.C
+    dep: parcelSelectionDetail.C
+    Ctoo: parcelSelectionDetail.C
+    Ctoo: dataCloud.C
+    Ctoo: cloudInfo.C
+    Ctoo: icoUncoupledKinematicCloud.C
+    Ctoo: dsmcFields.C
+    Ctoo: vtkCloud.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/liblagrangianFunctionObjects.so
 wmake lumpedPointMotion
+    dep: lumpedPointDisplacementPointPatchVectorField.C
+    dep: lumpedPointTools.C
+    dep: lumpedPointIOMovement.C
+    dep: lumpedPointMovementWriter.C
+    dep: lumpedPointMovement.C
+    dep: lumpedPointStateWriter.C
+    dep: lumpedPointState.C
+    dep: lumpedPointController.C
+    Ctoo: lumpedPointController.C
+    Ctoo: lumpedPointState.C
+    Ctoo: lumpedPointStateWriter.C
+    Ctoo: lumpedPointMovement.C
+    Ctoo: lumpedPointMovementWriter.C
+    Ctoo: lumpedPointIOMovement.C
+    Ctoo: lumpedPointTools.C
+    Ctoo: lumpedPointDisplacementPointPatchVectorField.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/liblumpedPointMotion.so
 wmake sixDoFRigidBodyMotion
+    dep: Newmark.C
+    dep: CrankNicolson.C
+    dep: symplectic.C
+    dep: sixDoFSolverNew.C
+    dep: sixDoFSolver.C
+    dep: sixDoFRigidBodyMotionSolver.C
+    dep: uncoupledSixDoFRigidBodyDisplacementPointPatchVectorField.C
+    dep: sixDoFRigidBodyDisplacementPointPatchVectorField.C
+    dep: sixDoFRigidBodyMotionPointConstraint.C
+    dep: sixDoFRigidBodyMotionPlaneConstraint.C
+    dep: sixDoFRigidBodyMotionOrientationConstraint.C
+    dep: sixDoFRigidBodyMotionLineConstraint.C
+    dep: sixDoFRigidBodyMotionAxisConstraint.C
+    dep: sixDoFRigidBodyMotionConstraintNew.C
+    dep: sixDoFRigidBodyMotionConstraint.C
+    dep: softWall.C
+    dep: linearSpringDamper.C
+    dep: sphericalAngularDamper.C
+    dep: linearDamper.C
+    dep: tabulatedAxialAngularSpring.C
+    dep: sphericalAngularSpring.C
+    dep: linearSpring.C
+    dep: linearAxialAngularSpring.C
+    dep: sixDoFRigidBodyMotionRestraintNew.C
+    dep: sixDoFRigidBodyMotionRestraint.C
+    dep: sixDoFRigidBodyMotionStateIO.C
+    dep: sixDoFRigidBodyMotionState.C
+    dep: sixDoFRigidBodyMotionIO.C
+    dep: sixDoFRigidBodyMotion.C
+    Ctoo: sixDoFRigidBodyMotion.C
+    Ctoo: sixDoFRigidBodyMotionIO.C
+    Ctoo: sixDoFRigidBodyMotionState.C
+    Ctoo: sixDoFRigidBodyMotionStateIO.C
+    Ctoo: sixDoFRigidBodyMotionRestraint.C
+    Ctoo: sixDoFRigidBodyMotionRestraintNew.C
+    Ctoo: linearAxialAngularSpring.C
+    Ctoo: linearSpring.C
+    Ctoo: sphericalAngularSpring.C
+    Ctoo: tabulatedAxialAngularSpring.C
+    Ctoo: linearDamper.C
+    Ctoo: sphericalAngularDamper.C
+    Ctoo: linearSpringDamper.C
+    Ctoo: softWall.C
+    Ctoo: sixDoFRigidBodyMotionConstraint.C
+    Ctoo: sixDoFRigidBodyMotionConstraintNew.C
+    Ctoo: sixDoFRigidBodyMotionAxisConstraint.C
+    Ctoo: sixDoFRigidBodyMotionLineConstraint.C
+    Ctoo: sixDoFRigidBodyMotionOrientationConstraint.C
+    Ctoo: sixDoFRigidBodyMotionPlaneConstraint.C
+    Ctoo: sixDoFRigidBodyMotionPointConstraint.C
+    Ctoo: sixDoFRigidBodyDisplacementPointPatchVectorField.C
+    Ctoo: uncoupledSixDoFRigidBodyDisplacementPointPatchVectorField.C
+    Ctoo: sixDoFRigidBodyMotionSolver.C
+    Ctoo: sixDoFSolver.C
+    Ctoo: sixDoFSolverNew.C
+    Ctoo: symplectic.C
+    Ctoo: CrankNicolson.C
+    Ctoo: Newmark.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libsixDoFRigidBodyMotion.so
 wmake sixDoFRigidBodyState
+    dep: sixDoFRigidBodyState.C
+    Ctoo: sixDoFRigidBodyState.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libsixDoFRigidBodyState.so
 wmake rigidBodyDynamics
+    dep: CrankNicolson.C
+    dep: Newmark.C
+    dep: symplectic.C
+    dep: rigidBodySolverNew.C
+    dep: rigidBodySolver.C
+    dep: rigidBodyMotionIO.C
+    dep: rigidBodyMotion.C
+    dep: rigidBodyModelStateIO.C
+    dep: rigidBodyModelState.C
+    dep: forwardDynamics.C
+    dep: rigidBodyModel.C
+    dep: softWall.C
+    dep: externalForce.C
+    dep: prescribedRotation.C
+    dep: sphericalAngularDamper.C
+    dep: linearAxialAngularSpring.C
+    dep: linearDamper.C
+    dep: linearSpring.C
+    dep: rigidBodyRestraintNew.C
+    dep: rigidBodyRestraint.C
+    dep: Pxyz.C
+    dep: Pa.C
+    dep: Pz.C
+    dep: Py.C
+    dep: Px.C
+    dep: Ryxz.C
+    dep: Rxyz.C
+    dep: Rzyx.C
+    dep: Rs.C
+    dep: Ra.C
+    dep: Rz.C
+    dep: Ry.C
+    dep: Rx.C
+    dep: floatingJoint.C
+    dep: compositeJoint.C
+    dep: nullJoint.C
+    dep: joint.C
+    dep: cuboid.C
+    dep: sphere.C
+    dep: subBody.C
+    dep: compositeBody.C
+    dep: jointBody.C
+    dep: masslessBody.C
+    dep: rigidBody.C
+    Ctoo: rigidBody.C
+    Ctoo: masslessBody.C
+    Ctoo: jointBody.C
+    Ctoo: compositeBody.C
+    Ctoo: subBody.C
+    Ctoo: sphere.C
+    Ctoo: cuboid.C
+    Ctoo: joint.C
+    Ctoo: nullJoint.C
+    Ctoo: compositeJoint.C
+    Ctoo: floatingJoint.C
+    Ctoo: Rx.C
+    Ctoo: Ry.C
+    Ctoo: Rz.C
+    Ctoo: Ra.C
+    Ctoo: Rs.C
+    Ctoo: Rzyx.C
+    Ctoo: Rxyz.C
+    Ctoo: Ryxz.C
+    Ctoo: Px.C
+    Ctoo: Py.C
+    Ctoo: Pz.C
+    Ctoo: Pa.C
+    Ctoo: Pxyz.C
+    Ctoo: rigidBodyRestraint.C
+    Ctoo: rigidBodyRestraintNew.C
+    Ctoo: linearSpring.C
+    Ctoo: linearDamper.C
+    Ctoo: linearAxialAngularSpring.C
+    Ctoo: sphericalAngularDamper.C
+    Ctoo: prescribedRotation.C
+    Ctoo: externalForce.C
+    Ctoo: softWall.C
+    Ctoo: rigidBodyModel.C
+    Ctoo: forwardDynamics.C
+    Ctoo: rigidBodyModelState.C
+    Ctoo: rigidBodyModelStateIO.C
+    Ctoo: rigidBodyMotion.C
+    Ctoo: rigidBodyMotionIO.C
+    Ctoo: rigidBodySolver.C
+    Ctoo: rigidBodySolverNew.C
+    Ctoo: symplectic.C
+    Ctoo: Newmark.C
+    Ctoo: CrankNicolson.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/librigidBodyDynamics.so
 wmake rigidBodyMeshMotion
+    dep: rigidBodyMeshMotionSolver.C
+    dep: rigidBodyMeshMotion.C
+    Ctoo: rigidBodyMeshMotion.C
+    Ctoo: rigidBodyMeshMotionSolver.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/librigidBodyMeshMotion.so
 wmake atmosphericModels
+    dep: ObukhovLength.C
+    dep: atmNutSource.C
+    dep: atmPlantCanopyTSource.C
+    dep: atmPlantCanopyUSource.C
+    dep: atmPlantCanopyTurbSource.C
+    dep: atmLengthScaleTurbSource.C
+    dep: atmCoriolisUSource.C
+    dep: atmBuoyancyTurbSource.C
+    dep: atmAmbientTurbSource.C
+    dep: atmOmegaWallFunctionFvPatchScalarField.C
+    dep: atmNutWallFunctionFvPatchScalarField.C
+    dep: atmNutUWallFunctionFvPatchScalarField.C
+    dep: atmNutkWallFunctionFvPatchScalarField.C
+    dep: atmEpsilonWallFunctionFvPatchScalarField.C
+    dep: atmAlphatkWallFunctionFvPatchScalarField.C
+    dep: atmTurbulentHeatFluxTemperatureFvPatchScalarField.C
+    dep: atmBoundaryLayerInletOmegaFvPatchScalarField.C
+    dep: atmBoundaryLayerInletEpsilonFvPatchScalarField.C
+    dep: atmBoundaryLayerInletKFvPatchScalarField.C
+    dep: atmBoundaryLayerInletVelocityFvPatchVectorField.C
+    dep: atmBoundaryLayer.C
+    dep: powerLawLopesdaCosta.C
+    dep: atmosphericTurbulentFluidThermoModels.C
+    dep: atmosphericTurbulentTransportModels.C
+    Ctoo: atmosphericTurbulentTransportModels.C
+    Ctoo: atmosphericTurbulentFluidThermoModels.C
+    Ctoo: powerLawLopesdaCosta.C
+    Ctoo: atmBoundaryLayer.C
+    Ctoo: atmBoundaryLayerInletVelocityFvPatchVectorField.C
+    Ctoo: atmBoundaryLayerInletKFvPatchScalarField.C
+    Ctoo: atmBoundaryLayerInletEpsilonFvPatchScalarField.C
+    Ctoo: atmBoundaryLayerInletOmegaFvPatchScalarField.C
+    Ctoo: atmTurbulentHeatFluxTemperatureFvPatchScalarField.C
+    Ctoo: atmAlphatkWallFunctionFvPatchScalarField.C
+    Ctoo: atmEpsilonWallFunctionFvPatchScalarField.C
+    Ctoo: atmNutkWallFunctionFvPatchScalarField.C
+    Ctoo: atmNutUWallFunctionFvPatchScalarField.C
+    Ctoo: atmNutWallFunctionFvPatchScalarField.C
+    Ctoo: atmOmegaWallFunctionFvPatchScalarField.C
+    Ctoo: atmAmbientTurbSource.C
+    Ctoo: atmBuoyancyTurbSource.C
+    Ctoo: atmCoriolisUSource.C
+    Ctoo: atmLengthScaleTurbSource.C
+    Ctoo: atmPlantCanopyTurbSource.C
+    Ctoo: atmPlantCanopyUSource.C
+    Ctoo: atmPlantCanopyTSource.C
+    Ctoo: atmNutSource.C
+    Ctoo: ObukhovLength.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libatmosphericModels.so
 wmake optimisation/adjointOptimisation/adjoint
+    dep: steadyOptimisation.C
+    dep: singleRun.C
+    dep: optimisationManager.C
+    dep: shapeOptimisationIncompressible.C
+    dep: optimisationTypeIncompressible.C
+    dep: optMeshMovementNULL.C
+    dep: optMeshMovementBezier.C
+    dep: optMeshMovementVolumetricBSplinesExternalMotionSolver.C
+    dep: optMeshMovementVolumetricBSplines.C
+    dep: optMeshMovement.C
+    dep: SQP.C
+    dep: constraintProjection.C
+    dep: conjugateGradient.C
+    dep: SR1.C
+    dep: LBFGS.C
+    dep: DBFGS.C
+    dep: BFGS.C
+    dep: steepestDescent.C
+    dep: constrainedOptimisationMethod.C
+    dep: updateMethod.C
+    dep: quadratic.C
+    dep: bisection.C
+    dep: stepUpdate.C
+    dep: ArmijoConditions.C
+    dep: lineSearch.C
+    dep: sensitivityBezierFIIncompressible.C
+    dep: sensitivityBezierIncompressible.C
+    dep: sensitivityVolBSplinesFIIncompressible.C
+    dep: sensitivityVolBSplinesIncompressible.C
+    dep: FIBaseIncompressible.C
+    dep: SIBaseIncompressible.C
+    dep: sensitivityMultipleIncompressible.C
+    dep: sensitivitySurfacePointsIncompressible.C
+    dep: sensitivitySurfaceIncompressible.C
+    dep: adjointMeshMovementSolverIncompressible.C
+    dep: adjointEikonalSolverIncompressible.C
+    dep: shapeSensitivitiesIncompressible.C
+    dep: adjointSensitivityIncompressible.C
+    dep: shapeSensitivitiesBase.C
+    dep: sensitivity.C
+    dep: pointVolInterpolation.C
+    dep: displacementMethodlaplacianMotionSolver.C
+    dep: displacementMethodelasticityMotionSolver.C
+    dep: displacementMethodvelocityLaplacian.C
+    dep: displacementMethoddisplacementLaplacian.C
+    dep: displacementMethodvolumetricBSplinesMotionSolver.C
+    dep: displacementMethod.C
+    dep: laplacianMotionSolver.C
+    dep: elasticityMotionSolver.C
+    dep: volumetricBSplinesMotionSolver.C
+    dep: Bezier.C
+    dep: volBSplinesBase.C
+    dep: NURBS3DVolumeCylindrical.C
+    dep: NURBS3DVolumeCartesian.C
+    dep: NURBS3DVolume.C
+    dep: transformBox.C
+    dep: fromFile.C
+    dep: axisAligned.C
+    dep: controlPointsDefinition.C
+    dep: NURBS3DSurface.C
+    dep: NURBS3DCurve.C
+    dep: NURBSbasis.C
+    dep: deltaBoundary.C
+    dep: adjointOutletVelocityFluxFvPatchVectorField.C
+    dep: adjointZeroInletFvPatchFields.C
+    dep: adjointFarFieldVelocityFvPatchVectorField.C
+    dep: adjointFarFieldPressureFvPatchScalarField.C
+    dep: adjointOutletPressureFvPatchScalarField.C
+    dep: adjointRotatingWallVelocityFvPatchVectorField.C
+    dep: adjointWallVelocityLowReFvPatchVectorField.C
+    dep: adjointWallVelocityFvPatchVectorField.C
+    dep: adjointOutletVelocityFvPatchVectorField.C
+    dep: adjointInletVelocityFvPatchVectorField.C
+    dep: adjointBoundaryConditions.C
+    dep: adjointOutletWaFvPatchScalarField.C
+    dep: adjointOutletKaFvPatchScalarField.C
+    dep: waWallFunctionFvPatchScalarField.C
+    dep: kaqRWallFunctionFvPatchScalarField.C
+    dep: adjointOutletFluxFvPatchFields.C
+    dep: adjointOutletNuaTildaFluxFvPatchScalarField.C
+    dep: adjointFarFieldTMVar2FvPatchScalarField.C
+    dep: adjointFarFieldTMVar1FvPatchScalarField.C
+    dep: adjointFarFieldNuaTildaFvPatchScalarField.C
+    dep: adjointOutletNuaTildaFvPatchScalarField.C
+    dep: adjointInletNuaTildaFvPatchScalarField.C
+    dep: adjointkOmegaSST.C
+    dep: adjointSpalartAllmaras.C
+    dep: adjointLaminar.C
+    dep: adjointRASModel.C
+    dep: adjointTurbulenceModel.C
+    dep: boundaryAdjointContributionIncompressible.C
+    dep: boundaryAdjointContribution.C
+    dep: objectiveManagerIncompressible.C
+    dep: objectiveManager.C
+    dep: objectiveNutSqr.C
+    dep: objectivePartialVolume.C
+    dep: objectivePtLosses.C
+    dep: objectiveMoment.C
+    dep: objectiveForce.C
+    dep: objectiveIncompressible.C
+    dep: objective.C
+    dep: cancelATC.C
+    dep: ATCUaGradU.C
+    dep: ATCstandard.C
+    dep: ATCModel.C
+    dep: pointCells.C
+    dep: faceCells.C
+    dep: zeroATCcells.C
+    dep: adjointSolverManager.C
+    dep: adjointSimple.C
+    dep: incompressibleAdjointSolver.C
+    dep: adjointSolver.C
+    dep: RASTurbulenceModel.C
+    dep: simple.C
+    dep: incompressiblePrimalSolver.C
+    dep: primalSolver.C
+    dep: solver.C
+    dep: SIMPLEControlOpt.C
+    dep: SIMPLEControlSingleRun.C
+    dep: SIMPLEControl.C
+    dep: solverControl.C
+    dep: incompressibleAdjointVars.C
+    dep: incompressibleAdjointMeanFlowVars.C
+    dep: incompressibleVars.C
+    dep: variablesSet.C
+    dep: LaunderSharmaKE.C
+    dep: kEpsilon.C
+    dep: kOmegaSST.C
+    dep: SpalartAllmaras.C
+    dep: laminar.C
+    dep: RASModelVariables.C
+    Ctoo: RASModelVariables.C
+    Ctoo: laminar.C
+    Ctoo: SpalartAllmaras.C
+    Ctoo: kOmegaSST.C
+    Ctoo: kEpsilon.C
+    Ctoo: LaunderSharmaKE.C
+    Ctoo: variablesSet.C
+    Ctoo: incompressibleVars.C
+    Ctoo: incompressibleAdjointMeanFlowVars.C
+    Ctoo: incompressibleAdjointVars.C
+    Ctoo: solverControl.C
+    Ctoo: SIMPLEControl.C
+    Ctoo: SIMPLEControlSingleRun.C
+    Ctoo: SIMPLEControlOpt.C
+    Ctoo: solver.C
+    Ctoo: primalSolver.C
+    Ctoo: incompressiblePrimalSolver.C
+    Ctoo: simple.C
+    Ctoo: RASTurbulenceModel.C
+    Ctoo: adjointSolver.C
+    Ctoo: incompressibleAdjointSolver.C
+    Ctoo: adjointSimple.C
+    Ctoo: adjointSolverManager.C
+    Ctoo: zeroATCcells.C
+    Ctoo: faceCells.C
+    Ctoo: pointCells.C
+    Ctoo: ATCModel.C
+    Ctoo: ATCstandard.C
+    Ctoo: ATCUaGradU.C
+    Ctoo: cancelATC.C
+    Ctoo: objective.C
+    Ctoo: objectiveIncompressible.C
+    Ctoo: objectiveForce.C
+    Ctoo: objectiveMoment.C
+    Ctoo: objectivePtLosses.C
+    Ctoo: objectivePartialVolume.C
+    Ctoo: objectiveNutSqr.C
+    Ctoo: objectiveManager.C
+    Ctoo: objectiveManagerIncompressible.C
+    Ctoo: boundaryAdjointContribution.C
+    Ctoo: boundaryAdjointContributionIncompressible.C
+    Ctoo: adjointTurbulenceModel.C
+    Ctoo: adjointRASModel.C
+    Ctoo: adjointLaminar.C
+    Ctoo: adjointSpalartAllmaras.C
+    Ctoo: adjointkOmegaSST.C
+    Ctoo: adjointInletNuaTildaFvPatchScalarField.C
+    Ctoo: adjointOutletNuaTildaFvPatchScalarField.C
+    Ctoo: adjointFarFieldNuaTildaFvPatchScalarField.C
+    Ctoo: adjointFarFieldTMVar1FvPatchScalarField.C
+    Ctoo: adjointFarFieldTMVar2FvPatchScalarField.C
+    Ctoo: adjointOutletNuaTildaFluxFvPatchScalarField.C
+    Ctoo: adjointOutletFluxFvPatchFields.C
+    Ctoo: kaqRWallFunctionFvPatchScalarField.C
+    Ctoo: waWallFunctionFvPatchScalarField.C
+    Ctoo: adjointOutletKaFvPatchScalarField.C
+    Ctoo: adjointOutletWaFvPatchScalarField.C
+    Ctoo: adjointBoundaryConditions.C
+    Ctoo: adjointInletVelocityFvPatchVectorField.C
+    Ctoo: adjointOutletVelocityFvPatchVectorField.C
+    Ctoo: adjointWallVelocityFvPatchVectorField.C
+    Ctoo: adjointWallVelocityLowReFvPatchVectorField.C
+    Ctoo: adjointRotatingWallVelocityFvPatchVectorField.C
+    Ctoo: adjointOutletPressureFvPatchScalarField.C
+    Ctoo: adjointFarFieldPressureFvPatchScalarField.C
+    Ctoo: adjointFarFieldVelocityFvPatchVectorField.C
+    Ctoo: adjointZeroInletFvPatchFields.C
+    Ctoo: adjointOutletVelocityFluxFvPatchVectorField.C
+    Ctoo: deltaBoundary.C
+    Ctoo: NURBSbasis.C
+    Ctoo: NURBS3DCurve.C
+    Ctoo: NURBS3DSurface.C
+    Ctoo: controlPointsDefinition.C
+    Ctoo: axisAligned.C
+    Ctoo: fromFile.C
+    Ctoo: transformBox.C
+    Ctoo: NURBS3DVolume.C
+    Ctoo: NURBS3DVolumeCartesian.C
+    Ctoo: NURBS3DVolumeCylindrical.C
+    Ctoo: volBSplinesBase.C
+    Ctoo: Bezier.C
+    Ctoo: volumetricBSplinesMotionSolver.C
+    Ctoo: elasticityMotionSolver.C
+    Ctoo: laplacianMotionSolver.C
+    Ctoo: displacementMethod.C
+    Ctoo: displacementMethodvolumetricBSplinesMotionSolver.C
+    Ctoo: displacementMethoddisplacementLaplacian.C
+    Ctoo: displacementMethodvelocityLaplacian.C
+    Ctoo: displacementMethodelasticityMotionSolver.C
+    Ctoo: displacementMethodlaplacianMotionSolver.C
+    Ctoo: pointVolInterpolation.C
+    Ctoo: sensitivity.C
+    Ctoo: shapeSensitivitiesBase.C
+    Ctoo: adjointSensitivityIncompressible.C
+    Ctoo: shapeSensitivitiesIncompressible.C
+    Ctoo: adjointEikonalSolverIncompressible.C
+    Ctoo: adjointMeshMovementSolverIncompressible.C
+    Ctoo: sensitivitySurfaceIncompressible.C
+    Ctoo: sensitivitySurfacePointsIncompressible.C
+    Ctoo: sensitivityMultipleIncompressible.C
+    Ctoo: SIBaseIncompressible.C
+    Ctoo: FIBaseIncompressible.C
+    Ctoo: sensitivityVolBSplinesIncompressible.C
+    Ctoo: sensitivityVolBSplinesFIIncompressible.C
+    Ctoo: sensitivityBezierIncompressible.C
+    Ctoo: sensitivityBezierFIIncompressible.C
+    Ctoo: lineSearch.C
+    Ctoo: ArmijoConditions.C
+    Ctoo: stepUpdate.C
+    Ctoo: bisection.C
+    Ctoo: quadratic.C
+    Ctoo: updateMethod.C
+    Ctoo: constrainedOptimisationMethod.C
+    Ctoo: steepestDescent.C
+    Ctoo: BFGS.C
+    Ctoo: DBFGS.C
+    Ctoo: LBFGS.C
+    Ctoo: SR1.C
+    Ctoo: conjugateGradient.C
+    Ctoo: constraintProjection.C
+    Ctoo: SQP.C
+    Ctoo: optMeshMovement.C
+    Ctoo: optMeshMovementVolumetricBSplines.C
+    Ctoo: optMeshMovementVolumetricBSplinesExternalMotionSolver.C
+    Ctoo: optMeshMovementBezier.C
+    Ctoo: optMeshMovementNULL.C
+    Ctoo: optimisationTypeIncompressible.C
+    Ctoo: shapeOptimisationIncompressible.C
+    Ctoo: optimisationManager.C
+    Ctoo: singleRun.C
+    Ctoo: steadyOptimisation.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libadjointOptimisation.so
 wmake interfaceTrackingFvMesh
+    dep: writeFreeSurface.C
+    dep: pointHistory.C
+    dep: freeSurfaceVelocityFvPatchVectorField.C
+    dep: freeSurfacePressureFvPatchScalarField.C
+    dep: freeSurfacePointDisplacement.C
+    dep: interfaceTrackingFvMesh.C
+    Ctoo: interfaceTrackingFvMesh.C
+    Ctoo: freeSurfacePointDisplacement.C
+    Ctoo: freeSurfacePressureFvPatchScalarField.C
+    Ctoo: freeSurfaceVelocityFvPatchVectorField.C
+    Ctoo: pointHistory.C
+    Ctoo: writeFreeSurface.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/lib/libinterfaceTrackingFvMesh.so
 ========================================
 Done OpenFOAM libraries
 ========================================
@@ -238,1490 +1817,107 @@ Compile OpenFOAM applications
 wmake utilities
 wmake doc
 wmake finiteArea
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea'
+make[1]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/finiteArea'
 wmake checkFaMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea/checkFaMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea/checkFaMesh'
+make[2]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/finiteArea/checkFaMesh'
+    dep: checkFaMesh.C
+    Ctoo: checkFaMesh.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/checkFaMesh
+make[2]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/finiteArea/checkFaMesh'
 wmake makeFaMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea/makeFaMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea/makeFaMesh'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/finiteArea'
+make[2]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/finiteArea/makeFaMesh'
+    dep: makeFaMesh.C
+    Ctoo: makeFaMesh.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/makeFaMesh
+make[2]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/finiteArea/makeFaMesh'
+make[1]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/finiteArea'
 wmake mesh
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh'
+make[1]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh'
 wmake advanced
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced'
+make[2]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced'
 wmake collapseEdges
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/collapseEdges'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/collapseEdges'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/collapseEdges'
+    dep: collapseEdges.C
+    Ctoo: collapseEdges.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/collapseEdges
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/collapseEdges'
 wmake combinePatchFaces
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/combinePatchFaces'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/combinePatchFaces'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/combinePatchFaces'
+    dep: combinePatchFaces.C
+    Ctoo: combinePatchFaces.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/combinePatchFaces
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/combinePatchFaces'
 wmake modifyMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/modifyMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/modifyMesh'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/modifyMesh'
+    dep: modifyMesh.C
+    dep: cellSplitter.C
+    Ctoo: cellSplitter.C
+    Ctoo: modifyMesh.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/modifyMesh
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/modifyMesh'
 wmake PDRMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/PDRMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/PDRMesh'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/PDRMesh'
+    dep: PDRMesh.C
+    Ctoo: PDRMesh.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/PDRMesh
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/PDRMesh'
 wmake refineHexMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineHexMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineHexMesh'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineHexMesh'
+    dep: refineHexMesh.C
+    Ctoo: refineHexMesh.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/refineHexMesh
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineHexMesh'
 wmake refinementLevel
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refinementLevel'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refinementLevel'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/refinementLevel'
+    dep: refinementLevel.C
+    Ctoo: refinementLevel.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/refinementLevel
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/refinementLevel'
 wmake refineWallLayer
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineWallLayer'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineWallLayer'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineWallLayer'
+    dep: refineWallLayer.C
+    Ctoo: refineWallLayer.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/refineWallLayer
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/refineWallLayer'
 wmake removeFaces
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/removeFaces'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/removeFaces'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/removeFaces'
+    dep: removeFaces.C
+    Ctoo: removeFaces.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/removeFaces
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/removeFaces'
 wmake selectCells
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/selectCells'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/selectCells'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/selectCells'
+    dep: selectCells.C
+    dep: edgeStats.C
+    Ctoo: edgeStats.C
+    Ctoo: selectCells.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/selectCells
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/selectCells'
 wmake snappyRefineMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/snappyRefineMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/snappyRefineMesh'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/snappyRefineMesh'
+    dep: snappyRefineMesh.C
+    Ctoo: snappyRefineMesh.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/snappyRefineMesh
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/snappyRefineMesh'
 wmake splitCells
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/splitCells'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced/splitCells'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/advanced'
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/splitCells'
+    dep: splitCells.C
+    Ctoo: splitCells.C
+    link: /home/bw0594/FreeMHD/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/splitCells
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced/splitCells'
+make[2]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/advanced'
 wmake conversion
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion'
+make[2]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/conversion'
 wmake ansysToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ansysToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ansysToFoam'
-wmake ccm
-==> skip optional ccm conversion components (no libccm)
-wmake cfx4ToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/cfx4ToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/cfx4ToFoam'
-wmake datToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/datToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/datToFoam'
-wmake fireToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fireToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fireToFoam'
-wmake fluent3DMeshToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fluent3DMeshToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fluent3DMeshToFoam'
-wmake fluentMeshToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fluentMeshToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/fluentMeshToFoam'
-wmake foamMeshToFluent
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamMeshToFluent'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamMeshToFluent'
-wmake foamToFireMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToFireMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToFireMesh'
-wmake foamToStarMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToStarMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToStarMesh'
-wmake foamToSurface
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToSurface'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/foamToSurface'
-wmake gambitToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gambitToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gambitToFoam'
-wmake gmshToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gmshToFoam'
-wmake gmsh
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gmshToFoam'
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gmshToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/gmshToFoam'
-wmake ideasUnvToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ideasUnvToFoam'
-wmake unv
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ideasUnvToFoam'
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ideasUnvToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/ideasUnvToFoam'
-wmake kivaToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/kivaToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/kivaToFoam'
-wmake mshToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/mshToFoam'
-wmake testFiles
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/mshToFoam'
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/mshToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/mshToFoam'
-wmake netgenNeutralToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/netgenNeutralToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/netgenNeutralToFoam'
-wmake plot3dToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/plot3dToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/plot3dToFoam'
-wmake star4ToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/star4ToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/star4ToFoam'
-wmake tetgenToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/tetgenToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/tetgenToFoam'
-wmake vtkUnstructuredToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/vtkUnstructuredToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/vtkUnstructuredToFoam'
-wmake writeMeshObj
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/writeMeshObj'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion/writeMeshObj'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/conversion'
-wmake doc
-wmake generation
-wmake PDRblockMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/PDRblockMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/PDRblockMesh'
-wmake blockMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/blockMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/blockMesh'
-wmake extrude
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude'
-wmake extrudeMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeMesh'
-wmake extrudedMesh
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeMesh'
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeMesh'
-wmake extrudeToRegionMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeToRegionMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude/extrudeToRegionMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude'
-wmake extrude2DMesh
-wmake extrude2DMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh/extrude2DMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh/extrude2DMesh'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh/extrude2DMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh/extrude2DMesh'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/extrude2DMesh'
-wmake snappyHexMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/snappyHexMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/snappyHexMesh'
-wmake conformalVoronoiMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoiMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoiMesh'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoiMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoiMesh'
-wmake conformalVoronoi2DMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoi2DMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoi2DMesh'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoi2DMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/conformalVoronoi2DMesh'
-wmake foamyQuadMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/foamyQuadMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/foamyQuadMesh'
-wmake foamyHexMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/foamyHexMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/generation/foamyMesh/foamyHexMesh'
-Finish foamyMesh
-wmake manipulation
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation'
-wmake attachMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/attachMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/attachMesh'
-wmake autoPatch
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/autoPatch'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/autoPatch'
-wmake checkMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/checkMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/checkMesh'
-wmake createBaffles
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createBaffles'
-wmake faceSelection
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createBaffles'
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createBaffles'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createBaffles'
-wmake createPatch
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createPatch'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/createPatch'
-wmake deformedGeom
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/deformedGeom'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/deformedGeom'
-wmake flattenMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/flattenMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/flattenMesh'
-wmake insideCells
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/insideCells'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/insideCells'
-wmake mergeMeshes
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mergeMeshes'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mergeMeshes'
-wmake mergeOrSplitBaffles
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mergeOrSplitBaffles'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mergeOrSplitBaffles'
-wmake mirrorMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mirrorMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/mirrorMesh'
-wmake moveDynamicMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveDynamicMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveDynamicMesh'
-wmake moveEngineMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveEngineMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveEngineMesh'
-wmake moveMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/moveMesh'
-wmake objToVTK
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/objToVTK'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/objToVTK'
-wmake orientFaceZone
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/orientFaceZone'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/orientFaceZone'
-wmake polyDualMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/polyDualMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/polyDualMesh'
-wmake refineMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/refineMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/refineMesh'
-wmake renumberMesh
-    found libSloanRenumber -- enabling sloan renumbering support.
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/renumberMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/renumberMesh'
-wmake rotateMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/rotateMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/rotateMesh'
-wmake setSet
-    readline detected - enabling readline support.
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/setSet'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/setSet'
-wmake setsToZones
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/setsToZones'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/setsToZones'
-wmake singleCellMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/singleCellMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/singleCellMesh'
-wmake splitMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/splitMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/splitMesh'
-wmake splitMeshRegions
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/splitMeshRegions'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/splitMeshRegions'
-wmake stitchMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/stitchMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/stitchMesh'
-wmake subsetMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/subsetMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/subsetMesh'
-wmake topoSet
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/topoSet'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/topoSet'
-wmake transformPoints
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/transformPoints'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/transformPoints'
-wmake zipUpMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/zipUpMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation/zipUpMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh/manipulation'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/mesh'
-wmake miscellaneous
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous'
-wmake foamDictionary
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamDictionary'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamDictionary'
-wmake foamFormatConvert
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamFormatConvert'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamFormatConvert'
-wmake foamHasLibrary
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHasLibrary'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHasLibrary'
-wmake foamHelp
-wmake helpTypes
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp/helpTypes'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp/helpTypes'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp/helpTypes'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp/helpTypes'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamHelp'
-wmake foamListRegions
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamListRegions'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamListRegions'
-wmake foamListTimes
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamListTimes'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamListTimes'
-wmake foamRestoreFields
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamRestoreFields'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/foamRestoreFields'
-wmake OSspecific
-wmake patchSummary
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/patchSummary'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous/patchSummary'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/miscellaneous'
-wmake parallelProcessing
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing'
-wmake decomposePar
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/decomposePar'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/decomposePar'
-wmake reconstructPar
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/reconstructPar'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/reconstructPar'
-wmake reconstructParMesh
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/reconstructParMesh'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/reconstructParMesh'
-wmake redistributePar
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/redistributePar'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing/redistributePar'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/parallelProcessing'
-wmake postProcessing
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing'
-wmake dataConversion
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion'
-wmake foamDataToFluent
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamDataToFluent'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamDataToFluent'
-wmake foamToEnsight
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToEnsight'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToEnsight'
-wmake foamToGMV
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToGMV'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToGMV'
-wmake foamToTetDualMesh
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToTetDualMesh'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToTetDualMesh'
-wmake foamToVTK
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToVTK'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/foamToVTK'
-wmake smapToFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/smapToFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion/smapToFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/dataConversion'
-wmake lagrangian
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian'
-wmake particleTracks
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian/particleTracks'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian/particleTracks'
-wmake steadyParticleTracks
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian/steadyParticleTracks'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian/steadyParticleTracks'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lagrangian'
-wmake lumped
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped'
-wmake lumpedPointForces
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointForces'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointForces'
-wmake lumpedPointMovement
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointMovement'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointMovement'
-wmake lumpedPointZones
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointZones'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped/lumpedPointZones'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/lumped'
-wmake miscellaneous
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous'
-wmake engineCompRatio
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/engineCompRatio'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/engineCompRatio'
-wmake pdfPlot
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/pdfPlot'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/pdfPlot'
-wmake postChannel
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/postChannel'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/postChannel'
-wmake profilingSummary
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/profilingSummary'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/profilingSummary'
-wmake temporalInterpolate
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/temporalInterpolate'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous/temporalInterpolate'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/miscellaneous'
-wmake noise
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/noise'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/noise'
-wmake optimisation
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation'
-wmake computeSensitivities
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation/computeSensitivities'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation/computeSensitivities'
-wmake cumulativeDisplacement
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation/cumulativeDisplacement'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation/cumulativeDisplacement'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/optimisation'
-wmake postProcess
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/postProcess'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing/postProcess'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/postProcessing'
-wmake preProcessing
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing'
-wmake applyBoundaryLayer
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/applyBoundaryLayer'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/applyBoundaryLayer'
-wmake boxTurb
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/boxTurb'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/boxTurb'
-wmake changeDictionary
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/changeDictionary'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/changeDictionary'
-wmake createBoxTurb
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createBoxTurb'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createBoxTurb'
-wmake createExternalCoupledPatchGeometry
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createExternalCoupledPatchGeometry'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createExternalCoupledPatchGeometry'
-wmake createZeroDirectory
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createZeroDirectory'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/createZeroDirectory'
-wmake dsmcInitialise
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/dsmcInitialise'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/dsmcInitialise'
-wmake engineSwirl
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/engineSwirl'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/engineSwirl'
-wmake faceAgglomerate
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/faceAgglomerate'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/faceAgglomerate'
-wmake foamUpgradeCyclics
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/foamUpgradeCyclics'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/foamUpgradeCyclics'
-wmake mapFields
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mapFields'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mapFields'
-wmake mapFieldsPar
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mapFieldsPar'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mapFieldsPar'
-wmake mdInitialise
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mdInitialise'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/mdInitialise'
-wmake optimisation
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation'
-wmake writeActiveDesignVariables
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation/writeActiveDesignVariables'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation/writeActiveDesignVariables'
-wmake writeMorpherCPs
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation/writeMorpherCPs'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation/writeMorpherCPs'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/optimisation'
-wmake PDR
-wmake pdrFields
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/pdrFields'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/pdrFields'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/pdrFields'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/pdrFields'
-wmake PDRsetFields
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/PDRsetFields'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/PDR/PDRsetFields'
-wmake setAlphaField
-wmake alphaFieldFunctions
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField/alphaFieldFunctions'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField/alphaFieldFunctions'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField/alphaFieldFunctions'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField/alphaFieldFunctions'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setAlphaField'
-wmake setExprBoundaryFields
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setExprBoundaryFields'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setExprBoundaryFields'
-wmake setExprFields
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setExprFields'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setExprFields'
-wmake setFields
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setFields'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setFields'
-wmake setTurbulenceFields
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setTurbulenceFields'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/setTurbulenceFields'
-wmake viewFactorsGen
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/viewFactorsGen'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/viewFactorsGen'
-wmake wallFunctionTable
-wmake tabulatedWallFunction
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable/tabulatedWallFunction'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable/tabulatedWallFunction'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable/tabulatedWallFunction'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable/tabulatedWallFunction'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing/wallFunctionTable'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/preProcessing'
-wmake surface
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface'
-wmake surfaceAdd
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceAdd'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceAdd'
-wmake surfaceBooleanFeatures
-wmake PolyhedronReader
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures/PolyhedronReader'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures/PolyhedronReader'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures/PolyhedronReader'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures/PolyhedronReader'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceBooleanFeatures'
-wmake surfaceCheck
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCheck'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCheck'
-wmake surfaceClean
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceClean'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceClean'
-wmake surfaceCoarsen
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCoarsen'
-wmake bunnylod
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCoarsen'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCoarsen'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceCoarsen'
-wmake surfaceConvert
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceConvert'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceConvert'
-wmake surfaceFeatureConvert
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureConvert'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureConvert'
-wmake surfaceFeatureExtract
-wmake extractionMethod
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract/extractionMethod'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract/extractionMethod'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract/extractionMethod'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract/extractionMethod'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFeatureExtract'
-wmake surfaceFind
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFind'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceFind'
-wmake surfaceHookUp
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceHookUp'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceHookUp'
-wmake surfaceInertia
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceInertia'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceInertia'
-wmake surfaceInflate
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceInflate'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceInflate'
-wmake surfaceLambdaMuSmooth
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceLambdaMuSmooth'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceLambdaMuSmooth'
-wmake surfaceMeshConvert
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshConvert'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshConvert'
-wmake surfaceMeshExport
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshExport'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshExport'
-wmake surfaceMeshExtract
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshExtract'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshExtract'
-wmake surfaceMeshImport
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshImport'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshImport'
-wmake surfaceMeshInfo
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshInfo'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceMeshInfo'
-wmake surfaceOrient
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceOrient'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceOrient'
-wmake surfacePatch
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePatch'
-wmake searchableSurfaceModifier
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePatch'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePatch'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePatch'
-wmake surfacePointMerge
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePointMerge'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfacePointMerge'
-wmake surfaceRedistributePar
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceRedistributePar'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceRedistributePar'
-wmake surfaceRefineRedGreen
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceRefineRedGreen'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceRefineRedGreen'
-wmake surfaceSplitByPatch
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitByPatch'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitByPatch'
-wmake surfaceSplitByTopology
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitByTopology'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitByTopology'
-wmake surfaceSplitNonManifolds
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitNonManifolds'
-wmake test
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitNonManifolds'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitNonManifolds'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSplitNonManifolds'
-wmake surfaceSubset
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSubset'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceSubset'
-wmake surfaceToPatch
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceToPatch'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceToPatch'
-wmake surfaceTransformPoints
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceTransformPoints'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface/surfaceTransformPoints'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/surface'
-wmake thermophysical
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical'
-wmake adiabaticFlameT
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/adiabaticFlameT'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/adiabaticFlameT'
-wmake chemkinToFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/chemkinToFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/chemkinToFoam'
-wmake equilibriumCO
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/equilibriumCO'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/equilibriumCO'
-wmake equilibriumFlameT
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/equilibriumFlameT'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/equilibriumFlameT'
-wmake mixtureAdiabaticFlameT
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/mixtureAdiabaticFlameT'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical/mixtureAdiabaticFlameT'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/utilities/thermophysical'
-wmake solvers
-wmake acoustic
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/acoustic'
-wmake acousticFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/acoustic/acousticFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/acoustic/acousticFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/acoustic'
-wmake basic
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic'
-wmake laplacianFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam'
-wmake overLaplacianDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam/overLaplacianDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam/overLaplacianDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/laplacianFoam'
-wmake potentialFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam'
-wmake overPotentialFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam/overPotentialFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam/overPotentialFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/potentialFoam'
-wmake scalarTransportFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/scalarTransportFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic/scalarTransportFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/basic'
-wmake combustion
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion'
-wmake chemFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/chemFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/chemFoam'
-wmake coldEngineFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/coldEngineFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/coldEngineFoam'
-wmake fireFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/fireFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/fireFoam'
-wmake PDRFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam'
-wmake laminarFlameSpeed
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/laminarFlameSpeed'
-wmake SCOPE
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/laminarFlameSpeed'
-wmake PDRModels
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels'
-wmake dragModels
-make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/dragModels'
-wmake basic
-wmake PDRDragModel
-make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/dragModels'
-wmake turbulence
-make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/turbulence'
-wmake PDRkEpsilon
-make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/turbulence'
-wmake XiEqModels
-make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/XiEqModels'
-wmake basicXiSubXiEq
-make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/XiEqModels'
-wmake XiGModels
-make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/XiGModels'
-wmake basicXiSubG
-make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels/XiGModels'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/PDRModels'
-wmake XiModels
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels'
-wmake algebraic
-wmake fixed
-wmake transport
-wmake XiEqModels
-make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels/XiEqModels'
-wmake Gulder
-wmake instabilityXiEq
-wmake SCOPEBlendXiEq
-wmake SCOPEXiEq
-wmake XiEqModel
-make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels/XiEqModels'
-wmake XiGModels
-make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels/XiGModels'
-wmake instabilityG
-wmake KTS
-wmake XiGModel
-make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels/XiGModels'
-wmake XiModel
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam/XiModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/PDRFoam'
-wmake reactingFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam'
-wmake rhoReactingBuoyantFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam/rhoReactingBuoyantFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam/rhoReactingBuoyantFoam'
-wmake rhoReactingFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam/rhoReactingFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam/rhoReactingFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/reactingFoam'
-wmake XiFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam'
-wmake XiDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam/XiDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam/XiDyMFoam'
-wmake XiEngineFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam/XiEngineFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam/XiEngineFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion/XiFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/combustion'
-wmake compressible
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible'
-wmake rhoCentralFoam
-wmake BCs
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam/BCs'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam/BCs'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam/BCs'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam/BCs'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoCentralFoam'
-wmake rhoPimpleAdiabaticFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleAdiabaticFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleAdiabaticFoam'
-wmake rhoPimpleFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam'
-wmake overRhoPimpleDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam/overRhoPimpleDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam/overRhoPimpleDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoPimpleFoam'
-wmake rhoSimpleFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam'
-wmake overRhoSimpleFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam/overRhoSimpleFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam/overRhoSimpleFoam'
-wmake rhoPorousSimpleFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam/rhoPorousSimpleFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam/rhoPorousSimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/rhoSimpleFoam'
-wmake sonicFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam'
-wmake sonicDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam/sonicDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam/sonicDyMFoam'
-wmake sonicLiquidFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam/sonicLiquidFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam/sonicLiquidFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible/sonicFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/compressible'
-wmake discreteMethods
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods'
-wmake dsmc
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/dsmc'
-wmake dsmcFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/dsmc/dsmcFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/dsmc/dsmcFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/dsmc'
-wmake molecularDynamics
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics'
-wmake mdEquilibrationFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics/mdEquilibrationFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics/mdEquilibrationFoam'
-wmake mdFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics/mdFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics/mdFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods/molecularDynamics'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/discreteMethods'
-wmake DNS
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/DNS'
-wmake dnsFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/DNS/dnsFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/DNS/dnsFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/DNS'
-wmake doc
-wmake electromagnetics
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics'
-wmake electrostaticFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/electrostaticFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/electrostaticFoam'
-wmake magneticFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/magneticFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/magneticFoam'
-wmake mhdFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/mhdFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics/mhdFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/electromagnetics'
-wmake financial
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/financial'
-wmake financialFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/financial/financialFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/financial/financialFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/financial'
-wmake finiteArea
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea'
-wmake liquidFilmFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/liquidFilmFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/liquidFilmFoam'
-wmake sphereSurfactantFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/sphereSurfactantFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/sphereSurfactantFoam'
-wmake surfactantFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/surfactantFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea/surfactantFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/finiteArea'
-wmake heatTransfer
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer'
-wmake buoyantBoussinesqPimpleFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantBoussinesqPimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantBoussinesqPimpleFoam'
-wmake buoyantBoussinesqSimpleFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantBoussinesqSimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantBoussinesqSimpleFoam'
-wmake buoyantPimpleFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam'
-wmake overBuoyantPimpleDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam/overBuoyantPimpleDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam/overBuoyantPimpleDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantPimpleFoam'
-wmake buoyantSimpleFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantSimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/buoyantSimpleFoam'
-wmake chtMultiRegionFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam'
-wmake chtMultiRegionSimpleFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionSimpleFoam'
-wmake fluid
-wmake solid
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionSimpleFoam'
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionSimpleFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionSimpleFoam'
-wmake chtMultiRegionTwoPhaseEulerFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam'
-wmake derivedFvPatchFields
-make[4]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam/derivedFvPatchFields'
-wmake turbulentTemperatureTwoPhaseRadCoupledMixed
-make[4]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam/derivedFvPatchFields'
-wmake fluid
-wmake solid
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam'
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam'
-    link: /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt/bin/chtMultiRegionTwoPhaseEulerFoam
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam/chtMultiRegionTwoPhaseEulerFoam'
-wmake fluid
-wmake include
-wmake solid
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/chtMultiRegionFoam'
-wmake solidFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/solidFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/solidFoam'
-wmake thermoFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/thermoFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer/thermoFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/heatTransfer'
-wmake incompressible
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible'
-wmake adjointOptimisationFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointOptimisationFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointOptimisationFoam'
-wmake adjointShapeOptimizationFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointShapeOptimizationFoam'
-wmake adjointOutletPressure
-wmake adjointOutletVelocity
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointShapeOptimizationFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointShapeOptimizationFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/adjointShapeOptimizationFoam'
-wmake boundaryFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/boundaryFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/boundaryFoam'
-wmake icoFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/icoFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/icoFoam'
-wmake nonNewtonianIcoFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/nonNewtonianIcoFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/nonNewtonianIcoFoam'
-wmake pimpleFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam'
-wmake overPimpleDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam/overPimpleDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam/overPimpleDyMFoam'
-wmake SRFPimpleFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam/SRFPimpleFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam/SRFPimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pimpleFoam'
-wmake pisoFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pisoFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/pisoFoam'
-wmake shallowWaterFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/shallowWaterFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/shallowWaterFoam'
-wmake simpleFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam'
-wmake overSimpleFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/overSimpleFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/overSimpleFoam'
-wmake porousSimpleFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/porousSimpleFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/porousSimpleFoam'
-wmake SRFSimpleFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/SRFSimpleFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam/SRFSimpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible/simpleFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/incompressible'
-wmake lagrangian
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian'
-wmake coalChemistryFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/coalChemistryFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/coalChemistryFoam'
-wmake DPMFoam
-wmake DPMTurbulenceModels
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMTurbulenceModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMTurbulenceModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMTurbulenceModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMTurbulenceModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam'
-wmake MPPICFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/MPPICFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/MPPICFoam'
-wmake DPMDyMFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMDyMFoam'
-wmake DPMDyMFoam/MPPICDyMFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMDyMFoam/MPPICDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/DPMFoam/DPMDyMFoam/MPPICDyMFoam'
-wmake icoUncoupledKinematicParcelFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam'
-wmake icoUncoupledKinematicParcelDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam/icoUncoupledKinematicParcelDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam/icoUncoupledKinematicParcelDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/icoUncoupledKinematicParcelFoam'
-wmake kinematicParcelFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/kinematicParcelFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/kinematicParcelFoam'
-wmake reactingParcelFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam'
-wmake reactingHeterogenousParcelFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam/reactingHeterogenousParcelFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam/reactingHeterogenousParcelFoam'
-wmake simpleReactingParcelFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam/simpleReactingParcelFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam/simpleReactingParcelFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/reactingParcelFoam'
-wmake simpleCoalParcelFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/simpleCoalParcelFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/simpleCoalParcelFoam'
-wmake sprayFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam'
-wmake engineFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/engineFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/engineFoam'
-wmake simpleSprayFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/simpleSprayFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/simpleSprayFoam'
-wmake sprayDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/sprayDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam/sprayDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/sprayFoam'
-wmake uncoupledKinematicParcelFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam'
-wmake uncoupledKinematicParcelDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam/uncoupledKinematicParcelDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam/uncoupledKinematicParcelDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian/uncoupledKinematicParcelFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/lagrangian'
-wmake multiphase
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase'
-wmake cavitatingFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam'
-wmake cavitatingDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam/cavitatingDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam/cavitatingDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/cavitatingFoam'
-wmake compressibleInterFoam
-wmake twoPhaseMixtureThermo
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/twoPhaseMixtureThermo'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/twoPhaseMixtureThermo'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/twoPhaseMixtureThermo'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/twoPhaseMixtureThermo'
-wmake surfaceTensionModels
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/surfaceTensionModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/surfaceTensionModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/surfaceTensionModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/surfaceTensionModels'
-wmake VoFphaseCompressibleTurbulenceModels
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/VoFphaseCompressibleTurbulenceModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/VoFphaseCompressibleTurbulenceModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/VoFphaseCompressibleTurbulenceModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/VoFphaseCompressibleTurbulenceModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam'
-wmake compressibleInterDyMFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterDyMFoam'
-wmake compressibleInterFilmFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterFilmFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterFilmFoam'
-wmake compressibleInterIsoFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterIsoFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/compressibleInterIsoFoam'
-wmake overCompressibleInterDyMFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/overCompressibleInterDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleInterFoam/overCompressibleInterDyMFoam'
-wmake compressibleMultiphaseInterFoam
-wmake multiphaseMixtureThermo
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam/multiphaseMixtureThermo'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam/multiphaseMixtureThermo'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam/multiphaseMixtureThermo'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam/multiphaseMixtureThermo'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/compressibleMultiphaseInterFoam'
-wmake driftFluxFoam
-wmake mixtureViscosityModels
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/mixtureViscosityModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/mixtureViscosityModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/mixtureViscosityModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/mixtureViscosityModels'
-wmake relativeVelocityModels
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/relativeVelocityModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/relativeVelocityModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/relativeVelocityModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam/relativeVelocityModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/driftFluxFoam'
-wmake icoReactingMultiphaseInterFoam
-wmake laserDTRM
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam/laserDTRM'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam/laserDTRM'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam/laserDTRM'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam/laserDTRM'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/icoReactingMultiphaseInterFoam'
-wmake interCondensatingEvaporatingFoam
-wmake temperaturePhaseChangeTwoPhaseMixtures
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam/temperaturePhaseChangeTwoPhaseMixtures'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam/temperaturePhaseChangeTwoPhaseMixtures'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam/temperaturePhaseChangeTwoPhaseMixtures'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam/temperaturePhaseChangeTwoPhaseMixtures'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interCondensatingEvaporatingFoam'
-wmake interFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam'
-wmake interMixingFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/interMixingFoam'
-wmake immiscibleIncompressibleThreePhaseMixture
-wmake incompressibleThreePhaseMixture
-wmake threePhaseInterfaceProperties
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/interMixingFoam'
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/interMixingFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/interMixingFoam'
-wmake overInterDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/overInterDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam/overInterDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interFoam'
-wmake interIsoFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interIsoFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interIsoFoam'
-wmake interPhaseChangeFoam
-wmake phaseChangeTwoPhaseMixtures
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/phaseChangeTwoPhaseMixtures'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/phaseChangeTwoPhaseMixtures'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/phaseChangeTwoPhaseMixtures'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/phaseChangeTwoPhaseMixtures'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam'
-wmake interPhaseChangeDyMFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/interPhaseChangeDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/interPhaseChangeDyMFoam'
-wmake overInterPhaseChangeDyMFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/overInterPhaseChangeDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/interPhaseChangeFoam/overInterPhaseChangeDyMFoam'
-wmake MPPICInterFoam
-wmake compressibleTwoPhaseMixtureTurbulenceModels
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam/compressibleTwoPhaseMixtureTurbulenceModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam/compressibleTwoPhaseMixtureTurbulenceModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam/compressibleTwoPhaseMixtureTurbulenceModels'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam/compressibleTwoPhaseMixtureTurbulenceModels'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/MPPICInterFoam'
-wmake multiphaseEulerFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseEulerFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseEulerFoam'
-wmake multiphaseInterFoam
-wmake multiphaseMixture
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam/multiphaseMixture'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam/multiphaseMixture'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam/multiphaseMixture'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam/multiphaseMixture'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/multiphaseInterFoam'
-wmake potentialFreeSurfaceFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam'
-wmake potentialFreeSurfaceDyMFoam
-make[3]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam/potentialFreeSurfaceDyMFoam'
-make[3]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam/potentialFreeSurfaceDyMFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/potentialFreeSurfaceFoam'
-wmake reactingMultiphaseEulerFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingMultiphaseEulerFoam'
-wmake pU
-wmake pUf
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingMultiphaseEulerFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingMultiphaseEulerFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingMultiphaseEulerFoam'
-wmake reactingTwoPhaseEulerFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingTwoPhaseEulerFoam'
-wmake pU
-wmake pUf
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingTwoPhaseEulerFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingTwoPhaseEulerFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/reactingTwoPhaseEulerFoam'
-wmake twoLiquidMixingFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoLiquidMixingFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoLiquidMixingFoam'
-wmake twoPhaseEulerFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoPhaseEulerFoam'
-wmake pU
-wmake pUf
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoPhaseEulerFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoPhaseEulerFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase/twoPhaseEulerFoam'
-wmake VoF
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/multiphase'
-wmake stressAnalysis
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis'
-wmake solidDisplacementFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidDisplacementFoam'
-wmake tractionDisplacement
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidDisplacementFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidDisplacementFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidDisplacementFoam'
-wmake solidEquilibriumDisplacementFoam
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidEquilibriumDisplacementFoam'
-wmake tractionDisplacementCorrection
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidEquilibriumDisplacementFoam'
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidEquilibriumDisplacementFoam'
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis/solidEquilibriumDisplacementFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/applications/solvers/stressAnalysis'
-========================================
-Done OpenFOAM applications
-========================================
-========================================
-prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
-
-    ignoring possible compilation errors
-    make certain to check the output file
-
-wmake libso 
-========================================
-2023-03-31 04:06:12 -0400
-Starting compile of adiosFoam with OpenFOAM-v2206 
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
-
-wmake libso (adiosFoam)
-wmake libso (adiosWrite)
-
-2023-03-31 04:06:13 -0400
-========================================
-  Finished compile of adiosFoam with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-
-wmake libso 
-========================================
-2023-03-31 04:06:13 -0400
-Starting compile of avalanche with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
-
-wmake libso avalanche
-wmake libso solvers
-wmake libso faParkerFukushimaFoam
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/solvers/faParkerFukushimaFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/solvers/faParkerFukushimaFoam'
-wmake libso faSavageHutterFoam
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/solvers/faSavageHutterFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/solvers/faSavageHutterFoam'
-wmake libso utilities
-wmake libso gridToSTL
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/gridToSTL'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/gridToSTL'
-wmake libso releaseAreaMapping
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/releaseAreaMapping'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/releaseAreaMapping'
-wmake libso slopeMesh
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh'
-wmake libso elevationModels
-make[2]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh/elevationModels'
-wmake libso elevationModel
-wmake libso simpleSlope
-make[2]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh/elevationModels'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh'
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/avalanche/applications/utilities/slopeMesh'
-
-2023-03-31 04:06:13 -0400
-========================================
-  Finished compile of avalanche with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-
-wmake libso 
-========================================
-2023-03-31 04:06:13 -0400
-Starting compile of cfmesh with OpenFOAM-v2206 
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
-
-wmake libso meshLibrary
-wmake executables
-wmake cartesian2DMesh
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/cartesian2DMesh'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/cartesian2DMesh'
-wmake cartesianMesh
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/cartesianMesh'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/cartesianMesh'
-wmake pMesh
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/pMesh'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/pMesh'
-wmake tetMesh
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/tetMesh'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/executables/tetMesh'
-wmake utilities
-wmake checkSurfaceMesh
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/checkSurfaceMesh'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/checkSurfaceMesh'
-wmake copySurfaceParts
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/copySurfaceParts'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/copySurfaceParts'
-wmake extrudeEdgesInto2DSurface
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/extrudeEdgesInto2DSurface'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/extrudeEdgesInto2DSurface'
-wmake FLMAToSurface
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FLMAToSurface'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FLMAToSurface'
-wmake FMSToSurface
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FMSToSurface'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FMSToSurface'
-wmake FMSToVTK
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FMSToVTK'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/FMSToVTK'
-wmake generateBoundaryLayers
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/generateBoundaryLayers'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/generateBoundaryLayers'
-wmake importSurfaceAsSubset
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/importSurfaceAsSubset'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/importSurfaceAsSubset'
-wmake improveMeshQuality
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/improveMeshQuality'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/improveMeshQuality'
-wmake improveSymmetryPlanes
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/improveSymmetryPlanes'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/improveSymmetryPlanes'
-wmake mergeSurfacePatches
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/mergeSurfacePatches'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/mergeSurfacePatches'
-wmake meshToFPMA
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/meshToFPMA'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/meshToFPMA'
-wmake patchesToSubsets
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/patchesToSubsets'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/patchesToSubsets'
-wmake preparePar
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/preparePar'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/preparePar'
-wmake removeSurfaceFacets
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/removeSurfaceFacets'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/removeSurfaceFacets'
-wmake scaleMesh
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/scaleMesh'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/scaleMesh'
-wmake scaleSurfaceMesh
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/scaleSurfaceMesh'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/scaleSurfaceMesh'
-wmake subsetToPatch
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/subsetToPatch'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/subsetToPatch'
-wmake surfaceFeatureEdges
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceFeatureEdges'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceFeatureEdges'
-wmake surfaceGenerateBoundingBox
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceGenerateBoundingBox'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceGenerateBoundingBox'
-wmake surfaceToFMS
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceToFMS'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/cfmesh/utilities/surfaceToFMS'
-
-2023-03-31 04:06:16 -0400
-========================================
-  Finished compile of cfmesh with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-
-wmake libso 
-========================================
-2023-03-31 04:06:16 -0400
-Starting compile of external-solver (petsc) with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
-
-==> skip petsc (no header)
-
-2023-03-31 04:06:16 -0400
-========================================
-  Finished compile of external-solver (petsc) with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-
-wmake libso 
-========================================
-2023-03-31 04:06:16 -0400
-Starting compile of OpenQBMM with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
-
-========================================
-Compile OpenQBMM libraries
-
-wmake libso Vandermonde
-wmake libso quadratureMethods/momentSets
-wmake libso quadratureMethods/momentInversion
-wmake libso quadratureMethods/hermiteQuadrature
-wmake libso quadratureMethods/quadratureNode
-wmake libso quadratureMethods/fieldMomentInversion
-wmake libso quadratureMethods/quadratureApproximations
-wmake libso quadratureMethods/momentAdvection
-wmake libso quadratureMethods/PDFTransportModels
-wmake libso quadratureMethods/mixingModels
-wmake libso quadratureMethods/populationBalanceModels
-========================================
-Compile OpenQBMM applications
-
-wmake libso utilities
-wmake libso computeMoments
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/computeMoments'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/computeMoments'
-wmake libso errorEstimator
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/errorEstimator'
-wmake libso lnInclude
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/errorEstimator'
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/errorEstimator'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/errorEstimator'
-wmake libso generateMoments
-wmake libso momentGenerationModels
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/generateMoments/momentGenerationModels'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/generateMoments/momentGenerationModels'
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/generateMoments'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/generateMoments'
-wmake libso phaseMeanVelocityForce
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/phaseMeanVelocityForce'
-wmake libso lnInclude
-wmake libso phaseCompressibleMeanVelocityForce
-wmake libso phaseIncompressibleMeanVelocityForce
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/phaseMeanVelocityForce'
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/phaseMeanVelocityForce'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/phaseMeanVelocityForce'
-wmake libso reconstructPointDistribution
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/reconstructPointDistribution'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/utilities/reconstructPointDistribution'
-wmake populationBalance
-wmake buoyantPbePimpleFoam
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/buoyantPbePimpleFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/buoyantPbePimpleFoam'
-wmake pbeFoam
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/pbeFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/pbeFoam'
-wmake pbeTransportFoam
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/pbeTransportFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/populationBalance/pbeTransportFoam'
-wmake mixing
-wmake mixingTransportFoam
-make[1]: Entering directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/mixing/mixingTransportFoam'
-make[1]: Leaving directory '/home/bw0594/3DLMM/OpenFOAM-v2206/modules/OpenQBMM/applications/solvers/mixing/mixingTransportFoam'
-wmake libso ButcherTable
-wmake explicitRhoFoam
-wmake compressibleSystem
-wmake compressiblePbeTransportFoam
-wmake velocityDistributionTransport
-wmake phaseModel
-wmake interfacialModels
-wmake phaseCompressibleTurbulenceModels
-wmake vdfTransportFoam
-wmake oneWayCoupledVdfTransportFoam
-wmake diluteVdfTransportFoam
-wmake multiphase
-wmake twoPhaseSystem
-wmake interfacialModels
-wmake phaseCompressibleTurbulenceModels
-wmake polydisperseBubbleFoam
-wmake denseAGFoam
-
-2023-03-31 04:06:20 -0400
-========================================
-  Finished compile of OpenQBMM with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-
-wmake libso 
-========================================
-2023-03-31 04:06:20 -0400
-Starting compile of visualization with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-  prefix = /home/bw0594/3DLMM/OpenFOAM-v2206/platforms/linux64GccDPInt32Opt
-
-======================================================================
-catalyst : /home/bw0594/3DLMM/OpenFOAM-v2206/modules/visualization/src/catalyst
-
-WARNING: skip ParaView Catalyst (missing or incorrrect ParaView)
-======================================================================
-==> skip paraview-plugin (no paraview found?)
-======================================================================
-runTimePostProcessing : /home/bw0594/3DLMM/OpenFOAM-v2206/modules/visualization/src/runTimePostProcessing
-WARNING: skip runTimePostProcessing (no VTK or ParaView)
-    - ParaView  : export the 'ParaView_DIR' variable
-    - VTK       : export the 'VTK_DIR'      variable
-==> dummy runTimePostProcessing
-wmake dummy
-======================================================================
-
-2023-03-31 04:06:21 -0400
-========================================
-Finished compile of visualization with OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-
-
-2023-03-31 04:06:21 -0400
-========================================
-  OpenFOAM-v2206
-  Gcc system compiler
-  linux64GccDPInt32Opt, with SYSTEMOPENMPI sys-openmpi
-
-  api   = 2206
-  patch = 0
-  bin   = 313 entries
-  lib   = 154 entries
-
-========================================
+make[3]: Entering directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/conversion/ansysToFoam'
+    dep: ansysToFoam.L
+    Ltoo: ansysToFoam.L
+    flex++: ansysToFoam.L
+/bin/sh: flex: command not found
+make[3]: *** [/home/bw0594/FreeMHD/OpenFOAM-v2206/wmake/rules/General/transform:35: /home/bw0594/FreeMHD/OpenFOAM-v2206/build/linux64GccDPInt32Opt/applications/utilities/mesh/conversion/ansysToFoam/ansysToFoam.o] Error 127
+make[3]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/conversion/ansysToFoam'
+make[2]: *** [/home/bw0594/FreeMHD/OpenFOAM-v2206/wmake/makefiles/apps:28: ansysToFoam] Error 2
+make[2]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh/conversion'
+make[1]: *** [/home/bw0594/FreeMHD/OpenFOAM-v2206/wmake/makefiles/apps:28: conversion] Error 2
+make[1]: Leaving directory '/home/bw0594/FreeMHD/OpenFOAM-v2206/applications/utilities/mesh'
+make: *** [/home/bw0594/FreeMHD/OpenFOAM-v2206/wmake/makefiles/apps:28: mesh] Error 2

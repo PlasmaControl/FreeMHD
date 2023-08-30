@@ -1,4 +1,0 @@
-SOURCE = \
-interCondensatingEvaporatingFoam.C \
-
-# sources

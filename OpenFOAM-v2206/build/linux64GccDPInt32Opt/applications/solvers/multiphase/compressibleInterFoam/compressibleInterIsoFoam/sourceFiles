@@ -1,4 +1,0 @@
-SOURCE = \
-compressibleInterIsoFoam.C \
-
-# sources

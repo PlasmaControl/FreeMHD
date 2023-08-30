@@ -1,8 +1,0 @@
-Kmesh = Kmesh
-fft = fft
-processes = processes
-UOprocess = $(processes)/UOprocess
-turbulence = turbulence
-noise = noise
-windowModels = windowModels
-LIB = $(FOAM_LIBBIN)/librandomProcesses

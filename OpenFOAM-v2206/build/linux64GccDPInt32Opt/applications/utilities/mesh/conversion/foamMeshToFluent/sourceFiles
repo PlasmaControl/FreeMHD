@@ -1,5 +1,0 @@
-SOURCE = \
-fluentFvMesh.C \
-foamMeshToFluent.C \
-
-# sources

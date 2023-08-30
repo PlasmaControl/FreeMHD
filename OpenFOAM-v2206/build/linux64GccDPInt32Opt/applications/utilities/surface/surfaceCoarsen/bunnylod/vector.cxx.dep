@@ -1,5 +1,0 @@
-$(OBJECTS_DIR)/bunnylod/vector.cxx.dep: \
-bunnylod/vector.cxx \
-bunnylod/vector.hxx \
-
-#END

@@ -1,4 +1,0 @@
-diameter = diameterModels
-drag = interfacialModels/dragModels
-heatTransfer = interfacialModels/heatTransferModels
-LIB = $(FOAM_LIBBIN)/libmultiphaseSystem

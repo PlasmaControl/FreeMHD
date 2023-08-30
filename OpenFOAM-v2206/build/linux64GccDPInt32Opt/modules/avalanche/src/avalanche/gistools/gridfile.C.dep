@@ -1,5 +1,0 @@
-$(OBJECTS_DIR)/gistools/gridfile.C.dep: \
-gistools/gridfile.C \
-gistools/gridfile.H \
-
-#END

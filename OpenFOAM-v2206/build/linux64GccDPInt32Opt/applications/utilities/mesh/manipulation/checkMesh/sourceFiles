@@ -1,9 +1,0 @@
-SOURCE = \
-writeFields.C \
-checkTools.C \
-checkTopology.C \
-checkGeometry.C \
-checkMeshQuality.C \
-checkMesh.C \
-
-# sources

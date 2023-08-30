@@ -1,4 +1,0 @@
-SOURCE = \
-reactingMultiphaseEulerFoam.C \
-
-# sources

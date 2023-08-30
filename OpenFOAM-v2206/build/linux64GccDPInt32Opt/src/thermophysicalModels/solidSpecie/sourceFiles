@@ -1,4 +1,0 @@
-SOURCE = \
-reaction/reactions/makeSolidReactions.C \
-
-# sources

@@ -1,4 +1,0 @@
-SOURCE = \
-monoKineticQuadratureApproximation/monoKineticQuadratureApproximation.C \
-
-# sources

@@ -1,3 +1,0 @@
-porous = interfaceModels/porousModels
-surfaceTension = interfaceModels/surfaceTensionModels
-LIB = $(FOAM_LIBBIN)/libincompressibleMultiphaseSystems

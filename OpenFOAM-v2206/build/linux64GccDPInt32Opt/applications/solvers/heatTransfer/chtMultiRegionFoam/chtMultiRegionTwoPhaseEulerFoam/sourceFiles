@@ -1,6 +1,0 @@
-SOURCE = \
-derivedFvPatchFields/turbulentTemperatureTwoPhaseRadCoupledMixed/turbulentTemperatureTwoPhaseRadCoupledMixedFvPatchScalarField.C \
-../solid/solidRegionDiffNo.C \
-chtMultiRegionTwoPhaseEulerFoam.C \
-
-# sources

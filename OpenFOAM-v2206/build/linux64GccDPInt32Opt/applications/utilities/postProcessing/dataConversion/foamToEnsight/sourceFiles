@@ -1,5 +1,0 @@
-SOURCE = \
-readFields.C \
-foamToEnsight.C \
-
-# sources

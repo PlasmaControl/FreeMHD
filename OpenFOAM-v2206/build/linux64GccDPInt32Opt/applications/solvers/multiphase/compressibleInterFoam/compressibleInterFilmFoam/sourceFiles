@@ -1,7 +1,0 @@
-SOURCE = \
-VoFPatchTransfer/VoFPatchTransfer.C \
-VoFSolidificationMeltingSource/VoFSolidificationMeltingSource.C \
-VoFSolidificationMeltingSource/VoFSolidificationMeltingSourceIO.C \
-compressibleInterFilmFoam.C \
-
-# sources

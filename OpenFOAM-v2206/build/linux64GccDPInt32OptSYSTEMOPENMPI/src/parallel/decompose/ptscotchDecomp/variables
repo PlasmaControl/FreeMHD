@@ -1,1 +1,0 @@
-LIB = $(FOAM_MPI_LIBBIN)/libptscotchDecomp

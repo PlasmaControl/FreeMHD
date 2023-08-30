@@ -1,6 +1,0 @@
-SOURCE = \
-solidParticle.C \
-solidParticleIO.C \
-solidParticleCloud.C \
-
-# sources

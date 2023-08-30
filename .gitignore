@@ -1,3 +1,10 @@
 
+# Compiled source #
+###################
 *.so
 *.o
+
+
+*.out
+makeRun
+

@@ -1,3 +1,0 @@
-RASModels = turbulentTransportModels/RAS
-wallFunctions = turbulentTransportModels/derivedFvPatchFields/wallFunctions
-LIB = $(FOAM_LIBBIN)/libincompressibleTurbulenceModels

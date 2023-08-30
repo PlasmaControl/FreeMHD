@@ -1,5 +1,0 @@
-SOURCE = \
-cellSplitter.C \
-modifyMesh.C \
-
-# sources

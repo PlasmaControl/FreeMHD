@@ -1,5 +1,0 @@
-$(OBJECTS_DIR)/global/cpuTime/cpuTimeCxx.C.dep: \
-global/cpuTime/cpuTimeCxx.C \
-global/cpuTime/cpuTimeCxx.H \
-
-#END

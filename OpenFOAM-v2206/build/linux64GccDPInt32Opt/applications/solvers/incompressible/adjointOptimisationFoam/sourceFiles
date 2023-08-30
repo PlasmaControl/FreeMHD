@@ -1,4 +1,0 @@
-SOURCE = \
-adjointOptimisationFoam.C \
-
-# sources

@@ -1,9 +1,0 @@
-$(OBJECTS_DIR)/global/foamConfig.Cver.dep: \
-global/foamConfig.Cver \
-lnInclude/foamVersion.H \
-lnInclude/endian.H \
-lnInclude/endianI.H \
-lnInclude/labelFwd.H \
-lnInclude/scalarFwd.H \
-
-#END

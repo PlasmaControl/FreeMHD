@@ -1,7 +1,0 @@
-SOURCE = \
-searchableSurfaceModifier/searchableSurfaceModifier.C \
-searchableSurfaceModifier/autoPatch.C \
-searchableSurfaceModifier/cut.C \
-surfacePatch.C \
-
-# sources

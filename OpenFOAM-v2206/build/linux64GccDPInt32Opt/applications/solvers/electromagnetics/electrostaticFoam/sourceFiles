@@ -1,4 +1,0 @@
-SOURCE = \
-electrostaticFoam.C \
-
-# sources

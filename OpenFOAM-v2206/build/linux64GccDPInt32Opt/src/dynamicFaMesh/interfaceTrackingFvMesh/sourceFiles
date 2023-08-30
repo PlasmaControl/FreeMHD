@@ -1,9 +1,0 @@
-SOURCE = \
-interfaceTrackingFvMesh.C \
-freeSurfacePointDisplacement.C \
-fvPatchFields/freeSurfacePressure/freeSurfacePressureFvPatchScalarField.C \
-fvPatchFields/freeSurfaceVelocity/freeSurfaceVelocityFvPatchVectorField.C \
-functionObjects/pointHistory/pointHistory.C \
-functionObjects/writeFreeSurface/writeFreeSurface.C \
-
-# sources

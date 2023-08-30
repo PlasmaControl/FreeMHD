@@ -1,5 +1,0 @@
-SOURCE = \
-mapLagrangian.C \
-mapFieldsPar.C \
-
-# sources

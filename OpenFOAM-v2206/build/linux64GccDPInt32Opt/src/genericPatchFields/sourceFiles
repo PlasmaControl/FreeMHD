@@ -1,8 +1,0 @@
-SOURCE = \
-genericPatchFieldBase/genericPatchFieldBase.C \
-genericFaPatchField/genericFaPatchFields.C \
-genericFvPatchField/genericFvPatchFields.C \
-genericFvsPatchField/genericFvsPatchFields.C \
-genericPointPatchField/genericPointPatchFields.C \
-
-# sources

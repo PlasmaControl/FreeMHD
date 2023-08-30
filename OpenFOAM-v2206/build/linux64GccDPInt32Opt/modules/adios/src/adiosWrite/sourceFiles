@@ -1,6 +1,0 @@
-SOURCE = \
-adiosReadData.C \
-adiosWrite.C \
-adiosWriteData.C \
-
-# sources

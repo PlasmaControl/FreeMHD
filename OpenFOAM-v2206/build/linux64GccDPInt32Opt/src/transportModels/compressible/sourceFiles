@@ -1,4 +1,0 @@
-SOURCE = \
-compressibleTransportModel/compressibleTransportModel.C \
-
-# sources

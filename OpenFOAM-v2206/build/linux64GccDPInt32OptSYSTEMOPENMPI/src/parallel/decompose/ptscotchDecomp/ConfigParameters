@@ -1,4 +1,0 @@
-# Build/configure parameters
--- MPLIB=SYSTEMOPENMPI
--- MPI=sys-openmpi
--- scotch=scotch_6.1.0

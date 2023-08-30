@@ -1,5 +1,0 @@
-$(OBJECTS_DIR)/gistools/shapefile.C.dep: \
-gistools/shapefile.C \
-gistools/shapefile.H \
-
-#END

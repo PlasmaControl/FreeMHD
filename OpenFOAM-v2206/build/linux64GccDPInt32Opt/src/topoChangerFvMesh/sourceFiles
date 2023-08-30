@@ -1,7 +1,0 @@
-SOURCE = \
-topoChangerFvMesh/topoChangerFvMesh.C \
-rawTopoChangerFvMesh/rawTopoChangerFvMesh.C \
-dynamicMotionSolverTopoFvMesh/dynamicMotionSolverTopoFvMesh.C \
-movingConeTopoFvMesh/movingConeTopoFvMesh.C \
-
-# sources

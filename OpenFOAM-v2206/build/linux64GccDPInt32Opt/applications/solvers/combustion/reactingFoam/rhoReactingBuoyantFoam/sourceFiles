@@ -1,4 +1,0 @@
-SOURCE = \
-rhoReactingBuoyantFoam.C \
-
-# sources

@@ -1,5 +1,0 @@
-SOURCE = \
-hexBlock.C \
-cfx4ToFoam.C \
-
-# sources

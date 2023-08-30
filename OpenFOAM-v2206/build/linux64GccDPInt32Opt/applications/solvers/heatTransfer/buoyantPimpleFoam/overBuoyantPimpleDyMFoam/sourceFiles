@@ -1,4 +1,0 @@
-SOURCE = \
-overBuoyantPimpleDyMFoam.C \
-
-# sources

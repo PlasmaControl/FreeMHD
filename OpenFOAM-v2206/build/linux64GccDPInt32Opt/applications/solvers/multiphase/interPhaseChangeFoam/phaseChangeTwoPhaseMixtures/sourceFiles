@@ -1,8 +1,0 @@
-SOURCE = \
-phaseChangeTwoPhaseMixture/phaseChangeTwoPhaseMixture.C \
-phaseChangeTwoPhaseMixture/phaseChangeTwoPhaseMixtureNew.C \
-Kunz/Kunz.C \
-Merkle/Merkle.C \
-SchnerrSauer/SchnerrSauer.C \
-
-# sources
