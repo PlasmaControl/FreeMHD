@@ -1,4 +1,7 @@
 # FreeMHD
+FreeMHD is an open source magnetohydrodynamics (MHD) solver, recently developed for free-surface liquid metal (LM) flows under strong magnetic fields. The extreme heat fluxes > 10 MW/m2 in the divertor region of tokamaks may require an alternative to solid plasma-facing components, for the extraction of heat and the protection of the surrounding walls. However, codes to simulate the behavior of free-surface LM under fusion-relevant conditions are not available. Previous numerical studies have mainly used steady-state, 2D, or simplified models for internal flows and have not been able to adequately model free-surface LM experiments. Therefore, FreeMHD, aims to compute incompressible free-surface flows with multi-region coupling for the investigation of MHD phenomena involving fluid and solid domains. The objectives of the project involve validation and verification of FreeMHD to solve fully 3D transient MHD flows. The model utilizes the electric potential formulation to solve the inductionless MHD equations, implemented using the open-source, finite-volume OpenFOAM framework.
+
+
 ## Steps for openfoam compile/install (as of 04/24/23): 
 
 ### 0. Set up github key pair on cluster
