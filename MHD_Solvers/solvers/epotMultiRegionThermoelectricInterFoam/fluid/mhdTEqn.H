@@ -25,4 +25,8 @@
 
     mixture.correctThermo();
     mixture.correct();
+
+    Info<< "Fluid Min/Max T:" << min(T).value() << ' '
+    << max(T).value() << endl;
+    
 }

@@ -7,6 +7,7 @@ PtrList<volScalarField> fluidPotE(fluidRegions.size());
 
 PtrList<surfaceScalarField> fluidElcondF(fluidRegions.size());
 PtrList<surfaceScalarField> fluidPsiub(fluidRegions.size());
+PtrList<surfaceScalarField> fluidPsiD2t(fluidRegions.size());
 PtrList<surfaceScalarField> fluidJn(fluidRegions.size());
 
 PtrList<dimensionedScalar> fluidElCond1(fluidRegions.size());
@@ -14,6 +15,10 @@ PtrList<dimensionedScalar> fluidElCond2(fluidRegions.size());
 PtrList<volScalarField> fluidElCond(fluidRegions.size());
 
 PtrList<volScalarField>  fluidAlpha1f(fluidRegions.size());
+
+PtrList<dimensionedScalar> fluidSeebCoeff1(fluidRegions.size());
+PtrList<dimensionedScalar> fluidSeebCoeff2(fluidRegions.size());
+PtrList<volScalarField> fluidSeebCoeff(fluidRegions.size());
 
 List<label> potERefCellFluid(fluidRegions.size());
 List<scalar> potERefValueFluid(fluidRegions.size());
@@ -144,6 +149,54 @@ forAll(fluidRegions, i)
     );
 
     Info << "fluid " << i << " mixture.thermo2 elcond: " << fluidElCond2[i] << endl;
+   fluidSeebCoeff1.set
+   (
+       i,
+       new dimensionedScalar
+       (
+           "seebcoeff",
+           dimensionSet(1, 2, -3, -1, 0, -1, 0),
+           mixture.thermo1()
+       )
+   );
+
+
+   Info << "fluid " << i << " mixture.thermo1 seebcoeff: " << fluidSeebCoeff1[i] << endl;
+
+
+   fluidSeebCoeff2.set
+   (
+       i,
+       new dimensionedScalar
+       (
+           "seebcoeff",
+           dimensionSet(1, 2, -3, -1, 0, -1, 0),
+           mixture.thermo2()
+       )
+   );
+
+
+   Info << "fluid " << i << " mixture.thermo2 seebcoeff: " << fluidSeebCoeff2[i] << endl;
+
+
+   Info<< "Initializing fluid " << i << " field SeebCoeff\n" << endl;
+   fluidSeebCoeff.set
+   (
+       i,
+       new volScalarField
+       (
+           IOobject
+           (
+               "seebcoeff",
+               runTime.timeName(),
+               mesh,
+               IOobject::NO_READ,
+               IOobject::AUTO_WRITE // NO_WRITE
+           ),
+           mesh,
+           dimensionedScalar("zero", dimensionSet(1, 2, -3, -1, 0, -1, 0), 0)
+       )
+   );
 
 
     Info<< "Initializing field alpha1f\n" << endl;
@@ -205,6 +258,18 @@ Info<< "Initializing fluid " << i << " temporary MHD fields elcondF, psiub, jn\n
             fvc::interpolate((fluidElCond[i]* UFluid[i]) ^ fluidB[i]) & fluidRegions[i].Sf()
         )
     );
+
+    Info<< "Initializing fluid " << i << " psid2t\n" << endl;
+
+    fluidPsiD2t.set
+    (
+        i,
+        new surfaceScalarField
+        (
+            "psid2t",
+            (fvc::interpolate(fluidSeebCoeff[i] * fluidElCond[i] * fvc::grad(T))) & fluidRegions[i].Sf()
+        )
+    );
     
 	fluidJn.set
     (
@@ -212,7 +277,7 @@ Info<< "Initializing fluid " << i << " temporary MHD fields elcondF, psiub, jn\n
         new surfaceScalarField
         (
             "jn",
-            -(fluidElcondF[i] * fvc::snGrad(fluidPotE[i]) * fluidRegions[i].magSf()) + fluidPsiub[i]
+            -(fluidElcondF[i] * fvc::snGrad(fluidPotE[i]) * fluidRegions[i].magSf()) + fluidPsiub[i] - fluidPsiD2t[i]
         )
     );
 
@@ -230,6 +295,12 @@ Info<< "Initializing fluid " << i << " temporary MHD fields elcondF, psiub, jn\n
 
     Info << "Max alpha1f init " << gMax(alpha1f) << endl;
     Info << "Min alpha1f init " << gMin(alpha1f) << endl;
+
+    fluidSeebCoeff[i] = alpha1f *  fluidSeebCoeff1[i] + (1 - alpha1f) * fluidSeebCoeff2[i];
+    fluidSeebCoeff[i] = max(fluidSeebCoeff[i], dimensionedScalar("zero",dimensionSet(1, 2, -3, -1, 0, -1, 0), 0));
+
+    Info << "Max seebcoeff init " << gMax(fluidSeebCoeff[i]) << endl;
+    Info << "Min seebcoeff init " << gMin(fluidSeebCoeff[i]) << endl;
 
     fluidElCond[i] = alpha1f *  fluidElCond1[i] + (1 - alpha1f) * fluidElCond2[i];
     fluidElCond[i] = max(fluidElCond[i], dimensionedScalar("zero",dimensionSet(-1, -3, 3, 0, 0, 2, 0), 0));

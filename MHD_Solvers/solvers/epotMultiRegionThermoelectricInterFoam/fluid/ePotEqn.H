@@ -23,14 +23,40 @@
 			== 
 			fvc::div(psiub)
 		);
-			
+	bool includeThermoelectricEffect
+		(
+		runTime.controlDict().get<bool>("includeThermoelectricEffect")
+		);
+		
+	if (includeThermoelectricEffect)
+	{
+		seebcoeff = alpha1f * seebcoeff1 + (1 - alpha1f) * seebcoeff2 ;
+		psid2t = ( fvc :: interpolate(-seebcoeff * elcond * fvc::grad(T) )) & mesh.Sf();
+		
+		fvScalarMatrix PotEEqn
+		(
+			fvm::laplacian(elcond,potE)
+			==
+			fvc::div(psiub)
+			+ fvc :: div(psid2t)
+		);
+	}
+
 	//Solving Poisson equation
 	PotEEqn.setReference(potERefCell, potERefValue);
 	PotEEqn.solve();
 	
 	//Computation of current density at cell faces
 	elcondF = fvc::interpolate(elcond);
-	jn = -(elcondF * fvc::snGrad(potE) * mesh.magSf()) + psiub;
+	
+	if (includeThermoelectricEffect)
+	{
+		jn = -(elcondF * fvc::snGrad(potE) * mesh.magSf()) + psiub + psid2t;
+	}
+	else
+	{
+		jn = -(elcondF * fvc::snGrad(potE) * mesh.magSf()) + psiub;
+	}
 
 	//Interpolation of current density at cell centers
 	J= fvc::surfaceIntegrate((jn * mesh.Cf())) - (fvc::surfaceIntegrate(jn) * mesh.C());

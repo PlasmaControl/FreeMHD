@@ -6,11 +6,16 @@ volScalarField& potE = fluidPotE[i];
 
 surfaceScalarField& elcondF = fluidElcondF[i];
 surfaceScalarField& psiub = fluidPsiub[i];
+surfaceScalarField& psid2t = fluidPsiD2t[i];
 surfaceScalarField& jn = fluidJn[i];
 
 dimensionedScalar elcond1 = fluidElCond1[i];
 dimensionedScalar elcond2 = fluidElCond2[i];
 volScalarField& elcond = fluidElCond[i];
+
+dimensionedScalar seebcoeff1 = fluidSeebCoeff1[i];
+dimensionedScalar seebcoeff2 = fluidSeebCoeff2[i];
+volScalarField& seebcoeff = fluidSeebCoeff[i];
 
 volScalarField &alpha1f = fluidAlpha1f[i];
 
