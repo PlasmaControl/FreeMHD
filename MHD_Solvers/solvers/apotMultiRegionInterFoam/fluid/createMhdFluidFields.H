@@ -168,6 +168,26 @@ forAll(fluidRegions, i)
 
     Info << "fluid " << i << " mixture.thermo2 elcond: " << fluidElCond2[i] << endl;
 
+    Info<< "Initializing fluid " << i << " field ElCond\n" << endl;
+    fluidElCond.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "elcond",
+                runTime.timeName(),
+                mesh,
+                IOobject::NO_READ,
+                IOobject::AUTO_WRITE // NO_WRITE
+            ),
+            mesh,
+            dimensionedScalar("zero", dimensionSet(-1, -3, 3, 0, 0, 2, 0), 0)
+        )
+    );
+    
+
 Info<< "Initializing fluid " << i << " temporary MHD fields elcondF, psiub, jn\n" << endl;
     
     fluidElcondF.set
@@ -248,25 +268,6 @@ Info<< "Initializing fluid " << i << " temporary MHD fields elcondF, psiub, jn\n
     );
 
 
-    Info<< "Initializing fluid " << i << " field ElCond\n" << endl;
-    fluidElCond.set
-    (
-        i,
-        new volScalarField
-        (
-            IOobject
-            (
-                "elcond",
-                runTime.timeName(),
-                mesh,
-                IOobject::NO_READ,
-                IOobject::AUTO_WRITE // NO_WRITE
-            ),
-            mesh,
-            dimensionedScalar("zero", dimensionSet(-1, -3, 3, 0, 0, 2, 0), 0)
-        )
-    );
-    
         Info<< "Initializing fluid " << i << " field MagMu\n" << endl;
     fluidMagMu.set
     (
