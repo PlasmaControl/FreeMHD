@@ -1,6 +1,6 @@
 SOURCE = \
 ../common/interFoam/fluid/compressibleCourantNo.C \
 ../common/solid/solidRegionDiffNo.C \
-epotMultiRegionInterFoam.C \
+epotMultiRegionThermoelectricInterFoam.C \
 
 # sources

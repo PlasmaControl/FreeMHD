@@ -20,6 +20,11 @@ PtrList<dimensionedScalar> fluidSeebCoeff1(fluidRegions.size());
 PtrList<dimensionedScalar> fluidSeebCoeff2(fluidRegions.size());
 PtrList<volScalarField> fluidSeebCoeff(fluidRegions.size());
 
+PtrList<dimensionedScalar> heatFluxMagnitude(fluidRegions.size());
+PtrList<volVectorField> heatFluxDirection(fluidRegions.size());
+PtrList<volScalarField> heatFluxLocation(fluidRegions.size());
+
+
 List<label> potERefCellFluid(fluidRegions.size());
 List<scalar> potERefValueFluid(fluidRegions.size());
 
@@ -122,6 +127,7 @@ forAll(fluidRegions, i)
             dimensionedVector("zero", dimensionSet(0, -2, 0, 0, 0, 1, 0),Foam::vector(0,0,0))
         )
     );
+
 
 
     fluidElCond1.set
@@ -281,7 +287,53 @@ Info<< "Initializing fluid " << i << " temporary MHD fields elcondF, psiub, jn\n
         )
     );
 
-	
+
+    heatFluxMagnitude.set
+    (
+        i,
+        new dimensionedScalar
+        (
+            "Qhf", 
+            dimensionSet(1, -2, -1, 1, 0, 0, 0), 
+            mixture.thermo1()
+        )
+    );
+
+    heatFluxDirection.set
+    (
+        i,
+        new volVectorField 
+        (
+            IOobject
+            (
+                "Qhf_dir",
+                runTime.timeName(),
+                mesh,
+                IOobject::NO_READ,
+                IOobject::NO_WRITE
+            ),
+            mesh,
+            dimensionedVector("Qhf_dir", dimensionSet(0, 0, 0, 0, 0, 0, 0),mixture.thermo1())
+        )
+    );
+
+    heatFluxLocation.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "Qhf_loc",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
+
 	potERefCellFluid[i] = 0;
     potERefValueFluid[i] = 0.0;
     

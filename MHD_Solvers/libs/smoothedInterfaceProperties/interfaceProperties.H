@@ -76,6 +76,8 @@ class interfaceProperties
         surfaceScalarField nHatf_;
         volScalarField K_;
 
+        surfaceVectorField nHatfv_;
+
 
     // Private Member Functions
 
@@ -128,6 +130,15 @@ public:
         {
             return nHatf_;
         }
+
+        const surfaceVectorField& nHatfv() const
+        {
+            return nHatfv_;
+        }
+
+        // Declare the faceUnitInterfaceNormal() function
+        // const surfaceVectorField& faceUnitInterfaceNormal() const;
+        tmp<surfaceVectorField> faceUnitInterfaceNormal() const;
 
         tmp<volScalarField> sigmaK() const;
 

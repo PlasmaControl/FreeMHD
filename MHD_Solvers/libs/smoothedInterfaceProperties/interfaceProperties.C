@@ -236,6 +236,15 @@ Foam::interfaceProperties::surfaceTensionForce() const
     return fvc::interpolate(sigmaK())*fvc::snGrad(alpha1_);
 }
 
+const Foam::surfaceVectorField& Foam::interfaceProperties::getNHatfv() const
+{
+    return nHatfv_;
+}
+
+const Foam::surfaceVectorField& Foam::interfaceProperties::faceUnitInterfaceNormal() const
+{
+    return nHatfv_;
+}
 
 Foam::tmp<Foam::volScalarField>
 Foam::interfaceProperties::nearInterface() const

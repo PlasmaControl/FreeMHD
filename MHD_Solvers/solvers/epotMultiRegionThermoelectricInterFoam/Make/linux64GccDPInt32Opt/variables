@@ -1,1 +1,1 @@
-EXE = $(FOAM_APPBIN)/epotMultiRegionInterFoam
+EXE = $(FOAM_APPBIN)/epotMultiRegionThermoelectricInterFoam
