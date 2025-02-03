@@ -54,9 +54,15 @@ Run this under OpenFoam-v2206 directory (where the foam function takes you)
 ```
 ### 5. Make electric potential solver
 
-Go to `MHD_Solvers/solvers/epotMultiRegionInterFoam/`
+Go to solver directory 
+```
+cd ../MHD_Solvers/solvers/epotMultiRegionInterFoam/
+```
 
-run `wmake`
+run `wmake` (or `wclean` then `wmake` if recompiling)
+```
+wmake
+```
 
 ### 6. Post-compilation checks:
 
