@@ -1,7 +1,19 @@
     alpha1f = min(max(alpha1, scalar(0)), scalar(1));
     elcond = alpha1f * elcond1 + (1 - alpha1f) * elcond2;
 
-    B= B0 + fvc::curl(A);
+	scalar BtStartTime
+	(
+		runTime.controlDict().get<scalar>("BtStartTime")
+	);
+
+	scalar BtDuration
+	(
+		runTime.controlDict().get<scalar>("BtDuration")
+	);
+
+	scalar scale = max(min((runTime.value() - BtStartTime)/(BtDuration+1e-6), 1.0), 0.0);
+	Info<<"Current scale multiplied by B0: "<<scale<<endl;
+    B= B0*scale + fvc::curl(A);
     B.correctBoundaryConditions();
     
 	psiub = fvc::interpolate((elcond* U) ^ B) & mesh.Sf();
