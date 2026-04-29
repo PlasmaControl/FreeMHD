@@ -1,5 +1,9 @@
 PtrList<volScalarField> solidPotE(solidRegions.size());
+PtrList<volScalarField> solidPsi(solidRegions.size());
 PtrList<volVectorField> solidA(solidRegions.size()); 
+PtrList<volVectorField> solidDADt(solidRegions.size()); 
+PtrList<volVectorField> solidCurlA(solidRegions.size()); 
+PtrList<volScalarField> solidDivA(solidRegions.size()); 
 PtrList<volVectorField> solidJ(solidRegions.size()); 
 
 PtrList<volScalarField> solidElcond(solidRegions.size()); 
@@ -7,6 +11,9 @@ PtrList<volScalarField> solidMagMu(solidRegions.size());
 
 PtrList<dimensionedScalar> solidElcondValue(solidRegions.size());
 PtrList<dimensionedScalar> solidMagMuValue(solidRegions.size());
+
+List<label> potERefCellSolid(solidRegions.size());
+List<scalar> potERefValueSolid(solidRegions.size());
 
 forAll(solidRegions, i)
 {
@@ -29,6 +36,22 @@ forAll(solidRegions, i)
             solidRegions[i]
         )
     );
+    solidPsi.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "psi",
+                runTime.timeName(),
+                solidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            solidRegions[i]
+        )
+    );
    
    Info<< "Initializing magnetic vector potential A for solid" << i << endl;
     solidA.set
@@ -39,6 +62,54 @@ forAll(solidRegions, i)
             IOobject
             (
                 "A",
+                runTime.timeName(),
+                solidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            solidRegions[i]
+        )
+    );
+    solidDADt.set
+    (
+        i,
+        new volVectorField
+        (
+            IOobject
+            (
+                "dAdt",
+                runTime.timeName(),
+                solidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            solidRegions[i]
+        )
+    );
+    solidCurlA.set
+    (
+        i,
+        new volVectorField
+        (
+            IOobject
+            (
+                "curlA",
+                runTime.timeName(),
+                solidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            solidRegions[i]
+        )
+    );
+    solidDivA.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "divA",
                 runTime.timeName(),
                 solidRegions[i],
                 IOobject::MUST_READ,
@@ -125,6 +196,10 @@ forAll(solidRegions, i)
         )
     );
     
+	potERefCellSolid[i] = 0;
+    potERefValueSolid[i] = 0.0;
+    
+	setRefCell(solidPotE[i], mesh.solutionDict().subDict("potE"), potERefCellSolid[i], potERefValueSolid[i]);
     
     
 	

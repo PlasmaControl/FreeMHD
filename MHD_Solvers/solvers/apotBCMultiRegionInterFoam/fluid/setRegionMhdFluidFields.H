@@ -1,9 +1,19 @@
 volVectorField& JxB = fluidJxB[i];
 volVectorField& J = fluidJ[i];
+volVectorField& JB = fluidJB[i];
 volVectorField& A = fluidA[i];
+volVectorField& dAdt = fluidDADt[i];
+volVectorField& curlA = fluidCurlA[i];
+volScalarField& divA = fluidDivA[i];
 volVectorField& B = fluidB[i];
 volVectorField& B0 = fluidB0[i];
 volScalarField& potE = fluidPotE[i];
+volScalarField& psi = fluidPsi[i];
+volVectorField& dpotE = fluidDpotE[i];
+
+volScalarField& Rm = fluidRm[i];
+volScalarField& Rm_ind = fluidRmInd[i];
+volScalarField& Rm_dif = fluidRmDif[i];
 
 dimensionedScalar elcond1 = fluidElCond1[i];
 dimensionedScalar elcond2 = fluidElCond2[i];

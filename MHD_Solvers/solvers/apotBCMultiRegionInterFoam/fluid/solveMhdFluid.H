@@ -23,8 +23,9 @@ else
     turbulence.correctPhasePhi();
 	
 	//solve the electric potential equation for the fluid
-	#include "ePotEqn.H"
-	#include "aPotEqn.H"
+	//#include "ePotEqn.H"
+	//#include "aPotEqn.H"
+    #include "mhdAEqn.H"
 	
     #include "mhdUEqn.H"
     volScalarField divUp("divUp", fvc::div(fvc::absolute(phi, U), p));

@@ -2,9 +2,19 @@
 PtrList<volVectorField> fluidB(fluidRegions.size());
 PtrList<volVectorField> fluidB0(fluidRegions.size());
 PtrList<volVectorField> fluidJ(fluidRegions.size());
+PtrList<volVectorField> fluidJB(fluidRegions.size());
 PtrList<volVectorField> fluidA(fluidRegions.size());
+PtrList<volVectorField> fluidDADt(fluidRegions.size());
 PtrList<volVectorField> fluidJxB(fluidRegions.size());
+PtrList<volVectorField> fluidCurlA(fluidRegions.size());
+PtrList<volScalarField> fluidDivA(fluidRegions.size());
 PtrList<volScalarField> fluidPotE(fluidRegions.size());
+PtrList<volScalarField> fluidPsi(fluidRegions.size());
+PtrList<volVectorField> fluidDpotE(fluidRegions.size());
+
+PtrList<volScalarField> fluidRm(fluidRegions.size());
+PtrList<volScalarField> fluidRmInd(fluidRegions.size());
+PtrList<volScalarField> fluidRmDif(fluidRegions.size());
 
 PtrList<volScalarField>  fluidAlpha1f(fluidRegions.size());
 
@@ -82,6 +92,54 @@ forAll(fluidRegions, i)
             fluidRegions[i]
         )
     );
+    fluidDADt.set
+    (
+        i,
+        new volVectorField
+        (
+            IOobject
+            (
+                "dAdt",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
+    fluidCurlA.set
+    (
+        i,
+        new volVectorField
+        (
+            IOobject
+            (
+                "curlA",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
+    fluidDivA.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "divA",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
     
         Info<< "Initializing electric potential for fluid" << i << endl;
         
@@ -101,7 +159,89 @@ forAll(fluidRegions, i)
             fluidRegions[i]
         )
     );
+    fluidPsi.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "psi",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
+    fluidDpotE.set
+    (
+        i,
+        new volVectorField
+        (
+            IOobject
+            (
+                "dpotE",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
 
+    fluidRm.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "Rm",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
+
+    fluidRmInd.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "Rm_ind",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
+
+    fluidRmDif.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "Rm_dif",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
 
     Info<< "Initializing fields J and JxB for fluid" << i << "\n" << endl;
     fluidJxB.set
@@ -131,6 +271,22 @@ forAll(fluidRegions, i)
             IOobject
             (
                 "J",
+                runTime.timeName(),
+                fluidRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            fluidRegions[i]
+        )
+    );
+    fluidJB.set
+    (
+        i,
+        new volVectorField
+        (
+            IOobject
+            (
+                "JB",
                 runTime.timeName(),
                 fluidRegions[i],
                 IOobject::MUST_READ,

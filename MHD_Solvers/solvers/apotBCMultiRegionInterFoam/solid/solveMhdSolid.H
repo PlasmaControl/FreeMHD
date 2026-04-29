@@ -34,8 +34,9 @@ if (finalIter)
         
     // solve the epot and apot equations in the solid
     
-    #include "solidEPotEquation.H"
-    #include "solidAPotEquation.H"
+    //#include "solidEPotEquation.H"
+    //#include "solidAPotEquation.H"
+    #include "solidAEqn.H"
 }
 
 if (finalIter)

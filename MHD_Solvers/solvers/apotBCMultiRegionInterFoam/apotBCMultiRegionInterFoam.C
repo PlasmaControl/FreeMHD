@@ -63,115 +63,7 @@ Description
 
 #include "dynamicFvMesh.H"
 
-
-//#include "spherical_harmonics.H"
-const int kCacheSize = 16;
-
-double Factorial(int x) {
-  static const double factorial_cache[kCacheSize] = {1, 1, 2, 6, 24, 120, 720, 5040,
-                                              40320, 362880, 3628800, 39916800,
-                                              479001600, 6227020800,
-                                              87178291200, 1307674368000};
-
-  if (x < kCacheSize) {
-    return factorial_cache[x];
-  } else {
-    double s = factorial_cache[kCacheSize - 1];
-    for (int n = kCacheSize; n <= x; n++) {
-      s *= n;
-    }
-    return s;
-  }
-}
-double DoubleFactorial(int x) {
-  static const double dbl_factorial_cache[kCacheSize] = {1, 1, 2, 3, 8, 15, 48, 105,
-                                                  384, 945, 3840, 10395, 46080,
-                                                  135135, 645120, 2027025};
-
-  if (x < kCacheSize) {
-    return dbl_factorial_cache[x];
-  } else {
-    double s = dbl_factorial_cache[kCacheSize - (x % 2 == 0 ? 2 : 1)];
-    double n = x;
-    while (n >= kCacheSize) {
-      s *= n;
-      n -= 2.0;
-    }
-    return s;
-  }
-}
-double EvalLegendrePolynomial(int l, int m, double x) {
-  // Compute Pmm(x) = (-1)^m(2m - 1)!!(1 - x^2)^(m/2), where !! is the double
-  // factorial.
-  double pmm = 1.0;
-  // P00 is defined as 1.0, do don't evaluate Pmm unless we know m > 0
-  if (m > 0) {
-    double sign = (m % 2 == 0 ? 1 : -1);
-    pmm = sign * DoubleFactorial(2 * m - 1) * Foam::pow(1 - x * x, m / 2.0);
-  }
-
-  if (l == m) {
-    // Pml is the same as Pmm so there's no lifting to higher bands needed
-    return pmm;
-  }
-
-  // Compute Pmm+1(x) = x(2m + 1)Pmm(x)
-  double pmm1 = x * (2 * m + 1) * pmm;
-  if (l == m + 1) {
-    // Pml is the same as Pmm+1 so we are done as well
-    return pmm1;
-  }
-
-  // Use the last two computed bands to lift up to the next band until l is
-  // reached, using the recurrence relationship:
-  // Pml(x) = (x(2l - 1)Pml-1 - (l + m - 1)Pml-2) / (l - m)
-  for (int n = m + 2; n <= l; n++) {
-    double pmn = (x * (2 * n - 1) * pmm1 - (n + m - 1) * pmm) / (n - m);
-    pmm = pmm1;
-    pmm1 = pmn;
-  }
-  // Pmm1 at the end of the above loop is equal to Pml
-  return pmm1;
-}
-scalar EvalSHSlow_Re(int l, int m, scalar phi, scalar theta) {
- //CHECK(l >= 0, "l must be at least 0.");
- //CHECK(-l <= m && m <= l, "m must be between -l and l.");
-
-  double kml = Foam::sqrt((2.0 * l + 1) * Factorial(l - abs(m)) /
-                    (4.0 * M_PI * Factorial(l + abs(m))));
-  if (m > 0) {
-    return kml * Foam::cos(m * phi) *
-        EvalLegendrePolynomial(l, m, Foam::cos(theta));
-  } else if (m < 0) {
-    return kml * Foam::cos(-m * phi) *
-        EvalLegendrePolynomial(l, -m, Foam::cos(theta));
-  } else {
-    return kml * EvalLegendrePolynomial(l, 0, Foam::cos(theta));
-  }
-}
-  scalar EvalSHSlow_Im(int l, int m, scalar phi, scalar theta) {
-  //CHECK(l >= 0, "l must be at least 0.");
-  //CHECK(-l <= m && m <= l, "m must be between -l and l.");
-
-    double kml = Foam::sqrt((2.0 * l + 1) * Factorial(l - abs(m)) /
-                      (4.0 * M_PI * Factorial(l + abs(m))));
-    if (m > 0) {
-      return kml * Foam::sin(m * phi) *
-          EvalLegendrePolynomial(l, m, Foam::cos(theta));
-    } else if (m < 0) {
-      return kml * Foam::sin(-m * phi) *
-          EvalLegendrePolynomial(l, -m, Foam::cos(theta));
-    } else {
-      return kml * EvalLegendrePolynomial(l, 0, Foam::cos(theta));
-    }
-}
-const scalar L = 10;
-scalarField a_lm_x_Re(2*L*L, 0.0);
-scalarField a_lm_x_Im(2*L*L, 0.0);
-scalarField a_lm_y_Re(2*L*L, 0.0);
-scalarField a_lm_y_Im(2*L*L, 0.0);
-scalarField a_lm_z_Re(2*L*L, 0.0);
-scalarField a_lm_z_Im(2*L*L, 0.0);
+#include "vectorSphericalHarmonics.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -246,17 +138,10 @@ int main(int argc, char *argv[])
         }
 
         // --- PIMPLE loop
-        for (int oCorr=0; oCorr<nOuterCorr; ++oCorr)
+        //for (int oCorr=0; oCorr<nOuterCorr; ++oCorr)
+        for (int oCorr=0; oCorr<1; ++oCorr)
         {
             const bool finalIter = (oCorr == nOuterCorr-1);
-
-            forAll(vacuumRegions, i)
-            {
-                Info<<"\nSolving for vacuum region "
-                    << vacuumRegions[i].name() << endl;
-                #include "setRegionMhdVacuumFields.H"
-                #include "solveMhdVacuum.H"
-            }
 
             forAll(fluidRegions, i)
             {
@@ -268,16 +153,28 @@ int main(int argc, char *argv[])
                 #include "readFluidMultiRegionPIMPLEControls.H" 
                 #include "solveMhdFluid.H"
             }
-
-            forAll(solidRegions, i)
+            for (label solidIter = 0; solidIter < 3; ++solidIter)
             {
-                Info<< "\nSolving for solid region "
-                    << solidRegions[i].name() << endl;
-                #include "setRegionSolidFields.H"
-                #include "setRegionMhdSolidFields.H"
-                #include "readSolidMultiRegionPIMPLEControls.H"
-                #include "solveMhdSolid.H"
+                forAll(solidRegions, i)
+                {
+                    Info<< "\nSolving for solid region "
+                        << solidRegions[i].name() << endl;
+                    #include "setRegionSolidFields.H"
+                    #include "setRegionMhdSolidFields.H"
+                    #include "readSolidMultiRegionPIMPLEControls.H"
+                    #include "solveMhdSolid.H"
+                }
             }
+
+            forAll(vacuumRegions, i)
+            {
+                Info<<"\nSolving for vacuum region "
+                    << vacuumRegions[i].name() << endl;
+                #include "setRegionMhdVacuumFields.H"
+                #include "solveMhdVacuum.H"
+            }
+
+            //#include "potEGaugeFix.H"
 
             // Additional loops for energy solution only
             if (!oCorr && nOuterCorr > 1)

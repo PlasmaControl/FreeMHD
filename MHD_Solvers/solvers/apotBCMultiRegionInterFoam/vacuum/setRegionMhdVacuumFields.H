@@ -1,2 +1,4 @@
 volVectorField& A = vacuumA[i];
-//volVectorField& a_lm_Re = vacuum_a_lm_Re[i];
+volVectorField& B = vacuumB[i];
+volScalarField& psi = vacuumPsi[i];
+volScalarField& magMu = vacuumMagMu[i];

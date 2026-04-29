@@ -10,7 +10,7 @@
 	(
 		runTime.controlDict().get<scalar>("BtDuration")
 	);
-	
+
 	scalar scale = max(min((runTime.value() - BtStartTime)/(BtDuration+1e-6), 1.0), 0.0);
 	Info<<"Current scale multiplied by B0: "<<scale<<endl;
     B= B0*scale + fvc::curl(A);
@@ -34,7 +34,9 @@
 	jn = -(elcondF * fvc::snGrad(potE) * mesh.magSf()) + psiub;
 
 	//Interpolation of current density at cell centers
-	J= fvc::surfaceIntegrate((jn * mesh.Cf())) - (fvc::surfaceIntegrate(jn) * mesh.C());
+	//J= fvc::surfaceIntegrate((jn * mesh.Cf())) - (fvc::surfaceIntegrate(jn) * mesh.C());
+	magMu  = alpha1f * magMu1 + (1 - alpha1f) * magMu2;
+	JB = fvc::curl(fvc::curl(A))/magMu;
 
 	//Update current density distribution and boundary condition
 	J.correctBoundaryConditions();

@@ -1,5 +1,8 @@
 PtrList<volVectorField> vacuumA(vacuumRegions.size()); 
-//PtrList<volVectorField> vacuum_a_lm_Re(vacuumRegions.size()); 
+PtrList<volVectorField> vacuumB(vacuumRegions.size()); 
+PtrList<volScalarField> vacuumPsi(vacuumRegions.size());
+PtrList<volScalarField> vacuumMagMu(vacuumRegions.size());
+PtrList<dimensionedScalar> vacuumMagMuValue(vacuumRegions.size());
 
 forAll(vacuumRegions, i)
 {
@@ -20,26 +23,68 @@ forAll(vacuumRegions, i)
             vacuumRegions[i]
         )
     );
-    
-    Info << "Init vacuum " << i << " finished!" << endl;
-
-        /*
-    vacuum_a_lm_Re.set
+    vacuumB.set
     (
         i,
         new volVectorField
         (
             IOobject
             (
-                "elcond",
+                "B",
+                runTime.timeName(),
+                vacuumRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            vacuumRegions[i]
+        )
+    );
+    vacuumPsi.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "psi",
+                runTime.timeName(),
+                vacuumRegions[i],
+                IOobject::MUST_READ,
+                IOobject::AUTO_WRITE
+            ),
+            vacuumRegions[i]
+        )
+    );
+    vacuumMagMu.set
+    (
+        i,
+        new volScalarField
+        (
+            IOobject
+            (
+                "magMu",
                 runTime.timeName(),
                 vacuumRegions[i],
                 IOobject::NO_READ,
-                IOobject::AUTO_WRITE // NO_WRITE
+                IOobject::NO_WRITE
             ),
             vacuumRegions[i],
-            dimensionedVector(Foam::vector(0,0,0))
+            dimensionedScalar("zero", dimensionSet(1, 1, -2, 0, 0, -2, 0), 0)
         )
     );
-    */
+    vacuumMagMuValue.set
+    (
+        i,
+        new dimensionedScalar
+        (
+            "magMu", 
+            dimensionSet(1, 1, -2, 0, 0, -2, 0), 
+            thermos[i]
+        )
+    );
+
+	vacuumMagMu[i] = vacuumMagMuValue[i];
+    
+    
+    Info << "Init vacuum " << i << " finished!" << endl;
 }

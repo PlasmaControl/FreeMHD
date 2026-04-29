@@ -11,10 +11,17 @@
 
 	fvVectorMatrix mvpotEqn
 			(
-				fvm::laplacian(A)
+				fvm::ddt(A)
 				==
-				-magMu*J
+				-fvc::grad(potE)
+				+1/elcond/magMu*fvm::laplacian(A)
 			);
+
 					
 	//Solving Poisson equation
 	mvpotEqn.solve();
+    A.correctBoundaryConditions();
+
+	J = -fvc::laplacian(A)/magMu;
+	// assuming curl of B_ext is zero
+	J.correctBoundaryConditions();

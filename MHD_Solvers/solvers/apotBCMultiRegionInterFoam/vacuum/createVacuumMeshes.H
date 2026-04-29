@@ -21,9 +21,4 @@
                 )
             )
         );
-
-        // Force calculation of geometric properties to prevent it being done
-        // later in e.g. some boundary evaluation
-        //(void)solidRegions[i].weights();
-        //(void)solidRegions[i].deltaCoeffs();
     }
