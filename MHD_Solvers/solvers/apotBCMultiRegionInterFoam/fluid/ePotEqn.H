@@ -1,5 +1,5 @@
-    alpha1f = min(max(alpha1, scalar(0)), scalar(1));
-    elcond = alpha1f * elcond1 + (1 - alpha1f) * elcond2;
+	alpha1f = min(max(alpha1, scalar(0)), scalar(1));
+	elcond = alpha1f * elcond1 + (1 - alpha1f) * elcond2;
 
 	scalar BtStartTime
 	(
@@ -13,9 +13,9 @@
 
 	scalar scale = max(min((runTime.value() - BtStartTime)/(BtDuration+1e-6), 1.0), 0.0);
 	Info<<"Current scale multiplied by B0: "<<scale<<endl;
-    B= B0*scale + fvc::curl(A);
-    B.correctBoundaryConditions();
-    
+	B= B0*scale + fvc::curl(A);
+	B.correctBoundaryConditions();
+	
 	psiub = fvc::interpolate((elcond* U) ^ B) & mesh.Sf();
 	
 	fvScalarMatrix PotEEqn
@@ -34,7 +34,9 @@
 	jn = -(elcondF * fvc::snGrad(potE) * mesh.magSf()) + psiub;
 
 	//Interpolation of current density at cell centers
-	J= fvc::surfaceIntegrate((jn * mesh.Cf())) - (fvc::surfaceIntegrate(jn) * mesh.C());
+	//J= fvc::surfaceIntegrate((jn * mesh.Cf())) - (fvc::surfaceIntegrate(jn) * mesh.C());
+	magMu  = alpha1f * magMu1 + (1 - alpha1f) * magMu2;
+	JB = fvc::curl(fvc::curl(A))/magMu;
 
 	//Update current density distribution and boundary condition
 	J.correctBoundaryConditions();
