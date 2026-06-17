@@ -22,12 +22,15 @@ B.correctBoundaryConditions();
 label nAEiter(
 	runTime.controlDict().get<label>("nAEiter")
 );
-label nGaugeIter(
-	runTime.controlDict().get<label>("nGaugeIter")
-);
+
+// Freeze dAdt at the start of the inner Picard loop. Recomputing it each
+// iteration with dt~1e-6 amplifies any A change by 1/dt into the potE
+// source, which drives the iteration into a stable limit cycle instead of
+// converging. Holding dAdt fixed across the loop breaks that feedback.
+dAdt  = fvc::ddt(A);
+dAdt.correctBoundaryConditions();
+
 for (label iter = 0; iter < nAEiter; ++iter){
-	dAdt  = fvc::ddt(A);
-	dAdt.correctBoundaryConditions();
 	psiub = fvc::interpolate(elcond * ((U ^ B) - dAdt)) & mesh.Sf();
 	fvScalarMatrix PotEEqn(
 		fvm::laplacian(elcond, potE)
@@ -37,36 +40,26 @@ for (label iter = 0; iter < nAEiter; ++iter){
 	PotEEqn.setReference(potERefCell, potERefValue);
 	PotEEqn.relax();
 	scalar potERes = PotEEqn.solve().initialResidual();
-	//potE -= dimensionedScalar("potEAvg", potE.dimensions(),gAverage(potE.primitiveField()));
-	//potE.correctBoundaryConditions();
 	dpotE = fvc::grad(potE);
 	dpotE.correctBoundaryConditions();
 
-	divA  = fvc::div(A);
-	divA.correctBoundaryConditions();
+	surfaceScalarField sAf
+	(
+		- elcondF * fvc::snGrad(potE) * mesh.magSf()
+		+ (fvc::interpolate(elcond * (U ^ B)) & mesh.Sf())
+	);
+	volVectorField sA(fvc::reconstruct(sAf));
 	fvVectorMatrix AEqn(
 		fvm::ddt(elcond, A)
 		- fvm::laplacian(1.0 / magMu, A)
 		==
-		elcond * (-fvc::grad(potE) + (U ^ B))
-		//- fvc::grad(divA) / magMu
+		sA
 	);
 	AEqn.relax();
 	scalar ARes = cmptMax(AEqn.solve().initialResidual());
 
-	for (label gIter = 0; gIter < nGaugeIter; ++gIter){
-		fvScalarMatrix PsiEqn
-		(
-			fvm::laplacian(psi)
-			==
-			fvc::div(A)
-		);
-		PsiEqn.setReference(potERefCell, 0.0);
-		PsiEqn.solve();
-		//A -= fvc::grad(psi);
-		A.correctBoundaryConditions();
-	}
-
+	divA = fvc::div(A);
+	divA.correctBoundaryConditions();
 	curlA = fvc::curl(A);
 	curlA.correctBoundaryConditions();
 	B     = B0 * Bscale + curlA;
@@ -79,16 +72,14 @@ for (label iter = 0; iter < nAEiter; ++iter){
 
 dAdt = fvc::ddt(A);
 dAdt.correctBoundaryConditions();
-divA  = fvc::div(A);
-divA.correctBoundaryConditions();
 
 // evaluate current density
 elcondF = fvc::interpolate(elcond);
 jn      = - elcondF * fvc::snGrad(potE) * mesh.magSf()
-          + (fvc::interpolate(elcond * ((U ^ B) - dAdt)) & mesh.Sf());
+		  + (fvc::interpolate(elcond * ((U ^ B) - dAdt)) & mesh.Sf());
 J       = fvc::reconstruct(jn);
 J.correctBoundaryConditions();
-JB = -fvc::laplacian(A)/magMu;
+JB = -fvc::laplacian(1.0 / magMu, A);
 
 // compute JxB force
 bool JConservativeForm(
@@ -97,7 +88,7 @@ bool JConservativeForm(
 if (JConservativeForm){
 	surfaceVectorField bf = fvc::interpolate(B);
 	JxB = - fvc::surfaceIntegrate((jn * bf) ^ mesh.Cf())
-	      + (fvc::div(jn, B) ^ mesh.C());
+		  + (fvc::div(jn, B) ^ mesh.C());
 } else {
 	JxB = J ^ B;
 }

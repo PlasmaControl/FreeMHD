@@ -20,7 +20,7 @@
 					
 	//Solving Poisson equation
 	mvpotEqn.solve();
-    A.correctBoundaryConditions();
+	A.correctBoundaryConditions();
 
 	J = -fvc::laplacian(A)/magMu;
 	// assuming curl of B_ext is zero

@@ -55,194 +55,194 @@ reduce(b_lm_Re, sumOp<scalarField>()); reduce(b_lm_Im, sumOp<scalarField>());
 forAll(mesh.boundary(), patch) {
 	if (patch != mesh.boundary().findPatchID("vacuumExterior")) { continue; }
 	fixedGradientFvPatchVectorField& Av =
-        refCast<fixedGradientFvPatchVectorField>
-        (
-            A.boundaryFieldRef()[patch]
-        );
+		refCast<fixedGradientFvPatchVectorField>
+		(
+			A.boundaryFieldRef()[patch]
+		);
 	forAll(mesh.boundary()[patch], face) {
 		scalar dAr = 0.0, dAt = 0.0, dAp = 0.0;
 
-        const vector& Cf = mesh.boundary()[patch].Cf()[face];
-        const scalar xf = Cf.x();
-        const scalar yf = Cf.y();
-        const scalar zf = Cf.z();
+		const vector& Cf = mesh.boundary()[patch].Cf()[face];
+		const scalar xf = Cf.x();
+		const scalar yf = Cf.y();
+		const scalar zf = Cf.z();
 
-        const scalar R = Foam::sqrt(xf*xf + yf*yf + zf*zf);
-        const scalar phi = Foam::atan2(yf, xf);
-        const scalar mu = Foam::max(-1.0, Foam::min(1.0, zf/R));
-        const scalar theta = Foam::acos(mu);
+		const scalar R = Foam::sqrt(xf*xf + yf*yf + zf*zf);
+		const scalar phi = Foam::atan2(yf, xf);
+		const scalar mu = Foam::max(-1.0, Foam::min(1.0, zf/R));
+		const scalar theta = Foam::acos(mu);
 
-        // Face unit normal
-        const vector Sf = mesh.Sf().boundaryField()[patch][face];
-        const vector nHat = Sf/(mag(Sf) + SMALL);
+		// Face unit normal
+		const vector Sf = mesh.Sf().boundaryField()[patch][face];
+		const vector nHat = Sf/(mag(Sf) + SMALL);
 
-        // Spherical basis at face center
-        const scalar st = Foam::sin(theta);
-        const scalar ct = Foam::cos(theta);
-        const scalar sp = Foam::sin(phi);
-        const scalar cp = Foam::cos(phi);
+		// Spherical basis at face center
+		const scalar st = Foam::sin(theta);
+		const scalar ct = Foam::cos(theta);
+		const scalar sp = Foam::sin(phi);
+		const scalar cp = Foam::cos(phi);
 
-        const vector e_r(st*cp, st*sp, ct);
-        const vector e_t(ct*cp, ct*sp, -st);
-        const vector e_p(-sp, cp, 0.0);
+		const vector e_r(st*cp, st*sp, ct);
+		const vector e_t(ct*cp, ct*sp, -st);
+		const vector e_p(-sp, cp, 0.0);
 
-        // Components of face normal in spherical basis
-        const scalar nr = (nHat & e_r);
-        const scalar nt = (nHat & e_t);
-        const scalar np = (nHat & e_p);
+		// Components of face normal in spherical basis
+		const scalar nr = (nHat & e_r);
+		const scalar nt = (nHat & e_t);
+		const scalar np = (nHat & e_p);
 
-        // Helper: evaluate A on the sphere at (thetaEval, phiEval), returned in Cartesian components
-        auto evalA_cart = [&](const scalar thetaEval, const scalar phiEval) -> vector
-        {
-            scalar Ar = 0.0, At = 0.0, Ap = 0.0;
+		// Helper: evaluate A on the sphere at (thetaEval, phiEval), returned in Cartesian components
+		auto evalA_cart = [&](const scalar thetaEval, const scalar phiEval) -> vector
+		{
+			scalar Ar = 0.0, At = 0.0, Ap = 0.0;
 
-            const scalar stE = Foam::sin(thetaEval);
-            const scalar ctE = Foam::cos(thetaEval);
-            const scalar spE = Foam::sin(phiEval);
-            const scalar cpE = Foam::cos(phiEval);
+			const scalar stE = Foam::sin(thetaEval);
+			const scalar ctE = Foam::cos(thetaEval);
+			const scalar spE = Foam::sin(phiEval);
+			const scalar cpE = Foam::cos(phiEval);
 
-            for (int l = 0; l < L; ++l)
-            {
-                for (int m = -l; m <= l; ++m)
-                {
-                    const label idx = 2*L*l + m + L;
+			for (int l = 0; l < L; ++l)
+			{
+				for (int m = -l; m <= l; ++m)
+				{
+					const label idx = 2*L*l + m + L;
 
-                    const scalar aRe = a_lm_Re[idx];
-                    const scalar aIm = a_lm_Im[idx];
-                    const scalar bRe = b_lm_Re[idx];
-                    const scalar bIm = b_lm_Im[idx];
+					const scalar aRe = a_lm_Re[idx];
+					const scalar aIm = a_lm_Im[idx];
+					const scalar bRe = b_lm_Re[idx];
+					const scalar bIm = b_lm_Im[idx];
 
-                    const scalar Y_Re   = EvalSHSlow_Re(l, m, phiEval, thetaEval);
-                    const scalar Y_Im   = EvalSHSlow_Im(l, m, phiEval, thetaEval);
-                    const scalar dYt_Re = EvalSHSlow_dTheta_Re(l, m, phiEval, thetaEval);
-                    const scalar dYt_Im = EvalSHSlow_dTheta_Im(l, m, phiEval, thetaEval);
+					const scalar Y_Re   = EvalSHSlow_Re(l, m, phiEval, thetaEval);
+					const scalar Y_Im   = EvalSHSlow_Im(l, m, phiEval, thetaEval);
+					const scalar dYt_Re = EvalSHSlow_dTheta_Re(l, m, phiEval, thetaEval);
+					const scalar dYt_Im = EvalSHSlow_dTheta_Im(l, m, phiEval, thetaEval);
 
-                    const scalar invSin = 1.0/(Foam::max(Foam::mag(Foam::sin(thetaEval)), 1e-12));
+					const scalar invSin = 1.0/(Foam::max(Foam::mag(Foam::sin(thetaEval)), 1e-12));
 
-                    // T = grad_s Y, P = e_r x T  (same conventions as your code)
-                    const scalar T_t_Re = dYt_Re;
-                    const scalar T_t_Im = dYt_Im;
+					// T = grad_s Y, P = e_r x T  (same conventions as your code)
+					const scalar T_t_Re = dYt_Re;
+					const scalar T_t_Im = dYt_Im;
 
-                    const scalar T_p_Re = -m*invSin*Y_Im;
-                    const scalar T_p_Im =  m*invSin*Y_Re;
+					const scalar T_p_Re = -m*invSin*Y_Im;
+					const scalar T_p_Im =  m*invSin*Y_Re;
 
-                    const scalar P_t_Re =  m*invSin*Y_Im;
-                    const scalar P_t_Im = -m*invSin*Y_Re;
+					const scalar P_t_Re =  m*invSin*Y_Im;
+					const scalar P_t_Im = -m*invSin*Y_Re;
 
-                    const scalar P_p_Re = T_t_Re;
-                    const scalar P_p_Im = T_t_Im;
+					const scalar P_p_Re = T_t_Re;
+					const scalar P_p_Im = T_t_Im;
 
-                    // A on r = R:
-                    // Ar = (b/R)*[-(l+1)Y]
-                    // At = a*P_t + (b/R)*T_t
-                    // Ap = a*P_p + (b/R)*T_p
-                    const scalar coeff_b_val = 1.0/R;
+					// A on r = R:
+					// Ar = (b/R)*[-(l+1)Y]
+					// At = a*P_t + (b/R)*T_t
+					// Ap = a*P_p + (b/R)*T_p
+					const scalar coeff_b_val = 1.0/R;
 
-                    Ar += coeff_b_val*bRe*(-(l + 1.0)*Y_Re);
-                    Ar -= coeff_b_val*bIm*(-(l + 1.0)*Y_Im);
+					Ar += coeff_b_val*bRe*(-(l + 1.0)*Y_Re);
+					Ar -= coeff_b_val*bIm*(-(l + 1.0)*Y_Im);
 
-                    At += aRe*P_t_Re;
-                    At -= aIm*P_t_Im;
-                    At += coeff_b_val*bRe*T_t_Re;
-                    At -= coeff_b_val*bIm*T_t_Im;
+					At += aRe*P_t_Re;
+					At -= aIm*P_t_Im;
+					At += coeff_b_val*bRe*T_t_Re;
+					At -= coeff_b_val*bIm*T_t_Im;
 
-                    Ap += aRe*P_p_Re;
-                    Ap -= aIm*P_p_Im;
-                    Ap += coeff_b_val*bRe*T_p_Re;
-                    Ap -= coeff_b_val*bIm*T_p_Im;
-                }
-            }
+					Ap += aRe*P_p_Re;
+					Ap -= aIm*P_p_Im;
+					Ap += coeff_b_val*bRe*T_p_Re;
+					Ap -= coeff_b_val*bIm*T_p_Im;
+				}
+			}
 
-            // Convert spherical components to Cartesian
-            const scalar Ax = Ar*stE*cpE + At*ctE*cpE - Ap*spE;
-            const scalar Ay = Ar*stE*spE + At*ctE*spE + Ap*cpE;
-            const scalar Az = Ar*ctE      - At*stE;
+			// Convert spherical components to Cartesian
+			const scalar Ax = Ar*stE*cpE + At*ctE*cpE - Ap*spE;
+			const scalar Ay = Ar*stE*spE + At*ctE*spE + Ap*cpE;
+			const scalar Az = Ar*ctE      - At*stE;
 
-            return vector(Ax, Ay, Az);
-        };
+			return vector(Ax, Ay, Az);
+		};
 
-        // ----- analytic radial derivative from DtN map -----
-        for (int l = 1; l < L; ++l)
-        {
-            scalar coeff_a = 0.0;
-            if (l > 0)
-            {
-                coeff_a = -(l + 1.0)/R;
-            }
-            const scalar coeff_b = -(l + 2.0)/(R*R);
+		// ----- analytic radial derivative from DtN map -----
+		for (int l = 1; l < L; ++l)
+		{
+			scalar coeff_a = 0.0;
+			if (l > 0)
+			{
+				coeff_a = -(l + 1.0)/R;
+			}
+			const scalar coeff_b = -(l + 2.0)/(R*R);
 
-            for (int m = -l; m <= l; ++m)
-            {
-                const label idx = 2*L*l + m + L;
+			for (int m = -l; m <= l; ++m)
+			{
+				const label idx = 2*L*l + m + L;
 
-                const scalar Y_lm_Re = EvalSHSlow_Re(l, m, phi, theta);
-                const scalar Y_lm_Im = EvalSHSlow_Im(l, m, phi, theta);
-                const scalar T_lm_t_Re = EvalSHSlow_dTheta_Re(l, m, phi, theta);
-                const scalar T_lm_t_Im = EvalSHSlow_dTheta_Im(l, m, phi, theta);
+				const scalar Y_lm_Re = EvalSHSlow_Re(l, m, phi, theta);
+				const scalar Y_lm_Im = EvalSHSlow_Im(l, m, phi, theta);
+				const scalar T_lm_t_Re = EvalSHSlow_dTheta_Re(l, m, phi, theta);
+				const scalar T_lm_t_Im = EvalSHSlow_dTheta_Im(l, m, phi, theta);
 
-                const scalar invSin = 1.0/(Foam::max(Foam::mag(Foam::sin(theta)), 1e-12));
+				const scalar invSin = 1.0/(Foam::max(Foam::mag(Foam::sin(theta)), 1e-12));
 
-                const scalar T_lm_p_Re = -m*invSin*Y_lm_Im;
-                const scalar T_lm_p_Im =  m*invSin*Y_lm_Re;
-                const scalar P_lm_t_Re =  m*invSin*Y_lm_Im;
-                const scalar P_lm_t_Im = -m*invSin*Y_lm_Re;
-                const scalar P_lm_p_Re = T_lm_t_Re;
-                const scalar P_lm_p_Im = T_lm_t_Im;
+				const scalar T_lm_p_Re = -m*invSin*Y_lm_Im;
+				const scalar T_lm_p_Im =  m*invSin*Y_lm_Re;
+				const scalar P_lm_t_Re =  m*invSin*Y_lm_Im;
+				const scalar P_lm_t_Im = -m*invSin*Y_lm_Re;
+				const scalar P_lm_p_Re = T_lm_t_Re;
+				const scalar P_lm_p_Im = T_lm_t_Im;
 
-                dAr += coeff_b*b_lm_Re[idx]* (-(l + 1.0)*Y_lm_Re);
-                dAr -= coeff_b*b_lm_Im[idx]* (-(l + 1.0)*Y_lm_Im);
+				dAr += coeff_b*b_lm_Re[idx]* (-(l + 1.0)*Y_lm_Re);
+				dAr -= coeff_b*b_lm_Im[idx]* (-(l + 1.0)*Y_lm_Im);
 
-                dAt += coeff_a*a_lm_Re[idx]*P_lm_t_Re;
-                dAt -= coeff_a*a_lm_Im[idx]*P_lm_t_Im;
-                dAt += coeff_b*b_lm_Re[idx]*T_lm_t_Re;
-                dAt -= coeff_b*b_lm_Im[idx]*T_lm_t_Im;
+				dAt += coeff_a*a_lm_Re[idx]*P_lm_t_Re;
+				dAt -= coeff_a*a_lm_Im[idx]*P_lm_t_Im;
+				dAt += coeff_b*b_lm_Re[idx]*T_lm_t_Re;
+				dAt -= coeff_b*b_lm_Im[idx]*T_lm_t_Im;
 
-                dAp += coeff_a*a_lm_Re[idx]*P_lm_p_Re;
-                dAp -= coeff_a*a_lm_Im[idx]*P_lm_p_Im;
-                dAp += coeff_b*b_lm_Re[idx]*T_lm_p_Re;
-                dAp -= coeff_b*b_lm_Im[idx]*T_lm_p_Im;
-            }
-        }
+				dAp += coeff_a*a_lm_Re[idx]*P_lm_p_Re;
+				dAp -= coeff_a*a_lm_Im[idx]*P_lm_p_Im;
+				dAp += coeff_b*b_lm_Re[idx]*T_lm_p_Re;
+				dAp -= coeff_b*b_lm_Im[idx]*T_lm_p_Im;
+			}
+		}
 
-        // Convert analytic radial derivative to Cartesian
-        const vector dA_dr_cart
-        (
-            dAr*st*cp + dAt*ct*cp - dAp*sp,
-            dAr*st*sp + dAt*ct*sp + dAp*cp,
-            dAr*ct    - dAt*st
-        );
+		// Convert analytic radial derivative to Cartesian
+		const vector dA_dr_cart
+		(
+			dAr*st*cp + dAt*ct*cp - dAp*sp,
+			dAr*st*sp + dAt*ct*sp + dAp*cp,
+			dAr*ct    - dAt*st
+		);
 
-        // ----- angular derivatives by finite differences on the sphere -----
-        const scalar hTheta = 1e-6;
-        const scalar hPhi   = 1e-6;
+		// ----- angular derivatives by finite differences on the sphere -----
+		const scalar hTheta = 1e-6;
+		const scalar hPhi   = 1e-6;
 
-        // Avoid stepping exactly onto the poles
-        const scalar thetaP = Foam::min(constant::mathematical::pi - 1e-8, theta + hTheta);
-        const scalar thetaM = Foam::max(1e-8, theta - hTheta);
-        const scalar phiP   = phi + hPhi;
-        const scalar phiM   = phi - hPhi;
+		// Avoid stepping exactly onto the poles
+		const scalar thetaP = Foam::min(constant::mathematical::pi - 1e-8, theta + hTheta);
+		const scalar thetaM = Foam::max(1e-8, theta - hTheta);
+		const scalar phiP   = phi + hPhi;
+		const scalar phiM   = phi - hPhi;
 
-        const vector A_thetaP = evalA_cart(thetaP, phi);
-        const vector A_thetaM = evalA_cart(thetaM, phi);
-        const vector dA_dtheta_cart = (A_thetaP - A_thetaM)/(thetaP - thetaM);
+		const vector A_thetaP = evalA_cart(thetaP, phi);
+		const vector A_thetaM = evalA_cart(thetaM, phi);
+		const vector dA_dtheta_cart = (A_thetaP - A_thetaM)/(thetaP - thetaM);
 
-        const vector A_phiP = evalA_cart(theta, phiP);
-        const vector A_phiM = evalA_cart(theta, phiM);
-        const vector dA_dphi_cart = (A_phiP - A_phiM)/(phiP - phiM);
+		const vector A_phiP = evalA_cart(theta, phiP);
+		const vector A_phiM = evalA_cart(theta, phiM);
+		const vector dA_dphi_cart = (A_phiP - A_phiM)/(phiP - phiM);
 
-        // ----- true normal derivative -----
-        vector dA_dn = nr*dA_dr_cart;
+		// ----- true normal derivative -----
+		vector dA_dn = nr*dA_dr_cart;
 
-        // add tangential corrections if normal is not exactly radial
-        dA_dn += (nt/R)*dA_dtheta_cart;
+		// add tangential corrections if normal is not exactly radial
+		dA_dn += (nt/R)*dA_dtheta_cart;
 
-        if (Foam::mag(st) > 1e-10)
-        {
-            dA_dn += (np/(R*st))*dA_dphi_cart;
-        }
+		if (Foam::mag(st) > 1e-10)
+		{
+			dA_dn += (np/(R*st))*dA_dphi_cart;
+		}
 
-        // This is the actual patch-normal derivative n·grad(A)
-        Av.gradient()[face] = Av.gradient()[face] * 0.9 + dA_dn * 0.1;
+		// This is the actual patch-normal derivative n·grad(A)
+		Av.gradient()[face] = Av.gradient()[face] * 0.9 + dA_dn * 0.1;
 	}
 	Av.updateCoeffs();
 }

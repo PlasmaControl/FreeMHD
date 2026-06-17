@@ -1,7 +1,7 @@
 fvMesh& mesh = vacuumRegions[i];
 if (finalIter)
 {
-    mesh.data::add("finalIteration", true);
+	mesh.data::add("finalIteration", true);
 }
 
 label nGaugeIter(
@@ -21,6 +21,7 @@ for (int j = 0; j < nABCiter; j++)
 	);
 	scalar Res = cmptMax(mvpotEqn.solve().initialResidual());
 
+	/*
 	for (label gIter = 0; gIter < nGaugeIter; ++gIter){
 		fvScalarMatrix PsiEqn
 		(
@@ -33,21 +34,24 @@ for (int j = 0; j < nABCiter; j++)
 		//A -= fvc::grad(psi);
 		A.correctBoundaryConditions();
 	}
+	*/
 
 	if (mesh.name() == "vacuum_sphere")
 	{
-		#include "vacuumAExteriorEquation.H"
+		//#include "vacuumAExteriorEquation.H"
 	}
 
-	if (Res < 1e-5){
+	if (Res < 1e-3){
 		break;
 	}
 }
 
+dAdt = fvc::ddt(A);
+dAdt.correctBoundaryConditions();
 B = fvc::curl(A);
 B.correctBoundaryConditions();
 
 if (finalIter)
 {
-    mesh.data::remove("finalIteration");
+	mesh.data::remove("finalIteration");
 }

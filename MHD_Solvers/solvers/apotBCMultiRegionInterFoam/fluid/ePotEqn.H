@@ -1,5 +1,5 @@
-    alpha1f = min(max(alpha1, scalar(0)), scalar(1));
-    elcond = alpha1f * elcond1 + (1 - alpha1f) * elcond2;
+	alpha1f = min(max(alpha1, scalar(0)), scalar(1));
+	elcond = alpha1f * elcond1 + (1 - alpha1f) * elcond2;
 
 	scalar BtStartTime
 	(
@@ -13,9 +13,9 @@
 
 	scalar scale = max(min((runTime.value() - BtStartTime)/(BtDuration+1e-6), 1.0), 0.0);
 	Info<<"Current scale multiplied by B0: "<<scale<<endl;
-    B= B0*scale + fvc::curl(A);
-    B.correctBoundaryConditions();
-    
+	B= B0*scale + fvc::curl(A);
+	B.correctBoundaryConditions();
+	
 	psiub = fvc::interpolate((elcond* U) ^ B) & mesh.Sf();
 	
 	fvScalarMatrix PotEEqn

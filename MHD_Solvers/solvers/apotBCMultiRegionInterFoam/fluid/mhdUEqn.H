@@ -1,39 +1,39 @@
 
-    MRF.correctBoundaryVelocity(U); 
+	MRF.correctBoundaryVelocity(U); 
 
-     tmp<fvVectorMatrix> tUEqn
-    (
-        fvm::ddt(rho, U) + fvm::div(rhoPhi, U)
-      - fvm::Sp(contErr, U)
-      + MRF.DDt(rho, U)
-      + turbulence.divDevRhoReff(U)
-     ==
-        fvOptions(rho, U)
-        + JxB
-    );
-    fvVectorMatrix& UEqn = tUEqn.ref();
-    
-    UEqn.relax();
+	 tmp<fvVectorMatrix> tUEqn
+	(
+		fvm::ddt(rho, U) + fvm::div(rhoPhi, U)
+	  - fvm::Sp(contErr, U)
+	  + MRF.DDt(rho, U)
+	  + turbulence.divDevRhoReff(U)
+	 ==
+		fvOptions(rho, U)
+		+ JxB
+	);
+	fvVectorMatrix& UEqn = tUEqn.ref();
+	
+	UEqn.relax();
 
-    fvOptions.constrain(UEqn);
+	fvOptions.constrain(UEqn);
 
-    if (momentumPredictor)
-    {
-        solve
-        (
-            UEqn
-         ==
-            fvc::reconstruct
-            (
-                (
-                    mixture.surfaceTensionForce()
-                  - ghf*fvc::snGrad(rho)
-                  - fvc::snGrad(p_rgh)
-                ) * mesh.magSf()
-            )
-        );
+	if (momentumPredictor)
+	{
+		solve
+		(
+			UEqn
+		 ==
+			fvc::reconstruct
+			(
+				(
+					mixture.surfaceTensionForce()
+				  - ghf*fvc::snGrad(rho)
+				  - fvc::snGrad(p_rgh)
+				) * mesh.magSf()
+			)
+		);
 
-        fvOptions.correct(U);
+		fvOptions.correct(U);
 
-        K = 0.5*magSqr(U);
-    }
+		K = 0.5*magSqr(U);
+	}

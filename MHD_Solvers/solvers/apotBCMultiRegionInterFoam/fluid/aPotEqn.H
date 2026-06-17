@@ -1,5 +1,5 @@
 magMu  = alpha1f * magMu1 + (1 - alpha1f) * magMu2;
-    
+	
 fvVectorMatrix mvpotEqn
 			(
 				fvm::ddt(A)
@@ -11,9 +11,9 @@ fvVectorMatrix mvpotEqn
 
 	mvpotEqn.solve();
 	
-    B= B0*scale + fvc::curl(A);
-    B.correctBoundaryConditions();
-    A.correctBoundaryConditions();
+	B= B0*scale + fvc::curl(A);
+	B.correctBoundaryConditions();
+	A.correctBoundaryConditions();
 	J = fvc::curl(B)/magMu;
 
 	volScalarField numerator = mag(fvc::curl(U^B));

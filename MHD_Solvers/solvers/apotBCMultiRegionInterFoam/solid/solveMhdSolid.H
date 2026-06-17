@@ -1,45 +1,45 @@
 if (finalIter)
 {
-    mesh.data::add("finalIteration", true);
+	mesh.data::add("finalIteration", true);
 }
 
 {
-    for (int nonOrth=0; nonOrth<=nNonOrthCorr; ++nonOrth)
-    {
-        fvScalarMatrix hEqn
-        (
-            fvm::ddt(betav*rho, h)
-          - (
-               thermo.isotropic()
-             ? fvm::laplacian(betav*thermo.alpha(), h, "laplacian(alpha,h)")
-             : fvm::laplacian(betav*taniAlpha(), h, "laplacian(alpha,h)")
-            )
-          ==
-            fvOptions(rho, h)
-        );
+	for (int nonOrth=0; nonOrth<=nNonOrthCorr; ++nonOrth)
+	{
+		fvScalarMatrix hEqn
+		(
+			fvm::ddt(betav*rho, h)
+		  - (
+			   thermo.isotropic()
+			 ? fvm::laplacian(betav*thermo.alpha(), h, "laplacian(alpha,h)")
+			 : fvm::laplacian(betav*taniAlpha(), h, "laplacian(alpha,h)")
+			)
+		  ==
+			fvOptions(rho, h)
+		);
 
-        hEqn.relax();
+		hEqn.relax();
 
-        fvOptions.constrain(hEqn);
+		fvOptions.constrain(hEqn);
 
-        hEqn.solve(mesh.solver(h.select(finalIter)));
+		hEqn.solve(mesh.solver(h.select(finalIter)));
 
-        fvOptions.correct(h);
-    }
+		fvOptions.correct(h);
+	}
 
-    thermo.correct();
+	thermo.correct();
 
-    Info<< "Min/max T:" << min(thermo.T()).value() << ' '
-        << max(thermo.T()).value() << endl;
-        
-    // solve the epot and apot equations in the solid
-    
-    //#include "solidEPotEquation.H"
-    //#include "solidAPotEquation.H"
-    #include "solidAEqn.H"
+	Info<< "Min/max T:" << min(thermo.T()).value() << ' '
+		<< max(thermo.T()).value() << endl;
+		
+	// solve the epot and apot equations in the solid
+	
+	//#include "solidEPotEquation.H"
+	//#include "solidAPotEquation.H"
+	#include "solidAEqn.H"
 }
 
 if (finalIter)
 {
-    mesh.data::remove("finalIteration");
+	mesh.data::remove("finalIteration");
 }

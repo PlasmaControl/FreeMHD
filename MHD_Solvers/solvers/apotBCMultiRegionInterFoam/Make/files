@@ -1,5 +1,6 @@
-../common/interFoam/fluid/compressibleCourantNo.C
-../common/solid/solidRegionDiffNo.C
+../commonBC/interFoam/fluid/compressibleCourantNo.C
+../commonBC/solid/solidRegionDiffNo.C
 apotBCMultiRegionInterFoam.C
+ldu/coupledGaugePsiFvPatchScalarField.C
 
 EXE = $(FOAM_APPBIN)/apotBCMultiRegionInterFoam

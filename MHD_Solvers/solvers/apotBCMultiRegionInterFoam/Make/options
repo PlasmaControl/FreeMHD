@@ -3,12 +3,13 @@ sinclude $(RULES)/mplib$(WM_MPLIB)
 
 EXE_INC = \
     -I.  \
-    -I../common \
-    -I../common/include \
+    -I./ldu \
+    -I../commonBC \
+    -I../commonBC/include \
     -I../../libs/VoF \
-    -I../common/interFoam/fluid \
-    -I../common/solid \
-    -I../common/vacuum \
+    -I../commonBC/interFoam/fluid \
+    -I../commonBC/solid \
+    -I../commonBC/vacuum \
     -I./fluid \
     -I./solid \
     -I./vacuum \
