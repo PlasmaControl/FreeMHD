@@ -68,7 +68,11 @@ forAll(fluidRegions, regioni)
     );
 }
 
-meanAlphaCoNum = 0.5*(gSumPhiFluid/gSumVFluid)*runTime.deltaTValue();
+// Guard 0/0 (SIGFPE) when a case has no fluid region; identical wherever gSumVFluid>0.
+meanAlphaCoNum =
+    (gSumVFluid > VSMALL)
+  ? 0.5*(gSumPhiFluid/gSumVFluid)*runTime.deltaTValue()
+  : 0.0;
 
 Info<< "Interface Courant Number mean: " << meanAlphaCoNum
     << " max: " << alphaCoNum << endl;

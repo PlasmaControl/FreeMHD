@@ -13,15 +13,26 @@ scalar BtDuration(
 BtDuration = max(BtDuration, 1e-6);
 const scalar Bscale = max(min((runTime.value() - BtStartTime) / BtDuration, 1.0), 0.0);
 Info << "Current scale multiplied by B0: " << Bscale << endl;
+
+// Transient external field B0t(t) and dAext/dt; shared with the potE re-solve.
+#include "createDAextdt.H"
+
 curlA = fvc::curl(A);
 curlA.correctBoundaryConditions();
-B     = B0 * Bscale + curlA;
+B     = B0 * Bscale + B0t + curlA;
 B.correctBoundaryConditions();
 
 // solve for scalar and vector potentials
 label nAEiter(
 	runTime.controlDict().get<label>("nAEiter")
 );
+// A-potE Picard tolerance; 1e-3 is the legacy value, tighten (1e-5) for transients.
+const scalar nAEtol(
+	runTime.controlDict().getOrDefault<scalar>("nAEtol", 1e-3)
+);
+
+// Keep the previous-corrector A for under-relaxation; un-relaxed A swings ~70% at high Rm.
+A.storePrevIter();
 
 // Freeze dAdt at the start of the inner Picard loop. Recomputing it each
 // iteration with dt~1e-6 amplifies any A change by 1/dt into the potE
@@ -31,7 +42,7 @@ dAdt  = fvc::ddt(A);
 dAdt.correctBoundaryConditions();
 
 for (label iter = 0; iter < nAEiter; ++iter){
-	psiub = fvc::interpolate(elcond * ((U ^ B) - dAdt)) & mesh.Sf();
+	psiub = fvc::interpolate(elcond * ((U ^ B) - dAdt - dAextdt)) & mesh.Sf();
 	fvScalarMatrix PotEEqn(
 		fvm::laplacian(elcond, potE)
 		==
@@ -46,7 +57,7 @@ for (label iter = 0; iter < nAEiter; ++iter){
 	surfaceScalarField sAf
 	(
 		- elcondF * fvc::snGrad(potE) * mesh.magSf()
-		+ (fvc::interpolate(elcond * (U ^ B)) & mesh.Sf())
+		+ (fvc::interpolate(elcond * ((U ^ B) - dAextdt)) & mesh.Sf())
 	);
 	volVectorField sA(fvc::reconstruct(sAf));
 	fvVectorMatrix AEqn(
@@ -62,13 +73,21 @@ for (label iter = 0; iter < nAEiter; ++iter){
 	divA.correctBoundaryConditions();
 	curlA = fvc::curl(A);
 	curlA.correctBoundaryConditions();
-	B     = B0 * Bscale + curlA;
+	B     = B0 * Bscale + B0t + curlA;
 	B.correctBoundaryConditions();
 
-	if (max(potERes, ARes) < 1e-3){
+	if (max(potERes, ARes) < nAEtol){
 		break;
 	}
 }
+
+// Under-relax A (relaxationFactors.fields[A]; no-op if unset), then rebuild curlA and B.
+A.relax();
+A.correctBoundaryConditions();
+curlA = fvc::curl(A);
+curlA.correctBoundaryConditions();
+B     = B0 * Bscale + B0t + curlA;
+B.correctBoundaryConditions();
 
 dAdt = fvc::ddt(A);
 dAdt.correctBoundaryConditions();
@@ -76,7 +95,7 @@ dAdt.correctBoundaryConditions();
 // evaluate current density
 elcondF = fvc::interpolate(elcond);
 jn      = - elcondF * fvc::snGrad(potE) * mesh.magSf()
-		  + (fvc::interpolate(elcond * ((U ^ B) - dAdt)) & mesh.Sf());
+		  + (fvc::interpolate(elcond * ((U ^ B) - dAdt - dAextdt)) & mesh.Sf());
 J       = fvc::reconstruct(jn);
 J.correctBoundaryConditions();
 JB = -fvc::laplacian(1.0 / magMu, A);
@@ -92,6 +111,10 @@ if (JConservativeForm){
 } else {
 	JxB = J ^ B;
 }
+
+// Implicit Hartmann-drag split: the -sigma|B|^2 U part of J x B is solved as
+// fvm::Sp in mhdUEqn.H; add it back here so phig carries the full J x B.
+JxB = JxB + elcond*magSqr(B)*U;
 
 // diagnostic variable evaluation
 volScalarField numerator   = mag(fvc::curl(U ^ B));

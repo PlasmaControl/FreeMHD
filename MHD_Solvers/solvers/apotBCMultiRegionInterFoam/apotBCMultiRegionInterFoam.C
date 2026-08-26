@@ -241,7 +241,8 @@ int main(int argc, char *argv[])
 
 				dAdt = fvc::ddt(A);
 				dAdt.correctBoundaryConditions();
-				psiub = fvc::interpolate(elcond * ((U ^ B) - dAdt)) & mesh.Sf();
+				#include "createDAextdt.H"   // transient EMF (matches mhdAEqn.H)
+				psiub = fvc::interpolate(elcond * ((U ^ B) - dAdt - dAextdt)) & mesh.Sf();
 				fvScalarMatrix PotEEqn
 				(
 					fvm::laplacian(elcond, potE) == fvc::div(psiub)
