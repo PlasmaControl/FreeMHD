@@ -17,6 +17,9 @@
             mixture.surfaceTensionForce()
           - ghf*fvc::snGrad(rho)
         )*rAUf*mesh.magSf()
+        // Lorentz force as a Rhie-Chow face flux, like buoyancy/surface tension above
+        // (removed from UEqn); without it p-U decouples at high Rm and p_rgh stalls.
+      + rAUf*fvc::flux(JxB)
     );
 
     phiHbyA += phig;

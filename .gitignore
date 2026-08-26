@@ -8,3 +8,7 @@
 *.out
 makeRun
 
+
+# Working notes, not tracked #
+###############################
+MHD_Solvers/solvers/apotBCMultiRegionInterFoam/RECOMMENDED_SOLVERS.md

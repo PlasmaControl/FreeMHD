@@ -36,9 +36,10 @@ for (int j = 0; j < nABCiter; j++)
 	}
 	*/
 
-	if (mesh.name() == "vacuum_sphere")
+	if (mesh.name() == "vacuum_sphere"
+	    && runTime.controlDict().getOrDefault<bool>("VSH_enable", false))
 	{
-		//#include "vacuumAExteriorEquation.H"
+		#include "vacuumAExteriorEquation.H"
 	}
 
 	if (Res < 1e-3){

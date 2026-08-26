@@ -1,5 +1,7 @@
 //const scalar L = 20;
 const scalar L = runTime.controlDict().getOrDefault("VSH_L", 1);
+// Boundary-gradient under-relaxation; default 0.1 is the original 0.9/0.1 blend.
+const scalar VSHalpha = runTime.controlDict().getOrDefault<scalar>("VSH_alpha", 0.1);
 scalarField a_lm_Re(2*L*L, 0.0); scalarField a_lm_Im(2*L*L, 0.0);
 scalarField b_lm_Re(2*L*L, 0.0); scalarField b_lm_Im(2*L*L, 0.0);
 
@@ -242,7 +244,7 @@ forAll(mesh.boundary(), patch) {
 		}
 
 		// This is the actual patch-normal derivative n·grad(A)
-		Av.gradient()[face] = Av.gradient()[face] * 0.9 + dA_dn * 0.1;
+		Av.gradient()[face] = (1.0 - VSHalpha)*Av.gradient()[face] + VSHalpha*dA_dn;
 	}
 	Av.updateCoeffs();
 }
