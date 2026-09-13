@@ -1,0 +1,6 @@
+site_name: FreeMHD Documentation
+theme: readthedocs
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - General Setup: general_setup.md
