@@ -2,5 +2,5 @@ site_name: FreeMHD Documentation
 theme: readthedocs
 nav:
   - Home: index.md
-  - Installation: installation.md
-  - General Setup: general_setup.md
+  - Installation: OpenFOAM_setup.md
+  - General Setup: FreeMHD_case_setup.md
