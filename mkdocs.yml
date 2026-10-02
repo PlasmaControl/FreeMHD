@@ -4,3 +4,11 @@ nav:
   - Home: index.md
   - Installation: OpenFOAM_setup.md
   - General Setup: FreeMHD_case_setup.md
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
