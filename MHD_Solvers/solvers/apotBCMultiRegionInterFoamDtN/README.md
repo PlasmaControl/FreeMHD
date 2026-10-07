@@ -33,7 +33,7 @@ Dirichlet-to-Neumann (DtN) closure for the exterior vacuum and several options f
 
 ## Build
 
-Tested with OpenFOAM v2206 from the `OpenFOAM-v2206` tree of this repository, GCC 8.3 and Open MPI 4.1.0:
+Tested with OpenFOAM v2206 from the `OpenFOAM-v2206` tree of this repository, GCC 8.5.0 and Open MPI 4.1.0:
 
 ```bash
 source OpenFOAM-v2206/etc/bashrc          # from the repository root
