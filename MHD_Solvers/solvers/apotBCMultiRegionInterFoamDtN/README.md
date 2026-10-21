@@ -21,7 +21,11 @@ Dirichlet-to-Neumann (DtN) closure for the exterior vacuum and several options f
 - **Induction path for prescribed flows** (`VSH_fullAPath`): the fluid region uses the induction solve of
   `mhdAEqn.H`, with the source assembled as a face flux, instead of the `ePotEqn.H`/`aPotEqn.H` pair.
 - **Potential source** (`VSH_potEdAdt`): the `ePotEqn.H` path includes the -sigma dA/dt term, with dA/dt frozen
-  once per time step.
+  once per time step. It has no effect with `VSH_fullAPath`, where `mhdAEqn.H` sets dA/dt itself.
+- **dA/dt predictor at the first outer corrector** (`VSH_dAdtPredictor`, `mhdAEqn.H` path): at outer corrector 0
+  the vector potential still equals its old-time value, so fvc::ddt(A) is zero and the potential source and the
+  insulating wall condition lose -sigma dA/dt for that corrector. With the switch on, corrector 0 keeps the
+  previous time step's final dA/dt.
 - **Settable boundary-loop tolerance** in the vacuum (`VSH_abcTol`, previously fixed at 1e-3).
 - **Experimental options**, off by default: curl-curl vacuum equation (`VSH_vacuumCurlCurl`, `VSH_ccRelax`),
   vacuum-only Coulomb projection (`VSH_vacGaugeIter`), gradient form of the gauge cleaner (`VSH_gaugeGradForm`),
@@ -68,7 +72,8 @@ The defaults keep the behaviour of earlier versions of this branch. **For the co
 | `VSH_abcTol` | `1e-3` | exit tolerance of the boundary loop |
 | `VSH_conductorDtN` | `false` | closure on the conductor patch `vacuumExterior`, no vacuum mesh |
 | `VSH_fullAPath` | `false` | induction solve of `mhdAEqn.H` for prescribed flows |
-| `VSH_potEdAdt` | `false` | -sigma dA/dt in the potential source of `ePotEqn.H` |
+| `VSH_potEdAdt` | `false` | -sigma dA/dt in the potential source of `ePotEqn.H` (no effect with `VSH_fullAPath`) |
+| `VSH_dAdtPredictor` | `false` | keep the previous step's dA/dt at the first outer corrector (`mhdAEqn.H` path) |
 
 The outer-corrector count `nCorr` and the inner iteration cap `nAEiter` couple the regions; check convergence in
 `nCorr` for each configuration.

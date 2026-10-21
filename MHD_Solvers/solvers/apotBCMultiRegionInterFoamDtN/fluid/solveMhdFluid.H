@@ -9,8 +9,15 @@ if (finalIter)
 if (frozenFlow)
 {   
 	// [Dbg] freeze dAdt once per time step, before the correctors, so the
-	// restored potE source cannot feed back through the Picard loop.
-	if (runTime.controlDict().getOrDefault<bool>("VSH_potEdAdt", false) && oCorr == 0)
+	// restored potE source cannot feed back through the Picard loop.  Only the
+	// ePotEqn/aPotEqn pair reads this value: with VSH_fullAPath, mhdAEqn.H sets
+	// dAdt itself, and VSH_dAdtPredictor must not find it zeroed first.
+	if
+	(
+		runTime.controlDict().getOrDefault<bool>("VSH_potEdAdt", false)
+	 && oCorr == 0
+	 && !runTime.controlDict().getOrDefault<bool>("VSH_fullAPath", false)
+	)
 	{
 		dAdt = fvc::ddt(A);
 		dAdt.correctBoundaryConditions();

@@ -38,8 +38,20 @@ A.storePrevIter();
 // iteration with dt~1e-6 amplifies any A change by 1/dt into the potE
 // source, which drives the iteration into a stable limit cycle instead of
 // converging. Holding dAdt fixed across the loop breaks that feedback.
-dAdt  = fvc::ddt(A);
-dAdt.correctBoundaryConditions();
+// VSH_dAdtPredictor: at outer corrector 0, A still equals A.oldTime(), so fvc::ddt(A) is
+// identically zero and the potE source and the insulating wall BC lose -sigma dA/dt for the
+// whole first corrector.  With the switch on, corrector 0 keeps dAdt as it stands (cells and
+// patch values): the previous step final value, set after A.relax() below, or the value read
+// at the start time.  Off by default.
+if
+(
+    !(oCorr == 0
+   && runTime.controlDict().getOrDefault<bool>("VSH_dAdtPredictor", false))
+)
+{
+    dAdt  = fvc::ddt(A);
+    dAdt.correctBoundaryConditions();
+}
 
 for (label iter = 0; iter < nAEiter; ++iter){
 	psiub = fvc::interpolate(elcond * ((U ^ B) - dAdt - dAextdt)) & mesh.Sf();
