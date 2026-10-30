@@ -1,0 +1,77 @@
+	alpha1f = min(max(alpha1, scalar(0)), scalar(1));
+	elcond = alpha1f * elcond1 + (1 - alpha1f) * elcond2;
+
+	scalar BtStartTime
+	(
+		runTime.controlDict().get<scalar>("BtStartTime")
+	);
+
+	scalar BtDuration
+	(
+		runTime.controlDict().get<scalar>("BtDuration")
+	);
+
+	scalar scale = max(min((runTime.value() - BtStartTime)/(BtDuration+1e-6), 1.0), 0.0);
+	Info<<"Current scale multiplied by B0: "<<scale<<endl;
+	B= B0*scale + fvc::curl(A);
+	B.correctBoundaryConditions();
+	
+	// [Dbg] VSH_potEdAdt: restore the -sigma dA/dt term of Eq. (7).
+	// dAdt is NOT recomputed here -- it is frozen once per time step in
+	// solveMhdFluid.H, outside the oCorr loop, exactly as mhdAEqn.H does.
+	// Recomputing it per corrector amplifies dA by 1/dt into this source and
+	// drives the Picard iteration into a limit cycle (measured: lambda 18.4).
+	if (runTime.controlDict().getOrDefault<bool>("VSH_potEdAdt", false))
+	{
+		psiub = fvc::interpolate(elcond*((U ^ B) - dAdt)) & mesh.Sf();
+	}
+	else
+	{
+		psiub = fvc::interpolate((elcond* U) ^ B) & mesh.Sf();
+	}
+	
+	fvScalarMatrix PotEEqn
+		(
+			fvm::laplacian(elcond,potE) 
+			== 
+			fvc::div(psiub)
+		);
+			
+	//Solving Poisson equation
+	PotEEqn.setReference(potERefCell, potERefValue);
+	PotEEqn.solve();
+	
+	//Computation of current density at cell faces
+	elcondF = fvc::interpolate(elcond);
+	jn = -(elcondF * fvc::snGrad(potE) * mesh.magSf()) + psiub;
+
+	//Interpolation of current density at cell centers
+	//J= fvc::surfaceIntegrate((jn * mesh.Cf())) - (fvc::surfaceIntegrate(jn) * mesh.C());
+	magMu  = alpha1f * magMu1 + (1 - alpha1f) * magMu2;
+	JB = fvc::curl(fvc::curl(A))/magMu;
+
+	//Update current density distribution and boundary condition
+	J.correctBoundaryConditions();
+	
+	bool JConservativeForm
+	(
+		runTime.controlDict().get<bool>("JConservativeForm")
+	);
+	
+	//Lorentz force computation using the conservative form of JxB
+	if (JConservativeForm)
+	{
+		// interpolate B to faces
+		surfaceVectorField bf = fvc::interpolate(B);
+		
+		//Lorentz force 
+		JxB=(-fvc::surfaceIntegrate(jn*bf^mesh.Cf()) + ( fvc::div( jn,B) ^ mesh.C() )); 
+	}
+	
+	//Alternatively, just use previously computed cell-centered J from the conservative interoplation scheme
+	else
+	{
+		//Lorentz force 
+		JxB = (J ^ B);
+	}
+
