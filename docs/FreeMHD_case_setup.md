@@ -1,18 +1,6 @@
 <!-- [page](page.md) -->
 # FreeMHD Case Setup
 
-## Basic Workflow:
-
-1. Create the mesh (this sets box dimension $L$)
-2. Change parameters:
-    - 2a. Change the physical parameters: ${B_0, \\, U, \\, \mu, \\, \rho, \\, \sigma, \\, \alpha}$
-    - 2b. Change the simulation parameters, including but not limited to:
-        - number of total cores
-        - number of nodes
-        - number of cores per node
-        - simulation run time
-        - writeout intervals
-
 
 ### Physical Parameters: 
 - $B_0$ (`B0`): background **B**-field (T). Format: ```(B0_x, B0_y, B0_z)```
@@ -90,42 +78,51 @@ These parameters are specific to Princeton's/PPPL's high-performance computing (
             - For example: In our case, we have 9 nodes with 96 cores/node. So \# total cores = (96 cores/node) \* (9 nodes) = 864 total cores. So in our `startRun`, we have `srun -n 864 epotMultiRegionInterFoam -parallel 2>&1 | tee ./runLog`
 
 
+## Basic Workflow:
 
-## Returning to the Basic Workflow:
-Unless otherwise stated, all commands should be run from the base directory of your case directory, AKA from `{username}/{home/scratch/etc.}/{case directory}`
+Unless otherwise stated, all commands should be run from the base directory of your case directory (from `{username}/{home/scratch/etc.}/{case directory}`).
 
-3.  Run `unvAndMeshSplitSet` to "upload" the mesh. Make sure to include the mesh you want to use in `unvAndMeshSplitSet` in `ideasUnvToFoam`. This converts the mesh file (.unv) into [[THE OPENFOAM FORMAT (IN CONSTANT/POLYMESH FOLDER)]]//a .foam file that FreeMHD can read//.
-- Example: ```ideasUnvToFoam /scratch/gpfs/username/FOAM_RUN/FreeMHD_Tutorials/UNVs/LM_Box1_Mesh2mm_0.2MCells.unv```
+1. Create the mesh (this sets box dimension $L$)
+2. Change parameters:
+    - 2a. Change the physical parameters: ${B_0, \\, U, \\, \mu, \\, \rho, \\, \sigma, \\, \alpha}$
+    - 2b. Change the simulation parameters, including but not limited to:
+        - number of total cores
+        - number of nodes
+        - number of cores per node
+        - simulation run time
+        - writeout intervals
+
+3. Run `unvAndMeshSplitSet` to "upload" the mesh. Make sure to include the mesh you want to use in `unvAndMeshSplitSet` in `ideasUnvToFoam`. This converts the mesh file (.unv) into the OpenFOAM `.foam` format.
+    - Example: `ideasUnvToFoam /scratch/gpfs/username/FOAM_RUN/FreeMHD_Tutorials/UNVs/LM_Box1_Mesh2mm_0.2MCells.unv`
 
 4. (Optional) Refine the mesh.
-
-   a. It can be helpful to view the mesh in Paraview to visualize which section(s) you are refining. To view the mesh in Paraview from a Princeton/PPPL HPC:
-    - Sign in to [Stellar](mystellar.princeton.edu) or [Della](mydella.princeton.edu) (or whichever HPC you are using) with your Princeton University/PPPL credentials.
-        - Click on "Interactive Apps", then "Desktop on Stellar Vis1 node". Set the number of hours for which you would like your session to run, click "Launch", and wait a moment for the session to start. Click "Launch Desktop on Stellar vis1 node".
-        - Open the terminal in the top bar next to the Firefox logo.
-        - Load the latest version of Paraview (mine is 5.13.1): `module load paraview/5.13.1`
-        - Open Paraview by entering `paraview`
-        - Go to File --> Open and enter your case directory name. To view the mesh, open `{your case directory name}/Box.foam`
-            - If there is no `Box.foam` file in your case directory, create one. This tells Paraview the file type it is trying to display.
-        - Select only the region you want to view.
-            - Example: `/fluid/internalMesh`
-        - Select "vtkBlockColors" and "Surface With Edges".
-        - Create a slice. Click "Apply", then click on the eye symbol next to "Box.foam" so that the eye is open.
-        - In the left panel, make sure "Triangulate the slice" is unchecked.
-        - Adjust the plane origin and normal to determine the spatial dimensions of the mesh region you would like to refine. It may be helpful to write down these dimensions as ```(x_min y_min z_min)(x_max y_max z_max)```.
-
-   b. In your code editor (like Visual Studio Code) go to `{your_case_directory}/system` and open `topoSetDict`.
-    - Enter the ```(x_min y_min z_min)(x_max y_max z_max)``` for the mesh region you want to refine. These are the spatial dimensions you determined in Paraview. Write them with parentheses and without commas. Save your changes.
-    - Then, navigate to your base case directory. In the command line, enter ```sbatch refineMesh```. This refines the mesh. You can refine it multiple times in different areas, if you wish.
-    - Your case will not run with these refinements until you enter ```sbatch meshSplitSetFields```.
-        - DO NOT RUN `unvAndMeshSplitSet` after refining the mesh because running this will set your mesh back to its original version (without refinements or scaling).
-    - Note: The refinements made in this case directory are saved into in this case directory and its subsequent copies.
-  
-    c. (Optional) Mesh scaling: To scale your mesh (and its refinements) up or down, open `transformPointsToScale` from the case's base directory. Change `transformPoints -scale'(A B C)'`, where A, B, and C are the factors by which the x, y, and z dimensions of your mesh will be scaled, respectively. Then, run `sbatch transformPointsToScale`.
-    - Example: To scale your mesh up by 2, run `transformPoints -scale'(2 2 2)'`. To make your mesh smaller by a factor of 10 (decreasing the dimensions from 2m x 2m x 2m to 0.2m x 0.2m x 0.2m), run `transformPoints -scale'(0.1 0.1 0.1)'`.
+    - a. It can be helpful to view the mesh in Paraview to visualize which section(s) you are refining. To view the mesh in Paraview from a Princeton/PPPL HPC:
+        - Sign in to [Stellar](https://mystellar.princeton.edu) or [Della](https://mydella.princeton.edu) (or whichever HPC you are using) with your Princeton University/PPPL credentials.
+            - Click on "Interactive Apps", then "Desktop on Stellar Vis1 node". Set the number of hours for which you would like your session to run, click "Launch", and wait a moment for the session to start. Click "Launch Desktop on Stellar vis1 node".
+            - Open the terminal in the top bar next to the Firefox logo.
+            - Load the latest version of Paraview (mine is 5.13.1): `module load paraview/5.13.1`
+            - Open Paraview by entering `paraview`
+            - Go to File --> Open and enter your case directory name. To view the mesh, open `{your case directory name}/Box.foam`
+                - If there is no `Box.foam` file in your case directory, create one. This tells Paraview the file type it is trying to display.
+            - Select only the region you want to view.
+                - Example: `/fluid/internalMesh`
+            - Select "vtkBlockColors" and "Surface With Edges".
+            - Create a slice. Click "Apply", then click on the eye symbol next to "Box.foam" so that the eye is open.
+            - In the left panel, make sure "Triangulate the slice" is unchecked.
+            - Adjust the plane origin and normal to determine the spatial dimensions of the mesh region you would like to refine. It may be helpful to write down these dimensions as `(x_min y_min z_min)(x_max y_max z_max)`.
+    - b. In your code editor (like Visual Studio Code) go to `{your_case_directory}/system` and open `topoSetDict`.
+        - Enter the `(x_min y_min z_min)(x_max y_max z_max)` for the mesh region you want to refine. These are the spatial dimensions you determined in Paraview. Write them with parentheses and without commas. Save your changes.
+        - Then, navigate to your base case directory. In the command line, enter `sbatch refineMesh`. This refines the mesh. You can refine it multiple times in different areas, if you wish.
+        - Your case will not run with these refinements until you enter `sbatch meshSplitSetFields`.
+            - DO NOT RUN `unvAndMeshSplitSet` after refining the mesh because running this will set your mesh back to its original version (without refinements or scaling).
+        - Note: The refinements made in this case directory are saved in this case directory and its subsequent copies.
+    - c. (Optional) Mesh scaling: To scale your mesh (and its refinements) up or down, open `transformPointsToScale` from the case's base directory. Change `transformPoints -scale'(A B C)'`, where A, B, and C are the factors by which the x, y, and z dimensions of your mesh will be scaled, respectively. Then, run `sbatch transformPointsToScale`.
+        - Example: To scale your mesh up by 2, run `transformPoints -scale'(2 2 2)'`. To make your mesh smaller by a factor of 10 (decreasing the dimensions from 2m x 2m x 2m to 0.2m x 0.2m x 0.2m), run `transformPoints -scale'(0.1 0.1 0.1)'`.
 
 5. Run `sbatch meshSplitSetFields` (if you have not already) to save/apply the mesh refinements and scaling.
 6. After ensuring that you have set all of the physical, simulation, and mesh parameters as you want them, you may run your case by entering `sbatch startRun`.
+
+
 
 <!-- [page](page.md) -->
 ## Common Issues and Solutions
