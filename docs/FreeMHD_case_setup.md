@@ -67,7 +67,7 @@ expressions
 ```
 
 - Note: `dimensions [1 2 3 4 5 6 7]` sets the dimensions of parameters corresponding to the following format:
-![FreeMHD Dimensions](/Users/sophie/Downloads/FreeMHD_dimensions.png)
+![FreeMHD Dimensions](readthedocs-images/FreeMHD_dimensions.png)
 - The number in each space indicates the power to which the unit is raised.
     - Example: `[ 0 1 -1 0 0 0 0 ]` means ${\text{length}^1 * \text{time}^{-1} = \text{metre/second} = \text{velocity}}$
     - Each physical parameter (${\alpha, \, B0, \, U, }$ etc.) has different dimensions defined in this way in `/0/fluid/{parameter}`.
