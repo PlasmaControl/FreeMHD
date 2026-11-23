@@ -19,7 +19,7 @@
 
 1. Enter a passphrase to save the key field. Press Enter to skip the passphrase.
 1. Add the ssh config file (if it does not yet exist): ```touch ~/.ssh/config```
-1. ??? Start the ssh-agent in the background: ```eval "$(ssh-agent)"```
+1. Start the ssh-agent in the background: ```eval "$(ssh-agent)"```
 1. Add the key to the agent: ```ssh-add ~/.ssh/id_ed25519```. Enter passphrase when prompted.
 1. Add the new public SSH key to your [GitHub](https://github.com/settings/keys) (or paste this link into your browser: [https://github.com/settings/keys](https://github.com/settings/keys))
 
@@ -46,11 +46,13 @@ You may visit GitHub for more information about [adding SSH keys](https://docs.g
 
 
 ## Step 1: Clone the GitHub repository
-Note: Make sure to clone the repository in the directory where you want to access it.
-1. Go to [https://github.com/PlasmaControl/FreeMHD](https://github.com/PlasmaControl/FreeMHD)
-1. In the command line, enter ```git clone git@github.com:PlasmaControl/FreeMHD.git```
 
-    In general, you can clone a GitHub repo by entering ```git clone <repo> <directory>``` in the command line.
+Note: Make sure to clone the repository in the directory where you want to access it.
+
+1. Go to [https://github.com/PlasmaControl/FreeMHD](https://github.com/PlasmaControl/FreeMHD)
+2. In the command line, enter `git clone git@github.com:PlasmaControl/FreeMHD.git`
+
+    In general, you can clone a GitHub repo by entering `git clone <repo> <directory>` in the command line.
 
     [Cloning slowdown](#cloning-slowdown): If your repo cloning slows down significantly or stops, please see the [cloning slowdown issue](#cloning-slowdown).
 
@@ -59,9 +61,9 @@ Note: Make sure to clone the repository in the directory where you want to acces
 3. Check to make sure the GitHub repo was cloned by entering `ls`. It should show `FreeMHD`.
     - Here is how mine appeared:
 
-![FreeMHD GitHub Clone Confirmation](readthedocs-images/OpenFOAM_installation_github_clone_screenshot.png)
+        ![FreeMHD GitHub Clone Confirmation](readthedocs-images/OpenFOAM_installation_github_clone_screenshot.png)
 
-4. (Optional) If you cloned the repo in a scratch directory, you may copy the repo from the scratch into your home directory. This may take a few minutes. Enter ```cp -r /path/to/source_directory/subdirectory /path/to/destination_directory/```. Enter `ls` to check whether the copy transferred.
+4. (Optional) If you cloned the repo in a scratch directory, you may copy the repo from the scratch into your home directory. This may take a few minutes. Enter `cp -r /path/to/source_directory/subdirectory /path/to/destination_directory/`. Enter `ls` to check whether the copy transferred.
 
 
 
@@ -69,7 +71,8 @@ Note: Make sure to clone the repository in the directory where you want to acces
 
 
 ## Step 2: Execute run functions
-1. From within your cloned FreeMHD GitHub repo, on the command line, enter the following run functions in this order:
+
+From within your cloned FreeMHD GitHub repo, on the command line, enter the following run functions in this order:
 
 `module load gcc/8`
 
