@@ -59,7 +59,7 @@ Note: Make sure to clone the repository in the directory where you want to acces
 3. Check to make sure the GitHub repo was cloned by entering `ls`. It should show `FreeMHD`.
     - Here is how mine appeared:
 
-![FreeMHD GitHub Clone Confirmation](/Users/sophie/Downloads/OpenFOAM_installation_github_clone_screenshot.png)
+![FreeMHD GitHub Clone Confirmation](readthedocs-images/OpenFOAM_installation_github_clone_screenshot.png)
 
 4. (Optional) If you cloned the repo in a scratch directory, you may copy the repo from the scratch into your home directory. This may take a few minutes. Enter ```cp -r /path/to/source_directory/subdirectory /path/to/destination_directory/```. Enter `ls` to check whether the copy transferred.
 
@@ -134,11 +134,11 @@ Note: Make sure to clone the repository in the directory where you want to acces
 
 - <a id="no-etc/bashrc"></a>Issue 4 (No `etc/bashrc`): When attempting to execute the run functions in Step 2.1, you receive a message indicating that there is no file or directory named `etc`.
     - Here is how this error appeared for me:
-![No etc/bashrc](/Users/sophie/Downloads/OpenFOAM_installation_nobashrc.png)
+![No etc/bashrc](readthedocs-images/OpenFOAM_installation_nobashrc.png)
     - Possible reason: The GitHub repo tree got mixed up during the cloning, copying, or moving of the repo.
     - Possible solution: Rename or delete the broken FreeMHD repo. Retry cloning from GitHub or copying from the directory where you initially cloned the repo.
     - Possible test: From within your FreeMHD directory, you can check which files are deleted or untracked (meaning uncommitted or unstaged by GitHub) by entering ```git status``` on the command line. Doing so outputs a long list of filed that say `deleted: {relative file path}`:
-![Check OpenFOAM-v2206 files using `git status`](/Users/sophie/Downloads/OpenFOAM_installation_gitstatus.png)
+![Check OpenFOAM-v2206 files using `git status`](readthedocs-images/OpenFOAM_installation_gitstatus.png)
     - In my case, under `Untracked files:`, `OpenFOAM-v2206` was listed. This indicated that `OpenFOAM-v2206` had its tree mixed up during copying.
         - My situation: I cloned the GitHub repo into my scratch directory. Then, I tried to copy it into my home directory because cloning it directly into my home resulted in the cloning slowdown error. The GitHub repo tree seemed mixed up in the home FreeMHD directory, but not in the scratch directory. Step 2 of the installation requires the execution of the following run function: `source /home/{user}/FreeMHD/OpenFOAM-v2206/etc/bashrc`. However, my repo did not contain any `etc` or `bashrc`. I checked the FreeMHD directory in my original scratch directory, and it had `OpenFOAM-v2206/etc/bashrc`. I added a new public-private key pair in my home directory and cloned FreeMHD GitHub again under the name `FreeMHD_new` (and saved the old one under `FreeMHD_broken`). `FreeMHD_new` contained `OpenFOAM-v2206/etc/bashrc`. From here, I continued Step 2.
 
