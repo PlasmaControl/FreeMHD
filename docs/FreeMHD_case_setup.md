@@ -6,7 +6,7 @@
 1. Create the mesh (this sets box dimension $L$)
 1. Change parameters:
    
-   2a. Change the physical parameters: ${B_0, \, U, \, \mu, \, \rho, \, \sigma, \, \alpha}$
+   2a. Change the physical parameters: ${B_0, \\, U, \\, \mu, \\, \rho, \\, \sigma, \\, \alpha}$
    
    2b. Change the simulation parameters:
    - number of total cores
