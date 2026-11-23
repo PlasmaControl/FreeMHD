@@ -24,7 +24,7 @@
 - $U$ (`U`): fluid velocity (m/s). In the lid-driven case, $U$ is nonzero only at `boundaryField` --> `topOpening` [type: `fixedValue`, value: `uniform (Ux Uy Uz)`]
     - Where to change: ```{casehome}/system/fluid/changeDictionaryDict```
     - Our example: ```U = (10 0 0)```
-- $\mu$ (`mu`): dynamic viscosity (${\text{kg} \cdot \text{m}^{-1} \text{s}^{-1}}$). ${\mu = \rho \, \nu}$, where $\rho$ = mass density, and $\nu$ = kinematic viscosity.
+- $\mu$ (`mu`): dynamic viscosity (${\text{kg} \cdot \text{m}^{-1} \text{s}^{-1}}$). ${\mu = \rho \\, \nu}$, where $\rho$ = mass density, and $\nu$ = kinematic viscosity.
     - Measures internal resistance to flow and deformation.
     - Where to change: ```/constant/fluid/thermoPhysicalProperties.liquidMetal```
     - Our example: $\mu$ = 1.
@@ -70,7 +70,7 @@ expressions
 ![FreeMHD Dimensions](readthedocs-images/FreeMHD_dimensions.png)
 - The number in each space indicates the power to which the unit is raised.
     - Example: `[ 0 1 -1 0 0 0 0 ]` means ${\text{length}^1 * \text{time}^{-1} = \text{metre/second} = \text{velocity}}$
-    - Each physical parameter (${\alpha, \, B0, \, U, }$ etc.) has different dimensions defined in this way in `/0/fluid/{parameter}`.
+    - Each physical parameter (${\alpha, \\, B0, \\, U, }$ etc.) has different dimensions defined in this way in `/0/fluid/{parameter}`.
 
 
 ### Simulation Parameters:
