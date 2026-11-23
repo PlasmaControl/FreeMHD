@@ -4,8 +4,8 @@
 
 ### Physical Parameters: 
 - $B_0$ (`B0`): background **B**-field (T). Format: ```(B0_x, B0_y, B0_z)```
-  - Where to change: ```{casehome}/system/fluid/changeDictionaryDict```
-  - Our example: ```B0 = (0 0.01 0)``` for both `internalField` and `boundary`.
+    - Where to change: ```{casehome}/system/fluid/changeDictionaryDict```
+    - Our example: ```B0 = (0 0.01 0)``` for both `internalField` and `boundary`.
 - $U$ (`U`): fluid velocity (m/s). In the lid-driven case, $U$ is nonzero only at `boundaryField` --> `topOpening` [type: `fixedValue`, value: `uniform (Ux Uy Uz)`]
     - Where to change: ```{casehome}/system/fluid/changeDictionaryDict```
     - Our example: ```U = (10 0 0)```
@@ -97,7 +97,7 @@ Unless otherwise stated, all commands should be run from the base directory of y
 
 4. (Optional) Refine the mesh.
     - a. It can be helpful to view the mesh in Paraview to visualize which section(s) you are refining. To view the mesh in Paraview from a Princeton/PPPL HPC:
-        - Sign in to [Stellar](https://mystellar.princeton.edu) or [Della](https://mydella.princeton.edu) (or whichever HPC you are using) with your Princeton University/PPPL credentials.
+        - Sign in to [Stellar](https://mystellar.princeton.edu) or [Della](https://mydella.princeton.edu) (or whichever HPC you are using) with your Princeton University/PPPL credentials. If you are away from Princeton/PPPL, connect to the [Princeton VPN](https://oit.princeton.edu/services/wi-fi-remote-access).
             - Click on "Interactive Apps", then "Desktop on Stellar Vis1 node". Set the number of hours for which you would like your session to run, click "Launch", and wait a moment for the session to start. Click "Launch Desktop on Stellar vis1 node".
             - Open the terminal in the top bar next to the Firefox logo.
             - Load the latest version of Paraview (mine is 5.13.1): `module load paraview/5.13.1`
