@@ -99,8 +99,8 @@ Note: Make sure to clone the repository in the directory where you want to acces
 
 
 
-
-
+<!--
+Removed for rtdocs-share branch (AKA needs to be revised):
 ## Step 3: Perform foam checks
 
 ## Step 4: Install OpenFOAM
@@ -112,7 +112,7 @@ Note: Make sure to clone the repository in the directory where you want to acces
 ## [COMBINE WITH STEP 8 & FREEMHD TUTORIAL]Step 7: Test a tutorial case
 
 ## [COMBINE WITH STEP 7 & FREEMHD TUTORIAL]Step 8: Start using FreeMHD!
-
+-->
 ## Common Issues and Solutions
 
 
