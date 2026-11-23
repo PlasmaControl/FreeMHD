@@ -4,17 +4,14 @@
 ## Basic Workflow:
 
 1. Create the mesh (this sets box dimension $L$)
-1. Change parameters:
-   
-   2a. Change the physical parameters: ${B_0, \\, U, \\, \mu, \\, \rho, \\, \sigma, \\, \alpha}$
-   
-   2b. Change the simulation parameters:
-   - number of total cores
-   - number of nodes
-   - number of cores per node
-   - simulation run time
-   - writeout intervals
-   - etc.
+2. Change parameters:
+    - 2a. Change the physical parameters: ${B_0, \\, U, \\, \mu, \\, \rho, \\, \sigma, \\, \alpha}$
+    - 2b. Change the simulation parameters, including but not limited to:
+        - number of total cores
+        - number of nodes
+        - number of cores per node
+        - simulation run time
+        - writeout intervals
 
 
 ### Physical Parameters: 
@@ -74,20 +71,23 @@ expressions
 
 
 ### Simulation Parameters:
-<!-- I think -->These are specific to Princeton's/PPPL's high-performance computing (HPC) cluster:
-- \# cores per node: Number of cores in each computing node. Can be up to 96. 
+
+<!-- I think -->
+
+These parameters are specific to Princeton's/PPPL's high-performance computing (HPC) cluster:
+
+- \# cores per node: Number of cores in each computing node. Can be up to 96.
     - To change, go to `startRun` and change at the top at `ntasks-per-node`.
 - \# nodes: Number of parallel nodes that the HPC uses to process your run.
     - To change, go to `startRun` and change at the top at `nodes`.
 - \# total cores: Total number of cores to use for your run.
-    - \# total cores = (\# cores/node) * (\# nodes)
-    - To change, must change in all of the following locations:
+    - \# total cores = (\# cores/node) \* (\# nodes)
+    - To change, must do so in all of the following files:
         - `system/decomposeParDict`
         - `system/{each region}/decomposeParDict`
             - For example: in our case, we would have to change \# total cores in `system/fluid/decomposeParDict`, `system/solid/decomposeParDict`, and `system/solid2/decomposeParDict`
-        - `startRun` (at the bottom, at `srun -n {\# total cores} ... runLog`)
-            - For example: In our case, we have 9 nodes with 96 cores/node. So \# total cores = (96 cores/node) * (9 nodes) = 864 total cores. So in our `startRun`, we have `srun -n 864 epotMultiRegionInterFoam -parallel 2>&1 | tee ./runLog`
-
+        - `startRun` (at the bottom, at `srun -n {# total cores} ... runLog`)
+            - For example: In our case, we have 9 nodes with 96 cores/node. So \# total cores = (96 cores/node) \* (9 nodes) = 864 total cores. So in our `startRun`, we have `srun -n 864 epotMultiRegionInterFoam -parallel 2>&1 | tee ./runLog`
 
 
 ## Returning to the Basic Workflow:
@@ -135,7 +135,7 @@ Unless otherwise stated, all commands should be run from the base directory of y
         - For instance, if using Slurm to schedule jobs, the OOM error may indicate that your job requires more memory than Slurm allocated to it. <!-- May be specific to Princeton/PPPL-->
     - Possible solution: Open the file you would like to run. Toward the top, allocate more memory by increasing `#SBATCH --mem-per-cpu=4G` (example: `#SBATCH --mem-per-cpu=8G`)
 
-- hello 2
+
 <!-- - <a id="denied-access"></a>Issue 1 (Denied Access): When trying to clone the GitHub repo in the command line (Step 1.2), you encounter an error stating that you do not have access to the repo.
     - Possible reason: The public-private key pair was not added properly.
     - Possible solution: Follow Step 0.5-0.6. 
